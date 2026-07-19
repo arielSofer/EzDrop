@@ -1,0 +1,1223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1311">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>The Felt — Learn to Beat Poker</title>
+</head>
+<body>
+<title>The Felt — Learn to Beat Poker</title>
+<style>
+  /* ============================== TOKENS ============================== */
+  :root{
+    --bg:#0d1311; --bg-2:#111b16; --panel:#15201b; --panel-2:#1a271f;
+    --line:rgba(233,230,221,.10); --line-2:rgba(233,230,221,.18);
+    --ink:#ecebe2; --ink-soft:#c3c9c0; --muted:#8b988f;
+    --felt-a:#1a7d4e; --felt-b:#0f4d31; --felt-line:rgba(255,255,255,.09);
+    --brass:#dcae57; --brass-deep:#b98a2f; --brass-ink:#20180a;
+    --good:#4dc07e; --warn:#e6b24a; --bad:#e2604e;
+    --card-face:#f6f3ea; --card-red:#cf4a3c; --card-black:#20211f;
+    --shadow:0 18px 40px -18px rgba(0,0,0,.7);
+    --r-lg:18px; --r-md:12px; --r-sm:8px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#ece5d6; --bg-2:#f3eee2; --panel:#f8f4ea; --panel-2:#fbf8f0;
+      --line:rgba(40,34,22,.12); --line-2:rgba(40,34,22,.20);
+      --ink:#231f16; --ink-soft:#3d382c; --muted:#726a58;
+      --felt-a:#1c8555; --felt-b:#0f5334; --felt-line:rgba(255,255,255,.14);
+      --brass:#a97c26; --brass-deep:#8a631a; --brass-ink:#fff8ea;
+      --good:#1f9d5c; --warn:#b5811f; --bad:#c2452f;
+      --card-face:#fbf9f2; --card-red:#c0392b; --card-black:#26251f;
+      --shadow:0 18px 36px -20px rgba(40,30,10,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0d1311; --bg-2:#111b16; --panel:#15201b; --panel-2:#1a271f;
+    --line:rgba(233,230,221,.10); --line-2:rgba(233,230,221,.18);
+    --ink:#ecebe2; --ink-soft:#c3c9c0; --muted:#8b988f;
+    --felt-line:rgba(255,255,255,.09); --brass:#dcae57; --brass-deep:#b98a2f;
+    --good:#4dc07e; --warn:#e6b24a; --bad:#e2604e;
+    --card-face:#f6f3ea; --card-red:#cf4a3c; --card-black:#20211f;
+    --shadow:0 18px 40px -18px rgba(0,0,0,.7);
+  }
+  :root[data-theme="light"]{
+    --bg:#ece5d6; --bg-2:#f3eee2; --panel:#f8f4ea; --panel-2:#fbf8f0;
+    --line:rgba(40,34,22,.12); --line-2:rgba(40,34,22,.20);
+    --ink:#231f16; --ink-soft:#3d382c; --muted:#726a58;
+    --felt-line:rgba(255,255,255,.14); --brass:#a97c26; --brass-deep:#8a631a;
+    --good:#1f9d5c; --warn:#b5811f; --bad:#c2452f;
+    --card-face:#fbf9f2; --card-red:#c0392b; --card-black:#26251f;
+    --shadow:0 18px 36px -20px rgba(40,30,10,.35);
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0; max-width:100%; overflow-x:hidden}
+  body{
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(26,125,78,.10), transparent 60%),
+      var(--bg);
+    color:var(--ink); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; line-height:1.55;
+    -webkit-text-size-adjust:100%;
+  }
+  .num{font-family:var(--mono); font-variant-numeric:tabular-nums}
+  h1,h2,h3{font-family:var(--serif); font-weight:600; text-wrap:balance; line-height:1.12; margin:0}
+  a{color:inherit}
+  button{font-family:inherit}
+  :focus-visible{outline:2px solid var(--brass); outline-offset:2px; border-radius:4px}
+
+  /* ============================== SHELL ============================== */
+  .app{max-width:1180px; margin:0 auto; padding:18px clamp(14px,3vw,28px) 80px}
+  .topbar{
+    display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+    padding:14px 0 16px; border-bottom:1px solid var(--line); margin-bottom:22px;
+  }
+  .brand{display:flex; align-items:center; gap:12px; margin-right:auto}
+  .chip-logo{
+    width:40px; height:40px; border-radius:50%;
+    background:
+      repeating-conic-gradient(var(--brass) 0 18deg, var(--brass-deep) 18deg 36deg);
+    position:relative; box-shadow:inset 0 0 0 4px var(--bg), var(--shadow); flex:none;
+  }
+  .chip-logo::after{
+    content:"♠"; position:absolute; inset:0; display:grid; place-items:center;
+    color:var(--brass-ink); font-size:16px;
+  }
+  .brand h1{font-size:19px; letter-spacing:.2px}
+  .brand span{display:block; font-family:var(--sans); font-size:11px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--muted); font-weight:600}
+
+  .xp-wrap{display:flex; align-items:center; gap:12px; min-width:230px}
+  .level-badge{
+    display:grid; place-items:center; width:46px; height:46px; flex:none; border-radius:12px;
+    background:linear-gradient(160deg,var(--panel-2),var(--panel)); border:1px solid var(--line-2);
+    text-align:center;
+  }
+  .level-badge b{font-family:var(--serif); font-size:20px; line-height:1; color:var(--brass)}
+  .level-badge small{font-size:8px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+  .xp-bar-block{flex:1; min-width:130px}
+  .xp-top{display:flex; justify-content:space-between; font-size:11px; color:var(--muted);
+    text-transform:uppercase; letter-spacing:.1em; margin-bottom:5px}
+  .xp-top .num{color:var(--ink-soft)}
+  .xp-track{height:8px; border-radius:99px; background:rgba(0,0,0,.28); overflow:hidden;
+    border:1px solid var(--line)}
+  .xp-fill{height:100%; border-radius:99px;
+    background:linear-gradient(90deg,var(--brass-deep),var(--brass));
+    transition:width .6s cubic-bezier(.2,.8,.2,1)}
+
+  .top-actions{display:flex; gap:8px; align-items:center}
+  .streak{display:flex; align-items:center; gap:6px; font-size:13px; color:var(--ink-soft);
+    padding:8px 12px; border:1px solid var(--line); border-radius:99px; background:var(--panel)}
+  .streak b{color:var(--brass); font-family:var(--mono)}
+  .icon-btn{
+    width:40px; height:40px; border-radius:10px; border:1px solid var(--line-2);
+    background:var(--panel); color:var(--ink); cursor:pointer; font-size:17px; display:grid;
+    place-items:center; transition:border-color .2s, transform .1s}
+  .icon-btn:hover{border-color:var(--brass)} .icon-btn:active{transform:scale(.94)}
+
+  .layout{display:grid; grid-template-columns:290px 1fr; gap:26px; align-items:start}
+  @media (max-width:840px){ .layout{grid-template-columns:1fr} }
+
+  /* ============================== LADDER ============================== */
+  .ladder{display:flex; flex-direction:column; gap:9px; position:sticky; top:14px}
+  @media (max-width:840px){
+    .ladder{position:static; flex-direction:row; overflow-x:auto; padding-bottom:8px;
+      scroll-snap-type:x mandatory; margin:0 -14px; padding-inline:14px}
+  }
+  .rung{
+    display:flex; gap:13px; align-items:center; text-align:left; width:100%;
+    padding:12px 13px; border-radius:var(--r-md); border:1px solid var(--line);
+    background:var(--panel); color:var(--ink); cursor:pointer; position:relative;
+    transition:border-color .2s, background .2s, transform .1s}
+  @media (max-width:840px){ .rung{min-width:210px; scroll-snap-align:start} }
+  .rung:hover:not(.locked){border-color:var(--line-2)}
+  .rung.active{border-color:var(--brass); background:linear-gradient(180deg,var(--panel-2),var(--panel))}
+  .rung.locked{opacity:.5; cursor:not-allowed}
+  .rung-ico{
+    width:38px; height:38px; flex:none; border-radius:10px; display:grid; place-items:center;
+    font-size:18px; background:var(--bg-2); border:1px solid var(--line);
+    font-family:var(--serif); color:var(--ink-soft)}
+  .rung.active .rung-ico{background:var(--brass); color:var(--brass-ink); border-color:transparent}
+  .rung-body{min-width:0; flex:1}
+  .rung-body b{display:block; font-size:14px; font-weight:600}
+  .rung-body small{display:block; font-size:11.5px; color:var(--muted); white-space:nowrap;
+    overflow:hidden; text-overflow:ellipsis}
+  .rung-meta{font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); flex:none}
+  .rung-meta.done{color:var(--good)}
+  .rung-meta.lock{color:var(--muted)}
+
+  /* ============================== STAGE ============================== */
+  .stage{min-width:0}
+  .card-panel{background:var(--panel); border:1px solid var(--line); border-radius:var(--r-lg);
+    box-shadow:var(--shadow); overflow:hidden}
+  .lesson-head{padding:26px clamp(18px,3vw,34px) 22px; border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,var(--panel-2),transparent)}
+  .eyebrow{font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--brass);
+    font-weight:700; margin-bottom:8px}
+  .lesson-head h2{font-size:clamp(24px,4vw,34px)}
+  .lesson-head p{color:var(--ink-soft); margin:10px 0 0; max-width:60ch; font-size:15.5px}
+  .lesson-body{padding:clamp(18px,3vw,32px)}
+
+  .prose p{color:var(--ink-soft); margin:0 0 14px} .prose{max-width:64ch}
+  .prose strong{color:var(--ink)}
+  .lead{font-size:16.5px}
+  h3.sec{font-size:18px; margin:26px 0 12px; display:flex; align-items:center; gap:9px}
+  h3.sec::before{content:""; width:8px; height:8px; border-radius:2px; background:var(--brass);
+    transform:rotate(45deg); flex:none}
+
+  .keycard{border:1px solid var(--line-2); border-left:3px solid var(--brass);
+    background:var(--bg-2); border-radius:var(--r-sm); padding:14px 16px; margin:16px 0}
+  .keycard b{color:var(--brass)}
+
+  /* cards */
+  .hand{display:flex; gap:7px; flex-wrap:wrap}
+  .pcard{
+    width:52px; height:74px; border-radius:8px; background:var(--card-face);
+    border:1px solid rgba(0,0,0,.25); position:relative; flex:none;
+    box-shadow:0 3px 8px -3px rgba(0,0,0,.5); display:flex; flex-direction:column;
+    justify-content:space-between; padding:5px 6px; color:var(--card-black)}
+  .pcard.sm{width:40px; height:57px; padding:4px 5px; border-radius:6px}
+  .pcard.lg{width:66px; height:94px; padding:7px 8px}
+  .pcard .r{font-family:var(--serif); font-weight:700; font-size:19px; line-height:1}
+  .pcard.sm .r{font-size:15px} .pcard.lg .r{font-size:24px}
+  .pcard .s{align-self:flex-end; font-size:20px; line-height:1}
+  .pcard.sm .s{font-size:15px} .pcard.lg .s{font-size:26px}
+  .pcard.red{color:var(--card-red)}
+  .pcard.back{background:
+     repeating-linear-gradient(45deg,#7a1f1f 0 7px,#5e1414 7px 14px); border-color:#4a0f0f}
+  .pcard.back .r,.pcard.back .s{visibility:hidden}
+  .pcard.ph{background:transparent; border:1px dashed var(--line-2); box-shadow:none}
+  .pcard.ph .r,.pcard.ph .s{visibility:hidden}
+  @keyframes deal{from{opacity:0; transform:translateY(-10px) rotate(-4deg)}to{opacity:1;transform:none}}
+  .deal{animation:deal .35s ease both}
+
+  /* buttons */
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:12px 20px; border-radius:10px; border:1px solid var(--line-2); background:var(--panel-2);
+    color:var(--ink); font-size:14.5px; font-weight:600; cursor:pointer;
+    transition:transform .1s, border-color .2s, background .2s}
+  .btn:hover{border-color:var(--brass)} .btn:active{transform:translateY(1px)}
+  .btn.primary{background:linear-gradient(180deg,var(--brass),var(--brass-deep)); color:var(--brass-ink);
+    border-color:transparent}
+  .btn.primary:hover{filter:brightness(1.06)}
+  .btn.ghost{background:transparent}
+  .btn:disabled{opacity:.5; cursor:not-allowed}
+  .btn-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+
+  .choice-grid{display:grid; gap:10px; margin:18px 0}
+  .choice-grid.c3{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .choice{padding:14px 16px; border:1px solid var(--line-2); border-radius:var(--r-md);
+    background:var(--panel-2); cursor:pointer; text-align:left; font-size:14.5px; color:var(--ink);
+    display:flex; gap:12px; align-items:center; transition:border-color .15s, background .15s, transform .1s}
+  .choice:hover{border-color:var(--brass)} .choice:active{transform:translateY(1px)}
+  .choice .tag{font-family:var(--serif); font-weight:700; width:30px; height:30px; flex:none;
+    display:grid; place-items:center; border-radius:8px; background:var(--bg-2); border:1px solid var(--line)}
+  .choice b{display:block} .choice small{color:var(--muted); font-size:12px}
+  .choice.correct{border-color:var(--good); background:color-mix(in srgb,var(--good) 14%,var(--panel-2))}
+  .choice.wrong{border-color:var(--bad); background:color-mix(in srgb,var(--bad) 14%,var(--panel-2))}
+  .choice.dim{opacity:.5}
+
+  .feedback{margin-top:16px; padding:15px 17px; border-radius:var(--r-md); border:1px solid var(--line-2);
+    background:var(--bg-2); font-size:14.5px; display:none}
+  .feedback.show{display:block; animation:deal .3s ease both}
+  .feedback.ok{border-color:var(--good)} .feedback.no{border-color:var(--bad)}
+  .feedback .verdict{font-family:var(--serif); font-size:17px; font-weight:700; margin-bottom:5px;
+    display:flex; align-items:center; gap:8px}
+  .feedback.ok .verdict{color:var(--good)} .feedback.no .verdict{color:var(--bad)}
+  .feedback .expl{color:var(--ink-soft)}
+  .feedback .expl b{color:var(--ink)}
+
+  .drill-hud{display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+    padding:12px 16px; background:var(--bg-2); border:1px solid var(--line); border-radius:var(--r-md);
+    margin-bottom:20px; font-size:13px}
+  .drill-hud .pip{display:flex; gap:7px; align-items:center; color:var(--muted)}
+  .drill-hud .pip b{color:var(--ink); font-family:var(--mono)}
+  .drill-hud .spacer{flex:1}
+
+  /* table / felt */
+  .felt{position:relative; border-radius:200px/120px; padding:30px 26px;
+    background:radial-gradient(120% 130% at 50% 20%, var(--felt-a), var(--felt-b));
+    border:10px solid #2a1a10; box-shadow:inset 0 0 60px rgba(0,0,0,.45), var(--shadow);
+    outline:2px solid var(--brass-deep); outline-offset:-16px}
+  .felt-seat{text-align:center}
+  .felt-label{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.7);
+    margin-bottom:8px; font-weight:600}
+  .board-row{display:flex; gap:8px; justify-content:center; align-items:center; min-height:96px}
+  .pot-tag{display:inline-flex; gap:8px; align-items:center; background:rgba(0,0,0,.35);
+    color:#fff; border:1px solid rgba(255,255,255,.2); border-radius:99px; padding:6px 14px;
+    font-size:13px; margin:0 auto}
+  .pot-tag .num{color:var(--brass)}
+  .seats{display:flex; justify-content:space-between; gap:16px; margin-top:20px}
+  @media (max-width:560px){ .seats{flex-direction:column; align-items:center} }
+
+  .meter{height:12px; border-radius:99px; background:rgba(0,0,0,.3); overflow:hidden;
+    border:1px solid var(--line); position:relative}
+  .meter > i{position:absolute; inset:0 auto 0 0; border-radius:99px; display:block}
+  .meter .you{background:linear-gradient(90deg,var(--good),#7fe0a6)}
+
+  .stat-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:12px; margin:18px 0}
+  .stat{background:var(--bg-2); border:1px solid var(--line); border-radius:var(--r-md); padding:13px 15px}
+  .stat .k{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  .stat .v{font-family:var(--serif); font-size:26px; margin-top:3px}
+  .stat .v.good{color:var(--good)} .stat .v.bad{color:var(--bad)} .stat .v.warn{color:var(--warn)}
+
+  .field{display:flex; flex-direction:column; gap:6px; margin-bottom:14px}
+  .field label{font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:600}
+  .field input[type=range]{accent-color:var(--brass)}
+  .field .rowin{display:flex; align-items:center; gap:12px}
+  .field .val{font-family:var(--mono); font-size:16px; min-width:70px; text-align:right; color:var(--ink)}
+  .in-num{background:var(--bg-2); border:1px solid var(--line-2); color:var(--ink); border-radius:8px;
+    padding:9px 11px; font-family:var(--mono); font-size:15px; width:110px}
+
+  .table-mini{width:100%; border-collapse:collapse; font-size:13.5px; margin:12px 0}
+  .table-mini th,.table-mini td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--line)}
+  .table-mini th{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:600}
+  .table-mini td .num{color:var(--ink)}
+  .pill{display:inline-block; padding:2px 9px; border-radius:99px; font-size:11.5px; font-weight:700}
+  .pill.g{background:color-mix(in srgb,var(--good) 20%,transparent); color:var(--good)}
+  .pill.w{background:color-mix(in srgb,var(--warn) 22%,transparent); color:var(--warn)}
+  .pill.b{background:color-mix(in srgb,var(--bad) 20%,transparent); color:var(--bad)}
+
+  .toast{position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(30px);
+    background:var(--panel-2); border:1px solid var(--brass); color:var(--ink);
+    padding:12px 20px; border-radius:99px; box-shadow:var(--shadow); font-size:14px; font-weight:600;
+    opacity:0; pointer-events:none; transition:transform .35s cubic-bezier(.2,.9,.2,1), opacity .35s; z-index:50}
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+  .toast b{color:var(--brass)}
+
+  .range-grid{display:grid; grid-template-columns:repeat(13,1fr); gap:2px; max-width:430px; margin:14px 0}
+  .rg{aspect-ratio:1; border-radius:3px; display:grid; place-items:center; font-size:9px;
+    font-weight:700; font-family:var(--mono); color:#0c1a12}
+  .rg.pair{outline:1px solid rgba(255,255,255,.4)}
+  .rg.play{background:var(--good)} .rg.some{background:var(--warn)} .rg.fold{background:#33413a; color:var(--muted)}
+  .legend{display:flex; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--muted); margin-top:6px}
+  .legend i{display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:6px; vertical-align:-1px}
+
+  .cta-final{text-align:center; padding:36px 20px}
+  .cta-final .big{font-family:var(--serif); font-size:40px; color:var(--brass)}
+
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important} }
+
+  /* ============================== MOBILE ============================== */
+  @media (max-width:560px){
+    .app{padding:12px 12px 64px}
+    .topbar{gap:12px; padding:10px 0 12px; margin-bottom:16px}
+    .brand h1{font-size:17px}
+    .xp-wrap{min-width:0; flex:1 1 100%; order:3}
+    .top-actions{order:2}
+    .felt{padding:16px 10px; border-width:6px; border-radius:130px/90px; outline-offset:-11px}
+    .board-row{gap:6px; min-height:auto}
+    .seats{gap:10px}
+    .pcard{width:44px; height:63px; padding:4px 5px}
+    .pcard .r{font-size:16px} .pcard .s{font-size:16px}
+    .pcard.sm{width:34px; height:49px} .pcard.sm .r{font-size:13px} .pcard.sm .s{font-size:13px}
+    .pcard.lg{width:52px; height:74px} .pcard.lg .r{font-size:20px} .pcard.lg .s{font-size:21px}
+    .lesson-head{padding:20px 16px 16px}
+    .lesson-body{padding:16px}
+    .range-grid{gap:1.5px; max-width:100%}
+    .rg{font-size:8px}
+    .btn{padding:12px 15px; flex:1 1 auto}
+    .btn-row{gap:8px}
+    .choice{padding:12px 13px}
+    .stat .v{font-size:22px}
+    .table-mini th,.table-mini td{padding:8px 8px; font-size:12.5px}
+    .drill-hud{gap:10px; padding:10px 12px}
+  }
+  @media (max-width:360px){
+    .pcard{width:40px; height:57px} .pcard .r{font-size:14px} .pcard .s{font-size:14px}
+    .pcard.lg{width:46px; height:66px}
+  }
+</style>
+
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="chip-logo"></div>
+      <div><h1>The Felt</h1><span>Learn to beat poker</span></div>
+    </div>
+    <div class="xp-wrap">
+      <div class="level-badge"><div><b id="lvlNum">1</b><small>Level</small></div></div>
+      <div class="xp-bar-block">
+        <div class="xp-top"><span>Progress</span><span class="num" id="xpLabel">0 / 30 XP</span></div>
+        <div class="xp-track"><div class="xp-fill" id="xpFill" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <div class="streak" title="Correct answers in a row">🔥 <b id="streakNum">0</b></div>
+      <button class="icon-btn" id="themeBtn" title="Toggle light / dark" aria-label="Toggle theme">◐</button>
+      <button class="icon-btn" id="resetBtn" title="Reset all progress" aria-label="Reset progress">⟲</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="ladder" id="ladder" aria-label="Course modules"></nav>
+    <main class="stage"><div class="card-panel" id="stage"></div></main>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =====================================================================
+   POKER ENGINE  — 7-card evaluator + Monte-Carlo equity
+   ===================================================================== */
+const RANKS=[2,3,4,5,6,7,8,9,10,11,12,13,14];
+const RSTR={11:'J',12:'Q',13:'K',14:'A',10:'T'};
+const SUITS=['♠','♥','♦','♣']; // 0 spade,1 heart,2 diamond,3 club
+const isRed=s=>s===1||s===2;
+const rstr=r=>RSTR[r]||String(r);
+const cstr=c=>rstr(c.r)+SUITS[c.s];
+function freshDeck(){const d=[];for(let s=0;s<4;s++)for(const r of RANKS)d.push({r,s});return d;}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+const COMB5=(()=>{const res=[];for(let a=0;a<3;a++)for(let b=a+1;b<4;b++)for(let c=b+1;c<5;c++)
+  for(let d=c+1;d<6;d++)for(let e=d+1;e<7;e++)res.push([a,b,c,d,e]);return res;})();
+
+function score5(cards){
+  const ranks=cards.map(c=>c.r).sort((a,b)=>b-a);
+  const suits=cards.map(c=>c.s);
+  const flush=suits.every(s=>s===suits[0]);
+  const cnt={}; ranks.forEach(r=>cnt[r]=(cnt[r]||0)+1);
+  const uniq=[...new Set(ranks)].sort((a,b)=>b-a);
+  let straight=false, high=0;
+  if(uniq.length===5){
+    if(uniq[0]-uniq[4]===4){straight=true;high=uniq[0];}
+    else if(uniq[0]===14&&uniq[1]===5){straight=true;high=5;}
+  }
+  const groups=Object.keys(cnt).map(Number).sort((a,b)=>cnt[b]-cnt[a]||b-a);
+  const counts=groups.map(r=>cnt[r]);
+  let cat,tie;
+  if(straight&&flush){cat=8;tie=[high];}
+  else if(counts[0]===4){cat=7;tie=[groups[0],groups[1]];}
+  else if(counts[0]===3&&counts[1]===2){cat=6;tie=[groups[0],groups[1]];}
+  else if(flush){cat=5;tie=ranks;}
+  else if(straight){cat=4;tie=[high];}
+  else if(counts[0]===3){cat=3;tie=[groups[0],...groups.slice(1)];}
+  else if(counts[0]===2&&counts[1]===2){cat=2;tie=[groups[0],groups[1],groups[2]];}
+  else if(counts[0]===2){cat=1;tie=[groups[0],...groups.slice(1)];}
+  else{cat=0;tie=ranks;}
+  let v=cat;
+  for(let i=0;i<5;i++) v=v*15+(tie[i]||0);
+  return v;
+}
+function evaluate7(seven){
+  let best=-1;
+  for(const idx of COMB5){
+    const v=score5([seven[idx[0]],seven[idx[1]],seven[idx[2]],seven[idx[3]],seven[idx[4]]]);
+    if(v>best)best=v;
+  }
+  return best;
+}
+const CATNAME=['High Card','One Pair','Two Pair','Three of a Kind','Straight','Flush','Full House','Four of a Kind','Straight Flush'];
+function categoryOf(seven){
+  let best=-1,cat=0;
+  for(const idx of COMB5){
+    const five=[seven[idx[0]],seven[idx[1]],seven[idx[2]],seven[idx[3]],seven[idx[4]]];
+    const v=score5(five);
+    if(v>best){best=v; cat=Math.floor(v/(15**5));}
+  }
+  return CATNAME[cat];
+}
+// Heads-up equity via Monte Carlo. hero,villain: [card,card] (villain may be null=random). board: array
+function equity(hero, board, iters=1600, villain=null){
+  const known=[...hero,...board]; if(villain) known.push(...villain);
+  const keyset=new Set(known.map(c=>c.r*4+c.s));
+  const rest=freshDeck().filter(c=>!keyset.has(c.r*4+c.s));
+  let win=0,tie=0;
+  for(let n=0;n<iters;n++){
+    const pool=rest.slice(); shuffle(pool); let p=0;
+    const vill = villain ? villain : [pool[p++],pool[p++]];
+    const need=5-board.length; const b=board.slice();
+    for(let k=0;k<need;k++) b.push(pool[p++]);
+    const hv=evaluate7([...hero,...b]); const vv=evaluate7([...vill,...b]);
+    if(hv>vv)win++; else if(hv===vv)tie++;
+  }
+  return (win+tie/2)/iters;
+}
+
+/* =====================================================================
+   PROGRESS STATE
+   ===================================================================== */
+const LEVELS=[0,30,70,120,180,250,320,400,999999]; // XP needed to reach level index+1
+const SAVE_KEY='thefelt.progress.v1';
+let S=load();
+function load(){
+  try{const r=JSON.parse(localStorage.getItem(SAVE_KEY));if(r&&typeof r.xp==='number')return r;}catch(e){}
+  return {xp:0, streak:0, best:0, done:{}, active:'rankings'};
+}
+function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));}catch(e){}}
+function levelFor(xp){let l=1;for(let i=0;i<LEVELS.length;i++){if(xp>=LEVELS[i])l=i+1;}return Math.min(l,8);}
+function xpUnlock(id){const m=MODULES.find(x=>x.id===id);return m?m.xpReq:0;}
+function unlocked(id){return S.xp>=xpUnlock(id);}
+
+function awardXP(n){
+  S.xp+=n; save(); renderTop(); renderLadder();
+}
+function bump(ok){
+  if(ok){S.streak++; if(S.streak>S.best)S.best=S.streak;} else {S.streak=0;}
+  save(); renderTop();
+}
+function markDone(id){ if(!S.done[id]){S.done[id]=true; save(); renderLadder(); toast('Module complete ✓ New rung unlocked'); } }
+
+/* =====================================================================
+   MODULES
+   ===================================================================== */
+const MODULES=[
+  {id:'rankings', ico:'A', title:'The Ladder', sub:'Read hand strength', xpReq:0},
+  {id:'position', ico:'♟', title:'Position & Hands', sub:'Where you sit matters', xpReq:30},
+  {id:'outs', ico:'⁴', title:'Outs & Equity', sub:'Count your future', xpReq:70},
+  {id:'odds', ico:'%', title:'Pot Odds & Risk', sub:'The math of a call', xpReq:120},
+  {id:'decisions', ico:'⚖', title:'Fold · Call · Raise', sub:'The core decision', xpReq:180},
+  {id:'aggression', ico:'▲', title:'When to Go Hard', sub:'Value bets & bluffs', xpReq:250},
+  {id:'bankroll', ico:'⌂', title:'When to Go Home', sub:'Bankroll & tilt', xpReq:320},
+  {id:'table', ico:'♠', title:'The Table', sub:'Play it for real', xpReq:400},
+];
+
+/* =====================================================================
+   RENDER: top bar + ladder
+   ===================================================================== */
+function renderTop(){
+  const lvl=levelFor(S.xp);
+  const curBase=LEVELS[lvl-1], next=LEVELS[lvl]||curBase;
+  const span=Math.max(1,next-curBase), into=S.xp-curBase;
+  document.getElementById('lvlNum').textContent=lvl;
+  document.getElementById('streakNum').textContent=S.streak;
+  const fill=lvl>=8?100:Math.min(100,Math.round(into/span*100));
+  document.getElementById('xpFill').style.width=fill+'%';
+  document.getElementById('xpLabel').textContent = lvl>=8 ? S.xp+' XP · Maxed' : `${S.xp} / ${next} XP`;
+}
+function renderLadder(){
+  const el=document.getElementById('ladder'); el.innerHTML='';
+  MODULES.forEach((m,i)=>{
+    const lock=!unlocked(m.id);
+    const b=document.createElement('button');
+    b.className='rung'+(S.active===m.id?' active':'')+(lock?' locked':'');
+    b.disabled=lock;
+    const meta = lock ? `<span class="rung-meta lock">🔒 ${m.xpReq} XP</span>`
+               : S.done[m.id] ? `<span class="rung-meta done">✓ Done</span>`
+               : `<span class="rung-meta">${i+1}/8</span>`;
+    b.innerHTML=`<span class="rung-ico">${m.ico}</span>
+      <span class="rung-body"><b>${m.title}</b><small>${m.sub}</small></span>${meta}`;
+    if(!lock) b.onclick=()=>{S.active=m.id;save();renderLadder();renderStage();window.scrollTo({top:0,behavior:'smooth'});};
+    el.appendChild(b);
+  });
+}
+
+/* =====================================================================
+   UI helpers
+   ===================================================================== */
+function cardHTML(c,{size='',faceDown=false,deal=false}={}){
+  if(faceDown) return `<div class="pcard ${size} back ${deal?'deal':''}"><span class="r">A</span><span class="s">♠</span></div>`;
+  return `<div class="pcard ${size} ${isRed(c.s)?'red':''} ${deal?'deal':''}"><span class="r">${rstr(c.r)}</span><span class="s">${SUITS[c.s]}</span></div>`;
+}
+function handHTML(cards,opt={}){return `<div class="hand">${cards.map(c=>cardHTML(c,opt)).join('')}</div>`;}
+let toastT;
+function toast(msg){
+  const t=document.getElementById('toast'); t.innerHTML=msg; t.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),2200);
+}
+function el(html){const d=document.createElement('div');d.innerHTML=html.trim();return d.firstElementChild;}
+// pick n distinct random cards not in used
+function draw(n,used){const set=new Set(used.map(c=>c.r*4+c.s));const d=shuffle(freshDeck().filter(c=>!set.has(c.r*4+c.s)));return d.slice(0,n);}
+
+/* =====================================================================
+   STAGE ROUTER
+   ===================================================================== */
+function renderStage(){
+  const s=document.getElementById('stage');
+  const m=MODULES.find(x=>x.id===S.active)||MODULES[0];
+  s.innerHTML=`
+    <div class="lesson-head">
+      <div class="eyebrow">Module ${MODULES.indexOf(m)+1} · ${m.sub}</div>
+      <h2>${m.title}</h2>
+      <p id="lessonIntro"></p>
+    </div>
+    <div class="lesson-body" id="body"></div>`;
+  ({rankings:mRankings,position:mPosition,outs:mOuts,odds:mOdds,decisions:mDecisions,
+    aggression:mAggression,bankroll:mBankroll,table:mTable}[m.id])(document.getElementById('body'));
+}
+function intro(t){document.getElementById('lessonIntro').textContent=t;}
+
+/* Generic drill scaffold: builds HUD + question host, tracks goal to complete module */
+function drill(host,{id,goal=5,intro:desc,render}){
+  const state={correct:0,answered:0};
+  const hud=el(`<div class="drill-hud">
+     <span class="pip">Solved <b id="dc">0</b>/${goal}</span>
+     <span class="pip">This session <b id="da">0</b></span>
+     <span class="spacer"></span>
+     <span class="pip">🔥 streak <b id="ds">${S.streak}</b></span></div>`);
+  const q=el('<div></div>');
+  host.append(hud,q);
+  function next(){ render(q, done); }
+  function done(ok,xp){
+    state.answered++; if(ok){state.correct++; awardXP(xp||6);} bump(ok);
+    hud.querySelector('#dc').textContent=Math.min(goal,state.correct);
+    hud.querySelector('#da').textContent=state.answered;
+    hud.querySelector('#ds').textContent=S.streak;
+    if(state.correct>=goal && !S.done[id]) markDone(id);
+  }
+  next();
+  return {next};
+}
+
+/* =====================================================================
+   MODULE 1 — THE LADDER (hand rankings)
+   ===================================================================== */
+function mRankings(b){
+  intro('Every showdown is decided by one thing: whose five cards rank higher. Learn the ladder cold, then prove it — no calculator, just your eye.');
+  b.innerHTML=`
+   <div class="prose">
+     <p class="lead">Nine rungs, weakest to strongest. Memorise the order and you already beat half of casual players.</p>
+   </div>
+   <table class="table-mini">
+     <tr><th>#</th><th>Hand</th><th>Example</th><th>What it is</th></tr>
+     ${[
+       ['9','Straight Flush',[{r:9,s:1},{r:8,s:1},{r:7,s:1},{r:6,s:1},{r:5,s:1}],'Five in a row, one suit'],
+       ['8','Four of a Kind',[{r:12,s:0},{r:12,s:1},{r:12,s:2},{r:12,s:3},{r:5,s:0}],'All four of one rank'],
+       ['7','Full House',[{r:13,s:0},{r:13,s:1},{r:13,s:2},{r:8,s:0},{r:8,s:1}],'Three + a pair'],
+       ['6','Flush',[{r:14,s:2},{r:11,s:2},{r:8,s:2},{r:5,s:2},{r:3,s:2}],'Five of one suit'],
+       ['5','Straight',[{r:9,s:0},{r:8,s:1},{r:7,s:2},{r:6,s:3},{r:5,s:0}],'Five in a row, mixed suits'],
+       ['4','Three of a Kind',[{r:7,s:0},{r:7,s:1},{r:7,s:2},{r:13,s:0},{r:4,s:1}],'Three of one rank'],
+       ['3','Two Pair',[{r:11,s:0},{r:11,s:1},{r:6,s:0},{r:6,s:2},{r:14,s:3}],'Two different pairs'],
+       ['2','One Pair',[{r:10,s:0},{r:10,s:2},{r:14,s:1},{r:7,s:3},{r:3,s:0}],'A single pair'],
+       ['1','High Card',[{r:14,s:0},{r:12,s:1},{r:9,s:2},{r:6,s:3},{r:2,s:0}],'Nothing — highest card plays'],
+     ].map(row=>`<tr><td class="num">${row[0]}</td><td><b>${row[1]}</b></td>
+        <td>${handHTML(row[2],{size:'sm'})}</td><td style="color:var(--muted)">${row[3]}</td></tr>`).join('')}
+   </table>
+   <div class="keycard"><b>Tie-breakers:</b> same category? The higher cards inside it win. Two flushes → highest card. Two pair vs two pair → higher top pair, then the kicker. The engine below judges exactly like a real dealer.</div>
+   <h3 class="sec">Drill · Who takes it down?</h3>
+   <p style="color:var(--muted);margin:0 0 4px">Two players go to showdown. Pick the winner. Solve 5 to master the rung.</p>
+   <div id="d1"></div>`;
+  drill(document.getElementById('d1'),{id:'rankings',goal:5,render:(q,done)=>{
+    // deal two 2-card hands + a 5 board, ensure not a tie usually
+    let A,B,board,va,vb,guard=0;
+    do{ const all=draw(9,[]); A=all.slice(0,2);B=all.slice(2,4);board=all.slice(4,9);
+        va=evaluate7([...A,...board]); vb=evaluate7([...B,...board]); guard++;
+    } while(va===vb && guard<20);
+    q.innerHTML=`
+      <div style="display:grid;gap:16px;margin:14px 0">
+        <div class="felt" style="padding:20px">
+          <div class="felt-seat"><div class="felt-label">Community cards</div>
+            <div class="board-row">${board.map(c=>cardHTML(c,{deal:true})).join('')}</div></div>
+        </div>
+        <div class="choice-grid" style="grid-template-columns:1fr 1fr">
+          <button class="choice" data-w="A"><span class="tag">P1</span><span>${handHTML(A,{size:'sm'})}</span></button>
+          <button class="choice" data-w="B"><span class="tag">P2</span><span>${handHTML(B,{size:'sm'})}</span></button>
+        </div>
+        <button class="choice" data-w="T" style="justify-content:center;text-align:center">Split pot (tie)</button>
+      </div>
+      <div class="feedback" id="fb"></div>`;
+    const winner = va>vb?'A':vb>va?'B':'T';
+    q.querySelectorAll('.choice').forEach(btn=>btn.onclick=()=>{
+      q.querySelectorAll('.choice').forEach(x=>{x.onclick=null;x.classList.add('dim');});
+      const pick=btn.dataset.w; const ok=pick===winner; btn.classList.remove('dim');
+      btn.classList.add(ok?'correct':'wrong');
+      if(!ok){const w=[...q.querySelectorAll('.choice')].find(x=>x.dataset.w===winner);w&&w.classList.add('correct');w&&w.classList.remove('dim');}
+      const fb=q.querySelector('#fb'); fb.className='feedback show '+(ok?'ok':'no');
+      fb.innerHTML=`<div class="verdict">${ok?'✓ Correct':'✕ Not quite'}</div>
+        <div class="expl">P1 holds <b>${categoryOf([...A,...board])}</b>, P2 holds <b>${categoryOf([...B,...board])}</b>.
+        ${winner==='T'?'It splits — identical five-card hands.':'The '+ (winner==='A'?'P1':'P2')+' hand ranks higher.'}</div>
+        <div class="btn-row"><button class="btn primary" id="nx">Next hand →</button></div>`;
+      fb.querySelector('#nx').onclick=()=>done(ok,6);
+    });
+  }});
+}
+
+/* =====================================================================
+   MODULE 2 — POSITION & STARTING HANDS
+   ===================================================================== */
+// 13x13 grid preflop chart. rows/cols hi->lo. Simple tiered open ranges.
+function handClass(r1,r2,suited){ // returns category string
+  const hi=Math.max(r1,r2), lo=Math.min(r1,r2);
+  if(r1===r2) return {kind:'pair',hi};
+  return {kind:suited?'s':'o',hi,lo};
+}
+// classify open-decision: 'raise' (strong, any position), 'late' (playable late only), 'fold'
+function openTier(r1,r2,suited){
+  const hi=Math.max(r1,r2), lo=Math.min(r1,r2), gap=hi-lo;
+  if(r1===r2){ if(hi>=10) return 'raise'; if(hi>=6) return 'raise'; return 'late'; } // all pairs playable, small pairs=late
+  if(suited){
+    if(hi===14 && lo>=10) return 'raise';
+    if(hi===14) return 'late';                 // any Ax suited late
+    if(hi>=13 && lo>=10) return 'raise';
+    if(hi>=12 && lo>=11) return 'raise';
+    if(gap<=1 && lo>=6) return 'late';          // suited connectors
+    if(hi>=13) return 'late';
+    return 'fold';
+  } else {
+    if(hi===14 && lo>=12) return 'raise';       // AK AQ
+    if(hi===14 && lo>=10) return 'late';        // AJ AT
+    if(hi>=13 && lo>=12) return 'raise';        // KQ
+    if(hi>=12 && lo>=11) return 'late';
+    if(hi>=13 && lo>=11) return 'late';
+    return 'fold';
+  }
+}
+function mPosition(b){
+  intro('You act in turn. Acting last is a permanent edge — you see what everyone does before you decide. So play more hands in late position, and only premiums up front.');
+  b.innerHTML=`
+   <div class="prose">
+     <p class="lead">Two levers decide a starting hand: <strong>the cards</strong> and <strong>your seat</strong>.</p>
+     <p>Early seats act first on every street — you’re flying blind, so demand a strong hand. Late seats (the button is best) act last, so you can profitably open far more.</p>
+   </div>
+   <h3 class="sec">A starting-hand map</h3>
+   <p style="color:var(--muted);margin:0 0 2px">Rows &amp; columns run A→2. Diagonal = pairs, above = suited, below = offsuit.</p>
+   <div class="range-grid" id="rangeGrid"></div>
+   <div class="legend"><span><i style="background:var(--good)"></i>Open from anywhere</span>
+     <span><i style="background:var(--warn)"></i>Late position only</span>
+     <span><i style="background:#33413a"></i>Muck it</span></div>
+   <div class="keycard"><b>The habit:</b> before you look at the flop, ask “would I open this from <i>this seat</i>?” If it’s a late-only hand and you’re first to act, folding is the winning play — even though it feels tight.</div>
+   <h3 class="sec">Drill · Open or fold?</h3>
+   <p style="color:var(--muted);margin:0 0 4px">You’re first to act. Given your seat, would you raise or fold this hand?</p>
+   <div id="d2"></div>`;
+  // build grid
+  const g=document.getElementById('rangeGrid'); const order=[14,13,12,11,10,9,8,7,6,5,4,3,2];
+  for(let i=0;i<13;i++)for(let j=0;j<13;j++){
+    const r1=order[i], r2=order[j]; const suited=i<j; const pair=i===j;
+    const tier=openTier(r1,r2,suited);
+    const label = pair?rstr(r1)+rstr(r1):(suited?rstr(order[i])+rstr(order[j])+'s':rstr(order[j])+rstr(order[i])+'o');
+    const cls = tier==='raise'?'play':tier==='late'?'some':'fold';
+    const d=document.createElement('div'); d.className='rg '+cls+(pair?' pair':''); d.textContent=label;
+    g.appendChild(d);
+  }
+  drill(document.getElementById('d2'),{id:'position',goal:6,render:(q,done)=>{
+    const seats=[['UTG','early','Under the gun — first to act, everyone behind you.'],
+                 ['MP','early','Middle position — still several players to act.'],
+                 ['CO','late','Cutoff — only the button behind you.'],
+                 ['BTN','late','The button — you act last on every street. Prime real estate.']];
+    const seat=seats[(Math.random()*4)|0];
+    const [c1,c2]=draw(2,[]); const suited=c1.s===c2.s; const pair=c1.r===c2.r;
+    const tier=openTier(c1.r,c2.r,suited);
+    // correct action depends on seat: raise-tier always raise; late-tier raise only in late; fold-tier fold
+    const shouldRaise = tier==='raise' || (tier==='late' && seat[1]==='late');
+    q.innerHTML=`
+      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:14px 0">
+        <div>${handHTML([c1,c2],{size:'lg',deal:true})}</div>
+        <div>
+          <div class="eyebrow" style="color:var(--brass)">Your seat</div>
+          <div style="font-family:var(--serif);font-size:26px">${seat[0]}</div>
+          <div style="color:var(--muted);font-size:13px;max-width:34ch">${seat[2]}</div>
+        </div>
+      </div>
+      <div class="choice-grid" style="grid-template-columns:1fr 1fr">
+        <button class="choice" data-a="raise" style="justify-content:center"><b>Raise / Open</b></button>
+        <button class="choice" data-a="fold" style="justify-content:center"><b>Fold</b></button>
+      </div>
+      <div class="feedback" id="fb"></div>`;
+    q.querySelectorAll('.choice').forEach(btn=>btn.onclick=()=>{
+      q.querySelectorAll('.choice').forEach(x=>x.onclick=null);
+      const raise=btn.dataset.a==='raise'; const ok=raise===shouldRaise;
+      btn.classList.add(ok?'correct':'wrong');
+      const fb=q.querySelector('#fb'); fb.className='feedback show '+(ok?'ok':'no');
+      const tierWord=tier==='raise'?'a premium — open from any seat':tier==='late'?'a late-position hand':'too weak to open';
+      fb.innerHTML=`<div class="verdict">${ok?'✓ Good discipline':'✕ Reconsider'}</div>
+        <div class="expl">That hand is <b>${tierWord}</b>. From <b>${seat[0]}</b> the profitable play is to
+        <b>${shouldRaise?'raise':'fold'}</b>.</div>
+        <div class="btn-row"><button class="btn primary" id="nx">Next spot →</button></div>`;
+      fb.querySelector('#nx').onclick=()=>done(ok,7);
+    });
+  }});
+}
+
+/* =====================================================================
+   MODULE 3 — OUTS & EQUITY (rule of 2 and 4)
+   ===================================================================== */
+const OUTS_SCENARIOS=[
+  {hero:[{r:14,s:1},{r:13,s:1}], board:[{r:9,s:1},{r:4,s:1},{r:2,s:0}], outs:9, name:'Flush draw',
+   why:'Nine hearts remain in the deck to complete your flush.'},
+  {hero:[{r:9,s:0},{r:8,s:1}], board:[{r:7,s:2},{r:6,s:3},{r:2,s:0}], outs:8, name:'Open-ended straight draw',
+   why:'Any Ten or any Five (4 + 4 cards) makes your straight.'},
+  {hero:[{r:11,s:0},{r:10,s:1}], board:[{r:9,s:2},{r:8,s:0},{r:2,s:3}], outs:8, name:'Open-ended straight draw',
+   why:'Any Queen or any Seven completes the run — eight cards.'},
+  {hero:[{r:9,s:0},{r:8,s:2}], board:[{r:6,s:1},{r:5,s:3},{r:13,s:0}], outs:4, name:'Gutshot straight draw',
+   why:'You hold 9-8 with 6-5 on the board — only a Seven fills 5-6-7-8-9. Four Sevens, one gap.'},
+  {hero:[{r:14,s:0},{r:14,s:1}], board:[{r:13,s:2},{r:7,s:0},{r:2,s:3}], outs:2, name:'Set draw (pair→trips)',
+   why:'Only the two remaining Aces improve you to three of a kind.'},
+  {hero:[{r:11,s:1},{r:10,s:1}], board:[{r:9,s:1},{r:8,s:0},{r:2,s:1}], outs:15, name:'Flush + straight combo',
+   why:'9 hearts finish the flush and any Queen or Seven finishes the straight — 15 clean outs, a monster draw.'},
+];
+function mOuts(b){
+  intro('You’re behind now — but the deck can save you. An “out” is a card that makes your hand the winner. Count outs, and you can turn them straight into a rough win-percentage.');
+  b.innerHTML=`
+   <div class="prose">
+     <p class="lead">Equity is your share of the pot if the hand ran to showdown a thousand times.</p>
+   </div>
+   <div class="keycard"><b>The Rule of 2 and 4.</b> Multiply your outs by <b>4</b> on the flop (two cards to come) or by <b>2</b> on the turn (one card to come) — that’s your approximate chance to hit, in percent. Fast, and close enough to play.</div>
+   <table class="table-mini">
+     <tr><th>Draw</th><th>Outs</th><th>Flop ≈ (×4)</th><th>Turn ≈ (×2)</th></tr>
+     <tr><td>Gutshot straight</td><td class="num">4</td><td class="num">16%</td><td class="num">8%</td></tr>
+     <tr><td>Flush draw</td><td class="num">9</td><td class="num">36%</td><td class="num">18%</td></tr>
+     <tr><td>Open-ended straight</td><td class="num">8</td><td class="num">32%</td><td class="num">16%</td></tr>
+     <tr><td>Flush + straight combo</td><td class="num">15</td><td class="num">54%</td><td class="num">30%</td></tr>
+   </table>
+   <h3 class="sec">Drill · Count the outs</h3>
+   <p style="color:var(--muted);margin:0 0 4px">It’s the flop. How many cards complete your hand? Nail 5 to master this.</p>
+   <div id="d3"></div>`;
+  drill(document.getElementById('d3'),{id:'outs',goal:5,render:(q,done)=>{
+    const sc=OUTS_SCENARIOS[(Math.random()*OUTS_SCENARIOS.length)|0];
+    const options=new Set([sc.outs]);
+    while(options.size<4){const o=[2,4,8,9,12,15][(Math.random()*6)|0]; options.add(o);}
+    const opts=shuffle([...options]);
+    q.innerHTML=`
+      <div class="felt" style="padding:18px;margin:14px 0">
+        <div class="felt-seat"><div class="felt-label">Your hand</div>
+          <div class="board-row" style="min-height:auto">${sc.hero.map(c=>cardHTML(c,{deal:true})).join('')}</div></div>
+        <div class="felt-seat" style="margin-top:14px"><div class="felt-label">Flop</div>
+          <div class="board-row" style="min-height:auto">${sc.board.map(c=>cardHTML(c,{deal:true})).join('')}</div></div>
+      </div>
+      <div class="choice-grid c3">${opts.map(o=>`<button class="choice" data-o="${o}" style="justify-content:center"><b class="num">${o} outs</b></button>`).join('')}</div>
+      <div class="feedback" id="fb"></div>`;
+    q.querySelectorAll('.choice').forEach(btn=>btn.onclick=()=>{
+      q.querySelectorAll('.choice').forEach(x=>{x.onclick=null;if(+x.dataset.o!==sc.outs)x.classList.add('dim');});
+      const ok=+btn.dataset.o===sc.outs; btn.classList.remove('dim');
+      btn.classList.add(ok?'correct':'wrong');
+      const right=[...q.querySelectorAll('.choice')].find(x=>+x.dataset.o===sc.outs);right.classList.add('correct');right.classList.remove('dim');
+      const fb=q.querySelector('#fb'); fb.className='feedback show '+(ok?'ok':'no');
+      fb.innerHTML=`<div class="verdict">${ok?'✓ '+sc.name:'✕ It’s '+sc.outs+' outs — '+sc.name}</div>
+        <div class="expl">${sc.why} On the flop that’s ≈ <b>${Math.min(95,sc.outs*4)}%</b> to get there by the river (Rule of 4).</div>
+        <div class="btn-row"><button class="btn primary" id="nx">Next board →</button></div>`;
+      fb.querySelector('#nx').onclick=()=>done(ok,7);
+    });
+  }});
+}
+
+/* =====================================================================
+   MODULE 4 — POT ODDS & RISK  (calculator + drill)
+   ===================================================================== */
+function mOdds(b){
+  intro('Here’s the heart of poker risk. A call costs money to win a bigger pot. Pot odds tell you the price. Compare that price to your equity, and folding vs calling stops being a feeling — it becomes arithmetic.');
+  b.innerHTML=`
+   <div class="prose">
+     <p class="lead">Pot odds = <strong>what you must call</strong> versus <strong>what you’d win</strong>.</p>
+     <p>If the pot is $100 and a call costs $50, you’re risking 50 to win 150 total. Your break-even equity is 50 ÷ (150+50)… i.e. <b>call ÷ (pot after your call)</b> = 50/200 = <b>25%</b>. Beat 25% equity and calling profits over time.</p>
+   </div>
+   <div class="keycard"><b>The rule:</b> if your <b>equity %</b> is greater than your <b>break-even %</b>, the call makes money. If it’s lower, fold. That single comparison is most of winning poker.</div>
+   <h3 class="sec">The risk calculator</h3>
+   <p style="color:var(--muted);margin:0 0 8px">Drag the sliders — see instantly whether a call is profitable.</p>
+   <div id="calc"></div>
+   <h3 class="sec">Drill · Call or fold?</h3>
+   <p style="color:var(--muted);margin:0 0 4px">You know your equity. Is the price right? Solve 6 to master pot odds.</p>
+   <div id="d4"></div>`;
+  // calculator
+  const c=document.getElementById('calc');
+  c.appendChild(el(`
+   <div style="display:grid;grid-template-columns:1fr;gap:4px;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-md);padding:16px">
+     <div class="field"><label>Pot before you call — $<span class="num" id="vpot">100</span></label>
+       <input type="range" id="pot" min="20" max="600" step="10" value="100"></div>
+     <div class="field"><label>Amount to call — $<span class="num" id="vbet">50</span></label>
+       <input type="range" id="bet" min="10" max="600" step="10" value="50"></div>
+     <div class="field"><label>Your equity (chance to win) — <span class="num" id="veq">45</span>%</label>
+       <input type="range" id="eq" min="2" max="95" step="1" value="45"></div>
+     <div class="stat-row" id="calcOut"></div>
+   </div>`));
+  function recalc(){
+    const pot=+c.querySelector('#pot').value, bet=+c.querySelector('#bet').value, eq=+c.querySelector('#eq').value;
+    c.querySelector('#vpot').textContent=pot; c.querySelector('#vbet').textContent=bet; c.querySelector('#veq').textContent=eq;
+    const be=bet/(pot+bet+bet)*100; const call=eq>be;
+    const ev=(eq/100)*(pot+bet) - (1-eq/100)*bet;
+    c.querySelector('#calcOut').innerHTML=`
+      <div class="stat"><div class="k">Break-even equity</div><div class="v num">${be.toFixed(1)}%</div></div>
+      <div class="stat"><div class="k">Your equity</div><div class="v num">${eq}%</div></div>
+      <div class="stat"><div class="k">Verdict</div><div class="v ${call?'good':'bad'}">${call?'CALL':'FOLD'}</div></div>
+      <div class="stat"><div class="k">Long-run EV / call</div><div class="v num ${ev>=0?'good':'bad'}">${ev>=0?'+':''}$${ev.toFixed(0)}</div></div>`;
+  }
+  ['pot','bet','eq'].forEach(id=>c.querySelector('#'+id).addEventListener('input',recalc)); recalc();
+  // drill
+  drill(document.getElementById('d4'),{id:'odds',goal:6,render:(q,done)=>{
+    const lvl=levelFor(S.xp);
+    const pot=[60,80,100,120,150,200][(Math.random()*6)|0];
+    const bet=[Math.round(pot*0.4),Math.round(pot*0.5),Math.round(pot*0.66),Math.round(pot*0.75),pot][(Math.random()*5)|0];
+    const be=bet/(pot+bet+bet)*100;
+    // pick equity near break-even as level rises (harder = more marginal)
+    const margin = lvl>=5?4:lvl>=3?8:14;
+    let eq=Math.round(be + (Math.random()*2-1)*margin);
+    eq=Math.max(5,Math.min(92,eq)); if(Math.abs(eq-be)<1.5) eq=Math.round(be)+ (Math.random()<.5?2:-2);
+    const call=eq>be;
+    q.innerHTML=`
+      <div class="stat-row">
+        <div class="stat"><div class="k">Pot</div><div class="v num">$${pot}</div></div>
+        <div class="stat"><div class="k">To call</div><div class="v num">$${bet}</div></div>
+        <div class="stat"><div class="k">Your equity</div><div class="v num warn">${eq}%</div></div>
+      </div>
+      <div class="choice-grid" style="grid-template-columns:1fr 1fr">
+        <button class="choice" data-a="call" style="justify-content:center"><b>Call</b></button>
+        <button class="choice" data-a="fold" style="justify-content:center"><b>Fold</b></button>
+      </div>
+      <div class="feedback" id="fb"></div>`;
+    q.querySelectorAll('.choice').forEach(btn=>btn.onclick=()=>{
+      q.querySelectorAll('.choice').forEach(x=>x.onclick=null);
+      const ok=(btn.dataset.a==='call')===call; btn.classList.add(ok?'correct':'wrong');
+      const ev=(eq/100)*(pot+bet)-(1-eq/100)*bet;
+      const fb=q.querySelector('#fb'); fb.className='feedback show '+(ok?'ok':'no');
+      fb.innerHTML=`<div class="verdict">${ok?'✓ Right price read':'✕ Miscalculated'}</div>
+        <div class="expl">Break-even here is <b>${be.toFixed(1)}%</b>. Your ${eq}% is <b>${call?'above':'below'}</b> it, so the profitable play is to <b>${call?'call':'fold'}</b>.
+        Calling’s long-run value: <b>${ev>=0?'+':''}$${ev.toFixed(0)}</b> per attempt.</div>
+        <div class="btn-row"><button class="btn primary" id="nx">Next spot →</button></div>`;
+      fb.querySelector('#nx').onclick=()=>done(ok,8);
+    });
+  }});
+}
+
+/* =====================================================================
+   MODULE 5 — FOLD / CALL / RAISE  (equity + odds combined, real cards)
+   ===================================================================== */
+function mDecisions(b){
+  intro('Now we put it together with real cards. You’ll get a hand, a board, a pot and a bet. Read your equity, weigh the price, and choose. This is the decision you make thousands of times.');
+  b.innerHTML=`
+   <div class="prose">
+     <p class="lead">Three doors on every street: <strong>fold</strong>, <strong>call</strong>, or <strong>raise</strong>.</p>
+     <p><b>Fold</b> when your equity can’t pay the price. <b>Call</b> when the price is right but you’re not ahead enough to build the pot. <b>Raise</b> when you’re likely best (value) — charge the draws that are chasing you.</p>
+   </div>
+   <div class="keycard"><b>Rule of thumb used here:</b> clearly behind &amp; wrong price → <b>fold</b>. Right price, marginal → <b>call</b>. Strong favourite (≈ 62%+) → <b>raise</b> for value. The engine computes your true equity by simulation, so the “right” answer is real math.</div>
+   <h3 class="sec">Drill · Make the call</h3>
+   <p style="color:var(--muted);margin:0 0 4px">Real equity, simulated live. Solve 6 marginal spots to master the decision.</p>
+   <div id="d5"></div>`;
+  drill(document.getElementById('d5'),{id:'decisions',goal:6,render:(q,done)=>{
+    q.innerHTML=`<div style="padding:30px;text-align:center;color:var(--muted)">Dealing &amp; simulating equity…</div>`;
+    setTimeout(()=>{
+      const all=draw(5,[]); const hero=all.slice(0,2); const board=all.slice(2,5);
+      const eq=equity(hero,board,1400); // vs random villain
+      const pot=[80,100,120,140][(Math.random()*4)|0];
+      const bet=Math.round(pot*[0.5,0.66,0.75][(Math.random()*3)|0]);
+      const be=bet/(pot+bet+bet);
+      // correct action
+      let correct;
+      if(eq>=0.62) correct='raise';
+      else if(eq>=be) correct='call';
+      else correct='fold';
+      q.innerHTML=`
+        <div class="felt" style="padding:18px;margin:6px 0 14px">
+          <div class="felt-seat"><div class="felt-label">Flop</div>
+            <div class="board-row" style="min-height:auto">${board.map(c=>cardHTML(c,{deal:true})).join('')}</div></div>
+          <div style="text-align:center;margin:12px 0"><span class="pot-tag">Pot <span class="num">$${pot}</span> · Villain bets <span class="num">$${bet}</span></span></div>
+          <div class="felt-seat"><div class="felt-label">Your hand</div>
+            <div class="board-row" style="min-height:auto">${hero.map(c=>cardHTML(c,{deal:true})).join('')}</div></div>
+        </div>
+        <div class="choice-grid c3">
+          <button class="choice" data-a="fold" style="justify-content:center"><b>Fold</b></button>
+          <button class="choice" data-a="call" style="justify-content:center"><b>Call</b></button>
+          <button class="choice" data-a="raise" style="justify-content:center"><b>Raise</b></button>
+        </div>
+        <div class="feedback" id="fb"></div>`;
+      q.querySelectorAll('.choice').forEach(btn=>btn.onclick=()=>{
+        q.querySelectorAll('.choice').forEach(x=>x.onclick=null);
+        const pick=btn.dataset.a; const ok=pick===correct;
+        // near-miss: call vs raise both defensible when close
+        const soft = (!ok) && ((pick==='call'&&correct==='raise')||(pick==='raise'&&correct==='call'));
+        btn.classList.add(ok?'correct':(soft?'wrong':'wrong'));
+        const right=[...q.querySelectorAll('.choice')].find(x=>x.dataset.a===correct);right.classList.add('correct');
+        const fb=q.querySelector('#fb'); fb.className='feedback show '+(ok?'ok':'no');
+        fb.innerHTML=`<div class="verdict">${ok?'✓ Well played':(soft?'≈ Defensible, but…':'✕ Off')}</div>
+          <div class="expl">Simulated equity: <b>${Math.round(eq*100)}%</b> · price to call: <b>${Math.round(be*100)}%</b>.
+          ${categoryOf([...hero,...board])!=='High Card'?'You hold <b>'+categoryOf([...hero,...board])+'</b>. ':''}
+          Best line: <b>${correct.toUpperCase()}</b> — ${correct==='raise'?'you’re a clear favourite; charge them.':correct==='call'?'right price, but not strong enough to raise.':'the price is worse than your equity.'}</div>
+          <div class="btn-row"><button class="btn primary" id="nx">Next hand →</button></div>`;
+        fb.querySelector('#nx').onclick=()=>done(ok,9);
+      });
+    },30);
+  }});
+}
+
+/* =====================================================================
+   MODULE 6 — WHEN TO GO HARD (aggression: value vs bluff, sizing)
+   ===================================================================== */
+function mAggression(b){
+  intro('Passive players wait for gifts. Winners take the initiative. But aggression is a scalpel, not a hammer — you go hard for two reasons only: to get value when you’re ahead, or to fold out better hands when you’re not.');
+  b.innerHTML=`
+   <div class="prose">
+     <p class="lead">Every big bet is either a <strong>value bet</strong> or a <strong>bluff</strong>. Know which one you’re making.</p>
+     <p><b>Value:</b> you’re likely best and want worse hands to pay you — bet an amount they’ll call. <b>Bluff:</b> you’re likely behind but can make better hands fold — bet enough to make folding look right for them.</p>
+   </div>
+   <div class="keycard"><b>Sizing tells a story.</b> Small bets (¼–⅓ pot) milk thin value and price in draws cheaply. Big bets (¾–pot+) charge draws and apply real pressure. Match the size to the goal — don’t bet big with a hand that only beats bluffs.</div>
+   <h3 class="sec">Drill · Value or bluff — and go hard?</h3>
+   <p style="color:var(--muted);margin:0 0 4px">Read the spot. Should you fire a big bet, and why? Solve 5.</p>
+   <div id="d6"></div>`;
+  const SC=[
+    {hero:[{r:14,s:0},{r:14,s:2}],board:[{r:14,s:1},{r:9,s:3},{r:4,s:0}],label:'You flopped top set of Aces.',ans:'value',
+      why:'You’re crushing everything. Bet big for value — draws and top pair will pay.'},
+    {hero:[{r:11,s:1},{r:10,s:1}],board:[{r:2,s:0},{r:7,s:2},{r:13,s:3}],label:'You have jack-high, no pair, on a dry board.',ans:'bluff',
+      why:'You can’t win at showdown, but a big bet folds out weak aces and small pairs. A disciplined bluff.'},
+    {hero:[{r:13,s:0},{r:12,s:2}],board:[{r:13,s:1},{r:8,s:3},{r:3,s:0}],label:'Top pair, decent kicker.',ans:'value',
+      why:'You’re ahead of most calls. Bet for value — but size medium; you don’t love a raise.'},
+    {hero:[{r:6,s:1},{r:5,s:1}],board:[{r:14,s:0},{r:11,s:2},{r:2,s:3}],label:'Nothing, on an ace-high board.',ans:'bluff',
+      why:'The ace scares them and misses your range perception — a well-timed bluff often takes it.'},
+    {hero:[{r:9,s:0},{r:9,s:2}],board:[{r:14,s:1},{r:13,s:3},{r:12,s:0}],label:'A pair of nines on a scary A-K-Q board.',ans:'check',
+      why:'Way too many hands beat you here. Going hard just donates. Check and give up cheaply.'},
+    {hero:[{r:10,s:1},{r:10,s:3}],board:[{r:10,s:0},{r:5,s:2},{r:2,s:1}],label:'You flopped a set of tens.',ans:'value',
+      why:'Monster. Bet for value across all three streets and build the pot.'},
+  ];
+  drill(document.getElementById('d6'),{id:'aggression',goal:5,render:(q,done)=>{
+    const sc=SC[(Math.random()*SC.length)|0];
+    q.innerHTML=`
+      <div class="felt" style="padding:18px;margin:6px 0 14px">
+        <div class="felt-seat"><div class="felt-label">Board</div>
+          <div class="board-row" style="min-height:auto">${sc.board.map(c=>cardHTML(c,{deal:true})).join('')}</div></div>
+        <div class="felt-seat" style="margin-top:12px"><div class="felt-label">Your hand</div>
+          <div class="board-row" style="min-height:auto">${sc.hero.map(c=>cardHTML(c,{deal:true})).join('')}</div></div>
+      </div>
+      <p style="text-align:center;color:var(--ink-soft);margin:0 0 8px">${sc.label}</p>
+      <div class="choice-grid c3">
+        <button class="choice" data-a="value" style="justify-content:center"><b>Bet big — value</b></button>
+        <button class="choice" data-a="bluff" style="justify-content:center"><b>Bet big — bluff</b></button>
+        <button class="choice" data-a="check" style="justify-content:center"><b>Check / give up</b></button>
+      </div>
+      <div class="feedback" id="fb"></div>`;
+    q.querySelectorAll('.choice').forEach(btn=>btn.onclick=()=>{
+      q.querySelectorAll('.choice').forEach(x=>x.onclick=null);
+      const ok=btn.dataset.a===sc.ans; btn.classList.add(ok?'correct':'wrong');
+      const right=[...q.querySelectorAll('.choice')].find(x=>x.dataset.a===sc.ans);right.classList.add('correct');
+      const fb=q.querySelector('#fb'); fb.className='feedback show '+(ok?'ok':'no');
+      fb.innerHTML=`<div class="verdict">${ok?'✓ Read the spot':'✕ Wrong gear'}</div>
+        <div class="expl">${sc.why}</div>
+        <div class="btn-row"><button class="btn primary" id="nx">Next spot →</button></div>`;
+      fb.querySelector('#nx').onclick=()=>done(ok,9);
+    });
+  }});
+}
+
+/* =====================================================================
+   MODULE 7 — WHEN TO GO HOME (bankroll & tilt)
+   ===================================================================== */
+function mBankroll(b){
+  intro('The best players quit while winning and quit while losing — the point is to quit for the right reason, not an emotional one. This is how you survive variance long enough for your edge to pay off.');
+  b.innerHTML=`
+   <div class="prose">
+     <p class="lead">You can play perfectly and still lose tonight. Bankroll rules keep a bad night from ending your poker.</p>
+   </div>
+   <h3 class="sec">The three rules that keep you alive</h3>
+   <table class="table-mini">
+     <tr><th>Rule</th><th>Why</th></tr>
+     <tr><td><b>Bankroll ≥ 20–40 buy-ins</b></td><td>Variance is brutal. With too few buy-ins, a normal downswing busts you.</td></tr>
+     <tr><td><b>Set a stop-loss</b></td><td>Lose 2–3 buy-ins? Leave. Losing warps your decisions before you notice.</td></tr>
+     <tr><td><b>Quit on tilt, not on time</b></td><td>The moment emotion drives a bet, your edge is gone. Go home — the game runs tomorrow.</td></tr>
+   </table>
+   <div class="keycard"><b>Tilt is the real leak.</b> It’s not the hand you lost — it’s the three reckless hands you play afterward trying to win it back. Recognising “I’m on tilt” is a skill you can train.</div>
+   <h3 class="sec">Bankroll survival simulator</h3>
+   <p style="color:var(--muted);margin:0 0 8px">See how buy-in count and a stop-loss change your odds of going broke over a rough stretch.</p>
+   <div id="sim"></div>
+   <h3 class="sec">Drill · Stay or go home?</h3>
+   <p style="color:var(--muted);margin:0 0 4px">Read the situation. Is it time to rack up? Solve 5.</p>
+   <div id="d7"></div>`;
+  // simulator
+  const sim=document.getElementById('sim');
+  sim.appendChild(el(`
+    <div style="background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-md);padding:16px">
+      <div class="field"><label>Bankroll in buy-ins — <span class="num" id="vbi">20</span></label>
+        <input type="range" id="bi" min="5" max="60" step="1" value="20"></div>
+      <div class="field"><label>Stop-loss (leave after losing) — <span class="num" id="vsl">3</span> buy-ins</label>
+        <input type="range" id="sl" min="1" max="10" step="1" value="3"></div>
+      <div class="stat-row" id="simOut"></div>
+      <p style="font-size:12.5px;color:var(--muted);margin:6px 0 0">Monte-Carlo over 400 losing-heavy sessions. A disciplined stop-loss dramatically lowers your risk of ruin.</p>
+    </div>`));
+  function runSim(){
+    const bi=+sim.querySelector('#bi').value, sl=+sim.querySelector('#sl').value;
+    sim.querySelector('#vbi').textContent=bi; sim.querySelector('#vsl').textContent=sl;
+    let ruin=0; const N=400;
+    for(let s=0;s<N;s++){
+      let stack=bi; // in buy-ins
+      for(let session=0;session<40 && stack>0;session++){
+        let sessionPnL=0;
+        for(let h=0;h<60 && stack+sessionPnL>0;h++){
+          // slight negative drift to model a rough downswing / small edge eaten by rake
+          sessionPnL += (Math.random()<0.49?1:-1)*0.05;
+          if(sessionPnL<=-sl) break;                 // stop-loss: leave
+        }
+        stack+=sessionPnL;
+      }
+      if(stack<=0) ruin++;
+    }
+    const risk=Math.round(ruin/N*100);
+    const cls=risk<=8?'good':risk<=25?'warn':'bad';
+    sim.querySelector('#simOut').innerHTML=`
+      <div class="stat"><div class="k">Buy-ins</div><div class="v num">${bi}</div></div>
+      <div class="stat"><div class="k">Stop-loss</div><div class="v num">${sl}</div></div>
+      <div class="stat"><div class="k">Risk of going broke</div><div class="v num ${cls}">${risk}%</div></div>`;
+  }
+  ['bi','sl'].forEach(id=>sim.querySelector('#'+id).addEventListener('input',runSim)); runSim();
+  // drill
+  const HOME=[
+    {t:'You’re up 4 buy-ins, playing sharp, still fresh and focused after 2 hours.',ans:'stay',
+     why:'Winning, sharp, and the game is good — no reason to leave. Keep playing your A-game.'},
+    {t:'You just lost your stop-loss of 3 buy-ins and you’re itching to “win it back fast”.',ans:'go',
+     why:'Stop-loss hit AND you feel the urge to chase — textbook time to rack up and go home.'},
+    {t:'You lost one big pot on a bad beat and immediately raised blind the next three hands.',ans:'go',
+     why:'That’s tilt. Emotion is driving your bets now — leave before it costs more.'},
+    {t:'Down 1 buy-in but calm, the table is full of loose players making big mistakes.',ans:'stay',
+     why:'A small loss with a huge edge and clear head — this is exactly when to keep playing.'},
+    {t:'It’s 3am, you’re exhausted, misreading boards, but roughly break-even.',ans:'go',
+     why:'Fatigue wrecks decisions as badly as tilt. Break-even and foggy = go home.'},
+    {t:'You’re up 2 buy-ins, focused, but the two good players just sat down and the fish left.',ans:'go',
+     why:'Your edge just evaporated. Booking the win against a tougher lineup is smart.'},
+  ];
+  drill(document.getElementById('d7'),{id:'bankroll',goal:5,render:(q,done)=>{
+    const sc=HOME[(Math.random()*HOME.length)|0];
+    q.innerHTML=`
+      <div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-md);padding:18px 20px;margin:14px 0;font-size:16px;color:var(--ink-soft)">“${sc.t}”</div>
+      <div class="choice-grid" style="grid-template-columns:1fr 1fr">
+        <button class="choice" data-a="stay" style="justify-content:center"><b>Keep playing</b></button>
+        <button class="choice" data-a="go" style="justify-content:center"><b>Go home</b></button>
+      </div>
+      <div class="feedback" id="fb"></div>`;
+    q.querySelectorAll('.choice').forEach(btn=>btn.onclick=()=>{
+      q.querySelectorAll('.choice').forEach(x=>x.onclick=null);
+      const ok=btn.dataset.a===sc.ans; btn.classList.add(ok?'correct':'wrong');
+      const right=[...q.querySelectorAll('.choice')].find(x=>x.dataset.a===sc.ans);right.classList.add('correct');
+      const fb=q.querySelector('#fb'); fb.className='feedback show '+(ok?'ok':'no');
+      fb.innerHTML=`<div class="verdict">${ok?'✓ Disciplined':'✕ That’s how nights go bad'}</div>
+        <div class="expl">${sc.why}</div>
+        <div class="btn-row"><button class="btn primary" id="nx">Next situation →</button></div>`;
+      fb.querySelector('#nx').onclick=()=>done(ok,9);
+    });
+  }});
+}
+
+/* =====================================================================
+   MODULE 8 — THE TABLE (playable heads-up hand vs a real bot)
+   ===================================================================== */
+function mTable(b){
+  intro('Graduation. Play full hands heads-up against a bot that actually calculates equity and pot odds — the exact skills you just learned. Beat it, and you’re reading the game the way winners do.');
+  b.innerHTML=`
+    <div class="prose"><p class="lead">You start each hand with <b>$1,000</b>. Outplay the bot over a session — your job is to make the higher-EV decision, not just win the pot.</p></div>
+    <div id="tableApp"></div>`;
+  startTable(document.getElementById('tableApp'));
+}
+function startTable(root){
+  let bankHero=1000, bankBot=1000, handNo=0, goodDecisions=0, totalDecisions=0;
+  function newHand(){
+    handNo++;
+    const deck=shuffle(freshDeck());
+    let p=0; const hero=[deck[p++],deck[p++]], bot=[deck[p++],deck[p++]];
+    const fullBoard=[deck[p++],deck[p++],deck[p++],deck[p++],deck[p++]];
+    let pot=30; bankHero-=15; bankBot-=15; // blinds
+    let street=0; // 0 pre,1 flop,2 turn,3 river
+    let toCall=0; let done=false; let result='';
+    function boardShown(){return street===0?[]:street===1?fullBoard.slice(0,3):street===2?fullBoard.slice(0,4):fullBoard.slice(0,5);}
+    function render(msg,opts){
+      const board=boardShown();
+      const heq=Math.round(equity(hero,board,900,bot)*100); // true HU equity vs bot's actual cards (for feedback)
+      root.innerHTML=`
+        <div class="stat-row" style="margin:8px 0 16px">
+          <div class="stat"><div class="k">Your stack</div><div class="v num">$${bankHero}</div></div>
+          <div class="stat"><div class="k">Bot stack</div><div class="v num">$${bankBot}</div></div>
+          <div class="stat"><div class="k">Hand #</div><div class="v num">${handNo}</div></div>
+          <div class="stat"><div class="k">Good decisions</div><div class="v num ${totalDecisions&&goodDecisions/totalDecisions>=.6?'good':''}">${goodDecisions}/${totalDecisions}</div></div>
+        </div>
+        <div class="felt">
+          <div class="felt-seat"><div class="felt-label">Bot</div>
+            <div class="board-row" style="min-height:auto">${(done?bot.map(c=>cardHTML(c)):[0,0].map(()=>cardHTML(null,{faceDown:true}))).join('')}</div></div>
+          <div class="felt-seat" style="margin:14px 0">
+            <div class="board-row">${board.length?board.map(c=>cardHTML(c,{deal:true})).join(''):'<span style="color:rgba(255,255,255,.6);font-size:13px">— pre-flop —</span>'}</div>
+            <div style="margin-top:10px"><span class="pot-tag">Pot <span class="num">$${pot}</span>${toCall?` · To call <span class="num">$${toCall}</span>`:''}</span></div>
+          </div>
+          <div class="felt-seat"><div class="felt-label">You</div>
+            <div class="board-row" style="min-height:auto">${hero.map(c=>cardHTML(c,{deal:true})).join('')}</div></div>
+        </div>
+        <div id="ctrl" style="margin-top:16px"></div>`;
+      const ctrl=root.querySelector('#ctrl');
+      if(done){
+        ctrl.innerHTML=`<div class="feedback show ${result==='win'?'ok':result==='lose'?'no':''}">
+          <div class="verdict">${result==='win'?'✓ You win $'+pot:result==='lose'?'✕ Bot wins $'+pot:'Split pot'}</div>
+          <div class="expl">${msg||''} You had <b>${categoryOf([...hero,...fullBoard])}</b>, bot had <b>${categoryOf([...bot,...fullBoard])}</b>.</div>
+          <div class="btn-row">
+            <button class="btn primary" id="deal">Deal next hand →</button>
+            ${(bankHero<=0||bankBot<=0)?'<button class="btn" id="rematch">New session</button>':''}
+          </div></div>`;
+        ctrl.querySelector('#deal').onclick=()=>{ if(bankHero<=0||bankBot<=0){bankHero=1000;bankBot=1000;} newHand(); };
+        const rm=ctrl.querySelector('#rematch'); if(rm) rm.onclick=()=>{bankHero=1000;bankBot=1000;newHand();};
+        return;
+      }
+      // action buttons
+      const potOdds= toCall? toCall/(pot+toCall) : 0;
+      ctrl.innerHTML=`
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:10px">
+          <span style="font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase">Your equity vs bot</span>
+          <div class="meter" style="flex:1;min-width:160px"><i class="you" style="width:${heq}%"></i></div>
+          <span class="num" style="color:var(--good)">${heq}%</span>
+        </div>
+        <div class="btn-row" id="acts"></div>
+        <div class="feedback" id="fb"></div>`;
+      const acts=ctrl.querySelector('#acts');
+      const mkBtn=(label,act,cls)=>{const bt=el(`<button class="btn ${cls||''}">${label}</button>`);bt.onclick=()=>heroAct(act,heq,potOdds);acts.appendChild(bt);};
+      if(toCall>0){ mkBtn('Fold','fold'); mkBtn(`Call $${toCall}`,'call'); mkBtn('Raise $'+(toCall+pot),'raise','primary'); }
+      else { mkBtn('Check','check'); mkBtn('Bet $'+Math.round(pot*0.7),'bet','primary'); }
+    }
+    function judge(act,heq,potOdds){
+      // was it a +EV-ish decision? compare to simple heuristic
+      let best;
+      if(toCall>0){ best = heq/100>=0.6?'raise':(heq/100>=potOdds?'call':'fold'); }
+      else { best = heq>=55?'bet':'check'; }
+      totalDecisions++; const good=(act===best)|| (act==='call'&&best==='raise')||(act==='raise'&&best==='call');
+      if(good){goodDecisions++; awardXP(4);}
+      return best;
+    }
+    function heroAct(act,heq,potOdds){
+      const best=judge(act,heq,potOdds);
+      bump(act===best);
+      if(act==='fold'){ bankBot+=pot; done=true; result='lose'; return render('You folded — sometimes the right release.'); }
+      if(act==='raise'||act==='bet'){
+        const size=act==='bet'?Math.round(pot*0.7):(toCall+pot);
+        bankHero-=size; pot+=size; toCall=0;
+        // bot responds using its equity + odds
+        const beq=equity(bot,boardShown(),700,hero);
+        const price=size/(pot+size);
+        if(beq<price*0.9 && beq<0.5){ bankHero+=pot; done=true; result='win'; return render('Bot folds to your aggression.'); }
+        bankBot-=size; pot+=size; // bot calls
+        return advance();
+      }
+      if(act==='call'){ bankHero-=toCall; pot+=toCall; toCall=0; return advance(); }
+      if(act==='check'){
+        // bot may bet
+        const beq=equity(bot,boardShown(),700,hero);
+        if(beq>0.58){ const bsize=Math.round(pot*0.6); bankBot-=bsize; pot+=bsize; toCall=bsize;
+          return render('Bot bets $'+bsize+'. Your move.'); }
+        return advance();
+      }
+    }
+    function botLead(){ // start of a street, bot acts first sometimes
+      const beq=equity(bot,boardShown(),700,hero);
+      if(street>0 && beq>0.6 && Math.random()<0.7){
+        const bsize=Math.round(pot*0.6); bankBot-=bsize; pot+=bsize; toCall=bsize;
+        render('Bot bets $'+bsize+'.'); return true;
+      }
+      return false;
+    }
+    function advance(){
+      toCall=0;
+      if(street>=3){ return showdown(); }
+      street++;
+      if(!botLead()) render('');
+    }
+    function showdown(){
+      const hv=evaluate7([...hero,...fullBoard]), bv=evaluate7([...bot,...fullBoard]);
+      done=true;
+      if(hv>bv){bankHero+=pot;result='win';} else if(bv>hv){bankBot+=pot;result='lose';}
+      else {bankHero+=pot/2;bankBot+=pot/2;result='split';}
+      render('Showdown.');
+    }
+    render('');
+  }
+  newHand();
+}
+
+/* =====================================================================
+   BOOT
+   ===================================================================== */
+document.getElementById('themeBtn').onclick=()=>{
+  const cur=document.documentElement.getAttribute('data-theme');
+  const next = cur==='dark'?'light': cur==='light'?'dark' : (matchMedia('(prefers-color-scheme: dark)').matches?'light':'dark');
+  document.documentElement.setAttribute('data-theme',next);
+};
+document.getElementById('resetBtn').onclick=()=>{
+  if(confirm('Reset all XP and progress?')){ S={xp:0,streak:0,best:0,done:{},active:'rankings'}; save(); renderTop(); renderLadder(); renderStage(); toast('Progress reset'); }
+};
+if(!unlocked(S.active)) S.active='rankings';
+renderTop(); renderLadder(); renderStage();
+</script>
+
+</body>
+</html>
