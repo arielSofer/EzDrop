@@ -149,6 +149,9 @@
   .rung-meta{font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); flex:none}
   .rung-meta.done{color:var(--good)}
   .rung-meta.lock{color:var(--muted)}
+  .rung-meta.ahead{color:var(--muted); opacity:.8}
+  .rung.ahead{opacity:.92}
+  .rung.ahead:hover{opacity:1}
 
   /* ============================== STAGE ============================== */
   .stage{min-width:0}
@@ -469,13 +472,8 @@ function evaluate7(seven){
 }
 const CATNAME=['High Card','One Pair','Two Pair','Three of a Kind','Straight','Flush','Full House','Four of a Kind','Straight Flush'];
 const CATNAME_HE=['קלף גבוה','זוג','שני זוגות','שלישייה','רצף','פלאש','פול האוס','רביעייה','רצף פלאש'];
-function categoryOf(seven){
-  let best=-1,cat=0;
-  for(const idx of COMB5){
-    const five=[seven[idx[0]],seven[idx[1]],seven[idx[2]],seven[idx[3]],seven[idx[4]]];
-    const v=score5(five);
-    if(v>best){best=v; cat=Math.floor(v/(15**5));}
-  }
+function categoryOf(cards){
+  const cat=catIdxOf(cards); // catIdxOf handles 5, 6 or 7 cards
   return (typeof S!=='undefined'&&(S.lang||'he')==='he')?CATNAME_HE[cat]:CATNAME[cat];
 }
 // Heads-up equity via Monte Carlo. hero,villain: [card,card] (villain may be null=random). board: array
@@ -700,16 +698,15 @@ function renderTop(){
 function renderLadder(){
   const el=document.getElementById('ladder'); el.innerHTML='';
   MODULES.forEach((m,i)=>{
-    const lock=!unlocked(m.id);
+    const reached=unlocked(m.id);
     const b=document.createElement('button');
-    b.className='rung'+(S.active===m.id?' active':'')+(lock?' locked':'');
-    b.disabled=lock;
-    const meta = lock ? `<span class="rung-meta lock">🔒 ${m.xpReq} XP</span>`
-               : S.done[m.id] ? `<span class="rung-meta done">✓ ${T('הושלם','Done')}</span>`
-               : `<span class="rung-meta">${i+1}/8</span>`;
+    b.className='rung'+(S.active===m.id?' active':'')+(reached?'':' ahead');
+    const meta = S.done[m.id] ? `<span class="rung-meta done">✓ ${T('הושלם','Done')}</span>`
+               : reached ? `<span class="rung-meta">${i+1}/8</span>`
+               : `<span class="rung-meta ahead" title="${T('מומלץ מ-','from ')}${m.xpReq} XP">${m.xpReq} XP</span>`;
     b.innerHTML=`<span class="rung-ico">${m.ico}</span>
       <span class="rung-body"><b>${mTitle(m)}</b><small>${mSub(m)}</small></span>${meta}`;
-    if(!lock) b.onclick=()=>{S.active=m.id;S.view='learn';save();renderLadder();renderStage();window.scrollTo({top:0,behavior:'smooth'});};
+    b.onclick=()=>{S.active=m.id;S.view='learn';save();renderLadder();renderStage();window.scrollTo({top:0,behavior:'smooth'});};
     el.appendChild(b);
   });
 }
@@ -1592,7 +1589,7 @@ document.getElementById('themeBtn').onclick=()=>{
 document.getElementById('resetBtn').onclick=()=>{
   if(confirm(T('לאפס את כל ה-XP, הסטטיסטיקה וההתקדמות?','Reset all XP, statistics and progress?'))){ const l=S.lang; S=freshState(); S.lang=l; save(); renderTop(); renderLadder(); renderStage(); toast(T('ההתקדמות אופסה','Progress reset')); }
 };
-if(!unlocked(S.active)) S.active='rankings';
+if(!MODULES.some(m=>m.id===S.active)) S.active='rankings';
 if(!S.view) S.view='learn';
 if(!S.lang) S.lang='he';
 applyLang();
