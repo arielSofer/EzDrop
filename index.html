@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0d1311">
-<meta name="apple-mobile-web-app-capable" content="yes">
 <title>The Felt — Learn to Beat Poker</title>
 </head>
 <body>
@@ -623,6 +622,7 @@ function drill(host,{id,goal=5,intro:desc,render}){
     hud.querySelector('#da').textContent=state.answered;
     hud.querySelector('#ds').textContent=S.streak;
     if(state.correct>=goal && !S.done[id]) markDone(id);
+    next(); // deal the next question
   }
   next();
   return {next};
