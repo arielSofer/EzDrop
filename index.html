@@ -516,39 +516,39 @@ function genOuts(){
       const s=RI(4); const rk=shuffle(RANKS.slice()).slice(0,4); const cs=rk.map(r=>({r,s}));
       hero=[cs[0],cs[1]];
       const off=shuffle(freshDeck().filter(c=>c.s!==s && !rk.includes(c.r)))[0]; board=[cs[2],cs[3],off];
-      expect=9; name='Flush draw'; nameHe='דראו לפלאש';
-      why='Nine cards of the suit remain to complete your flush.'; whyHe='נשארו תשעה קלפים מהסימן שישלימו לך את הפלאש.';
+      expect=9; name='Close to a flush'; nameHe='קרוב לחמישה מאותו סימן';
+      why='Nine cards of that suit are left — any of them gives you five of a suit.'; whyHe='נשארו תשעה קלפים מאותו סימן — כל אחד מהם ייתן לך חמישה מאותו סימן.';
       ok = countOutsToCat(hero,board,5)===9 && countOutsToCat(hero,board,4)===9;
     } else if(type===1){ // open-ended straight = 8, mixed suits
       const st=2+RI(9); const seq=[st,st+1,st+2,st+3]; const cd=seq.map((r,i)=>({r,s:[0,1,2,0][i]}));
       hero=[cd[0],cd[3]]; const off=shuffle(freshDeck().filter(c=>!seq.includes(c.r)&&c.s!==0))[0]; board=[cd[1],cd[2],off];
-      expect=8; name='Open-ended straight draw'; nameHe='דראו פתוח לרצף';
-      why='Two ranks (eight cards) complete the straight at either end.'; whyHe='שני ערכים (שמונה קלפים) משלימים את הרצף משני הקצוות.';
+      expect=8; name='Straight open both ends'; nameHe='רצף פתוח משני הצדדים';
+      why='Two different numbers (eight cards) complete the straight on either side.'; whyHe='שני מספרים שונים (שמונה קלפים) סוגרים את הרצף משני הצדדים.';
       ok = countOutsToCat(hero,board,4)===8 && countOutsToCat(hero,board,5)===0;
     } else if(type===2){ // gutshot = 4
       const st=2+RI(9); const seq=[st,st+1,st+3,st+4]; const cd=seq.map((r,i)=>({r,s:[0,1,2,0][i]}));
       hero=[cd[0],cd[2]]; const off=shuffle(freshDeck().filter(c=>!seq.includes(c.r)&&c.r!==st+2&&c.s!==0))[0]; board=[cd[1],cd[3],off];
-      expect=4; name='Gutshot straight draw'; nameHe='דראו לרצף פנימי (גאטשוט)';
-      why='Only the one inside rank (four cards) completes the straight.'; whyHe='רק הערך הפנימי האחד (ארבעה קלפים) משלים את הרצף.';
+      expect=4; name='Straight with a gap'; nameHe='רצף עם חור באמצע';
+      why='Only the one missing middle number (four cards) completes the straight.'; whyHe='רק המספר שחסר באמצע (ארבעה קלפים) סוגר את הרצף.';
       ok = countOutsToCat(hero,board,4)===4 && countOutsToCat(hero,board,5)===0;
     } else if(type===3){ // flush + straight combo = 15 (four suited connectors)
       const s=RI(4); const st=2+RI(8); const seq=[st,st+1,st+2,st+3]; const cd=seq.map(r=>({r,s}));
       hero=[cd[0],cd[3]]; const off=shuffle(freshDeck().filter(c=>c.s!==s&&!seq.includes(c.r)))[0]; board=[cd[1],cd[2],off];
-      expect=15; name='Flush + straight combo'; nameHe='קומבו פלאש + רצף';
-      why='Nine flush cards plus the straight outs — 15 clean outs, a monster draw.'; whyHe='תשעה קלפי פלאש ועוד האאוטים לרצף — 15 אאוטים נקיים, דראו ענק.';
+      expect=15; name='Close to both a straight and a suit'; nameHe='קרוב גם לרצף וגם לסימן';
+      why='Nine cards for the suit plus more for the straight — 15 helping cards, a dream hand.'; whyHe='תשעה קלפים לחמישה מאותו סימן ועוד קלפים לרצף — 15 קלפים מצילים, יד חלומית.';
       ok = countOutsToCat(hero,board,4)===15;
     } else { // pocket pair -> set = 2
       const r=2+RI(13); let s1=RI(4),s2=RI(4); while(s2===s1)s2=RI(4);
       hero=[{r,s:s1},{r,s:s2}]; const seen=new Set([r]); board=[];
       for(const c of shuffle(freshDeck().filter(x=>x.r!==r))){ if(!seen.has(c.r)){board.push(c);seen.add(c.r);} if(board.length===3)break; }
-      expect=2; name='Set draw (pair→trips)'; nameHe='שיפור זוג לשלישייה';
-      why='Only the two remaining cards of your pair make trips.'; whyHe='רק שני הקלפים שנותרו מהזוג שלך יוצרים שלישייה.';
+      expect=2; name='A pair that can become three of a kind'; nameHe='זוג שיכול להפוך לשלישייה';
+      why='Only the two remaining cards of your pair make three of a kind.'; whyHe='רק שני הקלפים שנשארו מהזוג שלך יוצרים שלישייה.';
       ok = countOutsToCat(hero,board,3)===2;
     }
     if(ok) return {hero,board,outs:expect,name,nameHe,why,whyHe};
   }
-  return {hero:[{r:14,s:1},{r:13,s:1}],board:[{r:9,s:1},{r:4,s:1},{r:2,s:0}],outs:9,name:'Flush draw',nameHe:'דראו לפלאש',
-    why:'Nine hearts complete the flush.',whyHe:'תשעה קלפי לב משלימים את הפלאש.'};
+  return {hero:[{r:14,s:1},{r:13,s:1}],board:[{r:9,s:1},{r:4,s:1},{r:2,s:0}],outs:9,name:'Close to a flush',nameHe:'קרוב לחמישה מאותו סימן',
+    why:'Nine cards of that suit are left to complete it.',whyHe:'נשארו תשעה קלפים מאותו סימן שישלימו לך.'};
 }
 // ---- Module 6: random value/bluff/check spot, decided by real equity ----
 function genAggro(){
@@ -659,10 +659,10 @@ const MODULES=[
     he:{title:'הסולם', sub:'לקרוא חוזק יד'}},
   {id:'position', ico:'♟', title:'Position & Hands', sub:'Where you sit matters', xpReq:30,
     he:{title:'עמדה וידיים', sub:'המקום שבו אתה יושב'}},
-  {id:'outs', ico:'⁴', title:'Outs & Equity', sub:'Count your future', xpReq:70,
-    he:{title:'אאוטים ואקוויטי', sub:'לספור את העתיד'}},
-  {id:'odds', ico:'%', title:'Pot Odds & Risk', sub:'The math of a call', xpReq:120,
-    he:{title:'יחסי סיכוי וסיכון', sub:'המתמטיקה של קריאה'}},
+  {id:'outs', ico:'⁴', title:'Your Chances', sub:'Count the helping cards', xpReq:70,
+    he:{title:'הסיכוי לנצח', sub:'לספור קלפים מצילים'}},
+  {id:'odds', ico:'%', title:'Is It Worth Paying?', sub:'The simple math', xpReq:120,
+    he:{title:'האם שווה לשלם?', sub:'החשבון הפשוט'}},
   {id:'decisions', ico:'⚖', title:'Fold · Call · Raise', sub:'The core decision', xpReq:180,
     he:{title:'לזרוק · לשלם · להעלות', sub:'ההחלטה המרכזית'}},
   {id:'aggression', ico:'▲', title:'When to Go Hard', sub:'Value bets & bluffs', xpReq:250,
@@ -953,23 +953,23 @@ const OUTS_SCENARIOS=[
    why:'9 hearts finish the flush and any Queen or Seven finishes the straight — 15 clean outs, a monster draw.', whyHe:'9 קלפי לב משלימים פלאש וכל מלכה או שבע משלימים רצף — 15 אאוטים נקיים, דראו ענק.'},
 ];
 function mOuts(b){
-  intro(T('כרגע אתה מאחור — אבל החפיסה יכולה להציל אותך. ״אאוט״ הוא קלף שהופך את היד שלך למנצחת. תספור אאוטים, ותוכל להפוך אותם ישר לאחוז ניצחון מקורב.',
-          'You’re behind now — but the deck can save you. An “out” is a card that makes your hand the winner. Count outs, and you can turn them straight into a rough win-percentage.'));
+  intro(T('כרגע היד שלך לא מנצחת — אבל עוד יכול להגיע קלף שיהפוך אותה למנצחת. נקרא לו ״קלף מציל״. אם תדע לספור כמה קלפים כאלה נשארו בחפיסה, תדע בערך מה הסיכוי שלך לנצח.',
+          'Right now your hand isn’t winning — but a card that turns it into a winner might still come. Let’s call it a “helping card”. If you can count how many are left in the deck, you’ll know roughly your chance to win.'));
   b.innerHTML=`
    <div class="prose">
-     <p class="lead">${T('אקוויטי = הנתח שלך מהקופה אילו היד הייתה מגיעה לשולדאון אלף פעמים.','Equity is your share of the pot if the hand ran to showdown a thousand times.')}</p>
-     <p>${T('החפיסה מכילה 52 קלפים. אתה כבר רואה חלק מהם (היד שלך + הפלופ). כל הקלפים שנותרו ושמשלימים לך יד מנצחת נקראים ״אאוטים״. לספור אותם נכון זו המיומנות שממירה תחושת בטן למספר.','The deck has 52 cards. You already see some (your hand + the flop). Every remaining card that completes a winning hand for you is an "out". Counting them correctly is the skill that turns a gut feeling into a number.')}</p>
+     <p class="lead">${T('הרעיון פשוט: כמה סביר שהיד שלך תזכה בקופה. ככל שיש יותר קלפים שיכולים להציל אותך — כך הסיכוי שלך גבוה יותר.','The idea is simple: how likely your hand is to win the pot. The more cards that can save you, the better your chances.')}</p>
+     <p>${T('בחפיסה יש 52 קלפים, ואתה כבר רואה חלק מהם — את שני הקלפים שלך ואת אלה שעל השולחן. כל קלף שנשאר בחפיסה ויכול להפוך אותך למנצח הוא ״קלף מציל״. כל מה שצריך זה לספור כמה כאלה נשארו.','The deck has 52 cards, and you already see some — your two cards and the ones on the table. Any card still in the deck that would make you the winner is a “helping card”. All you do is count how many are left.')}</p>
    </div>
-   <div class="keycard">${T('<b>כלל ה־2 וה־4.</b> הכפל את מספר האאוטים ב־<b>4</b> בפלופ (שני קלפים עוד באים) או ב־<b>2</b> בטרן (קלף אחד עוד בא) — וקיבלת בערך את הסיכוי שלך לפגוע, באחוזים. מהיר, וקרוב מספיק כדי לשחק לפיו.','<b>The Rule of 2 and 4.</b> Multiply your outs by <b>4</b> on the flop (two cards to come) or by <b>2</b> on the turn (one card to come) — that’s your approximate chance to hit, in percent. Fast, and close enough to play.')}</div>
+   <div class="keycard">${T('<b>טריק מהיר לחישוב:</b> ספור כמה קלפים מצילים יש לך, והכפל <b>×4</b> אם עוד שני קלפים אמורים להיפתח על השולחן, או <b>×2</b> אם נשאר רק קלף אחד. התוצאה = בערך הסיכוי שלך לפגוע, באחוזים.','<b>A quick way to estimate:</b> count your helping cards, then multiply by <b>×4</b> if two more cards are still coming, or by <b>×2</b> if only one is left. The result ≈ your chance to hit, as a percent.')}</div>
    <table class="table-mini">
-     <tr><th>${T('דראו','Draw')}</th><th>${T('אאוטים','Outs')}</th><th>${T('פלופ ≈ (×4)','Flop ≈ (×4)')}</th><th>${T('טרן ≈ (×2)','Turn ≈ (×2)')}</th></tr>
-     <tr><td>${T('רצף פנימי (גאטשוט)','Gutshot straight')}</td><td class="num">4</td><td class="num">16%</td><td class="num">8%</td></tr>
-     <tr><td>${T('דראו לפלאש','Flush draw')}</td><td class="num">9</td><td class="num">36%</td><td class="num">18%</td></tr>
-     <tr><td>${T('רצף פתוח','Open-ended straight')}</td><td class="num">8</td><td class="num">32%</td><td class="num">16%</td></tr>
-     <tr><td>${T('קומבו פלאש + רצף','Flush + straight combo')}</td><td class="num">15</td><td class="num">54%</td><td class="num">30%</td></tr>
+     <tr><th>${T('המצב','Situation')}</th><th>${T('קלפים מצילים','Helping cards')}</th><th>${T('סיכוי (2 קלפים)','Chance (2 to come)')}</th><th>${T('סיכוי (קלף 1)','Chance (1 to come)')}</th></tr>
+     <tr><td>${T('רצף עם חור באמצע','Straight with a gap')}</td><td class="num">4</td><td class="num">16%</td><td class="num">8%</td></tr>
+     <tr><td>${T('קרוב לחמישה מאותו סימן','Close to five of a suit')}</td><td class="num">9</td><td class="num">36%</td><td class="num">18%</td></tr>
+     <tr><td>${T('רצף פתוח משני הצדדים','Straight open both ends')}</td><td class="num">8</td><td class="num">32%</td><td class="num">16%</td></tr>
+     <tr><td>${T('קרוב גם לרצף וגם לסימן','Close to both a straight & a suit')}</td><td class="num">15</td><td class="num">54%</td><td class="num">30%</td></tr>
    </table>
-   <h3 class="sec">${T('תרגול · ספור את האאוטים','Drill · Count the outs')}</h3>
-   <p style="color:var(--muted);margin:0 0 4px">${T('אנחנו בפלופ. כמה קלפים משלימים לך את היד? קלע ל־5 כדי לשלוט בזה.','It’s the flop. How many cards complete your hand? Nail 5 to master this.')}</p>
+   <h3 class="sec">${T('תרגול · כמה קלפים מצילים?','Drill · How many helping cards?')}</h3>
+   <p style="color:var(--muted);margin:0 0 4px">${T('שלושת הקלפים הראשונים כבר על השולחן. כמה קלפים בחפיסה יהפכו את היד שלך למנצחת? פתור 5 כדי לשלוט בזה.','The first three cards are on the table. How many cards in the deck would turn your hand into a winner? Solve 5 to master this.')}</p>
    <div id="d3"></div>`;
   drill(document.getElementById('d3'),{id:'outs',goal:5,render:(q,done)=>{
     const sc=genOuts();
@@ -980,10 +980,10 @@ function mOuts(b){
       <div class="felt" style="padding:18px;margin:14px 0">
         <div class="felt-seat"><div class="felt-label">${T('היד שלך','Your hand')}</div>
           <div class="board-row" style="min-height:auto">${sc.hero.map(c=>cardHTML(c,{deal:true})).join('')}</div></div>
-        <div class="felt-seat" style="margin-top:14px"><div class="felt-label">${T('פלופ','Flop')}</div>
+        <div class="felt-seat" style="margin-top:14px"><div class="felt-label">${T('על השולחן','On the table')}</div>
           <div class="board-row" style="min-height:auto">${sc.board.map(c=>cardHTML(c,{deal:true})).join('')}</div></div>
       </div>
-      <div class="choice-grid c3">${opts.map(o=>`<button class="choice" data-o="${o}" style="justify-content:center"><b class="num">${o} ${T('אאוטים','outs')}</b></button>`).join('')}</div>
+      <div class="choice-grid c3">${opts.map(o=>`<button class="choice" data-o="${o}" style="justify-content:center"><b class="num">${o} ${T('קלפים','cards')}</b></button>`).join('')}</div>
       <div class="feedback" id="fb"></div>`;
     q.querySelectorAll('.choice').forEach(btn=>btn.onclick=()=>{
       q.querySelectorAll('.choice').forEach(x=>{x.onclick=null;if(+x.dataset.o!==sc.outs)x.classList.add('dim');});
@@ -992,9 +992,9 @@ function mOuts(b){
       const right=[...q.querySelectorAll('.choice')].find(x=>+x.dataset.o===sc.outs);right.classList.add('correct');right.classList.remove('dim');
       const fb=q.querySelector('#fb'); fb.className='feedback show '+(ok?'ok':'no');
       const nm=T(sc.nameHe,sc.name);
-      fb.innerHTML=`<div class="verdict">${ok?'✓ '+nm:'✕ '+T('זה '+sc.outs+' אאוטים — '+nm,'It’s '+sc.outs+' outs — '+nm)}</div>
-        <div class="expl">${T(sc.whyHe,sc.why)} ${T('בפלופ זה בערך','On the flop that’s ≈')} <b>${Math.min(95,sc.outs*4)}%</b> ${T('להגיע לזה עד הריבר (כלל ה־4).','to get there by the river (Rule of 4).')}</div>
-        <div class="btn-row"><button class="btn primary" id="nx">${T('לוח הבא →','Next board →')}</button></div>`;
+      fb.innerHTML=`<div class="verdict">${ok?'✓ '+nm:'✕ '+T('זה '+sc.outs+' קלפים — '+nm,'It’s '+sc.outs+' cards — '+nm)}</div>
+        <div class="expl">${T(sc.whyHe,sc.why)} ${T('זה בערך','That’s about')} <b>${Math.min(95,sc.outs*4)}%</b> ${T('סיכוי לפגוע עד סוף היד.','chance to hit by the end of the hand.')}</div>
+        <div class="btn-row"><button class="btn primary" id="nx">${T('הבא →','Next →')}</button></div>`;
       fb.querySelector('#nx').onclick=()=>done(ok,7);
     });
   }});
@@ -1004,37 +1004,37 @@ function mOuts(b){
    MODULE 4 — POT ODDS & RISK  (calculator + drill)
    ===================================================================== */
 function mOdds(b){
-  intro(T('זהו לב הסיכון בפוקר. קall עולה כסף כדי לזכות בקופה גדולה יותר. יחסי הקופה (pot odds) אומרים לך את המחיר. השווה את המחיר לאקוויטי שלך — ולזרוק מול לשלם מפסיק להיות תחושה והופך לחשבון פשוט.',
-          'Here’s the heart of poker risk. A call costs money to win a bigger pot. Pot odds tell you the price. Compare that price to your equity, and folding vs calling stops being a feeling — it becomes arithmetic.'));
+  intro(T('זה הלב של פוקר. כל פעם שאתה משלם כדי להישאר ביד, אתה מסכן כסף כדי לזכות בקופה גדולה יותר. השאלה הפשוטה: האם שווה לשלם? משווים כמה אתה משלם מול כמה אפשר לזכות — וההחלטה מפסיקה להיות ניחוש והופכת לחשבון פשוט.',
+          'This is the heart of poker. Every time you pay to stay in a hand, you risk money to win a bigger pot. The simple question: is it worth paying? Compare what you pay to what you can win — and the decision stops being a guess and becomes simple arithmetic.'));
   b.innerHTML=`
    <div class="prose">
-     <p class="lead">${T('יחסי קופה = <strong>כמה אתה חייב לשלם</strong> מול <strong>כמה תזכה</strong>.','Pot odds = <strong>what you must call</strong> versus <strong>what you’d win</strong>.')}</p>
-     <p>${T('אם בקופה יש 100$ וקall עולה 50$, אתה מסכן 50 כדי לזכות ב־150 בסך הכול. נקודת האיזון שלך היא 50 ÷ (150+50) — כלומר <b>סכום ה־call ÷ (הקופה אחרי שתשלם)</b> = 50/200 = <b>25%</b>. אם האקוויטי שלך גבוה מ־25% — ה־call מרוויח לאורך זמן.','If the pot is $100 and a call costs $50, you’re risking 50 to win 150 total. Your break-even equity is 50 ÷ (150+50)… i.e. <b>call ÷ (pot after your call)</b> = 50/200 = <b>25%</b>. Beat 25% equity and calling profits over time.')}</p>
+     <p class="lead">${T('הכלל: משווים <strong>כמה עולה להישאר</strong> מול <strong>כמה יש בקופה לזכות</strong>.','The rule: compare <strong>what it costs to stay in</strong> against <strong>what’s in the pot to win</strong>.')}</p>
+     <p>${T('דוגמה: בקופה יש 100$, ולהישאר עולה לך 50$. אתה מסכן 50 כדי לזכות ב־100. הסיכוי שאתה צריך כדי שזה ישתלם = <b>מה שאתה משלם ÷ (הקופה + מה שאתה משלם)</b> = 50 ÷ (100+50) = <b>33%</b>. אם הסיכוי שלך לזכות גדול מ־33% — כדאי לשלם.','Example: there’s $100 in the pot, and staying in costs you $50. You risk 50 to win 100. The chance you need to break even = <b>what you pay ÷ (pot + what you pay)</b> = 50 ÷ (100+50) = <b>33%</b>. If your chance to win beats 33%, paying is worth it.')}</p>
    </div>
-   <div class="keycard">${T('<b>הכלל:</b> אם <b>אחוז האקוויטי</b> שלך גדול מ<b>אחוז נקודת האיזון</b> — ה־call מרוויח כסף. אם נמוך — לזרוק. ההשוואה הבודדת הזו היא רוב מה שצריך כדי לנצח בפוקר.','<b>The rule:</b> if your <b>equity %</b> is greater than your <b>break-even %</b>, the call makes money. If it’s lower, fold. That single comparison is most of winning poker.')}</div>
-   <h3 class="sec">${T('מחשבון הסיכון','The risk calculator')}</h3>
-   <p style="color:var(--muted);margin:0 0 8px">${T('גרור את המחוונים — וראה מיד אם ה־call רווחי.','Drag the sliders — see instantly whether a call is profitable.')}</p>
+   <div class="keycard">${T('<b>הכלל בשורה אחת:</b> אם <b>הסיכוי שלך לזכות</b> גדול מ<b>הסיכוי הדרוש</b> — כדאי לשלם. אם קטן — לזרוק. ההשוואה הפשוטה הזו היא רוב מה שצריך כדי לנצח בפוקר.','<b>The rule in one line:</b> if <b>your chance to win</b> is bigger than <b>the chance you need</b>, paying is worth it. If it’s smaller, fold. This one comparison is most of winning poker.')}</div>
+   <h3 class="sec">${T('מחשבון: האם שווה לשלם?','Calculator: is it worth paying?')}</h3>
+   <p style="color:var(--muted);margin:0 0 8px">${T('גרור את המחוונים — וראה מיד אם התשלום משתלם.','Drag the sliders — see instantly whether paying is worth it.')}</p>
    <div id="calc"></div>
    <h3 class="sec">${T('תרגול · לשלם או לזרוק?','Drill · Call or fold?')}</h3>
-   <p style="color:var(--muted);margin:0 0 4px">${T('אתה יודע את האקוויטי שלך. המחיר משתלם? פתור 6 כדי לשלוט ביחסי הקופה.','You know your equity. Is the price right? Solve 6 to master pot odds.')}</p>
+   <p style="color:var(--muted);margin:0 0 4px">${T('נתון לך הסיכוי שלך לזכות. המחיר משתלם? פתור 6 כדי לשלוט בזה.','You’re given your chance to win. Is the price worth it? Solve 6 to master this.')}</p>
    <div id="d4"></div>`;
   // calculator
   const c=document.getElementById('calc');
   c.appendChild(el(`
    <div style="display:grid;grid-template-columns:1fr;gap:4px;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-md);padding:16px">
-     <div class="field"><label>${T('הקופה לפני ה־call','Pot before you call')} — $<span class="num" id="vpot">100</span></label>
+     <div class="field"><label>${T('כמה יש בקופה (מה שתזכה)','What’s in the pot (what you win)')} — $<span class="num" id="vpot">100</span></label>
        <input type="range" id="pot" min="20" max="600" step="10" value="100"></div>
-     <div class="field"><label>${T('הסכום לתשלום (call)','Amount to call')} — $<span class="num" id="vbet">50</span></label>
+     <div class="field"><label>${T('כמה עולה להישאר (לשלם)','Cost to stay in (call)')} — $<span class="num" id="vbet">50</span></label>
        <input type="range" id="bet" min="10" max="600" step="10" value="50"></div>
-     <div class="field"><label>${T('האקוויטי שלך (סיכוי לזכות)','Your equity (chance to win)')} — <span class="num" id="veq">45</span>%</label>
+     <div class="field"><label>${T('הסיכוי שלך לזכות','Your chance to win')} — <span class="num" id="veq">45</span>%</label>
        <input type="range" id="eq" min="2" max="95" step="1" value="45"></div>
      <div class="stat-row" id="calcOut"></div>
    </div>`));
   function recalc(){
     const pot=+c.querySelector('#pot').value, bet=+c.querySelector('#bet').value, eq=+c.querySelector('#eq').value;
     c.querySelector('#vpot').textContent=pot; c.querySelector('#vbet').textContent=bet; c.querySelector('#veq').textContent=eq;
-    const be=bet/(pot+bet+bet)*100; const call=eq>be;
-    const ev=(eq/100)*(pot+bet) - (1-eq/100)*bet;
+    const be=bet/(pot+bet)*100; const call=eq>be;
+    const ev=(eq/100)*pot - (1-eq/100)*bet;
     c.querySelector('#calcOut').innerHTML=`
       <div style="grid-column:1/-1">
         <div style="position:relative;height:30px;border-radius:8px;background:rgba(0,0,0,.28);border:1px solid var(--line);overflow:hidden;direction:ltr">
@@ -1042,14 +1042,14 @@ function mOdds(b){
           <div style="position:absolute;top:-3px;bottom:-3px;left:${be}%;width:2px;background:var(--ink)"></div>
         </div>
         <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px">
-          <span>${T('אקוויטי','Your equity')} <b class="num" style="color:${call?'var(--good)':'var(--bad)'}">${eq}%</b></span>
-          <span>${T('נק׳ איזון','break-even')} <b class="num" style="color:var(--ink)">${be.toFixed(0)}%</b> ▲</span>
+          <span>${T('הסיכוי שלך','Your chance')} <b class="num" style="color:${call?'var(--good)':'var(--bad)'}">${eq}%</b></span>
+          <span>${T('הסיכוי הדרוש','needed')} <b class="num" style="color:var(--ink)">${be.toFixed(0)}%</b> ▲</span>
         </div>
       </div>
-      <div class="stat"><div class="k">${T('אקוויטי לאיזון','Break-even equity')}</div><div class="v num">${be.toFixed(1)}%</div></div>
-      <div class="stat"><div class="k">${T('האקוויטי שלך','Your equity')}</div><div class="v num">${eq}%</div></div>
-      <div class="stat"><div class="k">${T('הכרעה','Verdict')}</div><div class="v ${call?'good':'bad'}">${call?T('לשלם','CALL'):T('לזרוק','FOLD')}</div></div>
-      <div class="stat"><div class="k">${T('EV לטווח ארוך','Long-run EV / call')}</div><div class="v num ${ev>=0?'good':'bad'}">${ev>=0?'+':''}$${ev.toFixed(0)}</div></div>`;
+      <div class="stat"><div class="k">${T('הסיכוי הדרוש','Chance needed')}</div><div class="v num">${be.toFixed(1)}%</div></div>
+      <div class="stat"><div class="k">${T('הסיכוי שלך','Your chance')}</div><div class="v num">${eq}%</div></div>
+      <div class="stat"><div class="k">${T('הכרעה','Verdict')}</div><div class="v ${call?'good':'bad'}">${call?T('שווה לשלם','CALL'):T('לזרוק','FOLD')}</div></div>
+      <div class="stat"><div class="k">${T('רווח ממוצע','Avg. profit / call')}</div><div class="v num ${ev>=0?'good':'bad'}">${ev>=0?'+':''}$${ev.toFixed(0)}</div></div>`;
   }
   ['pot','bet','eq'].forEach(id=>c.querySelector('#'+id).addEventListener('input',recalc)); recalc();
   // drill
@@ -1057,17 +1057,17 @@ function mOdds(b){
     const lvl=levelFor(S.xp);
     const pot=[60,80,100,120,150,200][(Math.random()*6)|0];
     const bet=[Math.round(pot*0.4),Math.round(pot*0.5),Math.round(pot*0.66),Math.round(pot*0.75),pot][(Math.random()*5)|0];
-    const be=bet/(pot+bet+bet)*100;
-    // pick equity near break-even as level rises (harder = more marginal)
+    const be=bet/(pot+bet)*100;
+    // pick chance-to-win near break-even as level rises (harder = more marginal)
     const margin = lvl>=5?4:lvl>=3?8:14;
     let eq=Math.round(be + (Math.random()*2-1)*margin);
     eq=Math.max(5,Math.min(92,eq)); if(Math.abs(eq-be)<1.5) eq=Math.round(be)+ (Math.random()<.5?2:-2);
     const call=eq>be;
     q.innerHTML=`
       <div class="stat-row">
-        <div class="stat"><div class="k">${T('קופה','Pot')}</div><div class="v num">$${pot}</div></div>
-        <div class="stat"><div class="k">${T('לתשלום','To call')}</div><div class="v num">$${bet}</div></div>
-        <div class="stat"><div class="k">${T('האקוויטי שלך','Your equity')}</div><div class="v num warn">${eq}%</div></div>
+        <div class="stat"><div class="k">${T('בקופה','In the pot')}</div><div class="v num">$${pot}</div></div>
+        <div class="stat"><div class="k">${T('עולה לשלם','Cost to call')}</div><div class="v num">$${bet}</div></div>
+        <div class="stat"><div class="k">${T('הסיכוי שלך','Your chance')}</div><div class="v num warn">${eq}%</div></div>
       </div>
       <div class="choice-grid" style="grid-template-columns:1fr 1fr">
         <button class="choice" data-a="call" style="justify-content:center"><b>${T('לשלם','Call')}</b></button>
@@ -1077,11 +1077,11 @@ function mOdds(b){
     q.querySelectorAll('.choice').forEach(btn=>btn.onclick=()=>{
       q.querySelectorAll('.choice').forEach(x=>x.onclick=null);
       const ok=(btn.dataset.a==='call')===call; btn.classList.add(ok?'correct':'wrong');
-      const ev=(eq/100)*(pot+bet)-(1-eq/100)*bet;
+      const ev=(eq/100)*pot-(1-eq/100)*bet;
       const fb=q.querySelector('#fb'); fb.className='feedback show '+(ok?'ok':'no');
       fb.innerHTML=`<div class="verdict">${ok?T('✓ קראת נכון את המחיר','✓ Right price read'):T('✕ טעות בחישוב','✕ Miscalculated')}</div>
-        <div class="expl">${T('נקודת האיזון כאן היא','Break-even here is')} <b>${be.toFixed(1)}%</b>. ${T('ה־'+eq+'% שלך','Your '+eq+'%')} <b>${call?T('מעליה','above'):T('מתחתיה','below')}</b>, ${T('אז המהלך הרווחי הוא','so the profitable play is to')} <b>${call?T('לשלם','call'):T('לזרוק','fold')}</b>.
-        ${T('הערך של call לטווח ארוך:','Calling’s long-run value:')} <b>${ev>=0?'+':''}$${ev.toFixed(0)}</b> ${T('לכל ניסיון.','per attempt.')}</div>
+        <div class="expl">${T('כדי שהתשלום ישתלם צריך סיכוי של','You need a chance of at least')} <b>${be.toFixed(0)}%</b> ${T('(‎'+bet+' ÷ ('+pot+'+'+bet+')‎). הסיכוי שלך הוא '+eq+'% — ','('+bet+' ÷ ('+pot+'+'+bet+')). Your '+eq+'% is ')}<b>${call?T('מעליו, אז שווה לשלם','above it, so calling pays'):T('מתחתיו, אז עדיף לזרוק','below it, so folding is better')}</b>.
+        ${T('לאורך זמן, תשלום כזה מרוויח בממוצע','On average a call like this profits')} <b>${ev>=0?'+':''}$${ev.toFixed(0)}</b>.</div>
         <div class="btn-row"><button class="btn primary" id="nx">${T('מצב הבא →','Next spot →')}</button></div>`;
       fb.querySelector('#nx').onclick=()=>done(ok,8);
     });
