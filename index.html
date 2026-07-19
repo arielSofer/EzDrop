@@ -302,6 +302,9 @@
 
   /* ============================== DASHBOARD ============================== */
   .icon-btn.wide{width:auto; padding:0 13px; gap:7px}
+  .icon-btn.lang{width:auto; padding:0 12px; gap:6px; font-size:13px; font-weight:700;
+    border-color:var(--brass); color:var(--brass); background:color-mix(in srgb,var(--brass) 12%,var(--panel))}
+  .icon-btn.lang:hover{background:color-mix(in srgb,var(--brass) 20%,var(--panel))}
   .ib-txt{font-size:13px; font-weight:600; letter-spacing:.02em}
   .icon-btn.wide.active{border-color:var(--brass); color:var(--brass);
     background:linear-gradient(180deg,var(--panel-2),var(--panel))}
@@ -393,7 +396,7 @@
       </div>
     </div>
     <div class="top-actions">
-      <button class="icon-btn wide" id="langBtn" title="Language / שפה" aria-label="Language">עב</button>
+      <button class="icon-btn wide lang" id="langBtn" title="שנה שפה / Change language" aria-label="Language"><span>🌐</span><span id="langTxt">English</span></button>
       <div class="streak" title="Correct answers in a row">🔥 <b id="streakNum">0</b></div>
       <button class="icon-btn wide" id="statsBtn" title="Your statistics" aria-label="Statistics"><span class="ib-ico">📊</span><span class="ib-txt" id="statsTxt">Stats</span></button>
       <button class="icon-btn" id="themeBtn" title="Toggle light / dark" aria-label="Toggle theme">◐</button>
@@ -623,8 +626,7 @@ function T(he,en){return (S.lang||'he')==='he'?he:en;}
 function tx(o){return o[(S.lang||'he')]||o.en||o.he;}
 function applyLang(){ const d=document.documentElement; const he=(S.lang||'he')==='he';
   d.setAttribute('lang', he?'he':'en'); d.setAttribute('dir', he?'rtl':'ltr'); }
-function setLang(l){ S.lang=l; save(); applyLang(); renderTop(); renderLadder(); renderStage();
-  const lb=document.getElementById('langBtn'); if(lb) lb.textContent=(S.lang==='he'?'EN':'עב'); }
+function setLang(l){ S.lang=l; save(); applyLang(); renderTop(); renderLadder(); renderStage(); }
 function now(){return Date.now();}
 // Log a single graded answer for the statistics engine
 function logAnswer(mod, ok){
@@ -692,7 +694,7 @@ function renderTop(){
   set('lvlLabel', T('רמה','Level'));
   set('progLabel', T('התקדמות','Progress'));
   set('statsTxt', T('נתונים','Stats'));
-  const lb=document.getElementById('langBtn'); if(lb) lb.textContent=(S.lang==='he'?'EN':'עב');
+  set('langTxt', S.lang==='he'?'English':'עברית');
   const stk=document.querySelector('.streak'); if(stk) stk.title=T('תשובות נכונות ברצף','Correct answers in a row');
 }
 function renderLadder(){
