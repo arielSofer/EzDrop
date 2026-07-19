@@ -302,6 +302,40 @@
   .cta-final{text-align:center; padding:36px 20px}
   .cta-final .big{font-family:var(--serif); font-size:40px; color:var(--brass)}
 
+  /* ============================== DASHBOARD ============================== */
+  .icon-btn.wide{width:auto; padding:0 13px; gap:7px}
+  .ib-txt{font-size:13px; font-weight:600; letter-spacing:.02em}
+  .icon-btn.wide.active{border-color:var(--brass); color:var(--brass);
+    background:linear-gradient(180deg,var(--panel-2),var(--panel))}
+  .dash-2{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0}
+  @media (max-width:640px){ .dash-2{grid-template-columns:1fr} }
+  .panel-card{background:var(--bg-2); border:1px solid var(--line); border-radius:var(--r-md); padding:16px 17px}
+  .panel-title{font-family:var(--serif); font-size:16px; margin:0 0 14px; display:flex;
+    justify-content:space-between; align-items:baseline; gap:10px}
+  .panel-title small{font-family:var(--sans); font-size:11px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); font-weight:600}
+  .skill{display:grid; grid-template-columns:120px 1fr 44px; gap:11px; align-items:center; margin:10px 0}
+  .skill .lbl{font-size:12.5px; color:var(--ink-soft); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .skill .track{height:9px; border-radius:99px; background:rgba(0,0,0,.28); overflow:hidden; border:1px solid var(--line)}
+  .skill .track > i{display:block; height:100%; border-radius:99px; transition:width .7s cubic-bezier(.2,.8,.2,1)}
+  .skill .pct{font-family:var(--mono); text-align:right; font-size:12.5px; color:var(--ink)}
+  .skill.muted .lbl,.skill.muted .pct{color:var(--muted)}
+  .chart-svg{width:100%; height:auto; display:block; overflow:visible}
+  .chart-svg text{font-family:var(--mono); fill:var(--muted)}
+  .legend-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px; font-size:12.5px; color:var(--ink-soft)}
+  .legend-row .d{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:6px; vertical-align:-1px}
+  .coach{border:1px solid var(--line-2); border-left:3px solid var(--brass); border-radius:var(--r-md);
+    background:linear-gradient(180deg,var(--panel-2),var(--bg-2)); padding:16px 18px; margin:16px 0;
+    display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+  .coach .c-body{flex:1; min-width:200px}
+  .coach .c-ey{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--brass); font-weight:700}
+  .coach .c-title{font-family:var(--serif); font-size:18px; margin:3px 0 4px}
+  .coach .c-sub{color:var(--ink-soft); font-size:13.5px}
+  .empty-dash{text-align:center; padding:40px 20px; color:var(--muted)}
+  .empty-dash .em-ico{font-size:44px}
+  .donut-wrap{display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content:center}
+  .donut-center{font-family:var(--serif)}
+
   @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important} }
 
   /* ============================== MOBILE ============================== */
@@ -350,6 +384,7 @@
     </div>
     <div class="top-actions">
       <div class="streak" title="Correct answers in a row">🔥 <b id="streakNum">0</b></div>
+      <button class="icon-btn wide" id="statsBtn" title="Your statistics" aria-label="Statistics"><span class="ib-ico">📊</span><span class="ib-txt">Stats</span></button>
       <button class="icon-btn" id="themeBtn" title="Toggle light / dark" aria-label="Toggle theme">◐</button>
       <button class="icon-btn" id="resetBtn" title="Reset all progress" aria-label="Reset progress">⟲</button>
     </div>
@@ -357,7 +392,12 @@
 
   <div class="layout">
     <nav class="ladder" id="ladder" aria-label="Course modules"></nav>
-    <main class="stage"><div class="card-panel" id="stage"></div></main>
+    <main class="stage"><div class="card-panel" id="stage">
+      <div class="lesson-body" style="text-align:center">
+        <p style="color:var(--muted)">Loading The Felt…</p>
+        <p style="color:var(--muted);font-size:13px;max-width:44ch;margin:8px auto 0">If this stays blank, open the file in a web browser (Safari / Chrome). The trainer needs JavaScript to run.</p>
+      </div>
+    </div></main>
   </div>
 </div>
 <div class="toast" id="toast"></div>
@@ -446,11 +486,32 @@ function equity(hero, board, iters=1600, villain=null){
 const LEVELS=[0,30,70,120,180,250,320,400,999999]; // XP needed to reach level index+1
 const SAVE_KEY='thefelt.progress.v1';
 let S=load();
+function freshState(){return {xp:0, streak:0, best:0, done:{}, active:'rankings', view:'learn',
+  history:[], table:{hands:0,wins:0,losses:0,splits:0,decisions:0,good:0,net:0}};}
 function load(){
-  try{const r=JSON.parse(localStorage.getItem(SAVE_KEY));if(r&&typeof r.xp==='number')return r;}catch(e){}
-  return {xp:0, streak:0, best:0, done:{}, active:'rankings'};
+  try{const r=JSON.parse(localStorage.getItem(SAVE_KEY));
+    if(r&&typeof r.xp==='number'){ // migrate older saves
+      if(!Array.isArray(r.history)) r.history=[];
+      if(!r.table) r.table={hands:0,wins:0,losses:0,splits:0,decisions:0,good:0,net:0};
+      if(!r.view) r.view='learn';
+      return r;
+    }}catch(e){}
+  return freshState();
 }
 function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));}catch(e){}}
+function now(){return Date.now();}
+// Log a single graded answer for the statistics engine
+function logAnswer(mod, ok){
+  S.history.push({t:now(), mod, ok:!!ok});
+  if(S.history.length>1000) S.history=S.history.slice(-1000);
+  save();
+}
+function recordHand(result, net){
+  const t=S.table; t.hands++; t.net+=(net||0);
+  if(result==='win')t.wins++; else if(result==='lose')t.losses++; else t.splits++;
+  save();
+}
+function recordDecision(good){ S.table.decisions++; if(good)S.table.good++; save(); }
 function levelFor(xp){let l=1;for(let i=0;i<LEVELS.length;i++){if(xp>=LEVELS[i])l=i+1;}return Math.min(l,8);}
 function xpUnlock(id){const m=MODULES.find(x=>x.id===id);return m?m.xpReq:0;}
 function unlocked(id){return S.xp>=xpUnlock(id);}
@@ -503,7 +564,7 @@ function renderLadder(){
                : `<span class="rung-meta">${i+1}/8</span>`;
     b.innerHTML=`<span class="rung-ico">${m.ico}</span>
       <span class="rung-body"><b>${m.title}</b><small>${m.sub}</small></span>${meta}`;
-    if(!lock) b.onclick=()=>{S.active=m.id;save();renderLadder();renderStage();window.scrollTo({top:0,behavior:'smooth'});};
+    if(!lock) b.onclick=()=>{S.active=m.id;S.view='learn';save();renderLadder();renderStage();window.scrollTo({top:0,behavior:'smooth'});};
     el.appendChild(b);
   });
 }
@@ -529,6 +590,8 @@ function draw(n,used){const set=new Set(used.map(c=>c.r*4+c.s));const d=shuffle(
    STAGE ROUTER
    ===================================================================== */
 function renderStage(){
+  const sb=document.getElementById('statsBtn'); if(sb) sb.classList.toggle('active',S.view==='stats');
+  if(S.view==='stats'){ return renderStats(); }
   const s=document.getElementById('stage');
   const m=MODULES.find(x=>x.id===S.active)||MODULES[0];
   s.innerHTML=`
@@ -555,7 +618,7 @@ function drill(host,{id,goal=5,intro:desc,render}){
   host.append(hud,q);
   function next(){ render(q, done); }
   function done(ok,xp){
-    state.answered++; if(ok){state.correct++; awardXP(xp||6);} bump(ok);
+    state.answered++; if(ok){state.correct++; awardXP(xp||6);} bump(ok); logAnswer(id,ok);
     hud.querySelector('#dc').textContent=Math.min(goal,state.correct);
     hud.querySelector('#da').textContent=state.answered;
     hud.querySelector('#ds').textContent=S.streak;
@@ -821,6 +884,16 @@ function mOdds(b){
     const be=bet/(pot+bet+bet)*100; const call=eq>be;
     const ev=(eq/100)*(pot+bet) - (1-eq/100)*bet;
     c.querySelector('#calcOut').innerHTML=`
+      <div style="grid-column:1/-1">
+        <div style="position:relative;height:30px;border-radius:8px;background:rgba(0,0,0,.28);border:1px solid var(--line);overflow:hidden">
+          <div style="position:absolute;inset:0 auto 0 0;width:${eq}%;background:${call?'var(--good)':'var(--bad)'};opacity:.85;transition:width .25s"></div>
+          <div style="position:absolute;top:-3px;bottom:-3px;left:${be}%;width:2px;background:var(--ink)"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px">
+          <span>Your equity <b class="num" style="color:${call?'var(--good)':'var(--bad)'}">${eq}%</b></span>
+          <span>break-even <b class="num" style="color:var(--ink)">${be.toFixed(0)}%</b> ▲</span>
+        </div>
+      </div>
       <div class="stat"><div class="k">Break-even equity</div><div class="v num">${be.toFixed(1)}%</div></div>
       <div class="stat"><div class="k">Your equity</div><div class="v num">${eq}%</div></div>
       <div class="stat"><div class="k">Verdict</div><div class="v ${call?'good':'bad'}">${call?'CALL':'FOLD'}</div></div>
@@ -1093,6 +1166,7 @@ function startTable(root){
     const deck=shuffle(freshDeck());
     let p=0; const hero=[deck[p++],deck[p++]], bot=[deck[p++],deck[p++]];
     const fullBoard=[deck[p++],deck[p++],deck[p++],deck[p++],deck[p++]];
+    const startHero=bankHero;
     let pot=30; bankHero-=15; bankBot-=15; // blinds
     let street=0; // 0 pre,1 flop,2 turn,3 river
     let toCall=0; let done=false; let result='';
@@ -1153,19 +1227,20 @@ function startTable(root){
       else { best = heq>=55?'bet':'check'; }
       totalDecisions++; const good=(act===best)|| (act==='call'&&best==='raise')||(act==='raise'&&best==='call');
       if(good){goodDecisions++; awardXP(4);}
+      recordDecision(good); logAnswer('table', good);
       return best;
     }
     function heroAct(act,heq,potOdds){
       const best=judge(act,heq,potOdds);
       bump(act===best);
-      if(act==='fold'){ bankBot+=pot; done=true; result='lose'; return render('You folded — sometimes the right release.'); }
+      if(act==='fold'){ bankBot+=pot; done=true; result='lose'; recordHand('lose',bankHero-startHero); return render('You folded — sometimes the right release.'); }
       if(act==='raise'||act==='bet'){
         const size=act==='bet'?Math.round(pot*0.7):(toCall+pot);
         bankHero-=size; pot+=size; toCall=0;
         // bot responds using its equity + odds
         const beq=equity(bot,boardShown(),700,hero);
         const price=size/(pot+size);
-        if(beq<price*0.9 && beq<0.5){ bankHero+=pot; done=true; result='win'; return render('Bot folds to your aggression.'); }
+        if(beq<price*0.9 && beq<0.5){ bankHero+=pot; done=true; result='win'; recordHand('win',bankHero-startHero); return render('Bot folds to your aggression.'); }
         bankBot-=size; pot+=size; // bot calls
         return advance();
       }
@@ -1197,6 +1272,7 @@ function startTable(root){
       done=true;
       if(hv>bv){bankHero+=pot;result='win';} else if(bv>hv){bankBot+=pot;result='lose';}
       else {bankHero+=pot/2;bankBot+=pot/2;result='split';}
+      recordHand(result,bankHero-startHero);
       render('Showdown.');
     }
     render('');
@@ -1205,17 +1281,151 @@ function startTable(root){
 }
 
 /* =====================================================================
+   STATISTICS DASHBOARD  — all computed from real logged history
+   ===================================================================== */
+function skillColor(a){return a>=0.75?'var(--good)':a>=0.5?'var(--warn)':'var(--bad)';}
+function rollingAcc(H, W=10){
+  const out=[];
+  for(let i=0;i<H.length;i++){ const s=Math.max(0,i-W+1); let c=0,n=0;
+    for(let j=s;j<=i;j++){n++; if(H[j].ok)c++;} out.push(c/n); }
+  if(out.length>60){ const step=out.length/60, ds=[];
+    for(let k=0;k<60;k++) ds.push(out[Math.floor(k*step)]); ds.push(out[out.length-1]); return ds; }
+  return out.length?out:[0];
+}
+function svgLine(series,{w=520,h=160,pad=24}={}){
+  if(series.length<2) series=[series[0]||0, series[0]||0];
+  const n=series.length, iw=w-pad*2, ih=h-pad*2;
+  const X=i=> pad + (n===1?0:i/(n-1)*iw);
+  const Y=v=> pad + (1-v)*ih;
+  const pts=series.map((v,i)=>[X(i),Y(v)]);
+  const path=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+  const area=path+` L ${X(n-1).toFixed(1)} ${(pad+ih).toFixed(1)} L ${pad.toFixed(1)} ${(pad+ih).toFixed(1)} Z`;
+  const grid=[0,0.5,1].map(g=>`<line x1="${pad}" y1="${Y(g).toFixed(1)}" x2="${w-pad}" y2="${Y(g).toFixed(1)}" stroke="var(--line)" stroke-width="1"/><text x="${pad-7}" y="${(Y(g)+3).toFixed(1)}" text-anchor="end" font-size="10">${Math.round(g*100)}</text>`).join('');
+  const e=pts[pts.length-1];
+  return `<svg viewBox="0 0 ${w} ${h}" class="chart-svg" role="img" aria-label="Accuracy trend">
+    ${grid}
+    <path d="${area}" fill="var(--brass)" opacity="0.12"/>
+    <path d="${path}" fill="none" stroke="var(--brass)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="${e[0].toFixed(1)}" cy="${e[1].toFixed(1)}" r="4" fill="var(--brass)"/></svg>`;
+}
+function svgDonut(segs,{size=132,stroke=20}={}){
+  const r=(size-stroke)/2, c=size/2, circ=2*Math.PI*r;
+  const total=segs.reduce((a,s)=>a+s.val,0)||1; let off=0;
+  const rings=segs.map(s=>{ const dash=s.val/total*circ;
+    const el=`<circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="${s.color}" stroke-width="${stroke}" stroke-dasharray="${dash.toFixed(2)} ${(circ-dash).toFixed(2)}" stroke-dashoffset="${(-off).toFixed(2)}" transform="rotate(-90 ${c} ${c})"/>`;
+    off+=dash; return el; }).join('');
+  return {size,c,html:rings};
+}
+function renderStats(){
+  const s=document.getElementById('stage');
+  const H=S.history||[], total=H.length, correct=H.filter(h=>h.ok).length;
+  const acc= total?correct/total:0, lvl=levelFor(S.xp);
+  const doneCount=MODULES.filter(m=>S.done[m.id]).length, T=S.table||{};
+  const head=`<div class="lesson-head">
+      <div class="eyebrow">Performance · your real numbers</div>
+      <h2>Your Game</h2>
+      <p>Every answer you give is logged and measured. Accuracy by skill, how you trend over time, and where to work next — all from your own play.</p>
+    </div>`;
+  if(total===0){
+    s.innerHTML=head+`<div class="lesson-body"><div class="empty-dash">
+      <div class="em-ico">📊</div>
+      <h3 style="margin:12px 0 6px;font-family:var(--serif)">No hands logged yet</h3>
+      <p style="max-width:44ch;margin:0 auto 18px">Answer a few drills and your statistics build here automatically — accuracy per skill, trend lines, decision quality and table win-rate.</p>
+      <button class="btn primary" id="goLearn">Start Module 1 · The Ladder →</button>
+    </div></div>`;
+    s.querySelector('#goLearn').onclick=()=>{S.view='learn';S.active='rankings';save();renderLadder();renderStage();};
+    return;
+  }
+  const skills=MODULES.map(m=>{
+    const rows=H.filter(h=>h.mod===m.id), n=rows.length, a=n?rows.filter(r=>r.ok).length/n:0;
+    return {id:m.id,title:m.title,n,a};
+  });
+  const cand=skills.filter(k=>k.n>=3).sort((x,y)=>x.a-y.a)[0];
+  let coach;
+  if(cand && cand.a<0.75){ coach={ey:'Coach · your biggest leak',title:cand.title,
+    sub:`You're at ${Math.round(cand.a*100)}% over ${cand.n} attempts here. A few focused reps lift this fastest.`, go:cand.id}; }
+  else { const nextUndone=MODULES.find(m=>unlocked(m.id)&&!S.done[m.id]);
+    if(nextUndone) coach={ey:'Coach · keep climbing',title:nextUndone.title,
+      sub:`Sharp accuracy everywhere you've played. Finish ${nextUndone.title} to unlock the next rung.`,go:nextUndone.id};
+    else coach={ey:'Coach · you’re reading the game',title:'Go bank the edge',
+      sub:'Strong across the board. Load The Table and grind hands against the bot.',go:'table'}; }
+  const series=rollingAcc(H,10);
+  const dn=svgDonut([{val:correct,color:'var(--good)'},{val:Math.max(0.0001,total-correct),color:'var(--bad)'}]);
+  const body=`<div class="lesson-body">
+    <div class="stat-row">
+      <div class="stat"><div class="k">Level</div><div class="v">${lvl}<span style="font-size:13px;color:var(--muted)"> / 8</span></div></div>
+      <div class="stat"><div class="k">Total XP</div><div class="v num">${S.xp}</div></div>
+      <div class="stat"><div class="k">Decisions logged</div><div class="v num">${total}</div></div>
+      <div class="stat"><div class="k">Overall accuracy</div><div class="v num ${acc>=.7?'good':acc>=.5?'warn':'bad'}">${Math.round(acc*100)}%</div></div>
+      <div class="stat"><div class="k">Best streak</div><div class="v num">${S.best}</div></div>
+      <div class="stat"><div class="k">Modules done</div><div class="v num">${doneCount}/8</div></div>
+    </div>
+    <div class="coach">
+      <div style="font-size:30px">🃏</div>
+      <div class="c-body"><div class="c-ey">${coach.ey}</div><div class="c-title">${coach.title}</div><div class="c-sub">${coach.sub}</div></div>
+      <button class="btn primary" id="coachGo">Practice →</button>
+    </div>
+    <div class="dash-2">
+      <div class="panel-card">
+        <div class="panel-title">Accuracy trend <small>rolling window 10</small></div>
+        ${svgLine(series)}
+        <div class="legend-row"><span><span class="d" style="background:var(--brass)"></span>Higher = sharper decisions over time</span></div>
+      </div>
+      <div class="panel-card">
+        <div class="panel-title">Decision quality <small>correct vs missed</small></div>
+        <div class="donut-wrap">
+          <svg viewBox="0 0 ${dn.size} ${dn.size}" width="128" height="128" role="img" aria-label="Correct versus missed">
+            ${dn.html}
+            <text x="${dn.c}" y="${dn.c-1}" text-anchor="middle" font-size="24" fill="var(--ink)" style="font-family:var(--serif)">${Math.round(acc*100)}%</text>
+            <text x="${dn.c}" y="${dn.c+15}" text-anchor="middle" font-size="9">correct</text>
+          </svg>
+          <div class="legend-row" style="flex-direction:column;gap:9px">
+            <span><span class="d" style="background:var(--good)"></span>${correct} correct</span>
+            <span><span class="d" style="background:var(--bad)"></span>${total-correct} missed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-card" style="margin-bottom:14px">
+      <div class="panel-title">Mastery by skill <small>accuracy</small></div>
+      ${skills.map(k=>`<div class="skill ${k.n?'':'muted'}">
+         <span class="lbl">${k.title}</span>
+         <span class="track"><i style="width:${k.n?Math.max(3,Math.round(k.a*100)):0}%;background:${k.n?skillColor(k.a):'var(--line-2)'}"></i></span>
+         <span class="pct">${k.n?Math.round(k.a*100)+'%':'—'}</span>
+       </div>`).join('')}
+    </div>
+    <div class="panel-card">
+      <div class="panel-title">The Table <small>heads-up vs the bot</small></div>
+      <div class="stat-row" style="margin:0">
+        <div class="stat"><div class="k">Hands played</div><div class="v num">${T.hands||0}</div></div>
+        <div class="stat"><div class="k">Win rate</div><div class="v num">${T.hands?Math.round(T.wins/T.hands*100):0}%</div></div>
+        <div class="stat"><div class="k">Good decisions</div><div class="v num ${T.decisions&&T.good/T.decisions>=.6?'good':''}">${T.decisions?Math.round(T.good/T.decisions*100):0}%</div></div>
+        <div class="stat"><div class="k">Net chips</div><div class="v num ${(T.net||0)>=0?'good':'bad'}">${(T.net||0)>=0?'+':'−'}$${Math.abs(T.net||0)}</div></div>
+      </div>
+    </div>
+  </div>`;
+  s.innerHTML=head+body;
+  const cg=s.querySelector('#coachGo');
+  if(cg) cg.onclick=()=>{S.view='learn';S.active=coach.go;save();renderLadder();renderStage();window.scrollTo({top:0,behavior:'smooth'});};
+}
+
+/* =====================================================================
    BOOT
    ===================================================================== */
+document.getElementById('statsBtn').onclick=()=>{
+  S.view = S.view==='stats' ? 'learn' : 'stats'; save(); renderLadder(); renderStage();
+  window.scrollTo({top:0,behavior:'smooth'});
+};
 document.getElementById('themeBtn').onclick=()=>{
   const cur=document.documentElement.getAttribute('data-theme');
   const next = cur==='dark'?'light': cur==='light'?'dark' : (matchMedia('(prefers-color-scheme: dark)').matches?'light':'dark');
   document.documentElement.setAttribute('data-theme',next);
 };
 document.getElementById('resetBtn').onclick=()=>{
-  if(confirm('Reset all XP and progress?')){ S={xp:0,streak:0,best:0,done:{},active:'rankings'}; save(); renderTop(); renderLadder(); renderStage(); toast('Progress reset'); }
+  if(confirm('Reset all XP, statistics and progress?')){ S=freshState(); save(); renderTop(); renderLadder(); renderStage(); toast('Progress reset'); }
 };
 if(!unlocked(S.active)) S.active='rankings';
+if(!S.view) S.view='learn';
 renderTop(); renderLadder(); renderStage();
 </script>
 
