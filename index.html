@@ -560,11 +560,11 @@ function genAggro(){
     if(eq>=0.66) return {hero,board,ans:'value',
       label:'You hold '+en+' — you’re ahead.',labelHe:'יש לך '+he+' — אתה מוביל.',
       why:'Strong hand, high equity — bet big for value so worse hands pay you.',
-      whyHe:'יד חזקה, אקוויטי גבוה — המר גדול לערך כדי שידיים חלשות ישלמו לך.'};
+      whyHe:'יד חזקה וסיכוי גבוה לזכות — המר גדול כדי שידיים חלשות ישלמו לך.'};
     if(cat===0 && eq<=0.42) return {hero,board,ans:'bluff',
-      label:'Just high card — nothing at showdown.',labelHe:'רק קלף גבוה — כלום לשולדאון.',
-      why:'You can’t win a showdown, but a bet can fold out better hands. A disciplined bluff.',
-      whyHe:'אי אפשר לנצח בשולדאון, אבל הימור יכול להבריח ידיים טובות יותר. בלוף ממושמע.'};
+      label:'Just high card — nothing to show at the end.',labelHe:'רק קלף גבוה — אין לך מה להראות בסוף היד.',
+      why:'You can’t win if cards get revealed, but a bet can make better hands fold. A disciplined bluff.',
+      whyHe:'אם יגיעו לסוף היד ויראו קלפים — אתה מפסיד. אבל הימור יכול לגרום לידיים טובות יותר לזרוק. בלוף ממושמע.'};
     if(!fallback) fallback={hero,board,ans:'check',
       label:'You hold '+en+' — medium strength.',labelHe:'יש לך '+he+' — עוצמה בינונית.',
       why:'Too weak to bet for value, not a clean bluff — check and keep the pot small.',
@@ -582,19 +582,19 @@ function genHome(){
   if(state==='tilt'||state==='tired') ans='go';
   else if(netK[0]==='down'&&netK[1]>=SL) ans='go';
   else if(table==='tough' && !(netK[0]==='up'&&netK[1]>=3)) ans='go';
-  const netEn = netK[0]==='up'?`you’re up ${netK[1]} buy-ins`:netK[0]==='down'?`you’re down ${netK[1]} buy-in${netK[1]>1?'s':''}`:'you’re about break-even';
-  const netHe = netK[0]==='up'?`אתה למעלה ${netK[1]} באיינים`:netK[0]==='down'?`אתה למטה ${netK[1]} באיינים`:'אתה בערך באיזון';
-  const stEn={sharp:'playing sharp and focused',tilt:'and you feel yourself starting to chase and bet on emotion',tired:'and you’re exhausted, misreading boards',calm:'and calm'}[state];
-  const stHe={sharp:'משחק חד וממוקד',tilt:'ואתה מרגיש שאתה מתחיל לרדוף ולהמר בעצבים',tired:'ואתה מותש וקורא לוחות לא נכון',calm:'ורגוע'}[state];
+  const netEn = netK[0]==='up'?`you’re up ${netK[1]} buy-ins`:netK[0]==='down'?`you’re down ${netK[1]} buy-in${netK[1]>1?'s':''}`:'you’re about even';
+  const netHe = netK[0]==='up'?`אתה למעלה ${netK[1]} כניסות`:netK[0]==='down'?`אתה למטה ${netK[1]} כניסות`:'אתה בערך באיזון';
+  const stEn={sharp:'playing sharp and focused',tilt:'and you feel yourself getting angry and betting on emotion',tired:'and you’re exhausted, misreading the cards',calm:'and calm'}[state];
+  const stHe={sharp:'משחק חד וממוקד',tilt:'ואתה מרגיש שאתה מתעצבן ומהמר מתוך רגש',tired:'ואתה מותש וקורא את הקלפים לא נכון',calm:'ורגוע'}[state];
   const tbEn={soft:'the table is full of weak players making mistakes',tough:'but two strong players just sat down',neutral:'the table is average'}[table];
   const tbHe={soft:'השולחן מלא שחקנים חלשים שעושים טעויות',tough:'אבל שני שחקנים חזקים בדיוק התיישבו',neutral:'השולחן רגיל'}[table];
   const t = netEn+', '+stEn+'. '+tbEn+'.';
   const tHe = netHe+', '+stHe+'. '+tbHe+'.';
   let why,whyHe;
-  if(state==='tilt'){ why='That’s tilt — emotion is driving your bets. Leave.'; whyHe='זה טילט — רגש מניע את ההימורים. לך.'; }
-  else if(state==='tired'){ why='Fatigue wrecks decisions as badly as tilt. Go home.'; whyHe='עייפות הורסת החלטות בדיוק כמו טילט. לך הביתה.'; }
-  else if(ans==='go'&&netK[0]==='down'){ why='You hit your stop-loss. Rack up — the game runs tomorrow.'; whyHe='נגעת בסטופ־לוס. ארוז — המשחק רץ גם מחר.'; }
-  else if(ans==='go'){ why='The tough lineup killed your edge. Booking the result is smart.'; whyHe='ההרכב הקשה חיסל את היתרון שלך. לסגור את התוצאה זה חכם.'; }
+  if(state==='tilt'){ why='You’re angry — emotion is driving your bets. Leave.'; whyHe='אתה מתעצבן — רגש מניע את ההימורים. לך.'; }
+  else if(state==='tired'){ why='Being tired wrecks decisions just like anger. Go home.'; whyHe='עייפות הורסת החלטות בדיוק כמו עצבים. לך הביתה.'; }
+  else if(ans==='go'&&netK[0]==='down'){ why='You passed your loss limit. Get up — the game will be here tomorrow.'; whyHe='עברת את גבול ההפסד שקבעת. קום — המשחק יהיה כאן גם מחר.'; }
+  else if(ans==='go'){ why='The tough table killed your edge. Booking the result is smart.'; whyHe='השולחן הקשה חיסל את היתרון שלך. לסגור את התוצאה זה חכם.'; }
   else { why='Clear head and a real edge — this is exactly when to keep playing.'; whyHe='ראש צלול ויתרון אמיתי — זה בדיוק הזמן להמשיך לשחק.'; }
   return {ans,t,tHe,why,whyHe};
 }
@@ -668,7 +668,7 @@ const MODULES=[
   {id:'aggression', ico:'▲', title:'When to Go Hard', sub:'Value bets & bluffs', xpReq:250,
     he:{title:'מתי ללחוץ חזק', sub:'הימורי ערך ובלופים'}},
   {id:'bankroll', ico:'⌂', title:'When to Go Home', sub:'Bankroll & tilt', xpReq:320,
-    he:{title:'מתי ללכת הביתה', sub:'ניהול בנקרול וטילט'}},
+    he:{title:'מתי ללכת הביתה', sub:'ניהול תקציב ועצבים'}},
   {id:'table', ico:'♠', title:'The Table', sub:'Play it for real', xpReq:400,
     he:{title:'השולחן', sub:'לשחק באמת'}},
 ];
@@ -775,8 +775,8 @@ function drill(host,{id,goal=5,intro:desc,render}){
    MODULE 1 — THE LADDER (hand rankings)
    ===================================================================== */
 function mRankings(b){
-  intro(T('כל שולדאון מוכרע מדבר אחד: של מי חמשת הקלפים חזקים יותר. תדע את הסולם בעל־פה, ואז תוכיח זאת — בלי מחשבון, רק העין שלך.',
-          'Every showdown is decided by one thing: whose five cards rank higher. Learn the ladder cold, then prove it — no calculator, just your eye.'));
+  intro(T('כל יד שמגיעה עד הסוף מוכרעת מדבר אחד: של מי חמשת הקלפים חזקים יותר. תדע את הסולם בעל־פה, ואז תוכיח זאת — בלי מחשבון, רק העין שלך.',
+          'Every hand that goes to the end is decided by one thing: whose five cards rank higher. Learn the ladder cold, then prove it — no calculator, just your eye.'));
   const rows=[
     [9,'Straight Flush','רצף פלאש',[{r:9,s:1},{r:8,s:1},{r:7,s:1},{r:6,s:1},{r:5,s:1}],'Five in a row, one suit','חמישה ברצף באותו סימן — היד החזקה בעולם'],
     [8,'Four of a Kind','רביעייה',[{r:12,s:0},{r:12,s:1},{r:12,s:2},{r:12,s:3},{r:5,s:0}],'All four of one rank','כל ארבעת הקלפים מאותו ערך'],
@@ -801,7 +801,7 @@ function mRankings(b){
    <div class="keycard">${T('<b>שוברי שוויון:</b> אותה קטגוריה לשני שחקנים? הקלפים הגבוהים בתוך הקטגוריה מכריעים. שני פלאשים → הקלף הגבוה ביותר. שני זוגות מול שני זוגות → הזוג העליון הגבוה, ואם שווה — ה״קיקר״ (הקלף החמישי הנלווה). המנוע למטה שופט בדיוק כמו דילר אמיתי.','<b>Tie-breakers:</b> same category? The higher cards inside it decide. Two flushes → highest card. Two pair vs two pair → higher top pair, then the kicker (the fifth side card). The engine below judges exactly like a real dealer.')}</div>
    <div class="keycard">${T('<b>אינטואיציה שתחסוך לך כסף:</b> רוב הקופות בפוקר נלקחות עם זוג בודד או שני זוגות בלבד. רצף, פלאש ומעלה הם נדירים — אבל כשהם מגיעים, הם כמעט תמיד מנצחים. לכן אל תתאהב ב״קלף גבוה״: זו לרוב יד שמפסידה.','<b>Intuition that saves you money:</b> most pots are won with just one pair or two pair. Straights, flushes and above are rare — but when they arrive they almost always win. So never fall in love with "high card": it is usually a losing hand.')}</div>
    <h3 class="sec">${T('תרגול · מי לוקח את הקופה?','Drill · Who takes it down?')}</h3>
-   <p style="color:var(--muted);margin:0 0 4px">${T('שני שחקנים מגיעים לשולדאון עם אותם 5 קלפים משותפים. בחר מי מנצח. פתור 5 כדי לשלוט בשלב.','Two players reach showdown sharing the same 5 community cards. Pick who wins. Solve 5 to master the rung.')}</p>
+   <p style="color:var(--muted);margin:0 0 4px">${T('שני שחקנים מגיעים לסוף היד עם אותם 5 קלפים משותפים על השולחן. בחר מי מנצח. פתור 5 כדי לשלוט בשלב.','Two players reach the end of the hand sharing the same 5 cards on the table. Pick who wins. Solve 5 to master the rung.')}</p>
    <div id="d1"></div>`;
   drill(document.getElementById('d1'),{id:'rankings',goal:5,render:(q,done)=>{
     let A,B,board,va,vb,guard=0;
@@ -873,7 +873,7 @@ function mPosition(b){
   b.innerHTML=`
    <div class="prose">
      <p class="lead">${T('שני מנופים מכריעים אם לשחק יד פתיחה: <strong>הקלפים</strong> ו<strong>המושב שלך</strong>.','Two levers decide a starting hand: <strong>the cards</strong> and <strong>your seat</strong>.')}</p>
-     <p>${T('עמדות מוקדמות פועלות ראשונות בכל רחוב — אתה טס בעיוורון, אז דרוש יד חזקה. עמדות מאוחרות (הכפתור הוא הטוב מכולן) פועלות אחרונות, ולכן אפשר לפתוח בהן הרבה יותר ידיים ברווח.','Early seats act first on every street — you’re flying blind, so demand a strong hand. Late seats (the button is best) act last, so you can profitably open far more.')}</p>
+     <p>${T('מהעמדות המוקדמות אתה פועל ראשון בכל שלב של היד — כמעט בלי מידע, אז דרוש יד חזקה. מהעמדות המאוחרות (הכפתור הוא הטובה מכולן) אתה פועל אחרון, ולכן אפשר לשחק בהן הרבה יותר ידיים ברווח.','From early seats you act first at every step of the hand — with almost no information, so demand a strong hand. From late seats (the button is the best) you act last, so you can profitably play far more hands.')}</p>
      <p>${T('למה זה כזה יתרון? כשאתה אחרון, כבר ראית מי העלה, מי שילם ומי זרק. יש לך יותר מידע — ומידע זה כסף בפוקר.','Why is it such an edge? When you act last you have already seen who raised, who called and who folded. You have more information — and information is money in poker.')}</p>
    </div>
    <h3 class="sec">${T('מפת ידיי הפתיחה','A starting-hand map')}</h3>
@@ -882,7 +882,7 @@ function mPosition(b){
    <div class="legend"><span><i style="background:var(--good)"></i>${T('לפתוח מכל עמדה','Open from anywhere')}</span>
      <span><i style="background:var(--warn)"></i>${T('רק בעמדה מאוחרת','Late position only')}</span>
      <span><i style="background:#33413a"></i>${T('לזרוק','Muck it')}</span></div>
-   <div class="keycard">${T('<b>ההרגל:</b> לפני שאתה מסתכל על הפלופ, שאל את עצמך ״הייתי פותח את היד הזו <i>מהמושב הזה</i>?״ אם זו יד לעמדה מאוחרת ואתה ראשון לפעול — זריקה היא המהלך המנצח, גם אם זה מרגיש הדוק מדי.','<b>The habit:</b> before you look at the flop, ask “would I open this from <i>this seat</i>?” If it’s a late-only hand and you’re first to act, folding is the winning play — even though it feels tight.')}</div>
+   <div class="keycard">${T('<b>ההרגל:</b> לפני שהקלפים יוצאים לשולחן, שאל את עצמך ״הייתי משחק את היד הזו <i>מהמושב הזה</i>?״ אם זו יד שמתאימה רק לעמדה מאוחרת ואתה ראשון לפעול — זריקה היא המהלך המנצח, גם אם זה מרגיש הדוק מדי.','<b>The habit:</b> before any cards hit the table, ask “would I play this from <i>this seat</i>?” If it’s a hand only good in late position and you’re first to act, folding is the winning play — even though it feels tight.')}</div>
    <h3 class="sec">${T('תרגול · לפתוח או לזרוק?','Drill · Open or fold?')}</h3>
    <p style="color:var(--muted);margin:0 0 4px">${T('אתה ראשון לפעול. בהינתן המושב שלך — להעלות או לזרוק את היד?','You’re first to act. Given your seat, would you raise or fold this hand?')}</p>
    <div id="d2"></div>`;
@@ -899,7 +899,7 @@ function mPosition(b){
     const seats=[['UTG','early','Under the gun — first to act, everyone behind you.','תחת האקדח — ראשון לפעול, כל השאר אחריך.'],
                  ['MP','early','Middle position — still several players to act.','עמדה אמצעית — עדיין כמה שחקנים פועלים אחריך.'],
                  ['CO','late','Cutoff — only the button behind you.','קאטאוף — רק הכפתור אחריך.'],
-                 ['BTN','late','The button — you act last on every street. Prime real estate.','הכפתור — אתה פועל אחרון בכל רחוב. המושב הכי טוב שיש.']];
+                 ['BTN','late','The button — you act last on every step. Prime real estate.','הכפתור — אתה פועל אחרון בכל שלב. המושב הכי טוב שיש.']];
     const seat=seats[(Math.random()*4)|0];
     const [c1,c2]=draw(2,[]); const suited=c1.s===c2.s;
     const tier=openTier(c1.r,c2.r,suited);
@@ -1092,20 +1092,20 @@ function mOdds(b){
    MODULE 5 — FOLD / CALL / RAISE  (equity + odds combined, real cards)
    ===================================================================== */
 function mDecisions(b){
-  intro(T('עכשיו מחברים הכול עם קלפים אמיתיים. תקבל יד, לוח, קופה והימור. קרא את האקוויטי שלך, שקול את המחיר, ותבחר. זו ההחלטה שתעשה אלפי פעמים.',
-          'Now we put it together with real cards. You’ll get a hand, a board, a pot and a bet. Read your equity, weigh the price, and choose. This is the decision you make thousands of times.'));
+  intro(T('עכשיו מחברים הכול עם קלפים אמיתיים. תקבל יד, קלפים על השולחן, קופה והימור. קרא את הסיכוי שלך לזכות, שקול את המחיר, ותבחר. זו ההחלטה שתעשה אלפי פעמים.',
+          'Now we put it together with real cards. You’ll get a hand, cards on the table, a pot and a bet. Read your chance to win, weigh the price, and choose. This is the decision you make thousands of times.'));
   const actWord=(a)=>T({fold:'לזרוק',call:'לשלם',raise:'להעלות'}[a], a.toUpperCase());
   b.innerHTML=`
    <div class="prose">
-     <p class="lead">${T('שלוש דלתות בכל רחוב: <strong>לזרוק</strong>, <strong>לשלם</strong>, או <strong>להעלות</strong>.','Three doors on every street: <strong>fold</strong>, <strong>call</strong>, or <strong>raise</strong>.')}</p>
-     <p>${T('<b>לזרוק</b> כשהאקוויטי לא מצדיק את המחיר. <b>לשלם</b> כשהמחיר נכון אבל אתה לא מספיק מוביל כדי לבנות קופה. <b>להעלות</b> כשאתה כנראה הכי חזק (ערך) — לגבות מחיר מהדראוים שרודפים אחריך.','<b>Fold</b> when your equity can’t pay the price. <b>Call</b> when the price is right but you’re not ahead enough to build the pot. <b>Raise</b> when you’re likely best (value) — charge the draws that are chasing you.')}</p>
+     <p class="lead">${T('שלוש אפשרויות בכל שלב: <strong>לזרוק</strong>, <strong>לשלם</strong>, או <strong>להעלות</strong>.','Three options at every step: <strong>fold</strong>, <strong>call</strong>, or <strong>raise</strong>.')}</p>
+     <p>${T('<b>לזרוק</b> כשהסיכוי שלך לזכות נמוך מדי ביחס למחיר. <b>לשלם</b> כשהמחיר משתלם אבל אתה לא מספיק חזק כדי לבנות קופה גדולה. <b>להעלות</b> כשאתה כנראה הכי חזק — כדי לגבות עוד כסף מהיריב.','<b>Fold</b> when your chance to win is too low for the price. <b>Call</b> when the price is worth it but you’re not strong enough to build a big pot. <b>Raise</b> when you’re probably strongest — to get more money from your opponent.')}</p>
    </div>
-   <div class="keycard">${T('<b>כלל אצבע כאן:</b> ברור שמאחור ומחיר גרוע → <b>לזרוק</b>. מחיר נכון, גבולי → <b>לשלם</b>. מוביל ברור (בערך 62%+) → <b>להעלות</b> לערך. המנוע מחשב את האקוויטי האמיתי בסימולציה, אז התשובה ה״נכונה״ היא מתמטיקה אמיתית.','<b>Rule of thumb used here:</b> clearly behind &amp; wrong price → <b>fold</b>. Right price, marginal → <b>call</b>. Strong favourite (≈ 62%+) → <b>raise</b> for value. The engine computes your true equity by simulation, so the “right” answer is real math.')}</div>
+   <div class="keycard">${T('<b>כלל אצבע:</b> ברור שמאחור ומחיר גרוע → <b>לזרוק</b>. מחיר משתלם, גבולי → <b>לשלם</b>. מוביל ברור (בערך 62%+ סיכוי) → <b>להעלות</b>. המחשב מחשב את הסיכוי האמיתי שלך על ידי משחק היד אלפי פעמים — אז התשובה ה״נכונה״ מבוססת על חשבון אמיתי, לא ניחוש.','<b>Rule of thumb:</b> clearly behind &amp; bad price → <b>fold</b>. Price is worth it, marginal → <b>call</b>. Clearly ahead (≈ 62%+ chance) → <b>raise</b>. The computer works out your real chance by playing the hand thousands of times — so the “right” answer is real arithmetic, not a guess.')}</div>
    <h3 class="sec">${T('תרגול · קבל את ההחלטה','Drill · Make the call')}</h3>
-   <p style="color:var(--muted);margin:0 0 4px">${T('אקוויטי אמיתי, בסימולציה חיה. פתור 6 מצבים גבוליים כדי לשלוט בהחלטה.','Real equity, simulated live. Solve 6 marginal spots to master the decision.')}</p>
+   <p style="color:var(--muted);margin:0 0 4px">${T('הסיכוי שלך מחושב בזמן אמת. פתור 6 מצבים גבוליים כדי לשלוט בהחלטה.','Your chance is computed live. Solve 6 close spots to master the decision.')}</p>
    <div id="d5"></div>`;
   drill(document.getElementById('d5'),{id:'decisions',goal:6,render:(q,done)=>{
-    q.innerHTML=`<div style="padding:30px;text-align:center;color:var(--muted)">${T('מחלק ומדמה אקוויטי…','Dealing &amp; simulating equity…')}</div>`;
+    q.innerHTML=`<div style="padding:30px;text-align:center;color:var(--muted)">${T('מחלק ומחשב את הסיכוי…','Dealing &amp; working out your chance…')}</div>`;
     setTimeout(()=>{
       const all=draw(5,[]); const hero=all.slice(0,2); const board=all.slice(2,5);
       const eq=equity(hero,board,1400);
@@ -1119,9 +1119,9 @@ function mDecisions(b){
       const madeName=categoryOf([...hero,...board]);
       q.innerHTML=`
         <div class="felt" style="padding:18px;margin:6px 0 14px">
-          <div class="felt-seat"><div class="felt-label">${T('פלופ','Flop')}</div>
+          <div class="felt-seat"><div class="felt-label">${T('על השולחן','On the table')}</div>
             <div class="board-row" style="min-height:auto">${board.map(c=>cardHTML(c,{deal:true})).join('')}</div></div>
-          <div style="text-align:center;margin:12px 0"><span class="pot-tag">${T('קופה','Pot')} <span class="num">$${pot}</span> · ${T('היריב מהמר','Villain bets')} <span class="num">$${bet}</span></span></div>
+          <div style="text-align:center;margin:12px 0"><span class="pot-tag">${T('בקופה','In pot')} <span class="num">$${pot}</span> · ${T('היריב הימר','Opponent bet')} <span class="num">$${bet}</span></span></div>
           <div class="felt-seat"><div class="felt-label">${T('היד שלך','Your hand')}</div>
             <div class="board-row" style="min-height:auto">${hero.map(c=>cardHTML(c,{deal:true})).join('')}</div></div>
         </div>
@@ -1138,13 +1138,16 @@ function mDecisions(b){
         btn.classList.add('wrong'); if(ok)btn.classList.remove('wrong'),btn.classList.add('correct');
         const right=[...q.querySelectorAll('.choice')].find(x=>x.dataset.a===correct);right.classList.add('correct');
         const fb=q.querySelector('#fb'); fb.className='feedback show '+(ok?'ok':'no');
-        const reason=correct==='raise'?T('אתה מוביל ברור; תגבה מהם מחיר.','you’re a clear favourite; charge them.')
-                    :correct==='call'?T('המחיר נכון, אבל לא מספיק חזק כדי להעלות.','right price, but not strong enough to raise.')
-                    :T('המחיר גרוע מהאקוויטי שלך.','the price is worse than your equity.');
+        const pct=Math.round(eq*100), need=Math.round(be*100), won=pot+bet;
+        const reason=correct==='raise'?T('אתה מוביל ברור — כדאי לגבות עוד כסף מהיריב.','you’re clearly ahead — get more money from your opponent.')
+                    :correct==='call'?T('המחיר משתלם, אבל אתה לא מספיק חזק כדי להעלות.','the price is worth it, but you’re not strong enough to raise.')
+                    :T('הסיכוי שלך נמוך מדי ביחס למחיר.','your chance is too low for the price.');
         fb.innerHTML=`<div class="verdict">${ok?T('✓ שיחק יפה','✓ Well played'):(soft?T('≈ בר־הגנה, אבל…','≈ Defensible, but…'):T('✕ פספוס','✕ Off'))}</div>
-          <div class="expl">${T('אקוויטי מדומה','Simulated equity')}: <b>${Math.round(eq*100)}%</b> · ${T('מחיר ה־call','price to call')}: <b>${Math.round(be*100)}%</b>.
-          ${madeName!==T('קלף גבוה','High Card')?T('יש לך','You hold')+' <b>'+madeName+'</b>. ':''}
-          ${T('הקו הטוב ביותר','Best line')}: <b>${actWord(correct)}</b> — ${reason}</div>
+          <div class="expl"><b>${T('הסיכוי שלך לזכות','Your chance to win')}: ${pct}%.</b>
+          <br><span style="color:var(--muted)">${T('איך יודעים? המחשב חילק ליריב יד אקראית, פתח את שאר הקלפים עד סוף היד, וחזר על זה אלפי פעמים — היד שלך ניצחה ב־'+pct+'% מהמקרים.','How do we know? The computer dealt the opponent a random hand, ran out the rest of the cards, and repeated thousands of times — your hand won '+pct+'% of the time.')}</span>
+          <br>${T('כדי שהתשלום ישתלם צריך סיכוי של','To make paying worth it you need at least')} <b>${need}%</b> ${T('(משלמים $'+bet+' כדי לזכות ב־$'+won+').','(pay $'+bet+' to win $'+won+').')}
+          ${madeName!==T('קלף גבוה','High Card')?'<br>'+T('היד שלך כרגע','Your hand right now')+': <b>'+madeName+'</b>.':''}
+          <br>${T('הכי טוב','Best')}: <b>${actWord(correct)}</b> — ${reason}</div>
           <div class="btn-row"><button class="btn primary" id="nx">${T('יד הבאה →','Next hand →')}</button></div>`;
         fb.querySelector('#nx').onclick=()=>done(ok,9);
       });
@@ -1163,7 +1166,7 @@ function mAggression(b){
      <p class="lead">${T('כל הימור גדול הוא או <strong>הימור ערך</strong> או <strong>בלוף</strong>. תדע איזה מהם אתה עושה.','Every big bet is either a <strong>value bet</strong> or a <strong>bluff</strong>. Know which one you’re making.')}</p>
      <p>${T('<b>ערך:</b> אתה כנראה הכי חזק ורוצה שידיים חלשות ישלמו לך — המר סכום שהם ישלמו. <b>בלוף:</b> אתה כנראה מאחור אבל יכול לגרום לידיים טובות יותר לזרוק — המר מספיק כדי שזריקה תיראה להם נכונה.','<b>Value:</b> you’re likely best and want worse hands to pay you — bet an amount they’ll call. <b>Bluff:</b> you’re likely behind but can make better hands fold — bet enough to make folding look right for them.')}</p>
    </div>
-   <div class="keycard">${T('<b>גודל ההימור מספר סיפור.</b> הימורים קטנים (רבע–שליש קופה) סוחטים ערך דק ונותנים מחיר זול לדראוים. הימורים גדולים (שלושת־רבעי קופה ומעלה) גובים מחיר מהדראוים ומפעילים לחץ אמיתי. התאם את הגודל למטרה — אל תהמר גדול עם יד שמנצחת רק בלופים.','<b>Sizing tells a story.</b> Small bets (¼–⅓ pot) milk thin value and price in draws cheaply. Big bets (¾–pot+) charge draws and apply real pressure. Match the size to the goal — don’t bet big with a hand that only beats bluffs.')}</div>
+   <div class="keycard">${T('<b>גודל ההימור מספר סיפור.</b> הימורים קטנים (רבע–שליש מהקופה) לוקחים ערך קטן ונותנים ליריב מחיר זול. הימורים גדולים (שלושת־רבעי הקופה ומעלה) גובים מחיר יקר מידיים לא־גמורות ומפעילים לחץ אמיתי. התאם את הגודל למטרה — אל תהמר גדול עם יד שמנצחת רק בלופים.','<b>Sizing tells a story.</b> Small bets (¼–⅓ pot) take a little value and offer a cheap price. Big bets (¾–pot+) charge unfinished hands a steep price and apply real pressure. Match the size to the goal — don’t bet big with a hand that only beats bluffs.')}</div>
    <h3 class="sec">${T('תרגול · ערך או בלוף — וללחוץ חזק?','Drill · Value or bluff — and go hard?')}</h3>
    <p style="color:var(--muted);margin:0 0 4px">${T('קרא את המצב. כדאי לירות הימור גדול, ולמה? פתור 5.','Read the spot. Should you fire a big bet, and why? Solve 5.')}</p>
    <div id="d6"></div>`;
@@ -1173,7 +1176,7 @@ function mAggression(b){
       why:'You’re crushing everything. Bet big for value — draws and top pair will pay.',whyHe:'אתה מוחץ הכול. המר גדול לערך — דראוים וזוג עליון ישלמו.'},
     {hero:[{r:11,s:1},{r:10,s:1}],board:[{r:2,s:0},{r:7,s:2},{r:13,s:3}],ans:'bluff',
       label:'You have jack-high, no pair, on a dry board.',labelHe:'יש לך נסיך־גבוה, בלי זוג, על לוח יבש.',
-      why:'You can’t win at showdown, but a big bet folds out weak aces and small pairs. A disciplined bluff.',whyHe:'אין לך שום דבר לשולדאון, אבל הימור גדול מבריח אסים חלשים וזוגות קטנים. בלוף ממושמע.'},
+      why:'You can’t win if cards are revealed, but a big bet folds out weak aces and small pairs. A disciplined bluff.',whyHe:'אין לך מה להראות בסוף, אבל הימור גדול מבריח אסים חלשים וזוגות קטנים. בלוף ממושמע.'},
     {hero:[{r:13,s:0},{r:12,s:2}],board:[{r:13,s:1},{r:8,s:3},{r:3,s:0}],ans:'value',
       label:'Top pair, decent kicker.',labelHe:'זוג עליון, קיקר סביר.',
       why:'You’re ahead of most calls. Bet for value — but size medium; you don’t love a raise.',whyHe:'אתה מוביל מול רוב התשלומים. המר לערך — אבל בגודל בינוני; אתה לא אוהב העלאה.'},
@@ -1220,23 +1223,23 @@ function mAggression(b){
    MODULE 7 — WHEN TO GO HOME (bankroll & tilt)
    ===================================================================== */
 function mBankroll(b){
-  intro(T('השחקנים הטובים ביותר עוזבים כשהם מנצחים ועוזבים כשהם מפסידים — העיקר הוא לעזוב מהסיבה הנכונה, לא מהסיבה הרגשית. ככה שורדים את השונות מספיק זמן כדי שהיתרון שלך ישתלם.',
-          'The best players quit while winning and quit while losing — the point is to quit for the right reason, not an emotional one. This is how you survive variance long enough for your edge to pay off.'));
+  intro(T('השחקנים הטובים ביותר יודעים מתי לקום מהשולחן — גם כשמנצחים וגם כשמפסידים. הסוד הוא לעזוב מהסיבה הנכונה, לא כי אתה מתעצבן. ככה שורדים לילות רעים מספיק זמן כדי שהיתרון שלך ישתלם בסוף.',
+          'The best players know when to get up from the table — whether winning or losing. The trick is to leave for the right reason, not because you’re upset. That’s how you survive bad nights long enough for your edge to pay off.'));
   b.innerHTML=`
    <div class="prose">
-     <p class="lead">${T('אפשר לשחק מושלם ועדיין להפסיד הערב. חוקי בנקרול מונעים מלילה גרוע לסיים לך את הפוקר.','You can play perfectly and still lose tonight. Bankroll rules keep a bad night from ending your poker.')}</p>
-     <p>${T('בנקרול הוא כל הכסף שאתה מקצה לפוקר — נפרד מכסף החיים שלך. ״באיין״ (buy-in) הוא הכניסה בודדת לשולחן. השונות (variance) גורמת לרצפי הפסד גם לשחקן מנצח, ולכן צריך מספיק באיינים כדי לספוג אותם.','Your bankroll is all the money you dedicate to poker — separate from your living money. A "buy-in" is one entry to the table. Variance causes losing streaks even for a winning player, so you need enough buy-ins to absorb them.')}</p>
+     <p class="lead">${T('אפשר לשחק מושלם ועדיין להפסיד הערב — ככה זה. כמה כללים פשוטים על הכסף ימנעו מלילה גרוע לסיים לך את הפוקר.','You can play perfectly and still lose tonight — that’s normal. A few simple money rules stop a bad night from ending your poker.')}</p>
+     <p>${T('שני מושגים קצרים: <b>התקציב לפוקר</b> = כסף שהקצבת בצד רק למשחק, נפרד מכסף החיים. <b>כניסה</b> = הסכום שאתה קונה בו מקום בשולחן (למשל 100$). מזל רע גורם לרצפי הפסד גם לשחקן טוב — לכן כדאי שיהיו לך הרבה כניסות בתקציב, כדי לספוג רצף כזה בלי להתרושש.','Two quick terms: your <b>poker budget</b> = money set aside just for the game, separate from living money. A <b>buy-in</b> = the amount you buy your seat with (say $100). Bad luck causes losing streaks even for a good player — so keep many buy-ins in your budget to ride out a streak without going broke.')}</p>
    </div>
-   <h3 class="sec">${T('שלושת החוקים ששומרים אותך בחיים','The three rules that keep you alive')}</h3>
+   <h3 class="sec">${T('שלושת הכללים ששומרים עליך','The three rules that keep you safe')}</h3>
    <table class="table-mini">
-     <tr><th>${T('חוק','Rule')}</th><th>${T('למה','Why')}</th></tr>
-     <tr><td><b>${T('בנקרול ≥ 20–40 באיינים','Bankroll ≥ 20–40 buy-ins')}</b></td><td>${T('השונות אכזרית. עם מעט מדי באיינים, רצף הפסד רגיל מרושש אותך.','Variance is brutal. With too few buy-ins, a normal downswing busts you.')}</td></tr>
-     <tr><td><b>${T('קבע סטופ־לוס','Set a stop-loss')}</b></td><td>${T('הפסדת 2–3 באיינים? לך. הפסד מעוות לך את ההחלטות עוד לפני שתשים לב.','Lose 2–3 buy-ins? Leave. Losing warps your decisions before you notice.')}</td></tr>
-     <tr><td><b>${T('עזוב בגלל טילט, לא בגלל השעה','Quit on tilt, not on time')}</b></td><td>${T('ברגע שרגש מניע הימור — היתרון שלך נעלם. לך הביתה; המשחק רץ גם מחר.','The moment emotion drives a bet, your edge is gone. Go home — the game runs tomorrow.')}</td></tr>
+     <tr><th>${T('הכלל','Rule')}</th><th>${T('למה','Why')}</th></tr>
+     <tr><td><b>${T('תקציב של 20–40 כניסות','A budget of 20–40 buy-ins')}</b></td><td>${T('מזל רע אכזרי. עם מעט מדי כניסות, רצף הפסד רגיל מרושש אותך.','Bad luck is brutal. With too few buy-ins, a normal losing streak busts you.')}</td></tr>
+     <tr><td><b>${T('קבע לעצמך גבול הפסד','Set yourself a loss limit')}</b></td><td>${T('הפסדת 2–3 כניסות? קום ולך. הפסד מעוות לך את ההחלטות עוד לפני שתשים לב.','Lost 2–3 buy-ins? Get up and leave. Losing warps your decisions before you notice.')}</td></tr>
+     <tr><td><b>${T('עזוב כשאתה מתעצבן, לא לפי השעון','Leave when you’re upset, not by the clock')}</b></td><td>${T('ברגע שרגש מניע את ההימורים שלך — היתרון נעלם. לך הביתה; המשחק יהיה כאן גם מחר.','Once emotion drives your bets, your edge is gone. Go home — the game will be here tomorrow.')}</td></tr>
    </table>
-   <div class="keycard">${T('<b>טילט הוא הדליפה האמיתית.</b> זו לא היד שהפסדת — אלו שלוש הידיים הפזיזות שאתה משחק אחריה בניסיון להחזיר. לזהות ״אני על טילט״ זו מיומנות שאפשר לאמן.','<b>Tilt is the real leak.</b> It’s not the hand you lost — it’s the three reckless hands you play afterward trying to win it back. Recognising “I’m on tilt” is a skill you can train.')}</div>
-   <h3 class="sec">${T('סימולטור הישרדות בנקרול','Bankroll survival simulator')}</h3>
-   <p style="color:var(--muted);margin:0 0 8px">${T('ראה איך מספר הבאיינים והסטופ־לוס משנים את הסיכוי שלך להתרושש ברצף גרוע.','See how buy-in count and a stop-loss change your odds of going broke over a rough stretch.')}</p>
+   <div class="keycard">${T('<b>עצבים הם הדליפה הכי גדולה בפוקר (קוראים לזה ״טילט״).</b> זה לא ההפסד עצמו — אלו שלוש הידיים הפזיזות שאתה משחק אחריו בניסיון להחזיר את הכסף. לזהות ״אני מתעצבן עכשיו״ ולעצור — זו מיומנות שאפשר לאמן.','<b>Anger is the biggest leak in poker (it’s called "tilt").</b> It’s not the loss itself — it’s the three reckless hands you play afterward trying to win it back. Noticing "I’m getting angry" and stopping is a skill you can train.')}</div>
+   <h3 class="sec">${T('סימולטור: כמה בטוח התקציב שלך?','Simulator: how safe is your budget?')}</h3>
+   <p style="color:var(--muted);margin:0 0 8px">${T('ראה איך מספר הכניסות וגבול ההפסד משנים את הסיכוי שלך להתרושש ברצף גרוע.','See how the number of buy-ins and a loss limit change your odds of going broke over a rough stretch.')}</p>
    <div id="sim"></div>
    <h3 class="sec">${T('תרגול · להישאר או ללכת הביתה?','Drill · Stay or go home?')}</h3>
    <p style="color:var(--muted);margin:0 0 4px">${T('קרא את המצב. הגיע הזמן לארוז? פתור 5.','Read the situation. Is it time to rack up? Solve 5.')}</p>
@@ -1244,12 +1247,12 @@ function mBankroll(b){
   const sim=document.getElementById('sim');
   sim.appendChild(el(`
     <div style="background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-md);padding:16px">
-      <div class="field"><label>${T('בנקרול בבאיינים','Bankroll in buy-ins')} — <span class="num" id="vbi">20</span></label>
+      <div class="field"><label>${T('התקציב שלך (במספר כניסות)','Your budget (in buy-ins)')} — <span class="num" id="vbi">20</span></label>
         <input type="range" id="bi" min="5" max="60" step="1" value="20"></div>
-      <div class="field"><label>${T('סטופ־לוס (לעזוב אחרי הפסד של)','Stop-loss (leave after losing)')} — <span class="num" id="vsl">3</span> ${T('באיינים','buy-ins')}</label>
+      <div class="field"><label>${T('גבול הפסד (לעזוב אחרי שהפסדת)','Loss limit (leave after losing)')} — <span class="num" id="vsl">3</span> ${T('כניסות','buy-ins')}</label>
         <input type="range" id="sl" min="1" max="10" step="1" value="3"></div>
       <div class="stat-row" id="simOut"></div>
-      <p style="font-size:12.5px;color:var(--muted);margin:6px 0 0">${T('מונטה־קרלו על פני 400 מפגשים עתירי הפסד. סטופ־לוס ממושמע מוריד דרמטית את הסיכון להתרוששות.','Monte-Carlo over 400 losing-heavy sessions. A disciplined stop-loss dramatically lowers your risk of ruin.')}</p>
+      <p style="font-size:12.5px;color:var(--muted);margin:6px 0 0">${T('הרצנו 400 סדרות משחק עתירות הפסד. גבול הפסד ברור מוריד דרמטית את הסיכון להתרושש.','We ran 400 losing-heavy runs. A clear loss limit dramatically lowers your risk of going broke.')}</p>
     </div>`));
   function runSim(){
     const bi=+sim.querySelector('#bi').value, sl=+sim.querySelector('#sl').value;
@@ -1271,9 +1274,9 @@ function mBankroll(b){
     const risk=Math.round(ruin/N*100);
     const cls=risk<=8?'good':risk<=25?'warn':'bad';
     sim.querySelector('#simOut').innerHTML=`
-      <div class="stat"><div class="k">${T('באיינים','Buy-ins')}</div><div class="v num">${bi}</div></div>
-      <div class="stat"><div class="k">${T('סטופ־לוס','Stop-loss')}</div><div class="v num">${sl}</div></div>
-      <div class="stat"><div class="k">${T('סיכון להתרוששות','Risk of going broke')}</div><div class="v num ${cls}">${risk}%</div></div>`;
+      <div class="stat"><div class="k">${T('כניסות','Buy-ins')}</div><div class="v num">${bi}</div></div>
+      <div class="stat"><div class="k">${T('גבול הפסד','Loss limit')}</div><div class="v num">${sl}</div></div>
+      <div class="stat"><div class="k">${T('סיכון להתרושש','Risk of going broke')}</div><div class="v num ${cls}">${risk}%</div></div>`;
   }
   ['bi','sl'].forEach(id=>sim.querySelector('#'+id).addEventListener('input',runSim)); runSim();
   // drill
@@ -1317,7 +1320,7 @@ function mBankroll(b){
    MODULE 8 — THE TABLE (playable heads-up hand vs a real bot)
    ===================================================================== */
 function mTable(b){
-  intro(T('סיום. שחק ידיים מלאות אחד־על־אחד מול בוט שבאמת מחשב אקוויטי ויחסי קופה — בדיוק המיומנויות שלמדת. תנצח אותו, ואתה קורא את המשחק כמו שמנצחים קוראים.',
+  intro(T('סיום. שחק ידיים מלאות אחד־על־אחד מול מחשב שבאמת מחשב את הסיכוי לזכות ואת יחסי הקופה — בדיוק מה שלמדת. תנצח אותו, ואתה קורא את המשחק כמו שמנצחים קוראים.',
           'Graduation. Play full hands heads-up against a bot that actually calculates equity and pot odds — the exact skills you just learned. Beat it, and you’re reading the game the way winners do.'));
   b.innerHTML=`
     <div class="prose"><p class="lead">${T('כל יד מתחילה עם <b>1,000$</b>. גבור על הבוט לאורך מפגש — המשימה שלך היא לקבל את ההחלטה עם ה־EV הגבוה יותר, לא רק לזכות בקופה.','You start each hand with <b>$1,000</b>. Outplay the bot over a session — your job is to make the higher-EV decision, not just win the pot.')}</p></div>
@@ -1350,7 +1353,7 @@ function startTable(root){
           <div class="felt-seat"><div class="felt-label">${T('בוט','Bot')}</div>
             <div class="board-row" style="min-height:auto">${(done?bot.map(c=>cardHTML(c)):[0,0].map(()=>cardHTML(null,{faceDown:true}))).join('')}</div></div>
           <div class="felt-seat" style="margin:14px 0">
-            <div class="board-row">${board.length?board.map(c=>cardHTML(c,{deal:true})).join(''):'<span style="color:rgba(255,255,255,.6);font-size:13px">'+T('— לפני הפלופ —','— pre-flop —')+'</span>'}</div>
+            <div class="board-row">${board.length?board.map(c=>cardHTML(c,{deal:true})).join(''):'<span style="color:rgba(255,255,255,.6);font-size:13px">'+T('— תחילת היד —','— start of hand —')+'</span>'}</div>
             <div style="margin-top:10px"><span class="pot-tag">${T('קופה','Pot')} <span class="num">$${pot}</span>${toCall?` · ${T('לתשלום','To call')} <span class="num">$${toCall}</span>`:''}</span></div>
           </div>
           <div class="felt-seat"><div class="felt-label">${T('אתה','You')}</div>
@@ -1373,7 +1376,7 @@ function startTable(root){
       const potOdds= toCall? toCall/(pot+toCall) : 0;
       ctrl.innerHTML=`
         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:10px">
-          <span style="font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase">${T('האקוויטי שלך מול הבוט','Your equity vs bot')}</span>
+          <span style="font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase">${T('הסיכוי שלך לזכות מול המחשב','Your chance to win vs bot')}</span>
           <div class="meter" style="flex:1;min-width:160px"><i class="you" style="width:${heq}%"></i></div>
           <span class="num" style="color:var(--good)">${heq}%</span>
         </div>
@@ -1437,7 +1440,7 @@ function startTable(root){
       if(hv>bv){bankHero+=pot;result='win';} else if(bv>hv){bankBot+=pot;result='lose';}
       else {bankHero+=pot/2;bankBot+=pot/2;result='split';}
       recordHand(result,bankHero-startHero);
-      render(T('שולדאון.','Showdown.'));
+      render(T('סוף היד — מגלים קלפים.','End of hand — cards revealed.'));
     }
     render('');
   }
