@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "agenticdesigner": {
+      "command": "node",
+      "args": [
+        "/Users/ariel/Documents/XcodeApps/AgenticDesigner/agentic-designer-react/mcp-stdio.js"
+      ]
+    }
+  }
+}

@@ -1,0 +1,420 @@
+{
+  "agentMemo" : "Art style: Bird = cute chubby round yellow bird (side view); Pipe = green cartoon pipe obstacle. Sprites generated and applied via create_game_scene with flappy template.",
+  "apiEndpoints" : [
+
+  ],
+  "globalVariables" : [
+    {
+      "defaultValue" : "0",
+      "id" : "BF320E68-E120-49E2-B79C-2E3B42B621B2",
+      "name" : "gameScore",
+      "scope" : "global",
+      "type" : "number"
+    }
+  ],
+  "name" : "Untitled Project",
+  "pages" : [
+    {
+      "id" : "CFA4FF5A-A123-44EB-A32F-3FDE12DF2B23",
+      "logicFlows" : [
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "D7D5B198-AEB2-410F-B0F1-7C9B7BA2C301",
+              "id" : "501B5EC5-E35B-4A65-9D28-7659E29D0E19",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "08AC5493-ED1E-435A-97A2-88BA6D389704",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 80,
+              "y" : 120
+            },
+            {
+              "category" : "Actions",
+              "id" : "3C47A5B6-2C9C-48DE-A2CB-A229EFEDB22D",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EEF57809-DABE-415F-9DC2-A0D337F5AECF",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "A023AEDB-3D91-4139-80E9-E39CFB20DEC8",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 360,
+              "y" : 120
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "3A7CE269-741C-4014-95FF-9C55835A027E",
+              "sourceBlockId" : "501B5EC5-E35B-4A65-9D28-7659E29D0E19",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "3C47A5B6-2C9C-48DE-A2CB-A229EFEDB22D",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "14C1E010-531B-48C1-BE75-E56BBBC5EAE7",
+          "name" : "Play → Game",
+          "variables" : [
+
+          ]
+        }
+      ],
+      "name" : "App Screens",
+      "nodes" : [
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "height" : 44,
+              "id" : "64FA9169-D44D-45F0-872B-3453F235229C",
+              "name" : "Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "opacity" : 1
+              },
+              "text" : "Welcome Back",
+              "type" : "Text",
+              "width" : 260,
+              "x" : 32,
+              "y" : 80
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 56,
+              "id" : "340EFD92-EAAE-4089-9B20-9D3969A0F489",
+              "name" : "Login Button",
+              "style" : {
+                "cornerRadius" : 14,
+                "fill" : "#2563EB",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Log In",
+              "type" : "Button",
+              "width" : 326,
+              "x" : 32,
+              "y" : 680
+            }
+          ],
+          "height" : 844,
+          "id" : "A023AEDB-3D91-4139-80E9-E39CFB20DEC8",
+          "name" : "Login Screen",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#111827",
+            "opacity" : 1,
+            "stroke" : "#3B82F6"
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 100,
+          "y" : 100
+        },
+        {
+          "children" : [
+
+          ],
+          "clipContent" : true,
+          "gameScene" : {
+            "backgroundColor" : "#8ED0F0",
+            "entities" : [
+              {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+
+                ],
+                "body" : "staticBody",
+                "category" : "ground",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#DEB841",
+                "contacts" : [
+
+                ],
+                "friction" : 0.2,
+                "height" : 44,
+                "id" : "ground",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "Ground",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 390,
+                "x" : 0,
+                "y" : 800,
+                "zIndex" : 0
+              },
+              {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+
+                ],
+                "body" : "kinematic",
+                "category" : "pipe",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#5FB84B",
+                "contacts" : [
+
+                ],
+                "friction" : 0.2,
+                "height" : 300,
+                "id" : "pipe",
+                "isTemplate" : true,
+                "linearDamping" : 0.1,
+                "name" : "Pipe",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "sprite" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-B5379FA4-A508-4D4C-9A89-452C64070C01.png",
+                "width" : 66,
+                "x" : 0,
+                "y" : 0,
+                "zIndex" : 0
+              },
+              {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "firstDelay" : 1.1,
+                    "gapSize" : 180,
+                    "interval" : 2,
+                    "spawnYMax" : 640,
+                    "spawnYMin" : 320,
+                    "template" : "pipe",
+                    "type" : "spawner",
+                    "velocityX" : -155
+                  }
+                ],
+                "body" : "none",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#00000000",
+                "contacts" : [
+
+                ],
+                "friction" : 0.2,
+                "height" : 1,
+                "id" : "spawner",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "Spawner",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 1,
+                "x" : 0,
+                "y" : 0,
+                "zIndex" : 0
+              },
+              {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "key" : "space",
+                    "strength" : 9,
+                    "type" : "impulseOnTap"
+                  },
+                  {
+                    "action" : "gameOver",
+                    "target" : "pipe",
+                    "type" : "onCollision"
+                  },
+                  {
+                    "action" : "gameOver",
+                    "target" : "ground",
+                    "type" : "onCollision"
+                  }
+                ],
+                "body" : "dynamic",
+                "category" : "bird",
+                "circleBody" : true,
+                "collidesWith" : [
+
+                ],
+                "color" : "#FFD23F",
+                "contacts" : [
+                  "pipe",
+                  "ground"
+                ],
+                "friction" : 0.2,
+                "height" : 40,
+                "id" : "bird",
+                "isTemplate" : false,
+                "linearDamping" : 0,
+                "name" : "Bird",
+                "restitution" : 0,
+                "rotation" : 0,
+                "sprite" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-CF5A0C7D-4645-4146-BD47-62B51B425D8E.png",
+                "width" : 46,
+                "x" : 96,
+                "y" : 400,
+                "zIndex" : 0
+              }
+            ],
+            "gravity" : -18,
+            "height" : 844,
+            "parallax" : [
+
+            ],
+            "scrollSpeed" : 0,
+            "showScore" : true,
+            "startPaused" : true,
+            "tapToStartText" : "Tap to flap",
+            "timeUpAction" : "gameOver",
+            "version" : 1,
+            "width" : 390,
+            "worldHeight" : 0,
+            "worldWidth" : 0
+          },
+          "height" : 844,
+          "id" : "F9876871-576E-4029-B8EC-3B189BBF15DD",
+          "manuallyPositioned" : true,
+          "name" : "Game",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#8ED0F0",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 693.37109375,
+          "y" : 123.3203125
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 52,
+              "id" : "A634E39E-AE9A-4A1A-A38F-38EBE10DF5C2",
+              "manuallyPositioned" : true,
+              "name" : "Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 44,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#FFD23F"
+              },
+              "text" : "SKY FLAP",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 45,
+              "y" : 210,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "id" : "DA530040-AC1B-4217-9D88-88FEAB3CE33A",
+              "manuallyPositioned" : true,
+              "name" : "BestScore",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#9DB2CC"
+              },
+              "text" : "Best: {{gameScore}}",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 45,
+              "y" : 290,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "D7D5B198-AEB2-410F-B0F1-7C9B7BA2C301",
+              "manuallyPositioned" : true,
+              "name" : "Play",
+              "style" : {
+                "cornerRadius" : 29,
+                "fill" : "#FFD23F",
+                "fontSize" : 22,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0E1E33"
+              },
+              "text" : "▶  PLAY",
+              "type" : "Button",
+              "width" : 200,
+              "x" : 95,
+              "y" : 460,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "31934E59-D67B-4411-A126-930089B645B0",
+          "manuallyPositioned" : true,
+          "name" : "Menu",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#0E1E33",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 560,
+          "y" : 60,
+          "zIndex" : 0
+        }
+      ]
+    }
+  ],
+  "platformSettings" : {
+    "defaultPreviewPlatform" : "iPhone",
+    "enabledPlatforms" : [
+      "iPhone",
+      "iPad"
+    ]
+  }
+}

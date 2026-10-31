@@ -1,0 +1,3889 @@
+{
+  "apiEndpoints" : [
+
+  ],
+  "bundleIdentifier" : "com.acme.aeronshop",
+  "globalVariables" : [
+    {
+      "defaultValue" : "[{\"id\":\"a1\",\"name\":\"Pulse 01\",\"category\":\"Running\",\"price\":140},{\"id\":\"a2\",\"name\":\"Form 02\",\"category\":\"Training\",\"price\":120},{\"id\":\"a3\",\"name\":\"Transit Shell\",\"category\":\"Apparel\",\"price\":180}]",
+      "id" : "CF83A340-7CC1-426E-A854-6905BCB3E257",
+      "name" : "products",
+      "scope" : "global",
+      "type" : "json"
+    },
+    {
+      "defaultValue" : "{}",
+      "id" : "C7EDD866-7EAD-426B-817B-483CEB97F7BC",
+      "name" : "selectedProduct",
+      "scope" : "global",
+      "type" : "json"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "191BFDDF-B158-4C84-A942-9B3987618016",
+      "name" : "searchQuery",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "[]",
+      "id" : "E1DE2C5D-2B31-4478-A887-1BC1D14C1D3A",
+      "name" : "cart",
+      "scope" : "global",
+      "type" : "array"
+    },
+    {
+      "defaultValue" : "[]",
+      "id" : "B4DAC569-11C8-4503-BB8B-4FD6C8204964",
+      "name" : "favorites",
+      "scope" : "global",
+      "type" : "array"
+    },
+    {
+      "defaultValue" : "[]",
+      "id" : "9A1853F3-40FB-4A05-B56D-27669016BE06",
+      "name" : "orders",
+      "scope" : "global",
+      "type" : "array"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "E2DE1ACA-64F6-4092-BD72-DF574DA2F300",
+      "name" : "cartCount",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "E94C40EC-BF30-41E0-A058-0239F739A9BF",
+      "name" : "cartTotal",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "10",
+      "id" : "7A78A20B-234F-49C2-84BE-9A32EF46F5B6",
+      "name" : "selectedSize",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "DE5C855A-9E68-45AF-82F9-C345E977AAC2",
+      "name" : "shippingAddress",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "FFAEDD3C-2BAA-4011-B156-25EAE98EAEAF",
+      "name" : "city",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "EB7C17C9-2E22-406E-AA09-A08165196047",
+      "name" : "firebaseUser",
+      "scope" : "global",
+      "type" : "string"
+    }
+  ],
+  "name" : "Aeron Shop",
+  "pages" : [
+    {
+      "id" : "108D2963-439A-4342-B100-19F57AD8080E",
+      "logicFlows" : [
+        {
+          "blocks" : [
+
+          ],
+          "connections" : [
+
+          ],
+          "id" : "4ECA0703-A1E2-4521-9142-C2FA7C083697",
+          "name" : "Flow 1",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "DEDE298D-DADD-4C00-A10D-1BB0DD4E8F8A",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "74BD6BAB-3EE9-43BD-8C3F-71F635B35AF0",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "77C03D24-43AD-4566-B08C-0E56F715DBA4",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EE4D44AC-06EA-4DED-B160-27EE39FE4A9B",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "F89315D7-145C-486A-B2FA-8543A30DD6BA",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "A0FAC92E-C204-4222-910B-A20DCB761F58",
+              "sourceBlockId" : "DEDE298D-DADD-4C00-A10D-1BB0DD4E8F8A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "77C03D24-43AD-4566-B08C-0E56F715DBA4",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "F417C376-E1D2-4660-86DB-493746B04164",
+          "name" : "Home Navigation",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "EC260BA3-8FD9-4D44-927F-58A4C351BA9E",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "400D6504-CAC1-4BA1-9669-A4C3E5E5302E",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Variables",
+              "id" : "A1DF3C40-4EDA-43DA-90F0-29117A677AAC",
+              "isCollapsed" : false,
+              "label" : "Set Variable",
+              "parameters" : [
+                {
+                  "id" : "BAB917CB-08E4-42F0-AF44-DAAEFA467CEE",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "selectedProduct"
+                },
+                {
+                  "id" : "933316AC-6A8B-46FC-86A9-613024CA6D66",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "{{product}}"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "E7ECD089-AC43-44B0-B52B-381819CD0CF7",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EE4D44AC-06EA-4DED-B160-27EE39FE4A9B",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "566082F3-95C6-4E3F-A18E-B3AB2B5DA795",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "01BDCC16-3020-4C1C-B36A-A111419715F3",
+              "sourceBlockId" : "EC260BA3-8FD9-4D44-927F-58A4C351BA9E",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A1DF3C40-4EDA-43DA-90F0-29117A677AAC",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "CA31F7C2-EA72-49F9-B431-7B28D6897237",
+              "sourceBlockId" : "A1DF3C40-4EDA-43DA-90F0-29117A677AAC",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "E7ECD089-AC43-44B0-B52B-381819CD0CF7",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "7275F331-3198-4472-86C7-E67FFD0343A8",
+          "name" : "Select Product",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "D952CB06-93E8-4287-BD6A-3F9D8DAA2D01",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "420CF118-97C2-4C16-9A5A-FED4E99EDF39",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Variables",
+              "id" : "2DE79445-B32C-4D89-B82F-0441A8CF8110",
+              "isCollapsed" : false,
+              "label" : "Append Item",
+              "parameters" : [
+                {
+                  "id" : "0BC2D0EE-23F0-4602-8B08-42FBE85750A2",
+                  "isRequired" : true,
+                  "key" : "array",
+                  "label" : "Array",
+                  "type" : "variable",
+                  "variableReference" : "cart"
+                },
+                {
+                  "id" : "AB2F303C-0F73-4547-9087-690D1FD61A8B",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "{{selectedProduct.name}}"
+                }
+              ],
+              "type" : "appendToArray",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Variables",
+              "id" : "9E3C5BCD-2CFB-4D7E-BF3A-B986BD81F207",
+              "isCollapsed" : false,
+              "label" : "Math",
+              "parameters" : [
+                {
+                  "id" : "E31BC208-B671-4B18-877C-81BD6E354875",
+                  "isRequired" : true,
+                  "key" : "left",
+                  "label" : "Left",
+                  "type" : "string",
+                  "value" : "{{cartTotal}}",
+                  "variableReference" : "cartTotal"
+                },
+                {
+                  "id" : "B6DF9C5D-D106-431E-934B-CBCA4FCB1FD4",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "+",
+                    "-",
+                    "×",
+                    "÷",
+                    "%"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "+"
+                },
+                {
+                  "id" : "4714B9C6-32E6-4AFE-9CD8-CA877A847EA6",
+                  "isRequired" : true,
+                  "key" : "right",
+                  "label" : "Right",
+                  "type" : "string",
+                  "value" : "0"
+                },
+                {
+                  "id" : "9C45675C-66A4-43EA-B7F7-BDC46AE5B8A9",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Store In",
+                  "type" : "variable",
+                  "variableReference" : "cartTotal"
+                }
+              ],
+              "type" : "mathOperation",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Variables",
+              "id" : "C5F23FAB-6332-4AB9-85CD-E768391B6DCA",
+              "isCollapsed" : false,
+              "label" : "Increment",
+              "parameters" : [
+                {
+                  "id" : "8BE44BBA-6C60-4BA9-B6DA-2946B5D1ED52",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "cartCount"
+                },
+                {
+                  "id" : "8E8C2A36-783F-4028-8248-0F38EFDC095D",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "number",
+                  "value" : "1"
+                }
+              ],
+              "type" : "incrementVariable",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "5E5C358A-6431-41AD-9100-0D7F6DE96EC6",
+              "isCollapsed" : false,
+              "label" : "Show Toast",
+              "parameters" : [
+                {
+                  "id" : "D804AF60-8BB2-41AD-AD43-788DCD656E1E",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Added to your bag"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "43C09014-CBD9-4F00-A48D-EFF06F3326FA",
+              "sourceBlockId" : "D952CB06-93E8-4287-BD6A-3F9D8DAA2D01",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "2DE79445-B32C-4D89-B82F-0441A8CF8110",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "99326BB7-1D4D-47F7-B7D6-823FCD374499",
+              "sourceBlockId" : "2DE79445-B32C-4D89-B82F-0441A8CF8110",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "9E3C5BCD-2CFB-4D7E-BF3A-B986BD81F207",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "A0892AA1-E80C-450F-AD56-3DB651E7B7A2",
+              "sourceBlockId" : "9E3C5BCD-2CFB-4D7E-BF3A-B986BD81F207",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "C5F23FAB-6332-4AB9-85CD-E768391B6DCA",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "5C30BAB1-866E-485A-BAC2-05450F81FD90",
+              "sourceBlockId" : "C5F23FAB-6332-4AB9-85CD-E768391B6DCA",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "5E5C358A-6431-41AD-9100-0D7F6DE96EC6",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "4C573B7B-0B0F-4378-9D49-78B172BD48E8",
+          "name" : "Add To Bag",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "65BD2FF3-F2D6-438C-B7CA-7E935E156FD9",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "C917B56F-8054-4ED5-849B-645183735FD6",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Variables",
+              "id" : "360049B1-E89C-43E9-8467-A2C7E2002E01",
+              "isCollapsed" : false,
+              "label" : "Append Item",
+              "parameters" : [
+                {
+                  "id" : "0BC2D0EE-23F0-4602-8B08-42FBE85750A2",
+                  "isRequired" : true,
+                  "key" : "array",
+                  "label" : "Array",
+                  "type" : "variable",
+                  "variableReference" : "favorites"
+                },
+                {
+                  "id" : "AB2F303C-0F73-4547-9087-690D1FD61A8B",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "{{selectedProduct.name}}"
+                }
+              ],
+              "type" : "appendToArray",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "0A1CD531-FB37-40EC-95AA-641B8DF55A01",
+              "isCollapsed" : false,
+              "label" : "Show Toast",
+              "parameters" : [
+                {
+                  "id" : "D804AF60-8BB2-41AD-AD43-788DCD656E1E",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Saved to favorites"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "A6F79DE7-4A03-49AC-BBFC-3EDA8F7CE679",
+              "sourceBlockId" : "65BD2FF3-F2D6-438C-B7CA-7E935E156FD9",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "360049B1-E89C-43E9-8467-A2C7E2002E01",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "3DC1F6D7-6F91-4A5C-97B9-19F4A46B389F",
+              "sourceBlockId" : "360049B1-E89C-43E9-8467-A2C7E2002E01",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "0A1CD531-FB37-40EC-95AA-641B8DF55A01",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "6BDC8FB4-0515-428B-B5F4-8DD47A84D88F",
+          "name" : "Save Favorite",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "FA940FD0-C0B5-41AB-94EB-DFEB0EF42D6B",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "C5DC29B3-13D9-4C02-AD0F-C4E75244BC8C",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "78847DF8-9FEF-4465-8D3D-82476F792E78",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EE4D44AC-06EA-4DED-B160-27EE39FE4A9B",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "6C7F1E76-223D-4272-9506-E72316FEAD09",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "70954CAD-4B36-42B6-9CA1-14582F369F21",
+              "sourceBlockId" : "FA940FD0-C0B5-41AB-94EB-DFEB0EF42D6B",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "78847DF8-9FEF-4465-8D3D-82476F792E78",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "10180649-AD04-4D38-9F27-4CA17E01540F",
+          "name" : "Cart Checkout",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "UI Updates",
+              "id" : "37867D7C-9D44-42DE-B142-9074C1524018",
+              "isCollapsed" : false,
+              "label" : "Bind Property",
+              "parameters" : [
+                {
+                  "id" : "80BD40C9-E534-4F52-9D22-C4C3EA9EA8CB",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "6712704F-3EF1-494A-B9DA-2C25A63FDB82",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "03B246E0-CB5C-4323-9130-40DEF6F95773",
+                  "isRequired" : true,
+                  "key" : "property",
+                  "label" : "Property",
+                  "options" : [
+                    "text",
+                    "value",
+                    "isOn",
+                    "visibility",
+                    "enabled",
+                    "selectedIndex"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "value"
+                },
+                {
+                  "id" : "99194CA3-01C8-4213-8858-EB14A1C4B80D",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "shippingAddress"
+                }
+              ],
+              "type" : "bindProperty",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "53F1F893-0AF2-4D3A-84B0-1CB57D9E4637",
+              "isCollapsed" : false,
+              "label" : "Bind Property",
+              "parameters" : [
+                {
+                  "id" : "80BD40C9-E534-4F52-9D22-C4C3EA9EA8CB",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "7DD12EAA-C387-48B5-85F4-E9A2DCC3DE3D",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "03B246E0-CB5C-4323-9130-40DEF6F95773",
+                  "isRequired" : true,
+                  "key" : "property",
+                  "label" : "Property",
+                  "options" : [
+                    "text",
+                    "value",
+                    "isOn",
+                    "visibility",
+                    "enabled",
+                    "selectedIndex"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "value"
+                },
+                {
+                  "id" : "99194CA3-01C8-4213-8858-EB14A1C4B80D",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "city"
+                }
+              ],
+              "type" : "bindProperty",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Events",
+              "id" : "DF6027AE-87C1-4A71-8375-C5512C2F6C1E",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "A66E5314-CD17-4A7B-B710-B3E28533BAA9",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "6C2505D2-7050-4E8C-84BE-A718F5A07947",
+              "isCollapsed" : false,
+              "label" : "Validate Field",
+              "parameters" : [
+                {
+                  "id" : "346CF3CC-C045-4A1A-A2C7-1B00A24BAD69",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Field",
+                  "nodeReference" : "6712704F-3EF1-494A-B9DA-2C25A63FDB82",
+                  "placeholder" : "Select an input...",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "0B89A124-4382-4D97-A7DF-A8AC556F7B1F",
+                  "isRequired" : true,
+                  "key" : "rule",
+                  "label" : "Rule",
+                  "options" : [
+                    "notEmpty",
+                    "email",
+                    "minLength",
+                    "matchesRegex"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "notEmpty"
+                },
+                {
+                  "id" : "CE86D84C-27DF-49E1-B624-044003CEBFAB",
+                  "isRequired" : false,
+                  "key" : "argument",
+                  "label" : "Argument",
+                  "placeholder" : "e.g. 8 for minLength, a pattern for regex",
+                  "type" : "string"
+                }
+              ],
+              "type" : "validateForm",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "543260B0-E4FD-48F3-ADE6-644C0E18B27A",
+              "isCollapsed" : false,
+              "label" : "Validate Field",
+              "parameters" : [
+                {
+                  "id" : "346CF3CC-C045-4A1A-A2C7-1B00A24BAD69",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Field",
+                  "nodeReference" : "7DD12EAA-C387-48B5-85F4-E9A2DCC3DE3D",
+                  "placeholder" : "Select an input...",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "0B89A124-4382-4D97-A7DF-A8AC556F7B1F",
+                  "isRequired" : true,
+                  "key" : "rule",
+                  "label" : "Rule",
+                  "options" : [
+                    "notEmpty",
+                    "email",
+                    "minLength",
+                    "matchesRegex"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "notEmpty"
+                },
+                {
+                  "id" : "CE86D84C-27DF-49E1-B624-044003CEBFAB",
+                  "isRequired" : false,
+                  "key" : "argument",
+                  "label" : "Argument",
+                  "placeholder" : "e.g. 8 for minLength, a pattern for regex",
+                  "type" : "string"
+                }
+              ],
+              "type" : "validateForm",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Variables",
+              "id" : "5D913AE1-4703-42B8-A917-3D550CB2FF9D",
+              "isCollapsed" : false,
+              "label" : "Append Item",
+              "parameters" : [
+                {
+                  "id" : "0BC2D0EE-23F0-4602-8B08-42FBE85750A2",
+                  "isRequired" : true,
+                  "key" : "array",
+                  "label" : "Array",
+                  "type" : "variable",
+                  "variableReference" : "orders"
+                },
+                {
+                  "id" : "AB2F303C-0F73-4547-9087-690D1FD61A8B",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "total={{cartTotal}} status=Placed"
+                }
+              ],
+              "type" : "appendToArray",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Firebase",
+              "id" : "D8E9E70E-6D1C-4223-ACC0-B7D42C9D6779",
+              "isCollapsed" : false,
+              "label" : "Add Document",
+              "parameters" : [
+                {
+                  "id" : "856B6D56-BE2B-4040-9FF0-514CFD48F065",
+                  "isRequired" : true,
+                  "key" : "collection",
+                  "label" : "Collection",
+                  "placeholder" : "users",
+                  "type" : "firebasePath",
+                  "value" : "users\/{{uid}}\/orders"
+                },
+                {
+                  "id" : "999F5861-839E-4D5D-BA27-857F97F714B5",
+                  "isRequired" : true,
+                  "key" : "data",
+                  "label" : "Data Fields",
+                  "type" : "keyValue",
+                  "value" : "total={{cartTotal}}\nstatus=Placed\naddress={{shippingAddress}}\ncity={{city}}\ncreatedAt={{now}}"
+                }
+              ],
+              "type" : "firestoreAddDocument",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Variables",
+              "id" : "047A732E-5919-4F09-9A56-BC3B011DF136",
+              "isCollapsed" : false,
+              "label" : "Set Variable",
+              "parameters" : [
+                {
+                  "id" : "BAB917CB-08E4-42F0-AF44-DAAEFA467CEE",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "cart"
+                },
+                {
+                  "id" : "933316AC-6A8B-46FC-86A9-613024CA6D66",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "[]"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Variables",
+              "id" : "A2223927-A590-44A3-95B9-91E15B9EED7B",
+              "isCollapsed" : false,
+              "label" : "Set Variable",
+              "parameters" : [
+                {
+                  "id" : "BAB917CB-08E4-42F0-AF44-DAAEFA467CEE",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "cartTotal"
+                },
+                {
+                  "id" : "933316AC-6A8B-46FC-86A9-613024CA6D66",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Variables",
+              "id" : "8D8EE7AA-0779-427C-B00C-2FC257978D5A",
+              "isCollapsed" : false,
+              "label" : "Set Variable",
+              "parameters" : [
+                {
+                  "id" : "BAB917CB-08E4-42F0-AF44-DAAEFA467CEE",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "cartCount"
+                },
+                {
+                  "id" : "933316AC-6A8B-46FC-86A9-613024CA6D66",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "3385805E-D4EC-4E15-B871-DA2DF83D5B96",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EE4D44AC-06EA-4DED-B160-27EE39FE4A9B",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "4DBDAA42-8DEC-487A-BEEF-592D60D041D3",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "A1F36AE3-4B17-4822-A801-490068AD65F8",
+              "isCollapsed" : false,
+              "label" : "Show Alert",
+              "parameters" : [
+                {
+                  "id" : "297BC916-B361-4F2D-8C1F-3869E4446953",
+                  "isRequired" : true,
+                  "key" : "title",
+                  "label" : "Title",
+                  "placeholder" : "Alert title",
+                  "type" : "string",
+                  "value" : "Complete your address"
+                },
+                {
+                  "id" : "54F9AED0-02B7-4CFB-AD4E-225C3597C587",
+                  "isRequired" : false,
+                  "key" : "message",
+                  "label" : "Message",
+                  "placeholder" : "Alert message",
+                  "type" : "string",
+                  "value" : "Add shipping address and city before placing the order."
+                }
+              ],
+              "type" : "showAlert",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "CD7892A9-5613-4C5A-849A-701CC099161D",
+              "isCollapsed" : false,
+              "label" : "Show Alert",
+              "parameters" : [
+                {
+                  "id" : "297BC916-B361-4F2D-8C1F-3869E4446953",
+                  "isRequired" : true,
+                  "key" : "title",
+                  "label" : "Title",
+                  "placeholder" : "Alert title",
+                  "type" : "string",
+                  "value" : "City required"
+                },
+                {
+                  "id" : "54F9AED0-02B7-4CFB-AD4E-225C3597C587",
+                  "isRequired" : false,
+                  "key" : "message",
+                  "label" : "Message",
+                  "placeholder" : "Alert message",
+                  "type" : "string",
+                  "value" : "Add a city to continue."
+                }
+              ],
+              "type" : "showAlert",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "81FEB882-86FB-4B74-9B62-6E088AA9166D",
+              "sourceBlockId" : "DF6027AE-87C1-4A71-8375-C5512C2F6C1E",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "6C2505D2-7050-4E8C-84BE-A718F5A07947",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "CDD8B927-7A8F-4CEF-8616-8BD9BA6BED35",
+              "sourceBlockId" : "6C2505D2-7050-4E8C-84BE-A718F5A07947",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "543260B0-E4FD-48F3-ADE6-644C0E18B27A",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "4C388B3E-528F-4DC6-BB48-B6D5D0AA78F9",
+              "sourceBlockId" : "6C2505D2-7050-4E8C-84BE-A718F5A07947",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "A1F36AE3-4B17-4822-A801-490068AD65F8",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "D71680A8-3F8F-4403-A2D3-2D4EB702849B",
+              "sourceBlockId" : "543260B0-E4FD-48F3-ADE6-644C0E18B27A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "5D913AE1-4703-42B8-A917-3D550CB2FF9D",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "887584C5-B2E9-45CC-B110-ED798F39E6E7",
+              "sourceBlockId" : "5D913AE1-4703-42B8-A917-3D550CB2FF9D",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D8E9E70E-6D1C-4223-ACC0-B7D42C9D6779",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "43EFA46F-47D0-4693-B111-18EFAA6BCB81",
+              "sourceBlockId" : "D8E9E70E-6D1C-4223-ACC0-B7D42C9D6779",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "047A732E-5919-4F09-9A56-BC3B011DF136",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "F69C4C62-20A2-4B11-828A-49382AE49D0F",
+              "sourceBlockId" : "047A732E-5919-4F09-9A56-BC3B011DF136",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A2223927-A590-44A3-95B9-91E15B9EED7B",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "D3BF4120-96A7-4588-96FC-36A422A98F9E",
+              "sourceBlockId" : "A2223927-A590-44A3-95B9-91E15B9EED7B",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "8D8EE7AA-0779-427C-B00C-2FC257978D5A",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "FC1FBA68-0D61-490C-868A-C5D81A279BBA",
+              "sourceBlockId" : "8D8EE7AA-0779-427C-B00C-2FC257978D5A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "3385805E-D4EC-4E15-B871-DA2DF83D5B96",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "BD5B9FC4-41E4-4303-A53C-A85EC7CD433F",
+              "sourceBlockId" : "543260B0-E4FD-48F3-ADE6-644C0E18B27A",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "CD7892A9-5613-4C5A-849A-701CC099161D",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "8C29A9E5-BECA-45D2-BDC6-3370986A5844",
+          "name" : "Place Order",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "UI Updates",
+              "id" : "9077CDD1-EF8E-4A58-8FF3-31FF67D682FF",
+              "isCollapsed" : false,
+              "label" : "Bind Property",
+              "parameters" : [
+                {
+                  "id" : "80BD40C9-E534-4F52-9D22-C4C3EA9EA8CB",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "ACE2BFB5-894D-4E62-BA82-ACCCB60049BD",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "03B246E0-CB5C-4323-9130-40DEF6F95773",
+                  "isRequired" : true,
+                  "key" : "property",
+                  "label" : "Property",
+                  "options" : [
+                    "text",
+                    "value",
+                    "isOn",
+                    "visibility",
+                    "enabled",
+                    "selectedIndex"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "value"
+                },
+                {
+                  "id" : "99194CA3-01C8-4213-8858-EB14A1C4B80D",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "userEmail"
+                }
+              ],
+              "type" : "bindProperty",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "A19236FF-F212-425C-99B8-0D6CCA18AA50",
+              "isCollapsed" : false,
+              "label" : "Bind Property",
+              "parameters" : [
+                {
+                  "id" : "80BD40C9-E534-4F52-9D22-C4C3EA9EA8CB",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "C37A032A-BF28-43A7-BC30-8E224686C35F",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "03B246E0-CB5C-4323-9130-40DEF6F95773",
+                  "isRequired" : true,
+                  "key" : "property",
+                  "label" : "Property",
+                  "options" : [
+                    "text",
+                    "value",
+                    "isOn",
+                    "visibility",
+                    "enabled",
+                    "selectedIndex"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "value"
+                },
+                {
+                  "id" : "99194CA3-01C8-4213-8858-EB14A1C4B80D",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "userPassword"
+                }
+              ],
+              "type" : "bindProperty",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Events",
+              "id" : "D03F9C2D-475A-473C-A7D4-6458446C5C54",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "904A9867-2072-4C97-B88A-F06B6BFE3826",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Firebase",
+              "id" : "D84C70D4-39A5-4A14-ACEA-A69126B9D7A4",
+              "isCollapsed" : false,
+              "label" : "Firebase Login",
+              "parameters" : [
+                {
+                  "id" : "A7A0434E-0CC4-41F7-BDC4-835F0A705690",
+                  "isRequired" : true,
+                  "key" : "email",
+                  "label" : "Email",
+                  "placeholder" : "Select email input field...",
+                  "type" : "nodeReference",
+                  "variableReference" : "userEmail"
+                },
+                {
+                  "id" : "EEE671A5-1A23-4423-A117-A5C66A277A56",
+                  "isRequired" : true,
+                  "key" : "password",
+                  "label" : "Password",
+                  "placeholder" : "Select password input field...",
+                  "type" : "nodeReference",
+                  "variableReference" : "userPassword"
+                }
+              ],
+              "type" : "firebaseLogin",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Firebase",
+              "id" : "51BC6DEA-772B-4D5A-8CFC-E7204854599A",
+              "isCollapsed" : false,
+              "label" : "Current User",
+              "parameters" : [
+                {
+                  "id" : "9E2BDD4F-7323-4BE6-8362-6082F0680B6D",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Store In",
+                  "type" : "variable",
+                  "variableReference" : "firebaseUser"
+                }
+              ],
+              "type" : "firebaseGetCurrentUser",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "A24ECEFC-4AF7-41DE-816C-0E497E39C466",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EE4D44AC-06EA-4DED-B160-27EE39FE4A9B",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "E548C5AA-FFC5-4F73-B896-E93BECED421E",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "67D0C95A-FBAA-4CCE-93B5-4C3FCDC820A0",
+              "isCollapsed" : false,
+              "label" : "Show Alert",
+              "parameters" : [
+                {
+                  "id" : "297BC916-B361-4F2D-8C1F-3869E4446953",
+                  "isRequired" : true,
+                  "key" : "title",
+                  "label" : "Title",
+                  "placeholder" : "Alert title",
+                  "type" : "string",
+                  "value" : "Login failed"
+                },
+                {
+                  "id" : "54F9AED0-02B7-4CFB-AD4E-225C3597C587",
+                  "isRequired" : false,
+                  "key" : "message",
+                  "label" : "Message",
+                  "placeholder" : "Alert message",
+                  "type" : "string",
+                  "value" : "Check your email and password."
+                }
+              ],
+              "type" : "showAlert",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "228AE070-C41B-45AA-A137-47F900FEABBB",
+              "sourceBlockId" : "D03F9C2D-475A-473C-A7D4-6458446C5C54",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D84C70D4-39A5-4A14-ACEA-A69126B9D7A4",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "439E6D1C-93C7-45EE-A9F4-178409DA7C09",
+              "sourceBlockId" : "D84C70D4-39A5-4A14-ACEA-A69126B9D7A4",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "51BC6DEA-772B-4D5A-8CFC-E7204854599A",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "B3617067-BF23-4C34-A563-2D314E11251D",
+              "sourceBlockId" : "D84C70D4-39A5-4A14-ACEA-A69126B9D7A4",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "67D0C95A-FBAA-4CCE-93B5-4C3FCDC820A0",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "248F5445-D6EC-44CB-A88D-BE5F2D9FD180",
+              "sourceBlockId" : "51BC6DEA-772B-4D5A-8CFC-E7204854599A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A24ECEFC-4AF7-41DE-816C-0E497E39C466",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "23DA8574-E013-4352-86FF-330FEAC4CB71",
+          "name" : "Login",
+          "screenNodeId" : "4BE198F2-604E-41EF-B613-10CA5729D03D",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "UI Updates",
+              "id" : "69170CAB-7F78-4E47-B92A-86E5BF72AD15",
+              "isCollapsed" : false,
+              "label" : "Bind Property",
+              "parameters" : [
+                {
+                  "id" : "80BD40C9-E534-4F52-9D22-C4C3EA9EA8CB",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "023A3502-85DF-4900-B0B8-9ECCB8ED2A72",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "03B246E0-CB5C-4323-9130-40DEF6F95773",
+                  "isRequired" : true,
+                  "key" : "property",
+                  "label" : "Property",
+                  "options" : [
+                    "text",
+                    "value",
+                    "isOn",
+                    "visibility",
+                    "enabled",
+                    "selectedIndex"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "value"
+                },
+                {
+                  "id" : "99194CA3-01C8-4213-8858-EB14A1C4B80D",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "runnerName"
+                }
+              ],
+              "type" : "bindProperty",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "6BEC2AC6-5C11-42DD-A56F-4D04A25F16F0",
+              "isCollapsed" : false,
+              "label" : "Bind Property",
+              "parameters" : [
+                {
+                  "id" : "80BD40C9-E534-4F52-9D22-C4C3EA9EA8CB",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "54BB8F39-484F-42FF-975B-49B29EEE1913",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "03B246E0-CB5C-4323-9130-40DEF6F95773",
+                  "isRequired" : true,
+                  "key" : "property",
+                  "label" : "Property",
+                  "options" : [
+                    "text",
+                    "value",
+                    "isOn",
+                    "visibility",
+                    "enabled",
+                    "selectedIndex"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "value"
+                },
+                {
+                  "id" : "99194CA3-01C8-4213-8858-EB14A1C4B80D",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "userEmail"
+                }
+              ],
+              "type" : "bindProperty",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "7BD6F89D-8713-4F59-8979-BC5AC8FAAA71",
+              "isCollapsed" : false,
+              "label" : "Bind Property",
+              "parameters" : [
+                {
+                  "id" : "80BD40C9-E534-4F52-9D22-C4C3EA9EA8CB",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "86707DF2-8F7A-4985-BE13-798CF09E0B98",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "03B246E0-CB5C-4323-9130-40DEF6F95773",
+                  "isRequired" : true,
+                  "key" : "property",
+                  "label" : "Property",
+                  "options" : [
+                    "text",
+                    "value",
+                    "isOn",
+                    "visibility",
+                    "enabled",
+                    "selectedIndex"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "value"
+                },
+                {
+                  "id" : "99194CA3-01C8-4213-8858-EB14A1C4B80D",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "userPassword"
+                }
+              ],
+              "type" : "bindProperty",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Events",
+              "id" : "48256812-E5D3-41BB-BA88-EA91F91F4D03",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "62022618-4BDA-41AF-9BCA-348D73CE67F1",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Firebase",
+              "id" : "1A983D59-4E0F-4E6F-99ED-C8294621E732",
+              "isCollapsed" : false,
+              "label" : "Firebase Register",
+              "parameters" : [
+                {
+                  "id" : "C08BEA34-CA68-44E3-B30E-F4D9F267D930",
+                  "isRequired" : true,
+                  "key" : "email",
+                  "label" : "Email",
+                  "type" : "nodeReference",
+                  "variableReference" : "userEmail"
+                },
+                {
+                  "id" : "4AFD161B-735D-4716-B08A-3A5B1C08A796",
+                  "isRequired" : true,
+                  "key" : "password",
+                  "label" : "Password",
+                  "type" : "nodeReference",
+                  "variableReference" : "userPassword"
+                }
+              ],
+              "type" : "firebaseRegister",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Firebase",
+              "id" : "6389C11D-ECE6-4854-B32C-BADE3DEEB80D",
+              "isCollapsed" : false,
+              "label" : "Current User",
+              "parameters" : [
+                {
+                  "id" : "9E2BDD4F-7323-4BE6-8362-6082F0680B6D",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Store In",
+                  "type" : "variable",
+                  "variableReference" : "firebaseUser"
+                }
+              ],
+              "type" : "firebaseGetCurrentUser",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Firebase",
+              "id" : "E18D749E-9BAC-4ACE-8E9E-B0251A68B536",
+              "isCollapsed" : false,
+              "label" : "Save to Firestore",
+              "parameters" : [
+                {
+                  "id" : "91EBC80A-EDB3-49BA-81DA-67F33CB748A1",
+                  "isRequired" : true,
+                  "key" : "collection",
+                  "label" : "Collection",
+                  "placeholder" : "users",
+                  "type" : "firebasePath",
+                  "value" : "users"
+                },
+                {
+                  "id" : "C2889421-F362-489F-91BF-2B5D57D7D670",
+                  "isRequired" : false,
+                  "key" : "documentId",
+                  "label" : "Document ID",
+                  "placeholder" : "Leave empty for auto-ID",
+                  "type" : "string",
+                  "value" : "{{uid}}"
+                },
+                {
+                  "id" : "1885D240-0789-47F7-B994-D8D5337B881B",
+                  "isRequired" : true,
+                  "key" : "data",
+                  "label" : "Data Fields",
+                  "type" : "keyValue",
+                  "value" : "displayName={{runnerName}}\nemail={{userEmail}}\ncreatedAt={{now}}"
+                }
+              ],
+              "type" : "firestoreSetDocument",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "C2D6AEFB-5237-4014-8641-09FC96612AFD",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EE4D44AC-06EA-4DED-B160-27EE39FE4A9B",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "E548C5AA-FFC5-4F73-B896-E93BECED421E",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "080CD1E1-240F-444D-A9AD-AD018950B608",
+              "sourceBlockId" : "48256812-E5D3-41BB-BA88-EA91F91F4D03",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "1A983D59-4E0F-4E6F-99ED-C8294621E732",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "EE8FC60B-B577-48E1-8E5A-52598BDFEBC6",
+              "sourceBlockId" : "1A983D59-4E0F-4E6F-99ED-C8294621E732",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "6389C11D-ECE6-4854-B32C-BADE3DEEB80D",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "80AB33A8-DC75-41B7-9439-01542211055E",
+              "sourceBlockId" : "6389C11D-ECE6-4854-B32C-BADE3DEEB80D",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "E18D749E-9BAC-4ACE-8E9E-B0251A68B536",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "84B5B2D6-C0BD-41CC-89B3-5B66B1F8C30C",
+              "sourceBlockId" : "E18D749E-9BAC-4ACE-8E9E-B0251A68B536",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "C2D6AEFB-5237-4014-8641-09FC96612AFD",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "B595D701-DCF1-4A66-BB5D-021ADEC82D68",
+          "name" : "Signup",
+          "screenNodeId" : "B212CB6E-5339-480D-A0B5-C89709A980A9",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "C3BD1ABD-C214-451D-ACD5-EA8329657582",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "CD8C1F47-0D59-44FF-9302-9D1CD6C44A41",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference",
+                  "value" : "CD8C1F47-0D59-44FF-9302-9D1CD6C44A41"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "EBDCE16A-2E5E-4B55-B101-31C59EBA2B3D",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EE4D44AC-06EA-4DED-B160-27EE39FE4A9B",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "4BE198F2-604E-41EF-B613-10CA5729D03D",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "D76AE037-3E17-4FC3-B55C-E2192C36105D",
+              "sourceBlockId" : "C3BD1ABD-C214-451D-ACD5-EA8329657582",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "EBDCE16A-2E5E-4B55-B101-31C59EBA2B3D",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "F08C904C-B6A2-48E9-8FBB-CC59D87B6413",
+          "name" : "Profile Navigation",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "435CC7D9-5FC4-4A44-BA70-7953F09B0FF5",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "5AB41206-5C2A-4204-B758-67C19E65D5CC",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "A0AF2F7F-2530-4132-8647-93D144BB13DC",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EE4D44AC-06EA-4DED-B160-27EE39FE4A9B",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "F54353B2-CB25-42D4-BB89-5F39BB9C36F6",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "38FD54A9-4E94-478D-80E5-F9246CD1CB01",
+              "sourceBlockId" : "435CC7D9-5FC4-4A44-BA70-7953F09B0FF5",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A0AF2F7F-2530-4132-8647-93D144BB13DC",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "FBD457B1-887F-4B07-BFE7-3194F5E6A59E",
+          "name" : "Bag Tab",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "55EDEB12-6BC1-4029-9324-A1BD20869EEE",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "CBD41E08-871D-43EF-9D65-E95AA1B49E22",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "9C631062-7B34-44AC-998A-6DE4E5D26929",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EE4D44AC-06EA-4DED-B160-27EE39FE4A9B",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "147D1B8A-DD99-4DFC-AEAD-E78D5682E0D6",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "AB2B03BD-B80C-41F4-80E0-D37C5D018957",
+              "sourceBlockId" : "55EDEB12-6BC1-4029-9324-A1BD20869EEE",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "9C631062-7B34-44AC-998A-6DE4E5D26929",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "905F2793-781A-48FD-979B-27611EB8C3EB",
+          "name" : "Profile Orders",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "30E817AC-7CCB-43D0-9A8D-1DD40BEAFF50",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "BABD2180-5086-44C2-842E-4ECCCC464E59",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "6C6C3846-C945-405C-A8B8-B2CB62BABDB4",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EE4D44AC-06EA-4DED-B160-27EE39FE4A9B",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "F8E4041E-BBBC-4BC8-95DC-DF9BF84C6EC9",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "7112EACF-B6BE-4E67-9EFF-E9DEAE8D2DDA",
+              "sourceBlockId" : "30E817AC-7CCB-43D0-9A8D-1DD40BEAFF50",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "6C6C3846-C945-405C-A8B8-B2CB62BABDB4",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "1B59AC02-A54B-4B7C-83DE-1464EC484F93",
+          "name" : "Profile Favorites",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "FD4EBD31-5A8F-49EA-8D7F-823B6AF21CE0",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "DD2AA6FE-A0F7-4962-A4B1-4F8499B36740",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "C51041C5-71B9-46FF-A6CE-D21D3811D95D",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EE4D44AC-06EA-4DED-B160-27EE39FE4A9B",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "B212CB6E-5339-480D-A0B5-C89709A980A9",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "FBF2A5E8-2E77-416F-9417-E3A5F1E2AE1E",
+              "sourceBlockId" : "FD4EBD31-5A8F-49EA-8D7F-823B6AF21CE0",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "C51041C5-71B9-46FF-A6CE-D21D3811D95D",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "70E35455-349A-4080-8CC8-7F4307E26A19",
+          "name" : "Create Account",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "59A583AE-C3C6-42A7-BF5A-981B099F7973",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "4D8B3E9D-FCB3-4822-A03C-2027551A6E29",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "4F223C9D-96C4-40FC-93E0-A240F1623A95",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EE4D44AC-06EA-4DED-B160-27EE39FE4A9B",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "F89315D7-145C-486A-B2FA-8543A30DD6BA",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "B7966C08-8CF4-47AA-AB64-C6944794050F",
+              "sourceBlockId" : "59A583AE-C3C6-42A7-BF5A-981B099F7973",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "4F223C9D-96C4-40FC-93E0-A240F1623A95",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "F01ADAB1-DF54-46DC-830E-9F4237370F47",
+          "name" : "Continue Shopping",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "B68D5E0B-51A8-4BB5-B54E-4008208BAC56",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "EFE1898B-30B0-44B4-B2C6-B1C3B4C0BECD",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "C09F9E28-141B-4BA6-B69C-8282698D46F2",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "51DAED5A-F63D-41D5-A8F5-D5ED34AB21B7",
+              "isCollapsed" : false,
+              "label" : "Show Toast",
+              "parameters" : [
+                {
+                  "id" : "D804AF60-8BB2-41AD-AD43-788DCD656E1E",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Reset email sent"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "E8D6C737-1FEF-4FEC-ACF4-83FC4001DE12",
+              "sourceBlockId" : "B68D5E0B-51A8-4BB5-B54E-4008208BAC56",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "51DAED5A-F63D-41D5-A8F5-D5ED34AB21B7",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "080162B1-86CD-41B6-8505-05852C601745",
+          "name" : "Forgot Password",
+          "screenNodeId" : "4BE198F2-604E-41EF-B613-10CA5729D03D",
+          "variables" : [
+
+          ]
+        }
+      ],
+      "name" : "App Screens",
+      "nodes" : [
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 32,
+              "id" : "BFE65B6B-F0F1-497B-B9E4-5C6564BDAF86",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 24,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#D7FF3F"
+              },
+              "text" : "AERON",
+              "type" : "Text",
+              "width" : 150,
+              "x" : 24,
+              "y" : 24,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 96,
+              "id" : "5F6F279D-81D9-4040-B634-230CA3634901",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 42,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "MOVE DIFFERENT.",
+              "type" : "Text",
+              "width" : 340,
+              "x" : 24,
+              "y" : 92,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 48,
+              "id" : "5647CFEC-812B-46A6-A1C3-8AF2807707AF",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#A9B0A8"
+              },
+              "text" : "New season performance footwear for every kind of motion.",
+              "type" : "Text",
+              "width" : 320,
+              "x" : 24,
+              "y" : 202,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "contentMode" : "fill",
+              "height" : 250,
+              "id" : "A2DE94AE-8460-4257-98E3-DD70930EDA33",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/2FEB0C9D-498E-47B4-AC48-97D9BE9BC351.png",
+              "manuallyPositioned" : true,
+              "name" : "Hero Campaign",
+              "style" : {
+                "cornerRadius" : 24,
+                "fill" : "#1E293B",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 342,
+              "x" : 24,
+              "y" : 276,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "74BD6BAB-3EE9-43BD-8C3F-71F635B35AF0",
+              "manuallyPositioned" : true,
+              "name" : "Shop New Drops",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#D7FF3F",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "SHOP NEW DROPS",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 554,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "id" : "ED46A436-341A-41EF-84BE-23927DDFAF92",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 12,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#D7FF3F"
+              },
+              "text" : "RUN  \/  TRAIN  \/  RECOVER",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 24,
+              "y" : 650,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 42,
+              "id" : "5AB41206-5C2A-4204-B758-67C19E65D5CC",
+              "manuallyPositioned" : true,
+              "name" : "Bag Tab",
+              "style" : {
+                "cornerRadius" : 14,
+                "fill" : "#171917",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Bag  0",
+              "type" : "Button",
+              "width" : 100,
+              "x" : 260,
+              "y" : 760,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "8A02C220-78F2-4451-A9F1-4B95EF255340",
+          "manuallyPositioned" : true,
+          "name" : "Aeron Home",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#0A0A0A",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 0,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 42,
+              "id" : "8676B813-E459-4CC1-8440-A671E682726E",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 34,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "SHOP ALL",
+              "type" : "Text",
+              "width" : 260,
+              "x" : 36,
+              "y" : 32,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 54,
+              "id" : "ABF2ACA0-1D0A-4582-BCD5-A599875A3ABA",
+              "logicBindings" : [
+                {
+                  "id" : "A9754748-CD1A-4559-98BF-D736520ECA25",
+                  "kind" : "value",
+                  "variableName" : "searchQuery"
+                }
+              ],
+              "manuallyPositioned" : true,
+              "name" : "Search Products",
+              "style" : {
+                "cornerRadius" : 16,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "opacity" : 1,
+                "stroke" : "#CBD5E1",
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "Input",
+              "type" : "Input",
+              "width" : 500,
+              "x" : 36,
+              "y" : 96,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 54,
+              "id" : "674DC69E-7937-4E3A-AD9A-122EB677E657",
+              "manuallyPositioned" : true,
+              "name" : "Filter",
+              "style" : {
+                "cornerRadius" : 16,
+                "fill" : "#0A0A0A",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "FILTER + SORT",
+              "type" : "Button",
+              "width" : 220,
+              "x" : 570,
+              "y" : 96,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 28,
+              "id" : "0F292448-CF2E-4342-8266-516AEFD4E08F",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 13,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#6D746D"
+              },
+              "text" : "NEW  \/  FOOTWEAR  \/  APPAREL  \/  SALE",
+              "type" : "Text",
+              "width" : 740,
+              "x" : 36,
+              "y" : 184,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 30,
+                  "id" : "18E3CFFC-47CF-4599-A4E3-4D485C6DC726",
+                  "manuallyPositioned" : true,
+                  "name" : "Text",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#FFFFFF",
+                    "fontSize" : 20,
+                    "fontWeight" : "bold",
+                    "opacity" : 1,
+                    "textColor" : "#0A0A0A"
+                  },
+                  "text" : "{{product.name}}",
+                  "type" : "Text",
+                  "width" : 360,
+                  "x" : 0,
+                  "y" : 0,
+                  "zIndex" : 0
+                },
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 24,
+                  "id" : "76C3A44E-B784-43A6-AF78-CF473D191264",
+                  "manuallyPositioned" : true,
+                  "name" : "Text",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#FFFFFF",
+                    "fontSize" : 14,
+                    "opacity" : 1,
+                    "textColor" : "#6D746D"
+                  },
+                  "text" : "{{product.category}}   ·   ${{product.price}}",
+                  "type" : "Text",
+                  "width" : 360,
+                  "x" : 0,
+                  "y" : 34,
+                  "zIndex" : 0
+                },
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 46,
+                  "id" : "400D6504-CAC1-4BA1-9669-A4C3E5E5302E",
+                  "manuallyPositioned" : true,
+                  "name" : "Product Card",
+                  "style" : {
+                    "cornerRadius" : 14,
+                    "fill" : "#D7FF3F",
+                    "fontSize" : 16,
+                    "opacity" : 1,
+                    "textColor" : "#0A0A0A"
+                  },
+                  "text" : "VIEW PRODUCT",
+                  "type" : "Button",
+                  "width" : 180,
+                  "x" : 560,
+                  "y" : 8,
+                  "zIndex" : 0
+                }
+              ],
+              "clipContent" : false,
+              "height" : 860,
+              "id" : "A104532F-CBB0-4B0F-ABF6-84AC9D2B1D29",
+              "manuallyPositioned" : true,
+              "name" : "Product Grid",
+              "repeatBinding" : {
+                "axis" : "vertical",
+                "isScrollable" : true,
+                "itemAlias" : "product",
+                "maxItems" : 12,
+                "sourceVariable" : "products"
+              },
+              "style" : {
+                "cornerRadius" : 24,
+                "fill" : "#F5F5F0",
+                "layout" : "verticalStack",
+                "opacity" : 1,
+                "spacing" : 20
+              },
+              "type" : "Frame",
+              "width" : 762,
+              "x" : 36,
+              "y" : 240,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 1194,
+          "id" : "F89315D7-145C-486A-B2FA-8543A30DD6BA",
+          "manuallyPositioned" : true,
+          "name" : "Shop",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#F5F5F0",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 834,
+          "x" : 430,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "contentMode" : "fill",
+              "height" : 560,
+              "id" : "6EC906D7-7972-4D4F-A453-041C82172BF1",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/2C024412-A5B7-4DEE-A50D-E77D151929E6.png",
+              "manuallyPositioned" : true,
+              "name" : "Product Hero",
+              "style" : {
+                "cornerRadius" : 28,
+                "fill" : "#1E293B",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 410,
+              "x" : 36,
+              "y" : 36,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 48,
+              "id" : "2D268011-38AB-4EC6-A171-12F28E92D88A",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "{{selectedProduct.name}}",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 486,
+              "y" : 64,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 26,
+              "id" : "EF178AAB-B1FC-4421-928F-B69222A27AAB",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#6D746D"
+              },
+              "text" : "{{selectedProduct.category}}  ·  ${{selectedProduct.price}}",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 486,
+              "y" : 126,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 64,
+              "id" : "57737D49-FE55-4EF5-9BDD-D8CCDB5E18D8",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#3F443F"
+              },
+              "text" : "Engineered for daily movement. Lightweight, responsive and ready for the next mile.",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 486,
+              "y" : 186,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "id" : "C9077C5A-D651-4968-BCE3-A348B44E14FB",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 12,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "SELECT SIZE",
+              "type" : "Text",
+              "width" : 180,
+              "x" : 486,
+              "y" : 294,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 48,
+              "id" : "FF98B6DA-E414-44C0-901F-E0E54221A16F",
+              "manuallyPositioned" : true,
+              "name" : "Size 9",
+              "style" : {
+                "cornerRadius" : 12,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "9",
+              "type" : "Button",
+              "width" : 70,
+              "x" : 486,
+              "y" : 330,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 48,
+              "id" : "47B6D8FE-6C62-44F9-B029-F4FED2AA8F03",
+              "manuallyPositioned" : true,
+              "name" : "Size 10",
+              "style" : {
+                "cornerRadius" : 12,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "10",
+              "type" : "Button",
+              "width" : 70,
+              "x" : 566,
+              "y" : 330,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 52,
+              "id" : "C917B56F-8054-4ED5-849B-645183735FD6",
+              "manuallyPositioned" : true,
+              "name" : "Favorite",
+              "style" : {
+                "cornerRadius" : 14,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "♡  SAVE",
+              "type" : "Button",
+              "width" : 140,
+              "x" : 486,
+              "y" : 420,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "420CF118-97C2-4C16-9A5A-FED4E99EDF39",
+              "manuallyPositioned" : true,
+              "name" : "Add to Bag",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#D7FF3F",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "ADD TO BAG  ·  ${{selectedProduct.price}}",
+              "type" : "Button",
+              "width" : 300,
+              "x" : 486,
+              "y" : 490,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 1194,
+          "id" : "566082F3-95C6-4E3F-A18E-B3AB2B5DA795",
+          "manuallyPositioned" : true,
+          "name" : "Product Detail",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#F5F5F0",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 834,
+          "x" : 1300,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 40,
+              "id" : "1CB29D53-5056-4889-9364-244FE4D5AD94",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "YOUR BAG",
+              "type" : "Text",
+              "width" : 260,
+              "x" : 24,
+              "y" : 32,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "id" : "F5324A4D-753B-41CE-9069-4894F0E7F31B",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 14,
+                "opacity" : 1,
+                "textColor" : "#6D746D"
+              },
+              "text" : "{{cartCount}} items",
+              "type" : "Text",
+              "width" : 200,
+              "x" : 24,
+              "y" : 82,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 32,
+              "id" : "2049BBF9-5729-49BA-824F-6D52A6A12966",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "Subtotal                         ${{cartTotal}}",
+              "type" : "Text",
+              "width" : 342,
+              "x" : 24,
+              "y" : 590,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "id" : "D6D43835-7C7A-4DF3-9D1F-2489E5031DC0",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 13,
+                "opacity" : 1,
+                "textColor" : "#6D746D"
+              },
+              "text" : "Free shipping on orders over $100",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 24,
+              "y" : 632,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "C5DC29B3-13D9-4C02-AD0F-C4E75244BC8C",
+              "manuallyPositioned" : true,
+              "name" : "Checkout",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#0A0A0A",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "CHECKOUT",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 690,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "F54353B2-CB25-42D4-BB89-5F39BB9C36F6",
+          "manuallyPositioned" : true,
+          "name" : "Cart",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#FFFFFF",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 2170,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 40,
+              "id" : "B5F71E6E-1142-47E7-8EA1-D42F50E07C40",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "CHECKOUT",
+              "type" : "Text",
+              "width" : 280,
+              "x" : 24,
+              "y" : 32,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "6712704F-3EF1-494A-B9DA-2C25A63FDB82",
+              "logicBindings" : [
+                {
+                  "id" : "27A7F44B-348E-4BAB-8C1C-B563ED46E0C1",
+                  "kind" : "value",
+                  "variableName" : "shippingAddress"
+                }
+              ],
+              "manuallyPositioned" : true,
+              "name" : "Shipping Address",
+              "style" : {
+                "cornerRadius" : 16,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "opacity" : 1,
+                "stroke" : "#CBD5E1",
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "Input",
+              "type" : "Input",
+              "width" : 342,
+              "x" : 24,
+              "y" : 120,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "7DD12EAA-C387-48B5-AA48-1C60E3CA2641",
+              "manuallyPositioned" : true,
+              "name" : "City",
+              "style" : {
+                "cornerRadius" : 16,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "opacity" : 1,
+                "stroke" : "#CBD5E1",
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "Input",
+              "type" : "Input",
+              "width" : 342,
+              "x" : 24,
+              "y" : 194,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 28,
+              "id" : "E9CF8C26-D415-42BE-8016-C4010918F203",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 13,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#6D746D"
+              },
+              "text" : "DELIVERY  ·  2–4 BUSINESS DAYS",
+              "type" : "Text",
+              "width" : 330,
+              "x" : 24,
+              "y" : 292,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 32,
+              "id" : "E51387AB-0A74-412A-B036-E1606BBEEF4C",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 18,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "Total                              ${{cartTotal}}",
+              "type" : "Text",
+              "width" : 342,
+              "x" : 24,
+              "y" : 610,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "A66E5314-CD17-4A7B-B710-B3E28533BAA9",
+              "manuallyPositioned" : true,
+              "name" : "Place Order",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#D7FF3F",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "PLACE ORDER",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 690,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "6C7F1E76-223D-4272-9506-E72316FEAD09",
+          "manuallyPositioned" : true,
+          "name" : "Checkout",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#F5F5F0",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 2600,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 40,
+              "id" : "EB612FAD-FC7B-485C-A1FE-0E55F8FE471B",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "ORDERS",
+              "type" : "Text",
+              "width" : 240,
+              "x" : 24,
+              "y" : 32,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 48,
+              "id" : "2E2E0804-00A2-47F4-B9E6-9B94A5376C5F",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#6D746D"
+              },
+              "text" : "Your recent orders will appear here.",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 24,
+              "y" : 160,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 52,
+              "id" : "3CB69D1F-01C5-4F7C-99DE-F3EE9E8C71ED",
+              "manuallyPositioned" : true,
+              "name" : "Shop Now",
+              "style" : {
+                "cornerRadius" : 16,
+                "fill" : "#0A0A0A",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "SHOP NOW",
+              "type" : "Button",
+              "width" : 180,
+              "x" : 24,
+              "y" : 250,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "147D1B8A-DD99-4DFC-AEAD-E78D5682E0D6",
+          "manuallyPositioned" : true,
+          "name" : "Orders",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#FFFFFF",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 3030,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 40,
+              "id" : "33AED9B7-2FB2-4A22-898F-63874AF986C3",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "PROFILE",
+              "type" : "Text",
+              "width" : 260,
+              "x" : 24,
+              "y" : 32,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 52,
+              "id" : "2D5287CC-EF95-4650-9461-F4F779C2DD06",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#6D746D"
+              },
+              "text" : "Sign in to save favorites, track orders and move faster.",
+              "type" : "Text",
+              "width" : 330,
+              "x" : 24,
+              "y" : 116,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 56,
+              "id" : "CD8C1F47-0D59-44FF-9302-9D1CD6C44A41",
+              "manuallyPositioned" : true,
+              "name" : "Log In",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#0A0A0A",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "LOG IN",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 226,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 52,
+              "id" : "CBD41E08-871D-43EF-9D65-E95AA1B49E22",
+              "manuallyPositioned" : true,
+              "name" : "Orders",
+              "style" : {
+                "cornerRadius" : 14,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "ORDERS  →",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 318,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 52,
+              "id" : "BABD2180-5086-44C2-842E-4ECCCC464E59",
+              "manuallyPositioned" : true,
+              "name" : "Favorites",
+              "style" : {
+                "cornerRadius" : 14,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "FAVORITES  →",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 384,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "E548C5AA-FFC5-4F73-B896-E93BECED421E",
+          "manuallyPositioned" : true,
+          "name" : "Profile",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#F5F5F0",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 3460,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 48,
+              "id" : "C03B579E-8C94-4E51-AF98-83999AD4ACF9",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 30,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "ORDER CONFIRMED",
+              "type" : "Text",
+              "width" : 342,
+              "x" : 24,
+              "y" : 180,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 70,
+              "id" : "A743781C-17E9-4DF3-ADD5-2344FD54B315",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 18,
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "You are ready to move. We’ll send tracking details when your order ships.",
+              "type" : "Text",
+              "width" : 320,
+              "x" : 24,
+              "y" : 252,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "4D8B3E9D-FCB3-4822-A03C-2027551A6E29",
+              "manuallyPositioned" : true,
+              "name" : "Continue Shopping",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#0A0A0A",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "CONTINUE SHOPPING",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 660,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "4DBDAA42-8DEC-487A-BEEF-592D60D041D3",
+          "manuallyPositioned" : true,
+          "name" : "Order Confirmation",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#D7FF3F",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 3890,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 40,
+              "id" : "2B8C2BAF-4BB9-4DA8-BBFB-7265AA77EF76",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "FAVORITES",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 24,
+              "y" : 32,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 28,
+              "id" : "C152895A-1D3D-4A0A-BEB9-8980C08C2524",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#6D746D"
+              },
+              "text" : "Saved pieces will appear here.",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 24,
+              "y" : 160,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "F8E4041E-BBBC-4BC8-95DC-DF9BF84C6EC9",
+          "manuallyPositioned" : true,
+          "name" : "Favorites",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#FFFFFF",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 4320,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 40,
+              "id" : "904A9867-2072-4C97-B88A-F06B6BFE3826",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "RESULTS",
+              "type" : "Text",
+              "width" : 260,
+              "x" : 24,
+              "y" : 32,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 28,
+              "id" : "DD2AA6FE-A0F7-4962-A4B1-4F8499B36740",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#6D746D"
+              },
+              "text" : "Results for \"{{searchQuery}}\"",
+              "type" : "Text",
+              "width" : 330,
+              "x" : 24,
+              "y" : 90,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "C7003764-30F8-47DA-82B7-70CA1393821B",
+          "manuallyPositioned" : true,
+          "name" : "Search Results",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#F5F5F0",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 4750,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 40,
+              "id" : "FB621A19-C1EE-4E53-932A-4CF073FC07E7",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "COLLECTIONS",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 24,
+              "y" : 32,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "CCB3C58A-8C9A-4AA4-B652-87307D0D721A",
+              "manuallyPositioned" : true,
+              "name" : "Running",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#D7FF3F",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "RUNNING  →",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 150,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "3AB1A0B2-9C04-4729-BFC3-D689A729099C",
+              "manuallyPositioned" : true,
+              "name" : "Training",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#171917",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "TRAINING  →",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 224,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "D175EAA7-095E-47F2-828B-39A43B36224E",
+          "manuallyPositioned" : true,
+          "name" : "Collections",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#0A0A0A",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 5180,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 48,
+              "id" : "761AB6C3-A1C8-4A35-85F4-E9A2DCC3DE3D",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "WELCOME BACK",
+              "type" : "Text",
+              "width" : 340,
+              "x" : 24,
+              "y" : 90,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "ACE2BFB5-894D-4E62-BA82-ACCCB60049BD",
+              "logicBindings" : [
+                {
+                  "id" : "5753F96B-F680-432E-BE41-991FC1ADA3BF",
+                  "kind" : "value",
+                  "variableName" : "userEmail"
+                }
+              ],
+              "manuallyPositioned" : true,
+              "name" : "Login Email",
+              "style" : {
+                "cornerRadius" : 16,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "opacity" : 1,
+                "stroke" : "#CBD5E1",
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "Input",
+              "type" : "Input",
+              "width" : 342,
+              "x" : 24,
+              "y" : 220,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "C37A032A-BF28-43A7-BC30-8E224686C35F",
+              "logicBindings" : [
+                {
+                  "id" : "BD60B0A4-5EAC-406A-AE94-6D46A5FB84AD",
+                  "kind" : "value",
+                  "variableName" : "userPassword"
+                }
+              ],
+              "manuallyPositioned" : true,
+              "name" : "Login Password",
+              "style" : {
+                "cornerRadius" : 16,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "opacity" : 1,
+                "stroke" : "#CBD5E1",
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "Input",
+              "type" : "Input",
+              "width" : 342,
+              "x" : 24,
+              "y" : 292,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "AE9C2EC1-7F2C-41D4-BCA2-FFA7F3AD748E",
+              "manuallyPositioned" : true,
+              "name" : "Login Button",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#D7FF3F",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "LOG IN",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 410,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 52,
+              "id" : "46E6FE2B-212F-4116-B2BE-58CC15863FEC",
+              "manuallyPositioned" : true,
+              "name" : "Create Account",
+              "style" : {
+                "cornerRadius" : 16,
+                "fill" : "#171917",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "CREATE ACCOUNT",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 488,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "4BE198F2-604E-41EF-B613-10CA5729D03D",
+          "manuallyPositioned" : true,
+          "name" : "Log In",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#0A0A0A",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 5610,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 48,
+              "id" : "62022618-4BDA-41AF-9BCA-348D73CE67F1",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "JOIN AERON",
+              "type" : "Text",
+              "width" : 340,
+              "x" : 24,
+              "y" : 90,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "023A3502-85DF-4900-B0B8-9ECCB8ED2A72",
+              "logicBindings" : [
+                {
+                  "id" : "207F79B7-0841-4777-ADC1-F754E9B6A68B",
+                  "kind" : "value",
+                  "variableName" : "runnerName"
+                }
+              ],
+              "manuallyPositioned" : true,
+              "name" : "Signup Name",
+              "style" : {
+                "cornerRadius" : 16,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "opacity" : 1,
+                "stroke" : "#CBD5E1",
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "Input",
+              "type" : "Input",
+              "width" : 342,
+              "x" : 24,
+              "y" : 200,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "54BB8F39-484F-42FF-975B-49B29EEE1913",
+              "logicBindings" : [
+                {
+                  "id" : "AE02B2AC-7AAA-42A3-8C39-08F28B719BCD",
+                  "kind" : "value",
+                  "variableName" : "userEmail"
+                }
+              ],
+              "manuallyPositioned" : true,
+              "name" : "Signup Email",
+              "style" : {
+                "cornerRadius" : 16,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "opacity" : 1,
+                "stroke" : "#CBD5E1",
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "Input",
+              "type" : "Input",
+              "width" : 342,
+              "x" : 24,
+              "y" : 272,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "86707DF2-8F7A-4985-BE13-798CF09E0B98",
+              "logicBindings" : [
+                {
+                  "id" : "10BA1970-5B70-47E3-9694-41B4A3C6C0C2",
+                  "kind" : "value",
+                  "variableName" : "userPassword"
+                }
+              ],
+              "manuallyPositioned" : true,
+              "name" : "Signup Password",
+              "style" : {
+                "cornerRadius" : 16,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "opacity" : 1,
+                "stroke" : "#CBD5E1",
+                "textColor" : "#0A0A0A"
+              },
+              "text" : "Input",
+              "type" : "Input",
+              "width" : 342,
+              "x" : 24,
+              "y" : 344,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "FFB6AB28-C95E-4B89-A66A-8D88E6D84E45",
+              "manuallyPositioned" : true,
+              "name" : "Signup Button",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#0A0A0A",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "CREATE ACCOUNT",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 450,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "B212CB6E-5339-480D-A0B5-C89709A980A9",
+          "manuallyPositioned" : true,
+          "name" : "Sign Up",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#F5F5F0",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 6040,
+          "y" : 0,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+
+          ],
+          "clipContent" : false,
+          "height" : 44,
+          "id" : "C09F9E28-141B-4BA6-B69C-8282698D46F2",
+          "manuallyPositioned" : true,
+          "name" : "Reset Password",
+          "style" : {
+            "cornerRadius" : 12,
+            "fill" : "#0A0A0A",
+            "fontSize" : 16,
+            "opacity" : 1,
+            "textColor" : "#D7FF3F"
+          },
+          "text" : "FORGOT PASSWORD?",
+          "type" : "Button",
+          "width" : 342,
+          "x" : 24,
+          "y" : 560,
+          "zIndex" : 0
+        }
+      ]
+    }
+  ],
+  "platformSettings" : {
+    "defaultPreviewPlatform" : "iPhone",
+    "enabledPlatforms" : [
+      "iPhone",
+      "iPad"
+    ]
+  }
+}

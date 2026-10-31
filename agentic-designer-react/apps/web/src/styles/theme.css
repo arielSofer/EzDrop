@@ -1,0 +1,168 @@
+/* macOS / AgenticDesigner Dark Theme Design System */
+:root {
+  --bg-window: #1e1f23;
+  --bg-panel: #25272d;
+  --bg-panel-secondary: #2b2d35;
+  --bg-input: #1a1b1e;
+  --bg-hover: rgba(255, 255, 255, 0.06);
+  --bg-active: rgba(255, 255, 255, 0.12);
+  --bg-selected: rgba(59, 130, 246, 0.18);
+
+  --border-color: #383a42;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: #3b82f6;
+
+  --text-primary: #ffffff;
+  --text-secondary: #dfe0e1;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  --accent-blue: #38bdf8;
+  --accent-indigo: #6366f1;
+  --accent-green: #10b981;
+  --accent-orange: #f59e0b;
+  --accent-red: #ef4444;
+  --accent-purple: #a855f7;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+  --font-mono: "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+  --toolbar-height: 52px;
+  --left-panel-width: 240px;
+  --right-panel-width: 300px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-window);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom sleek dark scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Inputs & buttons base */
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+textarea {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 5px 8px;
+  color: var(--text-primary);
+  outline: none;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 1px var(--border-focus);
+}
+
+/* Editor/learning chrome only: never restyle the student's simulated UI. */
+.learning-control {
+  color-scheme: dark;
+  background-color: var(--bg-input);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 4px 10px;
+  font: inherit;
+  cursor: pointer;
+}
+.learning-control:hover:not(:disabled) {
+  background-color: var(--bg-panel-secondary);
+  border-color: #667085;
+}
+.learning-control:focus-visible {
+  outline: 2px solid #bfa5ff;
+  outline-offset: 2px;
+}
+.learning-control[aria-pressed="true"] {
+  background-color: #302044;
+  border-color: #9258c8;
+  color: #e3ccff;
+}
+.learning-control:disabled { opacity: 0.5; cursor: default; }
+.learning-lesson-select {
+  min-height: 36px;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+.learning-lesson-select option {
+  background-color: #1a1b1e;
+  color: #dfe0e1;
+}
+
+/* Keep mixed Hebrew, identifiers and long Kotlin lines inside the tutor panel. */
+.guided-kotlin-card { min-inline-size: 0; max-inline-size: 100%; }
+.guided-kotlin-card pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  text-align: left;
+  unicode-bidi: plaintext;
+}
+.guided-kotlin-card button, .guided-kotlin-card textarea {
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.guided-kotlin-card textarea { resize: vertical; }
+.guided-kotlin-card input[type="checkbox"] { flex-shrink: 0; }

@@ -1,0 +1,1650 @@
+{
+  "apiEndpoints" : [
+
+  ],
+  "bundleIdentifier" : "com.ariel.spacedefender",
+  "globalVariables" : [
+    {
+      "defaultValue" : "0",
+      "id" : "6537BD31-00DA-4073-B55A-5F3D7DA92F6E",
+      "name" : "kills",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "no",
+      "id" : "74E95890-4BEC-4FBC-80D4-860BDD903D16",
+      "name" : "bossOut",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "03483D26-CEBF-4B7A-B8A6-E1EB565862BA",
+      "name" : "alienCount",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "35C50F2E-559E-45F2-BAB4-18C638280824",
+      "name" : "probe",
+      "scope" : "global",
+      "type" : "number"
+    }
+  ],
+  "name" : "Space Defender",
+  "pages" : [
+    {
+      "id" : "4E04E243-1ADA-4433-A5DE-B834F57FDA48",
+      "logicFlows" : [
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "A41810DC-B46E-467E-93C4-6220E6981C3A",
+              "id" : "F1CF2670-77E9-44CF-B534-3184E356D2AA",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "DC448F1C-DE04-4D65-B11C-3F30F0A5A318",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "A41810DC-B46E-467E-93C4-6220E6981C3A",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "87E260BF-2737-4793-AAA8-700FB673ECFA",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "BC9752C0-E488-49F9-8CF8-784CE6DB0EC9",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "8D1E14BA-0212-496F-B658-C20A2B534D0F",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "89DD711A-25C9-4F7B-9EC2-190067A65C6D",
+              "sourceBlockId" : "F1CF2670-77E9-44CF-B534-3184E356D2AA",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "87E260BF-2737-4793-AAA8-700FB673ECFA",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "BD63B70B-528C-40D2-B28C-44DF30DC1A47",
+          "name" : "Start Mission",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "91C92589-0CD8-4FED-9784-4F422CC0255C",
+              "isCollapsed" : false,
+              "label" : "On Entity Destroyed",
+              "parameters" : [
+                {
+                  "id" : "84E6AC2D-0AB3-4663-BCED-927620100A3F",
+                  "isRequired" : false,
+                  "key" : "category",
+                  "label" : "Category",
+                  "type" : "string",
+                  "value" : "alien"
+                }
+              ],
+              "type" : "onGameEntityDestroyed",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Variables",
+              "id" : "05AF8E08-81C4-4995-9D76-5D702B41B07D",
+              "isCollapsed" : false,
+              "label" : "Increment",
+              "parameters" : [
+                {
+                  "id" : "DB11C334-1872-40CE-BDEA-1B65747E0135",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "kills"
+                },
+                {
+                  "id" : "DEAA5575-94AE-4015-BFD1-781C1ECB0F01",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "number",
+                  "value" : "1"
+                }
+              ],
+              "type" : "incrementVariable",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "D587C88A-FC22-4294-9D1D-F42305D789AF",
+              "sourceBlockId" : "91C92589-0CD8-4FED-9784-4F422CC0255C",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "05AF8E08-81C4-4995-9D76-5D702B41B07D",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "C67A0394-B9EB-48CE-8EFF-187AD5449903",
+          "name" : "Alien Down",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "39C2210A-B75F-4665-94A0-DFCC900B9FBD",
+              "isCollapsed" : false,
+              "label" : "On Game Score",
+              "parameters" : [
+
+              ],
+              "type" : "onGameScore",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Conditions",
+              "id" : "BE349849-A71D-4EBF-9532-9CAA3B332C60",
+              "isCollapsed" : false,
+              "label" : "If \/ Else",
+              "parameters" : [
+                {
+                  "id" : "D42341D2-F6C2-4F9D-BB49-5AA7369E6171",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "gameScore"
+                },
+                {
+                  "id" : "F178F2F0-05C1-49E3-BE5B-012643EF840F",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "=="
+                },
+                {
+                  "id" : "C9908850-AA11-4A8F-8B75-1F6013469FD5",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "8"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            },
+            {
+              "category" : "Conditions",
+              "id" : "A13490BE-D877-41B4-B722-1A18E0399112",
+              "isCollapsed" : false,
+              "label" : "If \/ Else",
+              "parameters" : [
+                {
+                  "id" : "D42341D2-F6C2-4F9D-BB49-5AA7369E6171",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "bossOut"
+                },
+                {
+                  "id" : "F178F2F0-05C1-49E3-BE5B-012643EF840F",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "=="
+                },
+                {
+                  "id" : "C9908850-AA11-4A8F-8B75-1F6013469FD5",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "no"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 530,
+              "y" : 80
+            },
+            {
+              "category" : "Variables",
+              "id" : "7A06DCC5-9AA1-4534-96BA-088E40E8FDAC",
+              "isCollapsed" : false,
+              "label" : "Set Variable",
+              "parameters" : [
+                {
+                  "id" : "B719B278-78BA-4B6E-B1D2-668A35DC05F1",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "bossOut"
+                },
+                {
+                  "id" : "50D6006C-5277-440A-9502-9147BA82786A",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "yes"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 760,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "1AED6606-70DB-454F-AA7C-9F193DA13C82",
+              "isCollapsed" : false,
+              "label" : "Game: Spawn",
+              "parameters" : [
+                {
+                  "id" : "B091FB40-6FE8-4095-BA95-483E2E215DD6",
+                  "isRequired" : true,
+                  "key" : "template",
+                  "label" : "Template entity id",
+                  "type" : "string",
+                  "value" : "boss"
+                },
+                {
+                  "id" : "AE410588-A00A-40DA-A1EB-3BB04EA3E514",
+                  "isRequired" : true,
+                  "key" : "x",
+                  "label" : "X",
+                  "type" : "string",
+                  "value" : "140"
+                },
+                {
+                  "id" : "28DCE453-FD33-494E-B474-3140F2BB634B",
+                  "isRequired" : true,
+                  "key" : "y",
+                  "label" : "Y",
+                  "type" : "string",
+                  "value" : "40"
+                }
+              ],
+              "type" : "gameSpawn",
+              "width" : 200,
+              "x" : 990,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "4B3DAF32-146C-48F8-BAF1-68F00C18CB6E",
+              "isCollapsed" : false,
+              "label" : "Show Toast",
+              "parameters" : [
+                {
+                  "id" : "1F594EFF-AD97-4DEB-A985-C59A7ECDD676",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "⚠️ BOSS INCOMING"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 1220,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "F1A25A28-D8E5-44C8-AC60-961DECEFC524",
+              "sourceBlockId" : "39C2210A-B75F-4665-94A0-DFCC900B9FBD",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "BE349849-A71D-4EBF-9532-9CAA3B332C60",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "CF3DF92F-9AB9-4D87-9470-CDD0D6D7EAD4",
+              "sourceBlockId" : "BE349849-A71D-4EBF-9532-9CAA3B332C60",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A13490BE-D877-41B4-B722-1A18E0399112",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "D6D35606-74A2-4BC9-8D90-88339599A678",
+              "sourceBlockId" : "A13490BE-D877-41B4-B722-1A18E0399112",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "7A06DCC5-9AA1-4534-96BA-088E40E8FDAC",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "CD3C0A1A-AED5-4AD8-A08F-C27C56FCA45C",
+              "sourceBlockId" : "7A06DCC5-9AA1-4534-96BA-088E40E8FDAC",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "1AED6606-70DB-454F-AA7C-9F193DA13C82",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "33A9478B-2371-4DB4-98F6-962041C03C14",
+              "sourceBlockId" : "1AED6606-70DB-454F-AA7C-9F193DA13C82",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "4B3DAF32-146C-48F8-BAF1-68F00C18CB6E",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "6A9535D9-B661-40AB-BB80-8615521442C9",
+          "name" : "Boss At 8",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "5FAD34A1-B05C-4177-A023-CEF8677C722A",
+              "isCollapsed" : false,
+              "label" : "On Game Over",
+              "parameters" : [
+
+              ],
+              "type" : "onGameOver",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "0B324E5B-E061-424F-9724-7633AA1B2425",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "BC9752C0-E488-49F9-8CF8-784CE6DB0EC9",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "6E09580B-B22D-49FE-B70E-932F67F0E902",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "EA73475A-60A0-4F44-A66E-460F154BF837",
+              "isCollapsed" : false,
+              "label" : "Set Text",
+              "parameters" : [
+                {
+                  "id" : "B41F33AE-3CA9-49BE-A278-A0320A603246",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "EB09BE0A-79C8-4CB9-80D3-3DE64EB4C2DA",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "E1351E9C-18C4-4ADA-8E35-70A1C4FF1C8C",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "Aliens destroyed: {{kills}}"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 530,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "6B909C5E-F2CD-46B1-9315-5E59301CD168",
+              "sourceBlockId" : "5FAD34A1-B05C-4177-A023-CEF8677C722A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "0B324E5B-E061-424F-9724-7633AA1B2425",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "B9029682-A414-47F4-AEEE-176D38FD5A19",
+              "sourceBlockId" : "0B324E5B-E061-424F-9724-7633AA1B2425",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "EA73475A-60A0-4F44-A66E-460F154BF837",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "306DC41D-7A85-4013-9A5F-52AABA08387C",
+          "name" : "Mission Failed",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "CC573C3E-D747-4354-92B7-05F102EA91B1",
+              "id" : "797FCD45-FE04-4ACE-A733-86126EB0CE84",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "DC448F1C-DE04-4D65-B11C-3F30F0A5A318",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "CC573C3E-D747-4354-92B7-05F102EA91B1",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Variables",
+              "id" : "BECF2E46-ED63-43F8-ADEF-292EF8316830",
+              "isCollapsed" : false,
+              "label" : "Set Variable",
+              "parameters" : [
+                {
+                  "id" : "B719B278-78BA-4B6E-B1D2-668A35DC05F1",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "kills"
+                },
+                {
+                  "id" : "50D6006C-5277-440A-9502-9147BA82786A",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            },
+            {
+              "category" : "Variables",
+              "id" : "9EA7BD72-7623-484D-A6FC-7BF8FFA9E51E",
+              "isCollapsed" : false,
+              "label" : "Set Variable",
+              "parameters" : [
+                {
+                  "id" : "B719B278-78BA-4B6E-B1D2-668A35DC05F1",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "bossOut"
+                },
+                {
+                  "id" : "50D6006C-5277-440A-9502-9147BA82786A",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "no"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 530,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "61BAB6E1-7B02-4678-BE57-30B10203EC88",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "BC9752C0-E488-49F9-8CF8-784CE6DB0EC9",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "8D1E14BA-0212-496F-B658-C20A2B534D0F",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 760,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "3178C63F-6D95-497D-8D16-005FE3FF7C58",
+              "sourceBlockId" : "797FCD45-FE04-4ACE-A733-86126EB0CE84",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "BECF2E46-ED63-43F8-ADEF-292EF8316830",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "5F327586-DC63-4E25-B5AC-41B06FA30349",
+              "sourceBlockId" : "BECF2E46-ED63-43F8-ADEF-292EF8316830",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "9EA7BD72-7623-484D-A6FC-7BF8FFA9E51E",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "F1B1329F-CB4A-4335-BFAF-E6FB39C37FCA",
+              "sourceBlockId" : "9EA7BD72-7623-484D-A6FC-7BF8FFA9E51E",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "61BAB6E1-7B02-4678-BE57-30B10203EC88",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "93F8AC36-A9EF-4BFE-9E73-279102015BF2",
+          "name" : "Try Again",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "9532732B-456F-4E69-8277-40A9F227082A",
+              "isCollapsed" : false,
+              "label" : "On Entity Destroyed",
+              "parameters" : [
+                {
+                  "id" : "82576F36-EC70-4BF8-854E-12006A3A3D6D",
+                  "isRequired" : false,
+                  "key" : "category",
+                  "label" : "Category",
+                  "type" : "string",
+                  "value" : "boss"
+                }
+              ],
+              "type" : "onGameEntityDestroyed",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "7AB4B5DD-A79A-4BE9-B432-A43C9F9CC33A",
+              "isCollapsed" : false,
+              "label" : "Game: End",
+              "parameters" : [
+                {
+                  "id" : "78F00DB6-3DAA-4CCF-B149-47B20371ACB7",
+                  "isRequired" : true,
+                  "key" : "result",
+                  "label" : "Result",
+                  "options" : [
+                    "gameOver",
+                    "win"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "win"
+                }
+              ],
+              "type" : "gameEnd",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "3B46B062-DCCD-4BD2-A77F-6F733E5DAF11",
+              "isCollapsed" : false,
+              "label" : "Show Toast",
+              "parameters" : [
+                {
+                  "id" : "BA06267E-746D-4C7E-A1D9-CBDD3BFEC7FC",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "🏆 EARTH IS SAFE!"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 540,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "BB1039EE-9A4D-4C48-86CA-DAA64BD4B5B4",
+              "sourceBlockId" : "9532732B-456F-4E69-8277-40A9F227082A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "7AB4B5DD-A79A-4BE9-B432-A43C9F9CC33A",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "17421B61-7D12-45ED-B8D4-4AD34499A758",
+              "sourceBlockId" : "7AB4B5DD-A79A-4BE9-B432-A43C9F9CC33A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "3B46B062-DCCD-4BD2-A77F-6F733E5DAF11",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "5FF46ADD-31FB-404B-983A-408DA7A67160",
+          "name" : "Boss Defeated",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "42927A17-95E0-45EC-AD9D-4CE6DC8632A5",
+              "isCollapsed" : false,
+              "label" : "On Life Lost",
+              "parameters" : [
+
+              ],
+              "type" : "onGameLifeLost",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "6A97E45F-8838-454E-B3DC-4E2760D65AE8",
+              "isCollapsed" : false,
+              "label" : "Game: Shake",
+              "parameters" : [
+                {
+                  "id" : "C3FEF4C5-BC73-4878-B84B-C26E53EB3C5D",
+                  "isRequired" : true,
+                  "key" : "intensity",
+                  "label" : "Intensity",
+                  "type" : "string",
+                  "value" : "16"
+                }
+              ],
+              "type" : "gameShake",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "8E5A9310-1F09-4E24-BEE9-625D5E00FC29",
+              "isCollapsed" : false,
+              "label" : "Game: Time Scale",
+              "parameters" : [
+                {
+                  "id" : "4F0B685D-94B4-43F1-B9F5-0D4C467C14A0",
+                  "isRequired" : true,
+                  "key" : "scale",
+                  "label" : "Scale",
+                  "type" : "string",
+                  "value" : "0.35"
+                }
+              ],
+              "type" : "gameSetTimeScale",
+              "width" : 200,
+              "x" : 540,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "2BF50989-4B60-4B6E-8ED3-A8AF7C888017",
+              "isCollapsed" : false,
+              "label" : "Delay",
+              "parameters" : [
+                {
+                  "id" : "E1125D51-07A2-44CE-9F2C-89A5F1741E43",
+                  "isRequired" : true,
+                  "key" : "seconds",
+                  "label" : "Seconds",
+                  "type" : "number",
+                  "value" : "1"
+                }
+              ],
+              "type" : "delay",
+              "width" : 200,
+              "x" : 780,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "D18E2DBC-6128-406B-89E9-2C5C5743F74A",
+              "isCollapsed" : false,
+              "label" : "Back to normal",
+              "parameters" : [
+                {
+                  "id" : "4F0B685D-94B4-43F1-B9F5-0D4C467C14A0",
+                  "isRequired" : true,
+                  "key" : "scale",
+                  "label" : "Scale",
+                  "type" : "string",
+                  "value" : "1"
+                }
+              ],
+              "type" : "gameSetTimeScale",
+              "width" : 200,
+              "x" : 1020,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "985F5DA4-703F-4D3E-B286-B787FE222327",
+              "isCollapsed" : false,
+              "label" : "Game: Particles",
+              "parameters" : [
+                {
+                  "id" : "F1805AD4-78AD-44E1-B07C-31CB1A3E8CAF",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Kind",
+                  "options" : [
+                    "debris",
+                    "spark",
+                    "smoke",
+                    "fire",
+                    "confetti",
+                    "hearts"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "fire"
+                },
+                {
+                  "id" : "DC20A8E6-83CE-4FD8-85FA-88A7030A0B0F",
+                  "isRequired" : true,
+                  "key" : "x",
+                  "label" : "X",
+                  "type" : "string",
+                  "value" : "195"
+                },
+                {
+                  "id" : "CB4DDB25-D9F6-4E3B-BCF3-62FB3ED37BE2",
+                  "isRequired" : true,
+                  "key" : "y",
+                  "label" : "Y",
+                  "type" : "string",
+                  "value" : "520"
+                },
+                {
+                  "id" : "325E3615-C242-4C5B-AFC6-7F8E990E26D6",
+                  "isRequired" : true,
+                  "key" : "burst",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "30"
+                }
+              ],
+              "type" : "gameParticles",
+              "width" : 200,
+              "x" : 1260,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "912078E4-2253-4212-825D-498F82F9B754",
+              "sourceBlockId" : "42927A17-95E0-45EC-AD9D-4CE6DC8632A5",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "6A97E45F-8838-454E-B3DC-4E2760D65AE8",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "648DF8F4-3066-4848-B1CB-6A8E7CC6EBAA",
+              "sourceBlockId" : "6A97E45F-8838-454E-B3DC-4E2760D65AE8",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "8E5A9310-1F09-4E24-BEE9-625D5E00FC29",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "EFEB81B8-C0E3-44D5-B418-14E1B119DFA1",
+              "sourceBlockId" : "8E5A9310-1F09-4E24-BEE9-625D5E00FC29",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "2BF50989-4B60-4B6E-8ED3-A8AF7C888017",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "461456C0-ECBC-451F-895B-1721B8463103",
+              "sourceBlockId" : "2BF50989-4B60-4B6E-8ED3-A8AF7C888017",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D18E2DBC-6128-406B-89E9-2C5C5743F74A",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "524A49BA-08CE-4A96-A863-E547911EBF49",
+              "sourceBlockId" : "D18E2DBC-6128-406B-89E9-2C5C5743F74A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "985F5DA4-703F-4D3E-B286-B787FE222327",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "1BAE395D-F978-45B6-AE7E-6EB8C6A20676",
+          "name" : "Hit Slowmo",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "F12EFDD7-551A-4F91-85B0-87CC61058E21",
+              "isCollapsed" : false,
+              "label" : "On Entity Spawned",
+              "parameters" : [
+                {
+                  "id" : "F8341958-5E39-4B5C-AB08-7EA775557612",
+                  "isRequired" : false,
+                  "key" : "category",
+                  "label" : "Category",
+                  "type" : "string",
+                  "value" : "alien"
+                }
+              ],
+              "type" : "onGameSpawned",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Variables",
+              "id" : "6BBE1C13-F63B-4284-8E98-1E2D4894C992",
+              "isCollapsed" : false,
+              "label" : "Game: Read",
+              "parameters" : [
+                {
+                  "id" : "127D220C-820D-4551-B8DA-FFEF9B0CA1D3",
+                  "isRequired" : true,
+                  "key" : "what",
+                  "label" : "Read",
+                  "options" : [
+                    "positionX",
+                    "positionY",
+                    "health",
+                    "count",
+                    "score",
+                    "lives",
+                    "timeLeft"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "count"
+                },
+                {
+                  "id" : "61C080B5-5666-45B2-8201-FA9E8E08A501",
+                  "isRequired" : false,
+                  "key" : "target",
+                  "label" : "Entity id \/ category",
+                  "type" : "string",
+                  "value" : "alien"
+                },
+                {
+                  "id" : "02F61CFA-46C4-4519-9D4B-271339A70FF1",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Store In",
+                  "type" : "variable",
+                  "variableReference" : "alienCount"
+                }
+              ],
+              "type" : "gameQuery",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            },
+            {
+              "category" : "Conditions",
+              "id" : "FAB279C0-7048-4EA7-8936-7FFC7D0B6164",
+              "isCollapsed" : false,
+              "label" : "If \/ Else",
+              "parameters" : [
+                {
+                  "id" : "9A2D6EFA-B5F3-47F3-85BF-854CB3BA90C1",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable"
+                },
+                {
+                  "id" : "2806FD20-D970-4972-B07C-CCB5C20A20D5",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : ">="
+                },
+                {
+                  "id" : "D7BA9271-7D18-45AE-A548-736B1AAA32BC",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 540,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "705A4432-1076-462F-979C-9C28E369AD4A",
+              "isCollapsed" : false,
+              "label" : "Game: Spawn Rate",
+              "parameters" : [
+                {
+                  "id" : "BDA28173-2997-47BE-8D11-3520D3B79C57",
+                  "isRequired" : true,
+                  "key" : "interval",
+                  "label" : "Seconds between spawns",
+                  "type" : "string",
+                  "value" : "2.0"
+                }
+              ],
+              "type" : "gameSetSpawnRate",
+              "width" : 200,
+              "x" : 780,
+              "y" : 40
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "63FB298B-DFC7-4560-911C-7A33ABB2964D",
+              "sourceBlockId" : "F12EFDD7-551A-4F91-85B0-87CC61058E21",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "6BBE1C13-F63B-4284-8E98-1E2D4894C992",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "4CC6526E-5A4D-4555-A9F0-D423646144C7",
+              "sourceBlockId" : "6BBE1C13-F63B-4284-8E98-1E2D4894C992",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "FAB279C0-7048-4EA7-8936-7FFC7D0B6164",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "FE59A570-9DE3-4B9C-A43A-76B94D6AD3C8",
+              "sourceBlockId" : "FAB279C0-7048-4EA7-8936-7FFC7D0B6164",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "705A4432-1076-462F-979C-9C28E369AD4A",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "E28EAC18-9960-47A8-A0BA-57B68D02E60F",
+          "name" : "Wave Intel",
+          "variables" : [
+
+          ]
+        }
+      ],
+      "name" : "Game",
+      "nodes" : [
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "strength" : 460,
+                    "type" : "controlHorizontal"
+                  },
+                  {
+                    "direction" : "up",
+                    "interval" : 0.3,
+                    "strength" : 650,
+                    "template" : "bolt",
+                    "type" : "autoFire"
+                  },
+                  {
+                    "particles" : "spark",
+                    "type" : "trail"
+                  },
+                  {
+                    "action" : "loseLife",
+                    "particles" : "fire",
+                    "shake" : true,
+                    "target" : "alien",
+                    "type" : "onCollision"
+                  },
+                  {
+                    "action" : "loseLife",
+                    "particles" : "fire",
+                    "shake" : true,
+                    "target" : "boss",
+                    "type" : "onCollision"
+                  }
+                ],
+                "body" : "kinematic",
+                "category" : "ship",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "contacts" : [
+                  "alien"
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : true,
+                "height" : 56,
+                "id" : "ship",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 56,
+                "x" : 167,
+                "y" : 600,
+                "zIndex" : 0
+              },
+              "height" : 56,
+              "id" : "7E2F0683-E88C-4B3C-89F5-708287A03CD5",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-00A072E6-FCCF-4DE5-A8DD-584E696002EC.png",
+              "name" : "ship",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 56,
+              "x" : 167,
+              "y" : 600
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : false,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "action" : "explode",
+                    "particles" : "fire",
+                    "points" : 1,
+                    "shake" : true,
+                    "target" : "alien",
+                    "type" : "onCollision"
+                  },
+                  {
+                    "action" : "damage",
+                    "particles" : "spark",
+                    "points" : 1,
+                    "target" : "boss",
+                    "type" : "onCollision"
+                  },
+                  {
+                    "action" : "removeSelf",
+                    "target" : "boss",
+                    "type" : "onCollision"
+                  },
+                  {
+                    "margin" : 60,
+                    "type" : "destroyOffscreen"
+                  }
+                ],
+                "body" : "dynamic",
+                "category" : "bolt",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "contacts" : [
+                  "alien",
+                  "boss"
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : true,
+                "height" : 30,
+                "id" : "bolt",
+                "isTemplate" : true,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 14,
+                "x" : 0,
+                "y" : 0,
+                "zIndex" : 0
+              },
+              "height" : 30,
+              "id" : "878A2341-B3E6-468E-BD3C-4943B0A74AD6",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-3E991E45-8155-40D4-8B73-B648655DC8C4.png",
+              "name" : "bolt",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 14,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "strength" : 40,
+                    "type" : "spin"
+                  },
+                  {
+                    "margin" : 80,
+                    "type" : "destroyOffscreen"
+                  }
+                ],
+                "body" : "kinematic",
+                "category" : "alien",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "contacts" : [
+
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : false,
+                "height" : 46,
+                "id" : "alien",
+                "isTemplate" : true,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 46,
+                "x" : 0,
+                "y" : 0,
+                "zIndex" : 0
+              },
+              "height" : 46,
+              "id" : "915A9ECB-D98C-49A0-A86F-18ACDD7B8C92",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-02A740CC-FF43-4395-A7F8-AD77EEED7537.png",
+              "name" : "alien",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 46,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "fire",
+                    "type" : "destructible"
+                  },
+                  {
+                    "type" : "moveConstant",
+                    "velocityY" : 22
+                  },
+                  {
+                    "interval" : 2,
+                    "strength" : 14,
+                    "type" : "bob"
+                  }
+                ],
+                "body" : "kinematic",
+                "category" : "boss",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "contacts" : [
+
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : true,
+                "health" : 6,
+                "height" : 110,
+                "id" : "boss",
+                "isTemplate" : true,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 110,
+                "x" : 140,
+                "y" : -120,
+                "zIndex" : 0
+              },
+              "height" : 110,
+              "id" : "5947FFAD-AD7E-4273-86F1-E72AB0CD0000",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-02A740CC-FF43-4395-A7F8-AD77EEED7537.png",
+              "name" : "boss",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 110,
+              "x" : 140,
+              "y" : -120
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "direction" : "down",
+                    "firstDelay" : 1,
+                    "interval" : 1.3,
+                    "template" : "alien",
+                    "type" : "spawner",
+                    "velocityY" : 140
+                  }
+                ],
+                "body" : "none",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#3B82F6",
+                "contacts" : [
+
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : false,
+                "height" : 1,
+                "id" : "spawner",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 1,
+                "x" : 0,
+                "y" : 0,
+                "zIndex" : 0
+              },
+              "height" : 1,
+              "id" : "737D957B-912F-4491-9497-43436EF7559B",
+              "name" : "spawner",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 1,
+              "x" : 0,
+              "y" : 0
+            }
+          ],
+          "clipContent" : false,
+          "gameScene" : {
+            "ambient" : "stars",
+            "backgroundColor" : "#8ED0F0",
+            "backgroundGradient" : [
+              "#0B1026",
+              "#1B0B33"
+            ],
+            "difficultyRamp" : 0.88,
+            "entities" : [
+
+            ],
+            "gravity" : 0,
+            "height" : 700,
+            "lightColor" : "#BFE3FF",
+            "lightFollow" : "ship",
+            "lighting" : true,
+            "lives" : 3,
+            "parallax" : [
+
+            ],
+            "scrollSpeed" : 0,
+            "showScore" : true,
+            "startPaused" : true,
+            "tapToStartText" : "Tap to defend!",
+            "timeUpAction" : "gameOver",
+            "version" : 1,
+            "vignette" : true,
+            "width" : 390,
+            "worldHeight" : 0,
+            "worldWidth" : 0
+          },
+          "height" : 700,
+          "id" : "8D1E14BA-0212-496F-B658-C20A2B534D0F",
+          "name" : "Space Defender",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#8ED0F0",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 60,
+          "y" : 140
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 54,
+              "id" : "668AB96C-11FB-47CD-A5BA-F0CE8FD4CD31",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 48,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#BFE3FF"
+              },
+              "text" : "SPACE",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 45,
+              "y" : 150,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 40,
+              "id" : "2805254D-2243-4972-A830-FB10CABD5518",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 34,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#7C5CFF"
+              },
+              "text" : "DEFENDER",
+              "type" : "Text",
+              "width" : 174,
+              "x" : 108,
+              "y" : 205,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 17,
+              "id" : "64FEE1BD-5D7E-4714-9F15-E2BE355B16D0",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 14,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#8B93A7"
+              },
+              "text" : "Drag to fly · tap to shoot",
+              "type" : "Text",
+              "width" : 157,
+              "x" : 116.5,
+              "y" : 270,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 56,
+              "id" : "A41810DC-B46E-467E-93C4-6220E6981C3A",
+              "manuallyPositioned" : true,
+              "name" : "Button",
+              "style" : {
+                "cornerRadius" : 28,
+                "fill" : "#7C5CFF",
+                "fontSize" : 18,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "▶  START MISSION",
+              "type" : "Button",
+              "width" : 240,
+              "x" : 75,
+              "y" : 520,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 700,
+          "id" : "E0B2B03E-B185-49AD-B3DF-5C9519FE9FB9",
+          "manuallyPositioned" : true,
+          "name" : "Menu",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#0B1026",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 520,
+          "y" : 140,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 33,
+              "id" : "ABBE2199-4D4A-4D46-A964-A3FAA7DB621C",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 28,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#FF5D73"
+              },
+              "text" : "MISSION FAILED",
+              "type" : "Text",
+              "width" : 218,
+              "x" : 86,
+              "y" : 200,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 21,
+              "id" : "EB09BE0A-79C8-4CB9-80D3-3DE64EB4C2DA",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 18,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#BFE3FF"
+              },
+              "text" : "Aliens destroyed: {{kills}}",
+              "type" : "Text",
+              "width" : 199,
+              "x" : 95.5,
+              "y" : 270,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 56,
+              "id" : "CC573C3E-D747-4354-92B7-05F102EA91B1",
+              "manuallyPositioned" : true,
+              "name" : "Button",
+              "style" : {
+                "cornerRadius" : 28,
+                "fill" : "#7C5CFF",
+                "fontSize" : 18,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "↻  TRY AGAIN",
+              "type" : "Button",
+              "width" : 240,
+              "x" : 75,
+              "y" : 520,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 700,
+          "id" : "6E09580B-B22D-49FE-B70E-932F67F0E902",
+          "manuallyPositioned" : true,
+          "name" : "GameOver",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#12081F",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 980,
+          "y" : 140,
+          "zIndex" : 0
+        }
+      ]
+    }
+  ],
+  "platformSettings" : {
+    "defaultPreviewPlatform" : "iPhone",
+    "enabledPlatforms" : [
+      "iPhone",
+      "iPad"
+    ]
+  }
+}

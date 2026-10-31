@@ -1,0 +1,3007 @@
+{
+  "agentMemo" : "Art style: Bird = cute chubby round yellow bird (side view); Pipe = green cartoon pipe obstacle. Sprites generated and applied via create_game_scene with flappy template.",
+  "apiEndpoints" : [
+
+  ],
+  "globalVariables" : [
+    {
+      "defaultValue" : "0",
+      "id" : "BF320E68-E120-49E2-B79C-2E3B42B621B2",
+      "name" : "gameScore",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "16D63229-3435-437A-AD38-1873267C0959",
+      "name" : "seconds",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "2CAF9AD1-4C2E-4C50-94E8-8F1CEFF3E7A5",
+      "name" : "km",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "A09157E1-852A-4AA6-A0D1-EDDAEA689D1B",
+      "name" : "runCount",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "D9171AE4-DCA2-4631-9157-5799F4C49374",
+      "name" : "lastRunSeconds",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "34755866-DE18-4786-8A19-B13295323801",
+      "name" : "lastRunKm",
+      "scope" : "global",
+      "type" : "number"
+    }
+  ],
+  "name" : "Untitled Project",
+  "pages" : [
+    {
+      "id" : "CFA4FF5A-A123-44EB-A32F-3FDE12DF2B23",
+      "logicFlows" : [
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "D7D5B198-AEB2-410F-B0F1-7C9B7BA2C301",
+              "id" : "501B5EC5-E35B-4A65-9D28-7659E29D0E19",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "08AC5493-ED1E-435A-97A2-88BA6D389704",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "D7D5B198-AEB2-410F-B0F1-7C9B7BA2C301",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 80,
+              "y" : 120
+            },
+            {
+              "category" : "Actions",
+              "id" : "3C47A5B6-2C9C-48DE-A2CB-A229EFEDB22D",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EEF57809-DABE-415F-9DC2-A0D337F5AECF",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "A023AEDB-3D91-4139-80E9-E39CFB20DEC8",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 360,
+              "y" : 120
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "3A7CE269-741C-4014-95FF-9C55835A027E",
+              "sourceBlockId" : "501B5EC5-E35B-4A65-9D28-7659E29D0E19",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "3C47A5B6-2C9C-48DE-A2CB-A229EFEDB22D",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "14C1E010-531B-48C1-BE75-E56BBBC5EAE7",
+          "name" : "Play → Game",
+          "variables" : [
+
+          ]
+        }
+      ],
+      "name" : "App Screens",
+      "nodes" : [
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "height" : 44,
+              "id" : "64FA9169-D44D-45F0-872B-3453F235229C",
+              "name" : "Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "opacity" : 1
+              },
+              "text" : "Welcome Back",
+              "type" : "Text",
+              "width" : 260,
+              "x" : 32,
+              "y" : 80
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 56,
+              "id" : "340EFD92-EAAE-4089-9B20-9D3969A0F489",
+              "name" : "Login Button",
+              "style" : {
+                "cornerRadius" : 14,
+                "fill" : "#2563EB",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Log In",
+              "type" : "Button",
+              "width" : 326,
+              "x" : 32,
+              "y" : 680
+            }
+          ],
+          "height" : 844,
+          "id" : "A023AEDB-3D91-4139-80E9-E39CFB20DEC8",
+          "name" : "Login Screen",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#111827",
+            "opacity" : 1,
+            "stroke" : "#3B82F6"
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 100,
+          "y" : 100
+        },
+        {
+          "children" : [
+
+          ],
+          "clipContent" : true,
+          "gameScene" : {
+            "backgroundColor" : "#8ED0F0",
+            "backgroundGradient" : [
+
+            ],
+            "entities" : [
+              {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+
+                ],
+                "body" : "staticBody",
+                "category" : "ground",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#DEB841",
+                "contacts" : [
+
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : false,
+                "height" : 44,
+                "id" : "ground",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "Ground",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 390,
+                "x" : 0,
+                "y" : 800,
+                "zIndex" : 0
+              },
+              {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+
+                ],
+                "body" : "kinematic",
+                "category" : "pipe",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#5FB84B",
+                "contacts" : [
+
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : false,
+                "height" : 300,
+                "id" : "pipe",
+                "isTemplate" : true,
+                "linearDamping" : 0.1,
+                "name" : "Pipe",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "sprite" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-B5379FA4-A508-4D4C-9A89-452C64070C01.png",
+                "width" : 66,
+                "x" : 0,
+                "y" : 0,
+                "zIndex" : 0
+              },
+              {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "firstDelay" : 1.1,
+                    "gapSize" : 180,
+                    "interval" : 2,
+                    "spawnYMax" : 640,
+                    "spawnYMin" : 320,
+                    "template" : "pipe",
+                    "type" : "spawner",
+                    "velocityX" : -155
+                  }
+                ],
+                "body" : "none",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#00000000",
+                "contacts" : [
+
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : false,
+                "height" : 1,
+                "id" : "spawner",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "Spawner",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 1,
+                "x" : 0,
+                "y" : 0,
+                "zIndex" : 0
+              },
+              {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "key" : "space",
+                    "strength" : 9,
+                    "type" : "impulseOnTap"
+                  },
+                  {
+                    "action" : "gameOver",
+                    "target" : "pipe",
+                    "type" : "onCollision"
+                  },
+                  {
+                    "action" : "gameOver",
+                    "target" : "ground",
+                    "type" : "onCollision"
+                  }
+                ],
+                "body" : "dynamic",
+                "category" : "bird",
+                "circleBody" : true,
+                "collidesWith" : [
+
+                ],
+                "color" : "#FFD23F",
+                "contacts" : [
+                  "pipe",
+                  "ground"
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : false,
+                "height" : 40,
+                "id" : "bird",
+                "isTemplate" : false,
+                "linearDamping" : 0,
+                "name" : "Bird",
+                "restitution" : 0,
+                "rotation" : 0,
+                "sprite" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-CF5A0C7D-4645-4146-BD47-62B51B425D8E.png",
+                "width" : 46,
+                "x" : 96,
+                "y" : 400,
+                "zIndex" : 0
+              }
+            ],
+            "gravity" : -18,
+            "height" : 844,
+            "lightColor" : "#FFF4D6",
+            "lighting" : false,
+            "parallax" : [
+
+            ],
+            "scrollSpeed" : 0,
+            "showScore" : true,
+            "startPaused" : true,
+            "tapToStartText" : "Tap to flap",
+            "timeUpAction" : "gameOver",
+            "version" : 1,
+            "vignette" : false,
+            "width" : 390,
+            "worldHeight" : 0,
+            "worldWidth" : 0
+          },
+          "height" : 844,
+          "id" : "F9876871-576E-4029-B8EC-3B189BBF15DD",
+          "manuallyPositioned" : true,
+          "name" : "Game",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#8ED0F0",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 693.37109375,
+          "y" : 123.3203125
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 52,
+              "id" : "A634E39E-AE9A-4A1A-A38F-38EBE10DF5C2",
+              "manuallyPositioned" : true,
+              "name" : "Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 44,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#FFD23F"
+              },
+              "text" : "SKY FLAP",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 45,
+              "y" : 210,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "id" : "DA530040-AC1B-4217-9D88-88FEAB3CE33A",
+              "manuallyPositioned" : true,
+              "name" : "BestScore",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#9DB2CC"
+              },
+              "text" : "Best: {{gameScore}}",
+              "type" : "Text",
+              "width" : 300,
+              "x" : 45,
+              "y" : 290,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 58,
+              "id" : "D7D5B198-AEB2-410F-B0F1-7C9B7BA2C301",
+              "manuallyPositioned" : true,
+              "name" : "Play",
+              "style" : {
+                "cornerRadius" : 29,
+                "fill" : "#FFD23F",
+                "fontSize" : 22,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#0E1E33"
+              },
+              "text" : "▶  PLAY",
+              "type" : "Button",
+              "width" : 200,
+              "x" : 95,
+              "y" : 460,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "31934E59-D67B-4411-A126-930089B645B0",
+          "manuallyPositioned" : true,
+          "name" : "Menu",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#0E1E33",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 560,
+          "y" : 60,
+          "zIndex" : 0
+        }
+      ]
+    },
+    {
+      "id" : "FFF6D8A6-0893-4960-94AB-D4D02D8BFB37",
+      "logicFlows" : [
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "089541BF-8F40-48E6-9D23-A401B4A33306",
+              "id" : "4724B481-9FB7-470D-B70E-963880F80723",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "07C2CA3B-9006-4B4A-82F3-A6BF72ED5EC3",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "089541BF-8F40-48E6-9D23-A401B4A33306",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Variables",
+              "id" : "D8305DC5-201F-4624-A33B-72B759A812B2",
+              "isCollapsed" : false,
+              "label" : "Set Variable",
+              "parameters" : [
+                {
+                  "id" : "C9C41688-172C-4ED0-9FFC-A9600E610BBA",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "seconds"
+                },
+                {
+                  "id" : "DA964FBA-21EE-4DF8-AFAD-B932901051A4",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "EC1F2565-3212-4964-86C9-DC01ED57D94F",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "0D9BA4E6-97B5-4476-AB63-78D68D3029ED",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "81DA4C40-3D59-4C44-880C-0BDDCCB4BAB8",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 540,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "7EDBA551-6362-4F49-B3F6-8CE0ADB1612A",
+              "sourceBlockId" : "4724B481-9FB7-470D-B70E-963880F80723",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D8305DC5-201F-4624-A33B-72B759A812B2",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "6B80E5A3-3048-4573-85E7-B9B21A888ADB",
+              "sourceBlockId" : "D8305DC5-201F-4624-A33B-72B759A812B2",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "EC1F2565-3212-4964-86C9-DC01ED57D94F",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "3852AA69-0A5A-460B-92E1-2D91AA652B84",
+          "name" : "Start Run",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "48365732-8550-4B91-8038-8EDC2E662B9E",
+              "isCollapsed" : false,
+              "label" : "On Timer",
+              "parameters" : [
+                {
+                  "id" : "53D497F5-2C0C-4EAF-BAB7-44439565C76E",
+                  "isRequired" : true,
+                  "key" : "seconds",
+                  "label" : "Seconds",
+                  "type" : "number",
+                  "value" : "1"
+                },
+                {
+                  "id" : "3A06EDB4-0208-4DE2-9150-07E82550C030",
+                  "isRequired" : false,
+                  "key" : "repeats",
+                  "label" : "Repeats",
+                  "type" : "boolean",
+                  "value" : "true"
+                }
+              ],
+              "type" : "onTimer",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Variables",
+              "id" : "2C717CD0-C827-40CB-A5B7-E460959837CC",
+              "isCollapsed" : false,
+              "label" : "Increment",
+              "parameters" : [
+                {
+                  "id" : "76ED0117-2A91-4C21-9AA5-8F41C85171A9",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "seconds"
+                },
+                {
+                  "id" : "EFCD0D82-6D87-46DF-9862-B33E70D054DA",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "number",
+                  "value" : "1"
+                }
+              ],
+              "type" : "incrementVariable",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "FCCA0AC5-820A-4E9D-BC8B-D92BDFAAD2DF",
+              "isCollapsed" : false,
+              "label" : "Set Text",
+              "parameters" : [
+                {
+                  "id" : "CE661438-0FD8-42C0-AD3D-8F607217D258",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "068ACC92-B0FC-440A-BB44-55F628E17D6F",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "626C96E0-C0CF-4EA1-A184-49CF8829767B",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{seconds}}"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 540,
+              "y" : 80
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "29015EA7-90E2-475B-81FF-A8E8E67EFCD4",
+              "isCollapsed" : false,
+              "label" : "Set Text",
+              "parameters" : [
+                {
+                  "id" : "CE661438-0FD8-42C0-AD3D-8F607217D258",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "E1BA3BC5-227F-47D1-8101-467EE2AB2CA4",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "626C96E0-C0CF-4EA1-A184-49CF8829767B",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{seconds}}0 m"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 780,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "8E094077-FF11-43B1-917C-2BC8558AF580",
+              "sourceBlockId" : "48365732-8550-4B91-8038-8EDC2E662B9E",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "2C717CD0-C827-40CB-A5B7-E460959837CC",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "86EAB2AB-C298-48A0-85C5-D8BF0DFE83C0",
+              "sourceBlockId" : "2C717CD0-C827-40CB-A5B7-E460959837CC",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "FCCA0AC5-820A-4E9D-BC8B-D92BDFAAD2DF",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "5EC61286-B210-4AD3-8926-95B96D473077",
+              "sourceBlockId" : "FCCA0AC5-820A-4E9D-BC8B-D92BDFAAD2DF",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "29015EA7-90E2-475B-81FF-A8E8E67EFCD4",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "AFEDB4D8-9D7F-4555-ADB1-30811C1496C0",
+          "name" : "Run Tick",
+          "screenNodeId" : "81DA4C40-3D59-4C44-880C-0BDDCCB4BAB8",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "124E1204-9F2C-46B4-9B9F-5846F567E1EA",
+              "id" : "C5AB0319-3886-40CA-BC60-140DD705F166",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "07C2CA3B-9006-4B4A-82F3-A6BF72ED5EC3",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "124E1204-9F2C-46B4-9B9F-5846F567E1EA",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Variables",
+              "id" : "0CA5A662-0268-4BE1-B510-BCC6E51D5627",
+              "isCollapsed" : false,
+              "label" : "Set Variable",
+              "parameters" : [
+                {
+                  "id" : "C9C41688-172C-4ED0-9FFC-A9600E610BBA",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "lastRunSeconds"
+                },
+                {
+                  "id" : "DA964FBA-21EE-4DF8-AFAD-B932901051A4",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "{{seconds}}"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            },
+            {
+              "category" : "Variables",
+              "id" : "A1044CEE-E11F-4729-8518-F9BCB027D139",
+              "isCollapsed" : false,
+              "label" : "Increment",
+              "parameters" : [
+                {
+                  "id" : "76ED0117-2A91-4C21-9AA5-8F41C85171A9",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "runCount"
+                },
+                {
+                  "id" : "EFCD0D82-6D87-46DF-9862-B33E70D054DA",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "number",
+                  "value" : "1"
+                }
+              ],
+              "type" : "incrementVariable",
+              "width" : 200,
+              "x" : 540,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "9E2EAC9A-E725-4473-AE27-DCBBEF035D1C",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "0D9BA4E6-97B5-4476-AB63-78D68D3029ED",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "C1D5B968-335F-44F5-A9A2-5D71D7623EA2",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 780,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "CBD536C0-9C10-4CBD-8F2C-73AABFCE6C09",
+              "sourceBlockId" : "C5AB0319-3886-40CA-BC60-140DD705F166",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "0CA5A662-0268-4BE1-B510-BCC6E51D5627",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "AD349181-2682-4EDE-B263-4078ED4BD51F",
+              "sourceBlockId" : "0CA5A662-0268-4BE1-B510-BCC6E51D5627",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A1044CEE-E11F-4729-8518-F9BCB027D139",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "2983E0C1-3999-422D-A596-318075472AE6",
+              "sourceBlockId" : "A1044CEE-E11F-4729-8518-F9BCB027D139",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "9E2EAC9A-E725-4473-AE27-DCBBEF035D1C",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "6FD7F911-8044-4A17-BF28-5E6C44D9979C",
+          "name" : "Stop and Save",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "1CDB0365-948D-4FE7-9450-C9EE79DEE290",
+              "id" : "A82F9DBF-D3E7-4E0F-90A2-D14DB229A0C9",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "07C2CA3B-9006-4B4A-82F3-A6BF72ED5EC3",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "1CDB0365-948D-4FE7-9450-C9EE79DEE290",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "38C0A0E7-825E-483C-9E84-B793B39809A1",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "0D9BA4E6-97B5-4476-AB63-78D68D3029ED",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "47560B7E-3C6E-4182-904F-198A03328F49",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "950ADAF6-6D4D-42D2-BC9E-08C108BA462C",
+              "sourceBlockId" : "A82F9DBF-D3E7-4E0F-90A2-D14DB229A0C9",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "38C0A0E7-825E-483C-9E84-B793B39809A1",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "76803EB7-8240-48EE-89B4-F3684C5DA6BE",
+          "name" : "Back Home",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "06EEEF65-2C39-4699-A278-C8586EA89980",
+              "id" : "59921A75-7FD9-48DE-9DA3-DC36DFAC949B",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "07C2CA3B-9006-4B4A-82F3-A6BF72ED5EC3",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "06EEEF65-2C39-4699-A278-C8586EA89980",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "192DE994-EDDA-41FD-BE62-A9CFF9650C27",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "0D9BA4E6-97B5-4476-AB63-78D68D3029ED",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "C1D5B968-335F-44F5-A9A2-5D71D7623EA2",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "2F79E583-C4B0-4654-B1B9-7EDBA7716BD2",
+              "sourceBlockId" : "59921A75-7FD9-48DE-9DA3-DC36DFAC949B",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "192DE994-EDDA-41FD-BE62-A9CFF9650C27",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "0C5805BC-C1C8-4431-AC5D-DA2709D057A8",
+          "name" : "Open History",
+          "variables" : [
+
+          ]
+        }
+      ],
+      "name" : "Running App",
+      "nodes" : [
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 44,
+              "id" : "94ABE3CD-2092-488D-89AE-B45CD113B9EE",
+              "manuallyPositioned" : true,
+              "name" : "Greeting",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 34,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Ready to run?",
+              "type" : "Text",
+              "width" : 342,
+              "x" : 24,
+              "y" : 90,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "id" : "D3A8C4C8-1B3B-4E4B-9932-2906CC894A08",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#8FA3BF"
+              },
+              "text" : "Total runs: {{runCount}}",
+              "type" : "Text",
+              "width" : 342,
+              "x" : 24,
+              "y" : 150,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 18,
+                  "id" : "7DFE6C50-FD7C-47A3-8A15-ABF3551B2579",
+                  "manuallyPositioned" : true,
+                  "name" : "Text",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#FFFFFF",
+                    "fontSize" : 12,
+                    "fontWeight" : "bold",
+                    "opacity" : 1,
+                    "textColor" : "#5C7699"
+                  },
+                  "text" : "LAST RUN",
+                  "type" : "Text",
+                  "width" : 150,
+                  "x" : 20,
+                  "y" : 18,
+                  "zIndex" : 0
+                },
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 34,
+                  "id" : "680C61D3-9A89-4A28-9096-7AEE1E2F64A2",
+                  "manuallyPositioned" : true,
+                  "name" : "Text",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#FFFFFF",
+                    "fontSize" : 24,
+                    "fontWeight" : "bold",
+                    "opacity" : 1,
+                    "textColor" : "#4ADE80"
+                  },
+                  "text" : "{{lastRunSeconds}} sec · {{lastRunKm}} km",
+                  "type" : "Text",
+                  "width" : 300,
+                  "x" : 20,
+                  "y" : 48,
+                  "zIndex" : 0
+                },
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 20,
+                  "id" : "0527B31C-91A4-4340-8EA4-55BC8A7D2C18",
+                  "manuallyPositioned" : true,
+                  "name" : "Text",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#FFFFFF",
+                    "fontSize" : 13,
+                    "opacity" : 1,
+                    "textColor" : "#8FA3BF"
+                  },
+                  "text" : "Keep your streak going",
+                  "type" : "Text",
+                  "width" : 300,
+                  "x" : 20,
+                  "y" : 94,
+                  "zIndex" : 0
+                }
+              ],
+              "clipContent" : false,
+              "height" : 140,
+              "id" : "FBE64F5A-5D71-4476-970B-BC9EB68FA6FA",
+              "manuallyPositioned" : true,
+              "name" : "Stats Card",
+              "style" : {
+                "cornerRadius" : 20,
+                "fill" : "#152238",
+                "opacity" : 1
+              },
+              "type" : "Frame",
+              "width" : 342,
+              "x" : 24,
+              "y" : 210,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 60,
+              "id" : "089541BF-8F40-48E6-9D23-A401B4A33306",
+              "manuallyPositioned" : true,
+              "name" : "Start Run",
+              "style" : {
+                "cornerRadius" : 30,
+                "fill" : "#4ADE80",
+                "fontSize" : 20,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#06281A"
+              },
+              "text" : "▶  START RUN",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 700,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 48,
+              "id" : "06EEEF65-2C39-4699-A278-C8586EA89980",
+              "manuallyPositioned" : true,
+              "name" : "History",
+              "style" : {
+                "cornerRadius" : 24,
+                "fill" : "#152238",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#8FA3BF"
+              },
+              "text" : "History",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 625,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "47560B7E-3C6E-4182-904F-198A03328F49",
+          "manuallyPositioned" : true,
+          "name" : "Home",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#0B1220",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 60,
+          "y" : 60,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "id" : "67483E6D-D7C0-4AD9-A9BD-F8E5CEB7D31C",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#4ADE80"
+              },
+              "text" : "RUNNING",
+              "type" : "Text",
+              "width" : 342,
+              "x" : 24,
+              "y" : 90,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 90,
+              "id" : "068ACC92-B0FC-440A-BB44-55F628E17D6F",
+              "manuallyPositioned" : true,
+              "name" : "Timer",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 80,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "39",
+              "type" : "Text",
+              "width" : 342,
+              "x" : 24,
+              "y" : 260,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 22,
+              "id" : "8A6D7386-3CBE-43FF-9753-BF04E7955141",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#7FBF9A"
+              },
+              "text" : "seconds",
+              "type" : "Text",
+              "width" : 342,
+              "x" : 24,
+              "y" : 352,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 40,
+              "id" : "E1BA3BC5-227F-47D1-8101-467EE2AB2CA4",
+              "manuallyPositioned" : true,
+              "name" : "Distance",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 30,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#4ADE80"
+              },
+              "text" : "390 m",
+              "type" : "Text",
+              "width" : 342,
+              "x" : 24,
+              "y" : 420,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 60,
+              "id" : "124E1204-9F2C-46B4-9B9F-5846F567E1EA",
+              "manuallyPositioned" : true,
+              "name" : "Stop",
+              "style" : {
+                "cornerRadius" : 30,
+                "fill" : "#EF4444",
+                "fontSize" : 20,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "■  STOP & SAVE",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 700,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "81DA4C40-3D59-4C44-880C-0BDDCCB4BAB8",
+          "manuallyPositioned" : true,
+          "name" : "Active Run",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#06281A",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 510,
+          "y" : 60,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 40,
+              "id" : "ADA85DDF-52E9-43A5-A449-A31AD6E80C98",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 30,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "History",
+              "type" : "Text",
+              "width" : 342,
+              "x" : 24,
+              "y" : 90,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 26,
+              "id" : "C3116033-69BD-4148-B8A6-8C895EDCBBF9",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 17,
+                "opacity" : 1,
+                "textColor" : "#4ADE80"
+              },
+              "text" : "Runs completed: {{runCount}}",
+              "type" : "Text",
+              "width" : 342,
+              "x" : 24,
+              "y" : 150,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "id" : "A3D789AD-ACC2-4AE7-8FA1-98BFC179B825",
+              "manuallyPositioned" : true,
+              "name" : "Text",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "opacity" : 1,
+                "textColor" : "#8FA3BF"
+              },
+              "text" : "Last: {{lastRunSeconds}} sec · {{lastRunKm}} km",
+              "type" : "Text",
+              "width" : 342,
+              "x" : 24,
+              "y" : 186,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 52,
+              "id" : "1CDB0365-948D-4FE7-9450-C9EE79DEE290",
+              "manuallyPositioned" : true,
+              "name" : "Back",
+              "style" : {
+                "cornerRadius" : 26,
+                "fill" : "#152238",
+                "fontSize" : 17,
+                "opacity" : 1,
+                "textColor" : "#8FA3BF"
+              },
+              "text" : "←  Home",
+              "type" : "Button",
+              "width" : 342,
+              "x" : 24,
+              "y" : 700,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : false,
+          "height" : 844,
+          "id" : "C1D5B968-335F-44F5-A9A2-5D71D7623EA2",
+          "manuallyPositioned" : true,
+          "name" : "History",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#0B1220",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 960,
+          "y" : 60,
+          "zIndex" : 0
+        }
+      ]
+    },
+    {
+      "id" : "28D1E093-D31C-444B-8A8F-E4287600CFFA",
+      "logicFlows" : [
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "D7D5B198-AEB2-410F-B0F1-7C9B7BA2C301",
+              "id" : "501B5EC5-E35B-4A65-9D28-7659E29D0E19",
+              "isCollapsed" : false,
+              "label" : "On Tap",
+              "parameters" : [
+                {
+                  "id" : "08AC5493-ED1E-435A-97A2-88BA6D389704",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "D7D5B198-AEB2-410F-B0F1-7C9B7BA2C301",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 80,
+              "y" : 120
+            },
+            {
+              "category" : "Actions",
+              "id" : "3C47A5B6-2C9C-48DE-A2CB-A229EFEDB22D",
+              "isCollapsed" : false,
+              "label" : "Navigate",
+              "parameters" : [
+                {
+                  "id" : "EEF57809-DABE-415F-9DC2-A0D337F5AECF",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "A023AEDB-3D91-4139-80E9-E39CFB20DEC8",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 360,
+              "y" : 120
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "3A7CE269-741C-4014-95FF-9C55835A027E",
+              "sourceBlockId" : "501B5EC5-E35B-4A65-9D28-7659E29D0E19",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "3C47A5B6-2C9C-48DE-A2CB-A229EFEDB22D",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "14C1E010-531B-48C1-BE75-E56BBBC5EAE7",
+          "name" : "Play → Game",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "CDBFA802-859B-4747-B71A-D58AB8762C7E",
+              "isCollapsed" : false,
+              "label" : "On Entity Destroyed",
+              "parameters" : [
+                {
+                  "id" : "7044978E-E2F1-448C-A431-2B635DE68A3B",
+                  "isRequired" : false,
+                  "key" : "category",
+                  "label" : "Category",
+                  "type" : "string",
+                  "value" : "brick"
+                }
+              ],
+              "type" : "onGameEntityDestroyed",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "F2A2DF31-1387-4EDD-A44C-99608A40BF46",
+              "isCollapsed" : false,
+              "label" : "Show Toast",
+              "parameters" : [
+                {
+                  "id" : "A87C1FA5-EE9D-469A-9647-A831018EBEB7",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "💥 Brick down! Score: {{gameScore}}"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "7EF00014-7B69-45CB-B5CC-8166B50EED90",
+              "sourceBlockId" : "CDBFA802-859B-4747-B71A-D58AB8762C7E",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "F2A2DF31-1387-4EDD-A44C-99608A40BF46",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "2A0A49DE-0BFC-4351-8833-5E9ECC47B3E4",
+          "name" : "Brick Smashed",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "55DB4784-F57B-41CF-8C67-A75869057588",
+              "isCollapsed" : false,
+              "label" : "On Game Over",
+              "parameters" : [
+
+              ],
+              "type" : "onGameOver",
+              "width" : 200,
+              "x" : 60,
+              "y" : 80
+            },
+            {
+              "category" : "Actions",
+              "id" : "575AA61C-ED21-428B-B2C6-DDCCA2A1783E",
+              "isCollapsed" : false,
+              "label" : "Show Toast",
+              "parameters" : [
+                {
+                  "id" : "A87C1FA5-EE9D-469A-9647-A831018EBEB7",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Game over — {{gameScore}} bricks"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 300,
+              "y" : 80
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "541F879C-5BBE-4827-820E-BF0357C00840",
+              "sourceBlockId" : "55DB4784-F57B-41CF-8C67-A75869057588",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "575AA61C-ED21-428B-B2C6-DDCCA2A1783E",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "92ECB0F9-94CA-4AA2-8C05-418AB3E0E4E4",
+          "name" : "Breakout Over",
+          "variables" : [
+
+          ]
+        }
+      ],
+      "name" : "Breakout",
+      "nodes" : [
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+
+                ],
+                "body" : "staticBody",
+                "category" : "wall",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#22315580",
+                "contacts" : [
+
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : false,
+                "height" : 700,
+                "id" : "wallL",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 10,
+                "x" : -8,
+                "y" : 0,
+                "zIndex" : 0
+              },
+              "height" : 700,
+              "id" : "9CDB39CB-BC1B-403E-B276-E3770DC7A00D",
+              "name" : "wallL",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#22315580",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 10,
+              "x" : -8,
+              "y" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+
+                ],
+                "body" : "staticBody",
+                "category" : "wall",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#22315580",
+                "contacts" : [
+
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : false,
+                "height" : 700,
+                "id" : "wallR",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 10,
+                "x" : 388,
+                "y" : 0,
+                "zIndex" : 0
+              },
+              "height" : 700,
+              "id" : "6E3C2E2B-9A0D-45C2-A487-13CE4748437D",
+              "name" : "wallR",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#22315580",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 10,
+              "x" : 388,
+              "y" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+
+                ],
+                "body" : "staticBody",
+                "category" : "wall",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#22315580",
+                "contacts" : [
+
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : false,
+                "height" : 10,
+                "id" : "wallT",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 390,
+                "x" : 0,
+                "y" : -8,
+                "zIndex" : 0
+              },
+              "height" : 10,
+              "id" : "B3DA17E1-1F9D-4B3B-93C2-4DE36AB76D93",
+              "name" : "wallT",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#22315580",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 390,
+              "x" : 0,
+              "y" : -8
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+
+                ],
+                "body" : "staticBody",
+                "category" : "pit",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#00000000",
+                "contacts" : [
+
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : false,
+                "height" : 10,
+                "id" : "pit",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 390,
+                "x" : 0,
+                "y" : 706,
+                "zIndex" : 0
+              },
+              "height" : 10,
+              "id" : "52E442C2-9C1F-42FE-B1C6-C9747A2FF030",
+              "name" : "pit",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#00000000",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 390,
+              "x" : 0,
+              "y" : 706
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "strength" : 420,
+                    "type" : "controlHorizontal"
+                  }
+                ],
+                "body" : "kinematic",
+                "category" : "paddle",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#E8EEF9",
+                "contacts" : [
+
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : true,
+                "height" : 16,
+                "id" : "paddle",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 100,
+                "x" : 145,
+                "y" : 640,
+                "zIndex" : 0
+              },
+              "height" : 16,
+              "id" : "A2403BD6-5DD9-4CE8-9F1C-5CD603F5E3CD",
+              "name" : "paddle",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#E8EEF9",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 100,
+              "x" : 145,
+              "y" : 640
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : false,
+                "allowsRotation" : true,
+                "behaviors" : [
+                  {
+                    "strength" : 14,
+                    "type" : "impulseOnTap"
+                  },
+                  {
+                    "particles" : "spark",
+                    "type" : "trail"
+                  },
+                  {
+                    "action" : "removeOther",
+                    "particles" : "debris",
+                    "points" : 1,
+                    "shake" : true,
+                    "target" : "brick",
+                    "type" : "onCollision"
+                  },
+                  {
+                    "action" : "gameOver",
+                    "target" : "pit",
+                    "type" : "onCollision"
+                  }
+                ],
+                "body" : "dynamic",
+                "category" : "ball",
+                "circleBody" : true,
+                "collidesWith" : [
+                  "wall",
+                  "paddle",
+                  "brick"
+                ],
+                "color" : "#FFD86B",
+                "contacts" : [
+                  "brick",
+                  "pit"
+                ],
+                "dropShadow" : false,
+                "friction" : 0,
+                "glow" : true,
+                "height" : 22,
+                "id" : "ball",
+                "isTemplate" : false,
+                "linearDamping" : 0,
+                "name" : "",
+                "restitution" : 1,
+                "rotation" : 0,
+                "width" : 22,
+                "x" : 183,
+                "y" : 610,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "F5A8FA8C-79F8-47B1-BB12-867F893AB3E1",
+              "name" : "ball",
+              "style" : {
+                "cornerRadius" : 11,
+                "fill" : "#FFD86B",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 22,
+              "x" : 183,
+              "y" : 610
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#FF5D73",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick00",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 14,
+                "y" : 90,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "0D6FC15F-B235-47D0-B665-D64D6B172348",
+              "name" : "brick00",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#FF5D73",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 14,
+              "y" : 90
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#FF5D73",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick01",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 88,
+                "y" : 90,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "F44CE258-1AD8-4433-B1B8-0A8F23B94ECE",
+              "name" : "brick01",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#FF5D73",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 88,
+              "y" : 90
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#FF5D73",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick02",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 162,
+                "y" : 90,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "B958A69B-444D-41AA-B86C-A56CE1FFE3DE",
+              "name" : "brick02",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#FF5D73",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 162,
+              "y" : 90
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#FF5D73",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick03",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 236,
+                "y" : 90,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "C55ACF7E-B693-4AB7-B920-E3CEEEB7D328",
+              "name" : "brick03",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#FF5D73",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 236,
+              "y" : 90
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#FF5D73",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick04",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 310,
+                "y" : 90,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "8CFB83A3-628F-4C49-9814-AF1B76B9782F",
+              "name" : "brick04",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#FF5D73",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 310,
+              "y" : 90
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#FFB020",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick10",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 14,
+                "y" : 120,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "0728A5B0-8995-466E-87F7-B41BB2CA7BB4",
+              "name" : "brick10",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#FFB020",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 14,
+              "y" : 120
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#FFB020",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick11",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 88,
+                "y" : 120,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "E2037B84-BAD7-4186-B4A9-A9CE2CF6DA34",
+              "name" : "brick11",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#FFB020",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 88,
+              "y" : 120
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#FFB020",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick12",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 162,
+                "y" : 120,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "C54AEAF5-D9E3-411D-8648-F1CF9F14B797",
+              "name" : "brick12",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#FFB020",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 162,
+              "y" : 120
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#FFB020",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick13",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 236,
+                "y" : 120,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "94F042AA-0030-411C-A03F-00350F486CF8",
+              "name" : "brick13",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#FFB020",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 236,
+              "y" : 120
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#FFB020",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick14",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 310,
+                "y" : 120,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "6CD1F1F8-D491-459B-9CAA-F3175B7A8200",
+              "name" : "brick14",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#FFB020",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 310,
+              "y" : 120
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#4ADE80",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick20",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 14,
+                "y" : 150,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "C24BDEB2-7AF6-4026-98BE-3E2E39EC8E84",
+              "name" : "brick20",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#4ADE80",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 14,
+              "y" : 150
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#4ADE80",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick21",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 88,
+                "y" : 150,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "DBD8F61C-C17A-4CE8-A8E2-30B02DDF6560",
+              "name" : "brick21",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#4ADE80",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 88,
+              "y" : 150
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#4ADE80",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick22",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 162,
+                "y" : 150,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "0612ADD0-EBAE-4F5B-826A-D94EAE449B79",
+              "name" : "brick22",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#4ADE80",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 162,
+              "y" : 150
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#4ADE80",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick23",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 236,
+                "y" : 150,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "E4886E18-3CB4-4A7C-A5F9-25FC4591D882",
+              "name" : "brick23",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#4ADE80",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 236,
+              "y" : 150
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#4ADE80",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick24",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 310,
+                "y" : 150,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "904C5986-86CA-48F4-BD3D-680ACADEA972",
+              "name" : "brick24",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#4ADE80",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 310,
+              "y" : 150
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#38BDF8",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick30",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 14,
+                "y" : 180,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "30D650D8-0608-4B19-940B-157C97265FAB",
+              "name" : "brick30",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#38BDF8",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 14,
+              "y" : 180
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#38BDF8",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick31",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 88,
+                "y" : 180,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "40B2A129-DE3A-4E6A-84A8-ABB485303253",
+              "name" : "brick31",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#38BDF8",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 88,
+              "y" : 180
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#38BDF8",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick32",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 162,
+                "y" : 180,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "AEC6BB78-E9F6-4059-94AA-4C5393F8BC9E",
+              "name" : "brick32",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#38BDF8",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 162,
+              "y" : 180
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#38BDF8",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick33",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 236,
+                "y" : 180,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "D4DAF753-5815-4B20-9511-3C42AF8B7C11",
+              "name" : "brick33",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#38BDF8",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 236,
+              "y" : 180
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+                  {
+                    "particles" : "debris",
+                    "type" : "destructible"
+                  }
+                ],
+                "body" : "staticBody",
+                "category" : "brick",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#38BDF8",
+                "contacts" : [
+
+                ],
+                "dropShadow" : true,
+                "friction" : 0.2,
+                "glow" : false,
+                "health" : 1,
+                "height" : 22,
+                "id" : "brick34",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 66,
+                "x" : 310,
+                "y" : 180,
+                "zIndex" : 0
+              },
+              "height" : 22,
+              "id" : "9B006D01-AF98-4339-80D9-9CF2D29EE878",
+              "name" : "brick34",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#38BDF8",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 66,
+              "x" : 310,
+              "y" : 180
+            }
+          ],
+          "clipContent" : true,
+          "gameScene" : {
+            "backgroundColor" : "#8ED0F0",
+            "backgroundGradient" : [
+              "#1B2A4A",
+              "#0B1020"
+            ],
+            "entities" : [
+
+            ],
+            "gravity" : 0,
+            "height" : 700,
+            "lightColor" : "#CFE8FF",
+            "lightFollow" : "ball",
+            "lighting" : true,
+            "parallax" : [
+
+            ],
+            "scrollSpeed" : 0,
+            "showScore" : true,
+            "startPaused" : true,
+            "tapToStartText" : "Tap to launch!",
+            "timeUpAction" : "gameOver",
+            "version" : 1,
+            "vignette" : true,
+            "width" : 390,
+            "winScore" : 20,
+            "worldHeight" : 0,
+            "worldWidth" : 0
+          },
+          "height" : 700,
+          "id" : "3A22CA75-E41A-4240-85E0-09A665234F3C",
+          "name" : "Breakout",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#8ED0F0",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 60,
+          "y" : 60
+        }
+      ]
+    }
+  ],
+  "platformSettings" : {
+    "defaultPreviewPlatform" : "iPhone",
+    "enabledPlatforms" : [
+      "iPhone",
+      "iPad"
+    ]
+  }
+}

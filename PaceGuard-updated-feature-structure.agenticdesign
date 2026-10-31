@@ -1,0 +1,214 @@
+{
+  "apiEndpoints" : [
+
+  ],
+  "globalVariables" : [
+    {
+      "id" : "F51447D1-9109-404C-B41B-66788D518903",
+      "name" : "pushToken",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "id" : "5187BDB7-0D27-499D-BA31-EBE5BECD19E7",
+      "name" : "txId",
+      "scope" : "global",
+      "type" : "string"
+    }
+  ],
+  "name" : "Untitled Project",
+  "pages" : [
+    {
+      "id" : "9EF60006-F03A-4178-B893-2A6899B8AB67",
+      "logicFlows" : [
+        {
+          "blocks" : [
+
+          ],
+          "connections" : [
+
+          ],
+          "id" : "0FF4A7C5-FF17-4D1B-B118-CDDD7761B9F5",
+          "name" : "Flow 1",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "D8BCC41C-3F28-4E14-928B-50A5BC4D17B1",
+              "isCollapsed" : false,
+              "label" : "On Screen Load",
+              "parameters" : [
+
+              ],
+              "type" : "onScreenLoad",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "API",
+              "id" : "BB2C26A1-FBC8-48F6-8AF5-23DDE608F406",
+              "isCollapsed" : false,
+              "label" : "Register for Push",
+              "parameters" : [
+                {
+                  "id" : "32CDF973-BBE3-453E-8A50-A603BADA42E6",
+                  "isRequired" : false,
+                  "key" : "variable",
+                  "label" : "Store Token In",
+                  "type" : "variable",
+                  "variableReference" : "pushToken"
+                }
+              ],
+              "type" : "registerForPush",
+              "width" : 200,
+              "x" : 0,
+              "y" : 120
+            },
+            {
+              "category" : "API",
+              "id" : "699AFD91-7BF0-4B3B-81B9-2312BA66F9AA",
+              "isCollapsed" : false,
+              "label" : "Purchase (StoreKit)",
+              "parameters" : [
+                {
+                  "id" : "5EF22C27-26A4-4208-93D9-B4783F5DBB04",
+                  "isRequired" : true,
+                  "key" : "productId",
+                  "label" : "Product ID",
+                  "placeholder" : "com.app.pro.monthly",
+                  "type" : "string",
+                  "value" : "com.app.pro.monthly"
+                },
+                {
+                  "id" : "AB4DE81A-7B81-4EA6-A9DD-02949FE262BE",
+                  "isRequired" : false,
+                  "key" : "variable",
+                  "label" : "Store Result In",
+                  "type" : "variable",
+                  "variableReference" : "txId"
+                }
+              ],
+              "type" : "purchaseProduct",
+              "width" : 200,
+              "x" : 0,
+              "y" : 240
+            },
+            {
+              "category" : "API",
+              "id" : "CE85F8DB-53AA-43C1-B4B4-FCEBF6EC1548",
+              "isCollapsed" : false,
+              "label" : "Restore Purchases",
+              "parameters" : [
+
+              ],
+              "type" : "restorePurchases",
+              "width" : 200,
+              "x" : 0,
+              "y" : 360
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "32DF36C0-93A9-47E9-8B98-03B94EC8B32D",
+              "sourceBlockId" : "D8BCC41C-3F28-4E14-928B-50A5BC4D17B1",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "BB2C26A1-FBC8-48F6-8AF5-23DDE608F406",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "085F8286-960B-488E-A555-1A5DE7A3E4AA",
+              "sourceBlockId" : "BB2C26A1-FBC8-48F6-8AF5-23DDE608F406",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "699AFD91-7BF0-4B3B-81B9-2312BA66F9AA",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "E2462E51-0421-4466-AB37-9FCC7D4041A3",
+              "sourceBlockId" : "699AFD91-7BF0-4B3B-81B9-2312BA66F9AA",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "CE85F8DB-53AA-43C1-B4B4-FCEBF6EC1548",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "F3D64495-5068-463D-AAA1-3FC2E1FCDBB7",
+          "name" : "Store",
+          "screenNodeId" : "B9E3C927-97BD-4FFA-AB98-B1FB4A1BB0C6",
+          "variables" : [
+
+          ]
+        }
+      ],
+      "name" : "App Screens",
+      "nodes" : [
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "height" : 44,
+              "id" : "5F76939E-C8EF-46AC-B028-9ACF41D93A7C",
+              "name" : "Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "opacity" : 1
+              },
+              "text" : "Welcome Back",
+              "type" : "Text",
+              "width" : 260,
+              "x" : 32,
+              "y" : 80
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 56,
+              "id" : "9E638672-E887-45F8-9D92-7DF30784E416",
+              "name" : "Login Button",
+              "style" : {
+                "cornerRadius" : 14,
+                "fill" : "#2563EB",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Log In",
+              "type" : "Button",
+              "width" : 326,
+              "x" : 32,
+              "y" : 680
+            }
+          ],
+          "height" : 844,
+          "id" : "B9E3C927-97BD-4FFA-AB98-B1FB4A1BB0C6",
+          "name" : "Login Screen",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#111827",
+            "opacity" : 1,
+            "stroke" : "#3B82F6"
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 100,
+          "y" : 100
+        }
+      ]
+    }
+  ],
+  "platformSettings" : {
+    "defaultPreviewPlatform" : "iPhone",
+    "enabledPlatforms" : [
+      "iPhone",
+      "appleWatch"
+    ]
+  }
+}

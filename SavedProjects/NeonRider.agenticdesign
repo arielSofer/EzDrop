@@ -1,0 +1,1402 @@
+{
+  "apiEndpoints" : [
+
+  ],
+  "bundleIdentifier" : "com.ariel.neonrider",
+  "globalVariables" : [
+    {
+      "defaultValue" : "0",
+      "id" : "F0B1C01B-9607-4E6C-B91A-E883C43514AC",
+      "name" : "score",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "3",
+      "id" : "5DD3D9A1-D64F-4E9F-8B37-A3E1EE8E4B74",
+      "name" : "lives",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "B5383D74-47B0-47BD-8D0C-164622C2AD03",
+      "name" : "riderY",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "EEC0B1A7-2114-4157-BAE4-4AC686FC540C",
+      "name" : "gameCollisionEntityA",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "768106A2-2B9B-46E1-B2C6-0608C38B4DF6",
+      "name" : "gameCollisionEntityB",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "1.5",
+      "id" : "C3C18B55-5575-46CF-A032-36EB98A27F96",
+      "name" : "spawnRate",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "368E8F89-484F-4BD2-AC1E-BF8B21FAB607",
+      "name" : "gameScore",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "780F4C8B-5F1D-4C63-8360-2059B30C92AD",
+      "name" : "probe",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "380D7B82-92D8-4FEB-B6A2-3F5788925277",
+      "name" : "riderY",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "EEE38CF3-79B1-4D75-90B1-D35DD6615963",
+      "name" : "crashes",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "C8393C97-496C-4BAC-945B-83CC9D117CAE",
+      "name" : "bikeRot",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "B7F175E4-3D7D-45D0-8FEA-3DD0939A97F5",
+      "name" : "bikeX",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "77F1413C-A802-4BD1-989C-9936E703394E",
+      "name" : "gameDragX",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "B1FBE20F-3C3D-431C-A2F7-094DB7D78EE1",
+      "name" : "gameTapX",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "80BBE9B5-7C86-42B3-82D5-44D2FD5DD36A",
+      "name" : "gameCollisionEntityA",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "DAAA7DD6-4BBF-4BF2-9E5F-8AC8F590D365",
+      "name" : "gameCollisionEntityB",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "794FDFA1-2130-457C-B47A-C4EE07D24E85",
+      "name" : "probe",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "244F1886-3D80-4727-AF03-8141581AA09E",
+      "name" : "gameImpactForce",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "D85300F8-D44E-4594-9E11-7CEF61CF737B",
+      "name" : "probe",
+      "scope" : "global",
+      "type" : "string"
+    }
+  ],
+  "name" : "Neon Rider",
+  "pages" : [
+    {
+      "id" : "304C755F-5043-4980-9C5E-FCDC85C5F406",
+      "logicFlows" : [
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "F96D7F74-63C6-48A3-9F92-E89789E6C66F",
+              "isCollapsed" : false,
+              "label" : "On Game Start",
+              "parameters" : [
+
+              ],
+              "type" : "onGameStart",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "5106765C-324B-4EEA-98B4-8F66D321D89A",
+              "isCollapsed" : false,
+              "label" : "Set Variable",
+              "parameters" : [
+                {
+                  "id" : "305E74B3-AC68-4498-9D67-D0B838CA455F",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "crashes"
+                },
+                {
+                  "id" : "85EF67C6-784B-4EAB-970D-178EC29A03E8",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "20212F79-6702-4BA6-AC8A-11491C2E9864",
+              "isCollapsed" : false,
+              "label" : "Game: Time Scale",
+              "parameters" : [
+                {
+                  "id" : "D396F47A-D4AA-4C79-8FFF-79C5F50A74B1",
+                  "isRequired" : true,
+                  "key" : "scale",
+                  "label" : "Scale",
+                  "type" : "string",
+                  "value" : "1"
+                }
+              ],
+              "type" : "gameSetTimeScale",
+              "width" : 200,
+              "x" : 540,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "6512D223-515B-43CE-B4C1-E4D58340AD2B",
+              "isCollapsed" : false,
+              "label" : "engine idle",
+              "parameters" : [
+                {
+                  "id" : "113C31ED-B8C6-4F4D-BA6F-1681C95C7856",
+                  "isRequired" : true,
+                  "key" : "entity",
+                  "label" : "Bike entity id",
+                  "type" : "string",
+                  "value" : "bike"
+                },
+                {
+                  "id" : "2EFCE702-DE7F-4201-B866-56E704E2EDB2",
+                  "isRequired" : true,
+                  "key" : "throttle",
+                  "label" : "Throttle (-1…1)",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "gameMotor",
+              "width" : 200,
+              "x" : 780,
+              "y" : 60
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "1DFE12F7-9423-45F8-BDF4-083674593EE3",
+              "sourceBlockId" : "F96D7F74-63C6-48A3-9F92-E89789E6C66F",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "5106765C-324B-4EEA-98B4-8F66D321D89A",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "F29FE838-E3F9-4EBE-8F9A-D2146D17A202",
+              "sourceBlockId" : "5106765C-324B-4EEA-98B4-8F66D321D89A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "20212F79-6702-4BA6-AC8A-11491C2E9864",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "1926FFE8-766F-4D79-A42C-182207DF1405",
+              "sourceBlockId" : "20212F79-6702-4BA6-AC8A-11491C2E9864",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "6512D223-515B-43CE-B4C1-E4D58340AD2B",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "0D20FC7F-DD92-4F20-9DC4-0BDA2F4872AB",
+          "name" : "Race Start",
+          "screenNodeId" : "DC5AB3A9-BA2E-4A73-9E73-3A6793873DA3",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "2F15983F-90FE-41A5-A062-7850F3812BDC",
+              "isCollapsed" : false,
+              "label" : "On Game Collision",
+              "parameters" : [
+                {
+                  "id" : "597A30BB-C5A9-4DBA-87F5-3FD524EDB1B4",
+                  "isRequired" : false,
+                  "key" : "categoryA",
+                  "label" : "Category A",
+                  "type" : "string",
+                  "value" : "finish"
+                },
+                {
+                  "id" : "1755F1F1-749F-4338-B176-9F66867DDF1A",
+                  "isRequired" : false,
+                  "key" : "categoryB",
+                  "label" : "Category B",
+                  "type" : "string",
+                  "value" : "bike"
+                }
+              ],
+              "type" : "onGameCollision",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "C9043B47-C293-427A-A79E-E5401EFCCFE6",
+              "isCollapsed" : false,
+              "label" : "Game: Particles",
+              "parameters" : [
+                {
+                  "id" : "A705A2D8-2031-48D5-B226-D0CD7FFF1395",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Kind",
+                  "options" : [
+                    "debris",
+                    "spark",
+                    "smoke",
+                    "fire",
+                    "confetti",
+                    "hearts"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "confetti"
+                },
+                {
+                  "id" : "61ACFDB6-A001-4581-9D15-A22250E888DC",
+                  "isRequired" : true,
+                  "key" : "x",
+                  "label" : "X",
+                  "type" : "string",
+                  "value" : "400"
+                },
+                {
+                  "id" : "58ACCEF7-394B-4F2C-A420-9A42F13FF7BE",
+                  "isRequired" : true,
+                  "key" : "y",
+                  "label" : "Y",
+                  "type" : "string",
+                  "value" : "160"
+                },
+                {
+                  "id" : "8FBB7296-878C-4DEA-8947-09BA40D8199C",
+                  "isRequired" : true,
+                  "key" : "burst",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "70"
+                }
+              ],
+              "type" : "gameParticles",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "634BBD24-391B-4278-8B89-49580BB6D0F0",
+              "isCollapsed" : false,
+              "label" : "Game: Add Score",
+              "parameters" : [
+                {
+                  "id" : "88B6DD73-40C4-4822-A78D-F022A8DEA726",
+                  "isRequired" : true,
+                  "key" : "points",
+                  "label" : "Points",
+                  "type" : "string",
+                  "value" : "1000"
+                }
+              ],
+              "type" : "gameAddScore",
+              "width" : 200,
+              "x" : 540,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "B992DC6A-9028-46AC-8F15-008A2C05E487",
+              "isCollapsed" : false,
+              "label" : "Game: Time Scale",
+              "parameters" : [
+                {
+                  "id" : "D396F47A-D4AA-4C79-8FFF-79C5F50A74B1",
+                  "isRequired" : true,
+                  "key" : "scale",
+                  "label" : "Scale",
+                  "type" : "string",
+                  "value" : "0.4"
+                }
+              ],
+              "type" : "gameSetTimeScale",
+              "width" : 200,
+              "x" : 780,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "272FB089-8C20-4A01-A714-E52CFAB63CF2",
+              "isCollapsed" : false,
+              "label" : "Delay",
+              "parameters" : [
+                {
+                  "id" : "D4943513-05A3-401C-8ABF-A2873C2901E0",
+                  "isRequired" : true,
+                  "key" : "seconds",
+                  "label" : "Seconds",
+                  "type" : "number",
+                  "value" : "1.2"
+                }
+              ],
+              "type" : "delay",
+              "width" : 200,
+              "x" : 1020,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "41734B91-5865-4192-A168-1E64DAC0DDDB",
+              "isCollapsed" : false,
+              "label" : "Game: End",
+              "parameters" : [
+                {
+                  "id" : "EF8A9C05-94CD-4C3B-B8FE-56CF7B75A231",
+                  "isRequired" : true,
+                  "key" : "result",
+                  "label" : "Result",
+                  "options" : [
+                    "gameOver",
+                    "win"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "win"
+                }
+              ],
+              "type" : "gameEnd",
+              "width" : 200,
+              "x" : 1260,
+              "y" : 60
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "4E0019EA-0F54-4AFF-B16D-CE7BD99AC8B9",
+              "sourceBlockId" : "2F15983F-90FE-41A5-A062-7850F3812BDC",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "C9043B47-C293-427A-A79E-E5401EFCCFE6",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "AEFAC606-DB92-4831-8253-95675FF1DB34",
+              "sourceBlockId" : "C9043B47-C293-427A-A79E-E5401EFCCFE6",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "634BBD24-391B-4278-8B89-49580BB6D0F0",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "099782AC-9CB7-4C29-A175-218F8A529588",
+              "sourceBlockId" : "634BBD24-391B-4278-8B89-49580BB6D0F0",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "B992DC6A-9028-46AC-8F15-008A2C05E487",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "676426A1-7CE9-469E-9B42-1308C7F44ED0",
+              "sourceBlockId" : "B992DC6A-9028-46AC-8F15-008A2C05E487",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "272FB089-8C20-4A01-A714-E52CFAB63CF2",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "FA8B0014-450A-48EC-AFB9-6E0CDD9A2EF0",
+              "sourceBlockId" : "272FB089-8C20-4A01-A714-E52CFAB63CF2",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "41734B91-5865-4192-A168-1E64DAC0DDDB",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "1C4C0154-3E7F-4699-A0F8-383DBF5ACE23",
+          "name" : "Finish",
+          "screenNodeId" : "DC5AB3A9-BA2E-4A73-9E73-3A6793873DA3",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "1662D3C6-1C39-4B3A-945B-7C8B3493AD4A",
+              "isCollapsed" : false,
+              "label" : "On Game Drag",
+              "parameters" : [
+                {
+                  "id" : "695CA11E-027E-4896-8142-CF9219358F02",
+                  "isRequired" : true,
+                  "key" : "phase",
+                  "label" : "Phase",
+                  "options" : [
+                    "start",
+                    "move",
+                    "end",
+                    "any"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "start"
+                }
+              ],
+              "type" : "onGameDrag",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "9F3EF8C1-6AD3-49CB-98F8-40D3F687B440",
+              "isCollapsed" : false,
+              "label" : "where is the bike",
+              "parameters" : [
+                {
+                  "id" : "574FA252-2032-4912-B1A7-8C75A698E3C4",
+                  "isRequired" : true,
+                  "key" : "what",
+                  "label" : "Read",
+                  "options" : [
+                    "positionX",
+                    "positionY",
+                    "velocityX",
+                    "velocityY",
+                    "rotation",
+                    "health",
+                    "count",
+                    "score",
+                    "lives",
+                    "timeLeft"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "positionX"
+                },
+                {
+                  "id" : "EFC25066-2D36-4BFE-9903-9F733957AECD",
+                  "isRequired" : false,
+                  "key" : "target",
+                  "label" : "Entity id \/ category",
+                  "type" : "string",
+                  "value" : "bike"
+                },
+                {
+                  "id" : "5CF7096D-1872-4749-B3EF-17EF04E04391",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Store In",
+                  "type" : "variable",
+                  "variableReference" : "bikeX"
+                }
+              ],
+              "type" : "gameQuery",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "EAED2935-62A9-4400-A271-3BB1B4611AA0",
+              "isCollapsed" : false,
+              "label" : "touched ahead of it?",
+              "parameters" : [
+                {
+                  "id" : "D4D5D7B3-42D5-4F9B-8E03-1EAD087B9DE2",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "gameDragX"
+                },
+                {
+                  "id" : "B636E423-70E3-448D-8373-EC919A08132B",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : ">"
+                },
+                {
+                  "id" : "552716FC-F6B3-433A-8350-F04E3D9A33C3",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "{{bikeX}}"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 560,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "7FC046F9-477B-4ADB-B50C-2AD852D3F622",
+              "isCollapsed" : false,
+              "label" : "full throttle",
+              "parameters" : [
+                {
+                  "id" : "C8F09739-2C9D-46CF-9FB5-356E858D639E",
+                  "isRequired" : true,
+                  "key" : "entity",
+                  "label" : "Bike entity id",
+                  "type" : "string",
+                  "value" : "bike"
+                },
+                {
+                  "id" : "7B4213F0-27B5-4BF3-A521-7F20737E7280",
+                  "isRequired" : true,
+                  "key" : "throttle",
+                  "label" : "Throttle (-1…1)",
+                  "type" : "string",
+                  "value" : "1"
+                }
+              ],
+              "type" : "gameMotor",
+              "width" : 200,
+              "x" : 820,
+              "y" : 10
+            },
+            {
+              "category" : "Actions",
+              "id" : "034A7F37-DA68-47A0-BD40-BA6A52C0B291",
+              "isCollapsed" : false,
+              "label" : "lean back",
+              "parameters" : [
+                {
+                  "id" : "0071C6EC-EDFD-49E7-AAE5-98A7F89B422B",
+                  "isRequired" : true,
+                  "key" : "entity",
+                  "label" : "Entity id",
+                  "type" : "string",
+                  "value" : "bike"
+                },
+                {
+                  "id" : "C8E27847-96DF-41B2-ABA7-3224956DBB57",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Lean force",
+                  "type" : "string",
+                  "value" : "60"
+                }
+              ],
+              "type" : "gameTorque",
+              "width" : 200,
+              "x" : 820,
+              "y" : 150
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "A53C205A-4921-4936-A8FB-684EB27E18A7",
+              "sourceBlockId" : "1662D3C6-1C39-4B3A-945B-7C8B3493AD4A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "9F3EF8C1-6AD3-49CB-98F8-40D3F687B440",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "00B329AF-192D-456A-AE06-7039477C66B8",
+              "sourceBlockId" : "9F3EF8C1-6AD3-49CB-98F8-40D3F687B440",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "EAED2935-62A9-4400-A271-3BB1B4611AA0",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "4EFD3121-6306-48B3-A9F6-C009F77CB0AE",
+              "sourceBlockId" : "EAED2935-62A9-4400-A271-3BB1B4611AA0",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "7FC046F9-477B-4ADB-B50C-2AD852D3F622",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "720E3C94-5327-488A-80C6-2C5AA93ACA97",
+              "sourceBlockId" : "EAED2935-62A9-4400-A271-3BB1B4611AA0",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "034A7F37-DA68-47A0-BD40-BA6A52C0B291",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "EF17433E-8A3A-4F91-8E17-721D110D71DD",
+          "name" : "Throttle On",
+          "screenNodeId" : "DC5AB3A9-BA2E-4A73-9E73-3A6793873DA3",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "9E1B60F6-2979-44F7-BFA0-B8D7816FC266",
+              "isCollapsed" : false,
+              "label" : "On Game Drag",
+              "parameters" : [
+                {
+                  "id" : "695CA11E-027E-4896-8142-CF9219358F02",
+                  "isRequired" : true,
+                  "key" : "phase",
+                  "label" : "Phase",
+                  "options" : [
+                    "start",
+                    "move",
+                    "end",
+                    "any"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "end"
+                }
+              ],
+              "type" : "onGameDrag",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "DDB0E064-8DA3-41B8-82D5-3AC9BC7EA927",
+              "isCollapsed" : false,
+              "label" : "coast",
+              "parameters" : [
+                {
+                  "id" : "C8F09739-2C9D-46CF-9FB5-356E858D639E",
+                  "isRequired" : true,
+                  "key" : "entity",
+                  "label" : "Bike entity id",
+                  "type" : "string",
+                  "value" : "bike"
+                },
+                {
+                  "id" : "7B4213F0-27B5-4BF3-A521-7F20737E7280",
+                  "isRequired" : true,
+                  "key" : "throttle",
+                  "label" : "Throttle (-1…1)",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "gameMotor",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "C614AC16-4CB8-4567-AD30-2EA7E43BC6E3",
+              "sourceBlockId" : "9E1B60F6-2979-44F7-BFA0-B8D7816FC266",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "DDB0E064-8DA3-41B8-82D5-3AC9BC7EA927",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "A009F0C3-C128-4A5C-952F-32F3001CFEC5",
+          "name" : "Throttle Off",
+          "screenNodeId" : "DC5AB3A9-BA2E-4A73-9E73-3A6793873DA3",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "8947CE86-FF6F-4507-ACF6-D53C28D7B8D4",
+              "isCollapsed" : false,
+              "label" : "On Impact",
+              "parameters" : [
+                {
+                  "id" : "2BB3A3E6-EB12-4EB2-B87B-36B724EED8BA",
+                  "isRequired" : false,
+                  "key" : "categoryA",
+                  "label" : "Category A",
+                  "type" : "string",
+                  "value" : "bike"
+                },
+                {
+                  "id" : "6F442052-1E95-4958-A471-46EA1E308143",
+                  "isRequired" : false,
+                  "key" : "categoryB",
+                  "label" : "Category B",
+                  "type" : "string",
+                  "value" : "terrain"
+                },
+                {
+                  "id" : "070FB167-3A6F-405B-9609-2E4C4D99D356",
+                  "isRequired" : false,
+                  "key" : "minForce",
+                  "label" : "Min force",
+                  "type" : "string",
+                  "value" : "30"
+                }
+              ],
+              "type" : "onGameImpact",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "A53E7E47-8CF6-4D91-A967-06B1164BD106",
+              "isCollapsed" : false,
+              "label" : "Game: Particles",
+              "parameters" : [
+                {
+                  "id" : "F1578EF3-5EC6-478C-9A16-4E214E19F766",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Kind",
+                  "options" : [
+                    "debris",
+                    "spark",
+                    "smoke",
+                    "fire",
+                    "confetti",
+                    "hearts"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "spark"
+                },
+                {
+                  "id" : "C2E47D9E-24F1-4188-B6C0-EDCDD8B60B28",
+                  "isRequired" : true,
+                  "key" : "x",
+                  "label" : "X",
+                  "type" : "string",
+                  "value" : "400"
+                },
+                {
+                  "id" : "B2772A3A-D55C-419C-87DF-275105994364",
+                  "isRequired" : true,
+                  "key" : "y",
+                  "label" : "Y",
+                  "type" : "string",
+                  "value" : "240"
+                },
+                {
+                  "id" : "39992EFC-43E1-4741-B892-6151819E5E12",
+                  "isRequired" : true,
+                  "key" : "burst",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "30"
+                }
+              ],
+              "type" : "gameParticles",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "489F18C0-D39A-42CC-97BE-36E291280F22",
+              "isCollapsed" : false,
+              "label" : "Game: Shake",
+              "parameters" : [
+                {
+                  "id" : "7DC9B999-9846-4109-A894-0F12F755D8AC",
+                  "isRequired" : true,
+                  "key" : "intensity",
+                  "label" : "Intensity",
+                  "type" : "string",
+                  "value" : "9"
+                }
+              ],
+              "type" : "gameShake",
+              "width" : 200,
+              "x" : 540,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "B6E98186-8667-48FA-908B-42C6D213E39B",
+              "isCollapsed" : false,
+              "label" : "wipeout slow-mo",
+              "parameters" : [
+                {
+                  "id" : "3427A296-7BC4-457F-AC32-C1EED4609D02",
+                  "isRequired" : true,
+                  "key" : "scale",
+                  "label" : "Scale",
+                  "type" : "string",
+                  "value" : "0.35"
+                }
+              ],
+              "type" : "gameSetTimeScale",
+              "width" : 200,
+              "x" : 780,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "C84C4195-0FC4-4E42-AC92-044FCCCD583D",
+              "isCollapsed" : false,
+              "label" : "Increment",
+              "parameters" : [
+                {
+                  "id" : "1BC4B818-1273-4279-871C-0EA5C456A7D1",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "crashes"
+                },
+                {
+                  "id" : "4692BBF9-F22C-4D30-A665-DAF1F6DFED0E",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "number",
+                  "value" : "1"
+                }
+              ],
+              "type" : "incrementVariable",
+              "width" : 200,
+              "x" : 1020,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "024CAB1D-A0B2-43E0-9CC5-EEE22A08EFE6",
+              "isCollapsed" : false,
+              "label" : "Delay",
+              "parameters" : [
+                {
+                  "id" : "61EC9EE8-31F3-451D-966B-4416D5C7A324",
+                  "isRequired" : true,
+                  "key" : "seconds",
+                  "label" : "Seconds",
+                  "type" : "number",
+                  "value" : "1.0"
+                }
+              ],
+              "type" : "delay",
+              "width" : 200,
+              "x" : 1260,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "50F7B424-046D-4242-86BE-CBF5F80B0752",
+              "isCollapsed" : false,
+              "label" : "Game: Time Scale",
+              "parameters" : [
+                {
+                  "id" : "3427A296-7BC4-457F-AC32-C1EED4609D02",
+                  "isRequired" : true,
+                  "key" : "scale",
+                  "label" : "Scale",
+                  "type" : "string",
+                  "value" : "1"
+                }
+              ],
+              "type" : "gameSetTimeScale",
+              "width" : 200,
+              "x" : 1500,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "58347954-23C9-479A-9124-E5EA822A4BD9",
+              "isCollapsed" : false,
+              "label" : "back to the start",
+              "parameters" : [
+
+              ],
+              "type" : "gameRestart",
+              "width" : 200,
+              "x" : 1740,
+              "y" : 60
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "784B443B-A777-4AB9-8647-BCDB50A1824D",
+              "sourceBlockId" : "8947CE86-FF6F-4507-ACF6-D53C28D7B8D4",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A53E7E47-8CF6-4D91-A967-06B1164BD106",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "E69A4CA3-5BEC-461D-B811-C2368C37EA6D",
+              "sourceBlockId" : "A53E7E47-8CF6-4D91-A967-06B1164BD106",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "489F18C0-D39A-42CC-97BE-36E291280F22",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "EDDA83C9-1875-4E2A-BB25-33F82C80EFD6",
+              "sourceBlockId" : "489F18C0-D39A-42CC-97BE-36E291280F22",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "B6E98186-8667-48FA-908B-42C6D213E39B",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "35CB9FE5-0289-4EC1-8AAC-10B91AE43D37",
+              "sourceBlockId" : "B6E98186-8667-48FA-908B-42C6D213E39B",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "C84C4195-0FC4-4E42-AC92-044FCCCD583D",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "B1722EB0-4036-46C0-81B4-37B324CFB5E8",
+              "sourceBlockId" : "C84C4195-0FC4-4E42-AC92-044FCCCD583D",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "024CAB1D-A0B2-43E0-9CC5-EEE22A08EFE6",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "CBA42A1D-68B8-4501-BE8C-7E3D0811349A",
+              "sourceBlockId" : "024CAB1D-A0B2-43E0-9CC5-EEE22A08EFE6",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "50F7B424-046D-4242-86BE-CBF5F80B0752",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "F3F3A0F4-3BE9-4B03-A496-0DFF2EFC8363",
+              "sourceBlockId" : "50F7B424-046D-4242-86BE-CBF5F80B0752",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "58347954-23C9-479A-9124-E5EA822A4BD9",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "3A157558-3F2C-49C1-B5C4-EBDDA1E7150D",
+          "name" : "Wipeout",
+          "screenNodeId" : "DC5AB3A9-BA2E-4A73-9E73-3A6793873DA3",
+          "variables" : [
+
+          ]
+        }
+      ],
+      "name" : "App Screens",
+      "nodes" : [
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+
+                ],
+                "body" : "staticBody",
+                "category" : "terrain",
+                "circleBody" : false,
+                "collidesWith" : [
+                  "bike",
+                  "__wheel"
+                ],
+                "color" : "#00F0FF",
+                "contacts" : [
+                  "bike"
+                ],
+                "dropShadow" : false,
+                "friction" : 0.9,
+                "glow" : true,
+                "glowColor" : "#00F0FF",
+                "height" : 390,
+                "id" : "track",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "points" : [
+                  [
+                    0,
+                    300
+                  ],
+                  [
+                    180,
+                    300
+                  ],
+                  [
+                    300,
+                    288
+                  ],
+                  [
+                    420,
+                    258
+                  ],
+                  [
+                    540,
+                    236
+                  ],
+                  [
+                    660,
+                    250
+                  ],
+                  [
+                    780,
+                    286
+                  ],
+                  [
+                    900,
+                    300
+                  ],
+                  [
+                    1020,
+                    300
+                  ],
+                  [
+                    1140,
+                    272
+                  ],
+                  [
+                    1240,
+                    214
+                  ],
+                  [
+                    1330,
+                    196
+                  ],
+                  [
+                    1420,
+                    214
+                  ],
+                  [
+                    1520,
+                    272
+                  ],
+                  [
+                    1620,
+                    300
+                  ],
+                  [
+                    1740,
+                    300
+                  ],
+                  [
+                    1860,
+                    306
+                  ],
+                  [
+                    1980,
+                    286
+                  ],
+                  [
+                    2080,
+                    232
+                  ],
+                  [
+                    2170,
+                    190
+                  ],
+                  [
+                    2260,
+                    176
+                  ],
+                  [
+                    2360,
+                    196
+                  ],
+                  [
+                    2460,
+                    246
+                  ],
+                  [
+                    2560,
+                    292
+                  ],
+                  [
+                    2680,
+                    300
+                  ],
+                  [
+                    2800,
+                    300
+                  ],
+                  [
+                    2900,
+                    278
+                  ],
+                  [
+                    3000,
+                    240
+                  ],
+                  [
+                    3100,
+                    206
+                  ],
+                  [
+                    3200,
+                    190
+                  ],
+                  [
+                    3320,
+                    206
+                  ],
+                  [
+                    3440,
+                    248
+                  ],
+                  [
+                    3560,
+                    286
+                  ],
+                  [
+                    3680,
+                    300
+                  ],
+                  [
+                    3860,
+                    300
+                  ],
+                  [
+                    4200,
+                    300
+                  ]
+                ],
+                "restitution" : 0,
+                "rotation" : 0,
+                "strokeWidth" : 5,
+                "width" : 4200,
+                "x" : 0,
+                "y" : 0,
+                "zIndex" : 0
+              },
+              "height" : 390,
+              "id" : "182950AB-FE10-4655-81A6-013AF5E6DBA1",
+              "name" : "track",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#00F0FF",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 4200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : true,
+                "behaviors" : [
+                  {
+                    "motorForce" : 30,
+                    "motorSpeed" : 38,
+                    "type" : "bike",
+                    "wheelBase" : 52,
+                    "wheelDrop" : 28,
+                    "wheelRadius" : 16
+                  }
+                ],
+                "body" : "dynamic",
+                "category" : "bike",
+                "circleBody" : false,
+                "collidesWith" : [
+                  "terrain"
+                ],
+                "contacts" : [
+                  "terrain",
+                  "finish"
+                ],
+                "dropShadow" : false,
+                "friction" : 0.15,
+                "glow" : true,
+                "glowColor" : "#FF2D95",
+                "height" : 34,
+                "id" : "bike",
+                "isTemplate" : false,
+                "linearDamping" : 0.02,
+                "mass" : 1.6,
+                "name" : "",
+                "restitution" : 0.05,
+                "rotation" : 0,
+                "width" : 72,
+                "x" : 120,
+                "y" : 234,
+                "zIndex" : 0
+              },
+              "height" : 34,
+              "id" : "70D75A42-4B5A-48D5-96F9-4D1BDD44DDAC",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-2E82C22A-F993-4BF3-9D76-9BF1722718B8.png",
+              "name" : "bike",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 72,
+              "x" : 120,
+              "y" : 234
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+
+                ],
+                "body" : "staticBody",
+                "category" : "finish",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#B6FF00",
+                "contacts" : [
+                  "bike"
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : true,
+                "glowColor" : "#B6FF00",
+                "height" : 150,
+                "id" : "finish",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 16,
+                "x" : 4020,
+                "y" : 150,
+                "zIndex" : 0
+              },
+              "height" : 150,
+              "id" : "E2CF4438-EDEE-4A1D-8893-C795BAA0FB58",
+              "name" : "finish",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#B6FF00",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 16,
+              "x" : 4020,
+              "y" : 150
+            }
+          ],
+          "clipContent" : false,
+          "gameScene" : {
+            "ambient" : "stars",
+            "backgroundColor" : "#0B0120",
+            "backgroundGradient" : [
+              "#0B0120",
+              "#3B0A5E"
+            ],
+            "cameraFollow" : "bike",
+            "entities" : [
+
+            ],
+            "gravity" : -20,
+            "height" : 390,
+            "lightColor" : "#FFF4D6",
+            "lighting" : false,
+            "parallax" : [
+
+            ],
+            "scrollSpeed" : 0,
+            "showScore" : true,
+            "startPaused" : false,
+            "tapToStartText" : "Tap to start",
+            "timeUpAction" : "gameOver",
+            "version" : 1,
+            "vignette" : false,
+            "width" : 844,
+            "worldHeight" : 390,
+            "worldWidth" : 4200
+          },
+          "height" : 390,
+          "id" : "DC5AB3A9-BA2E-4A73-9E73-3A6793873DA3",
+          "name" : "Neon Rider",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#0B0120",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 844,
+          "x" : 40,
+          "y" : 40
+        }
+      ]
+    }
+  ],
+  "platformSettings" : {
+    "defaultPreviewPlatform" : "iPhone",
+    "enabledPlatforms" : [
+      "iPhone",
+      "iPad"
+    ],
+    "orientation" : "landscape"
+  }
+}

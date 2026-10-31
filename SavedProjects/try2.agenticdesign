@@ -1,0 +1,2510 @@
+{
+  "apiEndpoints" : [
+
+  ],
+  "globalVariables" : [
+
+  ],
+  "name" : "Untitled Project",
+  "pages" : [
+    {
+      "id" : "CCB82E3F-7EA1-4F1F-BE2C-B14AA14C2745",
+      "logicFlows" : [
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "E5E26E42-3ED8-41B5-915B-F5C0FECD97F3",
+              "isCollapsed" : false,
+              "label" : "Tap: Neon Nights",
+              "parameters" : [
+                {
+                  "id" : "E408C7E1-7F51-425D-B4AC-FED06E864B4E",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "F7C509B0-21C6-41BB-B8B3-F50C4EADA5C5",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "609C2C9E-32FE-4B72-8417-F4BE85D98D8C",
+              "isCollapsed" : false,
+              "label" : "Open Player",
+              "parameters" : [
+                {
+                  "id" : "6163C2E7-A9EF-4D21-8912-63E1A2B5358A",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "0A42D00E-2E2C-4A9B-B540-02459CD31CA1",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 360,
+              "y" : 60
+            },
+            {
+              "category" : "Events",
+              "id" : "C2DD409C-AFAB-43F8-BE85-CB8CAACEF90E",
+              "isCollapsed" : false,
+              "label" : "Tap: Wildwood",
+              "parameters" : [
+                {
+                  "id" : "E408C7E1-7F51-425D-B4AC-FED06E864B4E",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "A33E28DB-9E23-49BB-AA8B-C02FC37B3332",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 220
+            },
+            {
+              "category" : "Actions",
+              "id" : "49F57A93-A005-4057-A442-A5ECE73BAB83",
+              "isCollapsed" : false,
+              "label" : "Open Player",
+              "parameters" : [
+                {
+                  "id" : "6163C2E7-A9EF-4D21-8912-63E1A2B5358A",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "0A42D00E-2E2C-4A9B-B540-02459CD31CA1",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 360,
+              "y" : 220
+            },
+            {
+              "category" : "Events",
+              "id" : "BBAE1F0B-BF3F-4BFB-B284-30E573AB3259",
+              "isCollapsed" : false,
+              "label" : "Tap: Pulse",
+              "parameters" : [
+                {
+                  "id" : "E408C7E1-7F51-425D-B4AC-FED06E864B4E",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "5EE33530-4A82-4860-8B2B-C4167EAF9280",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 380
+            },
+            {
+              "category" : "Actions",
+              "id" : "46CFBC0A-51D5-40DF-AE57-AE49FFF6BBAE",
+              "isCollapsed" : false,
+              "label" : "Open Player",
+              "parameters" : [
+                {
+                  "id" : "6163C2E7-A9EF-4D21-8912-63E1A2B5358A",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "0A42D00E-2E2C-4A9B-B540-02459CD31CA1",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 360,
+              "y" : 380
+            },
+            {
+              "category" : "Events",
+              "id" : "52C9580F-CABD-4A6E-9A8F-2B4F3D386FC1",
+              "isCollapsed" : false,
+              "label" : "Tap: Now Playing Bar",
+              "parameters" : [
+                {
+                  "id" : "E408C7E1-7F51-425D-B4AC-FED06E864B4E",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "A0382248-37A1-4F1B-9AC5-B2CA06BA04C6",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 540
+            },
+            {
+              "category" : "Actions",
+              "id" : "AF5F8136-326F-481A-B627-CB62B5C6481A",
+              "isCollapsed" : false,
+              "label" : "Open Player",
+              "parameters" : [
+                {
+                  "id" : "6163C2E7-A9EF-4D21-8912-63E1A2B5358A",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "0A42D00E-2E2C-4A9B-B540-02459CD31CA1",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 360,
+              "y" : 540
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "8561E679-8BE6-4182-B7AC-A949D1F587F4",
+              "sourceBlockId" : "E5E26E42-3ED8-41B5-915B-F5C0FECD97F3",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "609C2C9E-32FE-4B72-8417-F4BE85D98D8C",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "2A9FDBC1-E66E-4B68-B0E2-56D4B6B0DC92",
+              "sourceBlockId" : "C2DD409C-AFAB-43F8-BE85-CB8CAACEF90E",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "49F57A93-A005-4057-A442-A5ECE73BAB83",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "041DDF46-504A-4B54-B44D-8D4FA6891BA0",
+              "sourceBlockId" : "BBAE1F0B-BF3F-4BFB-B284-30E573AB3259",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "46CFBC0A-51D5-40DF-AE57-AE49FFF6BBAE",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "EB6FE6CF-E0CA-41E4-ACF5-B514AB73EA76",
+              "sourceBlockId" : "52C9580F-CABD-4A6E-9A8F-2B4F3D386FC1",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "AF5F8136-326F-481A-B627-CB62B5C6481A",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "19BEAA06-1063-440C-8FA8-D00795C54CB1",
+          "name" : "Open Player",
+          "screenNodeId" : "1F27C302-A029-4728-A276-523C8217D331",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "2267C993-BC80-42CB-B265-852773076558",
+              "isCollapsed" : false,
+              "label" : "Tap: Library Tab",
+              "parameters" : [
+                {
+                  "id" : "E408C7E1-7F51-425D-B4AC-FED06E864B4E",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "C49FB243-1321-478E-A9ED-511EACC83C05",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "E3E76D32-5901-43A3-886D-B264A370316C",
+              "isCollapsed" : false,
+              "label" : "Open Library",
+              "parameters" : [
+                {
+                  "id" : "6163C2E7-A9EF-4D21-8912-63E1A2B5358A",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "0C0DD87D-8933-45F5-B063-C5A716E62C4D",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 360,
+              "y" : 60
+            },
+            {
+              "category" : "Events",
+              "id" : "A4411698-4A63-4EB5-9DC2-79E14C1B413B",
+              "isCollapsed" : false,
+              "label" : "Tap: Search Tab",
+              "parameters" : [
+                {
+                  "id" : "E408C7E1-7F51-425D-B4AC-FED06E864B4E",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "F5F53123-9F26-4863-880C-98F2F763AF3E",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 220
+            },
+            {
+              "category" : "Actions",
+              "id" : "8606E993-CCF6-4569-B37D-DD8A12D85D06",
+              "isCollapsed" : false,
+              "label" : "Search Toast",
+              "parameters" : [
+                {
+                  "id" : "77AC261D-4FF3-4B1A-9EBA-A6CED3D63C9E",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Search is coming soon 🔍"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 360,
+              "y" : 220
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "0D086CA6-0567-4DEF-8E0A-CE6627FEB604",
+              "sourceBlockId" : "2267C993-BC80-42CB-B265-852773076558",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "E3E76D32-5901-43A3-886D-B264A370316C",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "3B9FEEB6-2DF1-4461-BFEF-850D14A4C6F7",
+              "sourceBlockId" : "A4411698-4A63-4EB5-9DC2-79E14C1B413B",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "8606E993-CCF6-4569-B37D-DD8A12D85D06",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "C30C03F0-5E01-408F-A8F7-D2E25799AD71",
+          "name" : "Home Tabs",
+          "screenNodeId" : "1F27C302-A029-4728-A276-523C8217D331",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "0702C1C7-5379-4CE6-BD35-171BC727B55B",
+              "isCollapsed" : false,
+              "label" : "Tap: Back",
+              "parameters" : [
+                {
+                  "id" : "E408C7E1-7F51-425D-B4AC-FED06E864B4E",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "7C88249D-24C7-4E54-8971-3A32998ABCBA",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "96684707-E3ED-4A40-914A-3846F4D30406",
+              "isCollapsed" : false,
+              "label" : "Back to Home",
+              "parameters" : [
+                {
+                  "id" : "6163C2E7-A9EF-4D21-8912-63E1A2B5358A",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "1F27C302-A029-4728-A276-523C8217D331",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 360,
+              "y" : 60
+            },
+            {
+              "category" : "Events",
+              "id" : "DB780E59-134C-4F4B-B87C-C3569D75BF94",
+              "isCollapsed" : false,
+              "label" : "Tap: Play",
+              "parameters" : [
+                {
+                  "id" : "E408C7E1-7F51-425D-B4AC-FED06E864B4E",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "A6EEE32A-6DEC-443F-ACA4-4859034E2AB8",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 220
+            },
+            {
+              "category" : "Actions",
+              "id" : "CB500A7C-4306-4278-826E-A053CE4E8C19",
+              "isCollapsed" : false,
+              "label" : "Haptic",
+              "parameters" : [
+                {
+                  "id" : "3375E921-D084-42AA-8CF6-E76E0F14560D",
+                  "isRequired" : true,
+                  "key" : "style",
+                  "label" : "Style",
+                  "options" : [
+                    "light",
+                    "medium",
+                    "heavy",
+                    "success",
+                    "warning",
+                    "error"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "medium"
+                }
+              ],
+              "type" : "hapticFeedback",
+              "width" : 200,
+              "x" : 360,
+              "y" : 220
+            },
+            {
+              "category" : "Actions",
+              "id" : "6A5CBA41-84FF-4C6B-BC0E-BECF56F47503",
+              "isCollapsed" : false,
+              "label" : "Playing Toast",
+              "parameters" : [
+                {
+                  "id" : "77AC261D-4FF3-4B1A-9EBA-A6CED3D63C9E",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "▶ Playing Golden Hour"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 660,
+              "y" : 220
+            },
+            {
+              "category" : "Events",
+              "id" : "EF67C334-6F34-4E8D-BA5F-81CDAF782AF6",
+              "isCollapsed" : false,
+              "label" : "Tap: Like",
+              "parameters" : [
+                {
+                  "id" : "E408C7E1-7F51-425D-B4AC-FED06E864B4E",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "F973D1B6-4CE3-484D-A7E5-280BBE5AB560",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 380
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "E3B2269D-5DFC-4671-B077-7D74128782B7",
+              "isCollapsed" : false,
+              "label" : "Heart Red",
+              "parameters" : [
+                {
+                  "id" : "5F7D57E6-3A95-4527-8D23-0271FFF15109",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "F973D1B6-4CE3-484D-A7E5-280BBE5AB560",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "C7779071-FFAF-4216-A968-A41251AFABC8",
+                  "isRequired" : true,
+                  "key" : "property",
+                  "label" : "Property",
+                  "options" : [
+                    "fill",
+                    "textColor",
+                    "stroke"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "textColor"
+                },
+                {
+                  "id" : "067B0A74-D9C8-4153-B8D0-C1B33FD5CDE8",
+                  "isRequired" : true,
+                  "key" : "color",
+                  "label" : "Color",
+                  "type" : "color",
+                  "value" : "#FF3B6B"
+                }
+              ],
+              "type" : "setColor",
+              "width" : 200,
+              "x" : 360,
+              "y" : 380
+            },
+            {
+              "category" : "Actions",
+              "id" : "C27BCB47-5FE2-452B-88C4-A79E70EEEF72",
+              "isCollapsed" : false,
+              "label" : "Liked Toast",
+              "parameters" : [
+                {
+                  "id" : "77AC261D-4FF3-4B1A-9EBA-A6CED3D63C9E",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Added to Liked Songs ❤️"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 660,
+              "y" : 380
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "30D573A7-2DFE-4D46-A8FE-C002069A9CE9",
+              "sourceBlockId" : "0702C1C7-5379-4CE6-BD35-171BC727B55B",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "96684707-E3ED-4A40-914A-3846F4D30406",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "EB2F1DDF-C9FE-4A0D-93E7-701C472321CB",
+              "sourceBlockId" : "DB780E59-134C-4F4B-B87C-C3569D75BF94",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "CB500A7C-4306-4278-826E-A053CE4E8C19",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "227A06EB-EB20-44C2-97BA-9362F80449BB",
+              "sourceBlockId" : "CB500A7C-4306-4278-826E-A053CE4E8C19",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "6A5CBA41-84FF-4C6B-BC0E-BECF56F47503",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "634E7365-8CC5-4D2F-A3F6-AF9E6CF4580E",
+              "sourceBlockId" : "EF67C334-6F34-4E8D-BA5F-81CDAF782AF6",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "E3B2269D-5DFC-4671-B077-7D74128782B7",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "1597AE34-4DA4-4D68-9FBC-00B7CB426533",
+              "sourceBlockId" : "E3B2269D-5DFC-4671-B077-7D74128782B7",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "C27BCB47-5FE2-452B-88C4-A79E70EEEF72",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "BE50DE18-11F0-4989-9801-6B254180ACEC",
+          "name" : "Player Controls",
+          "screenNodeId" : "0A42D00E-2E2C-4A9B-B540-02459CD31CA1",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "9C149E0E-64F8-4641-BD3B-4BFA3BFCB2B3",
+              "isCollapsed" : false,
+              "label" : "Tap: Home Tab",
+              "parameters" : [
+                {
+                  "id" : "E408C7E1-7F51-425D-B4AC-FED06E864B4E",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "315F78F3-3611-43F0-8956-6D19ED8D95C4",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "F214E3FC-E221-4D27-8552-FAC64EC7C1C4",
+              "isCollapsed" : false,
+              "label" : "Open Home",
+              "parameters" : [
+                {
+                  "id" : "6163C2E7-A9EF-4D21-8912-63E1A2B5358A",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "1F27C302-A029-4728-A276-523C8217D331",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 360,
+              "y" : 60
+            },
+            {
+              "category" : "Events",
+              "id" : "FB5A1B0E-6010-4321-9B6B-01BCCBAB171E",
+              "isCollapsed" : false,
+              "label" : "Tap: Neon Nights Row",
+              "parameters" : [
+                {
+                  "id" : "E408C7E1-7F51-425D-B4AC-FED06E864B4E",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "9310AF56-C1F1-44BC-81FB-DDCE1037592B",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 220
+            },
+            {
+              "category" : "Actions",
+              "id" : "FCD5AD10-0DB1-4AC9-A450-EABFB656542D",
+              "isCollapsed" : false,
+              "label" : "Open Player",
+              "parameters" : [
+                {
+                  "id" : "6163C2E7-A9EF-4D21-8912-63E1A2B5358A",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "0A42D00E-2E2C-4A9B-B540-02459CD31CA1",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 360,
+              "y" : 220
+            },
+            {
+              "category" : "Events",
+              "id" : "B5678638-8A0F-42B4-88B9-D5C22C879BF5",
+              "isCollapsed" : false,
+              "label" : "Tap: Liked Songs Row",
+              "parameters" : [
+                {
+                  "id" : "E408C7E1-7F51-425D-B4AC-FED06E864B4E",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "3F625C13-E8E7-4E6E-8A40-59B6ED3DECB2",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 60,
+              "y" : 380
+            },
+            {
+              "category" : "Actions",
+              "id" : "757B3990-7426-4039-BEF3-C6CA2C2AF84D",
+              "isCollapsed" : false,
+              "label" : "Liked Count Toast",
+              "parameters" : [
+                {
+                  "id" : "77AC261D-4FF3-4B1A-9EBA-A6CED3D63C9E",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "You have 214 liked songs"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 360,
+              "y" : 380
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "658AA80A-A74F-437C-8855-A54287DFBCCA",
+              "sourceBlockId" : "9C149E0E-64F8-4641-BD3B-4BFA3BFCB2B3",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "F214E3FC-E221-4D27-8552-FAC64EC7C1C4",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "258B067A-6E30-4BD0-85F6-E4F258751272",
+              "sourceBlockId" : "FB5A1B0E-6010-4321-9B6B-01BCCBAB171E",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "FCD5AD10-0DB1-4AC9-A450-EABFB656542D",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "4BE885CC-5AB5-4515-BE83-26A20979EDA7",
+              "sourceBlockId" : "B5678638-8A0F-42B4-88B9-D5C22C879BF5",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "757B3990-7426-4039-BEF3-C6CA2C2AF84D",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "11276935-5AFC-4678-86B8-57B865390583",
+          "name" : "Library Actions",
+          "screenNodeId" : "0C0DD87D-8933-45F5-B063-C5A716E62C4D",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "0722680C-CB2A-448F-B553-225C0D0725CF",
+              "isCollapsed" : false,
+              "label" : "Home Loads",
+              "parameters" : [
+
+              ],
+              "type" : "onScreenLoad",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "228D4F5A-B222-47B4-9F33-B1E541346F83",
+              "isCollapsed" : false,
+              "label" : "Welcome Toast",
+              "parameters" : [
+                {
+                  "id" : "77AC261D-4FF3-4B1A-9EBA-A6CED3D63C9E",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Good evening, Ariel 🎧"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 360,
+              "y" : 60
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "33CC3E3D-287B-4B4F-9317-433D35934B6A",
+              "sourceBlockId" : "0722680C-CB2A-448F-B553-225C0D0725CF",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "228D4F5A-B222-47B4-9F33-B1E541346F83",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "DDEC7185-727F-4454-94F5-3FF6524FBC1D",
+          "name" : "Welcome",
+          "screenNodeId" : "1F27C302-A029-4728-A276-523C8217D331",
+          "variables" : [
+
+          ]
+        }
+      ],
+      "name" : "App Screens",
+      "nodes" : [
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 34,
+              "id" : "96835581-5CFA-4BEE-956B-CF34B0273059",
+              "manuallyPositioned" : true,
+              "name" : "Greeting",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 28,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Good evening",
+              "type" : "Text",
+              "width" : 240,
+              "x" : 24,
+              "y" : 64,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 28,
+              "iconName" : "person.crop.circle",
+              "id" : "B96D9825-5706-4E5A-B556-F178D58E774A",
+              "manuallyPositioned" : true,
+              "name" : "Profile",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "type" : "Icon",
+              "width" : 28,
+              "x" : 338,
+              "y" : 66,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 36,
+              "id" : "8115A023-0A25-4EE6-A743-04820EFC00FB",
+              "manuallyPositioned" : true,
+              "name" : "Chip Playlists",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#1E1E28",
+                "fontSize" : 13,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Playlists",
+              "type" : "Button",
+              "width" : 100,
+              "x" : 24,
+              "y" : 114,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 36,
+              "id" : "61A8C43D-2D6F-4BFD-A40C-55620E291E1B",
+              "manuallyPositioned" : true,
+              "name" : "Chip Artists",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#1E1E28",
+                "fontSize" : 13,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Artists",
+              "type" : "Button",
+              "width" : 90,
+              "x" : 132,
+              "y" : 114,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 36,
+              "id" : "3AA43A7D-7A94-4F3E-829D-044CD4265384",
+              "manuallyPositioned" : true,
+              "name" : "Chip Podcasts",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#1E1E28",
+                "fontSize" : 13,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Podcasts",
+              "type" : "Button",
+              "width" : 100,
+              "x" : 230,
+              "y" : 114,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 26,
+              "id" : "A03FFF29-8AB0-4843-861B-4577A6A6294F",
+              "manuallyPositioned" : true,
+              "name" : "Section Recent",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 20,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Recently Played",
+              "type" : "Text",
+              "width" : 250,
+              "x" : 24,
+              "y" : 172,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : true,
+              "contentMode" : "fill",
+              "height" : 110,
+              "id" : "5EE33530-4A82-4860-8B2B-C4167EAF9280",
+              "imageSource" : "\/Users\/ariel\/Library\/Containers\/-.AgenticDesigner\/Data\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/CECE95A2-F519-4FEB-8513-96C3627D9070.png",
+              "manuallyPositioned" : true,
+              "name" : "Album Pulse",
+              "style" : {
+                "cornerRadius" : 14,
+                "fill" : "#1E293B",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 110,
+              "x" : 256,
+              "y" : 210,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 16,
+              "id" : "F7E58672-8734-4210-B9DD-4CEF86DC36D9",
+              "manuallyPositioned" : true,
+              "name" : "Album 1 Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 12,
+                "fontWeight" : "semibold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Neon Nights",
+              "type" : "Text",
+              "width" : 110,
+              "x" : 24,
+              "y" : 328,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 14,
+              "id" : "884DFAAA-42D9-437E-B126-0461C35783E0",
+              "manuallyPositioned" : true,
+              "name" : "Album 1 Artist",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 10,
+                "opacity" : 1,
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "Midnight Drive",
+              "type" : "Text",
+              "width" : 110,
+              "x" : 24,
+              "y" : 346,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 16,
+              "id" : "BD956C63-44E8-40FE-8494-7AC26A3202F5",
+              "manuallyPositioned" : true,
+              "name" : "Album 2 Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 12,
+                "fontWeight" : "semibold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Wildwood",
+              "type" : "Text",
+              "width" : 110,
+              "x" : 140,
+              "y" : 328,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 14,
+              "id" : "2D905CD1-C6FB-4244-9882-D9BFA9070A11",
+              "manuallyPositioned" : true,
+              "name" : "Album 2 Artist",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 10,
+                "opacity" : 1,
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "The Hollows",
+              "type" : "Text",
+              "width" : 110,
+              "x" : 140,
+              "y" : 346,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 16,
+              "id" : "D41A3077-DC10-415E-8EA7-671CB2C0E2C7",
+              "manuallyPositioned" : true,
+              "name" : "Album 3 Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 12,
+                "fontWeight" : "semibold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Pulse",
+              "type" : "Text",
+              "width" : 110,
+              "x" : 256,
+              "y" : 328,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 14,
+              "id" : "0E32BD55-A5BA-4089-890B-C86DB4C877F4",
+              "manuallyPositioned" : true,
+              "name" : "Album 3 Artist",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 10,
+                "opacity" : 1,
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "Volt Array",
+              "type" : "Text",
+              "width" : 110,
+              "x" : 256,
+              "y" : 346,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 26,
+              "id" : "EE1FEF98-AA8B-4F99-99F7-EDC272F34EA7",
+              "manuallyPositioned" : true,
+              "name" : "Section MadeForYou",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 20,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Made For You",
+              "type" : "Text",
+              "width" : 250,
+              "x" : 24,
+              "y" : 386,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : true,
+              "contentMode" : "fill",
+              "height" : 170,
+              "id" : "A8604FA9-3858-4068-8044-F7B76A5287EE",
+              "imageSource" : "\/Users\/ariel\/Library\/Containers\/-.AgenticDesigner\/Data\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/FD54F744-D7E4-4E79-9BD6-DE64E00C099C.png",
+              "manuallyPositioned" : true,
+              "name" : "Daily Mix Hero",
+              "style" : {
+                "cornerRadius" : 22,
+                "fill" : "#1E293B",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 342,
+              "x" : 24,
+              "y" : 422,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 28,
+              "id" : "50DD030E-858E-4DA6-AED1-2C2CF8168885",
+              "manuallyPositioned" : true,
+              "name" : "Daily Mix Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 22,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Daily Mix 01",
+              "type" : "Text",
+              "width" : 200,
+              "x" : 44,
+              "y" : 530,
+              "zIndex" : 3
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 16,
+              "id" : "6255C14D-8D78-4F7C-90AE-B4BD44AE9984",
+              "manuallyPositioned" : true,
+              "name" : "Daily Mix Sub",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 12,
+                "opacity" : 1,
+                "textColor" : "#E5E7EB"
+              },
+              "text" : "Ambient · Chill · Focus",
+              "type" : "Text",
+              "width" : 220,
+              "x" : 44,
+              "y" : 560,
+              "zIndex" : 3
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "id" : "A3A22DEB-3CDF-4CCF-ABBB-89B44D145B5C",
+              "manuallyPositioned" : true,
+              "name" : "Section Library",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 20,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Your Library",
+              "type" : "Text",
+              "width" : 200,
+              "x" : 24,
+              "y" : 608,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 24,
+                  "iconName" : "heart.fill",
+                  "id" : "58581F2D-3C40-4774-BEFE-A1CEFF6F5B06",
+                  "manuallyPositioned" : true,
+                  "name" : "Lib Icon 1",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#00000000",
+                    "opacity" : 1,
+                    "textColor" : "#7C5CFF"
+                  },
+                  "type" : "Icon",
+                  "width" : 24,
+                  "x" : 10,
+                  "y" : 10,
+                  "zIndex" : 0
+                }
+              ],
+              "clipContent" : false,
+              "height" : 44,
+              "id" : "032FC475-C256-46EB-BAF5-9EC00C164F3E",
+              "manuallyPositioned" : true,
+              "name" : "Lib Icon BG 1",
+              "style" : {
+                "cornerRadius" : 10,
+                "fill" : "#1E1E28",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 44,
+              "x" : 24,
+              "y" : 642,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 18,
+              "id" : "E05C5947-6701-492A-93B5-E61610A8310D",
+              "manuallyPositioned" : true,
+              "name" : "Lib Row 1 Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 14,
+                "fontWeight" : "semibold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Liked Songs",
+              "type" : "Text",
+              "width" : 200,
+              "x" : 80,
+              "y" : 646,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 14,
+              "id" : "139CB540-5D1F-407A-9F42-805A5A43B6D5",
+              "manuallyPositioned" : true,
+              "name" : "Lib Row 1 Sub",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 11,
+                "opacity" : 1,
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "214 songs",
+              "type" : "Text",
+              "width" : 200,
+              "x" : 80,
+              "y" : 666,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 24,
+                  "iconName" : "arrow.down.circle.fill",
+                  "id" : "5A7EBB23-1BDB-41AD-BA34-46C32653A6E2",
+                  "manuallyPositioned" : true,
+                  "name" : "Lib Icon 2",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#00000000",
+                    "opacity" : 1,
+                    "textColor" : "#34D399"
+                  },
+                  "type" : "Icon",
+                  "width" : 24,
+                  "x" : 10,
+                  "y" : 10,
+                  "zIndex" : 0
+                }
+              ],
+              "clipContent" : false,
+              "height" : 44,
+              "id" : "D9C88605-4B47-412C-97F3-D098B1157355",
+              "manuallyPositioned" : true,
+              "name" : "Lib Icon BG 2",
+              "style" : {
+                "cornerRadius" : 10,
+                "fill" : "#1E1E28",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 44,
+              "x" : 24,
+              "y" : 692,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 18,
+              "id" : "9AA0A802-EE85-491A-99B8-981648E2BD15",
+              "manuallyPositioned" : true,
+              "name" : "Lib Row 2 Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 14,
+                "fontWeight" : "semibold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Downloaded",
+              "type" : "Text",
+              "width" : 200,
+              "x" : 80,
+              "y" : 696,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 14,
+              "id" : "3DA446A1-C8D4-4A07-9E3C-FCEC8FB4102D",
+              "manuallyPositioned" : true,
+              "name" : "Lib Row 2 Sub",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 11,
+                "opacity" : 1,
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "68 songs",
+              "type" : "Text",
+              "width" : 200,
+              "x" : 80,
+              "y" : 716,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : true,
+                  "contentMode" : "fill",
+                  "height" : 40,
+                  "id" : "DCD1E872-3ED4-4F81-A2E9-F37A1E653E1E",
+                  "imageSource" : "\/Users\/ariel\/Library\/Containers\/-.AgenticDesigner\/Data\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/95AA9703-2389-4643-A1B7-236AFC01A0DB.png",
+                  "manuallyPositioned" : true,
+                  "name" : "Now Playing Art",
+                  "style" : {
+                    "cornerRadius" : 8,
+                    "fill" : "#1E293B",
+                    "opacity" : 1
+                  },
+                  "type" : "Image",
+                  "width" : 40,
+                  "x" : 6,
+                  "y" : 6,
+                  "zIndex" : 0
+                },
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 16,
+                  "id" : "EBBBB129-8E97-42F7-A492-535039B7C7C5",
+                  "manuallyPositioned" : true,
+                  "name" : "Now Playing Song",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#FFFFFF",
+                    "fontSize" : 13,
+                    "fontWeight" : "bold",
+                    "opacity" : 1,
+                    "textColor" : "#FFFFFF"
+                  },
+                  "text" : "Golden Hour",
+                  "type" : "Text",
+                  "width" : 180,
+                  "x" : 56,
+                  "y" : 9,
+                  "zIndex" : 0
+                },
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 14,
+                  "id" : "A8E9780A-DFAD-4DFA-8937-7E133570D345",
+                  "manuallyPositioned" : true,
+                  "name" : "Now Playing Artist",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#FFFFFF",
+                    "fontSize" : 11,
+                    "opacity" : 1,
+                    "textColor" : "#EDE9FE"
+                  },
+                  "text" : "Ivy & The Waves",
+                  "type" : "Text",
+                  "width" : 180,
+                  "x" : 56,
+                  "y" : 27,
+                  "zIndex" : 0
+                },
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 26,
+                  "iconName" : "play.fill",
+                  "id" : "0DBA6850-6FAA-4867-B1E9-F75959422193",
+                  "manuallyPositioned" : true,
+                  "name" : "Mini Play",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#00000000",
+                    "opacity" : 1,
+                    "textColor" : "#FFFFFF"
+                  },
+                  "type" : "Icon",
+                  "width" : 26,
+                  "x" : 318,
+                  "y" : 13,
+                  "zIndex" : 0
+                }
+              ],
+              "clipContent" : true,
+              "height" : 52,
+              "id" : "A0382248-37A1-4F1B-9AC5-B2CA06BA04C6",
+              "manuallyPositioned" : true,
+              "name" : "Now Playing Bar",
+              "style" : {
+                "cornerRadius" : 16,
+                "fill" : "#7C5CFF",
+                "opacity" : 1
+              },
+              "type" : "Frame",
+              "width" : 358,
+              "x" : 16,
+              "y" : 744,
+              "zIndex" : 5
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "iconName" : "house.fill",
+              "id" : "481C0672-5AF1-498A-82FD-68BD85006E80",
+              "manuallyPositioned" : true,
+              "name" : "Tab Home (Home)",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "type" : "Icon",
+              "width" : 24,
+              "x" : 64,
+              "y" : 808,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "iconName" : "magnifyingglass",
+              "id" : "F5F53123-9F26-4863-880C-98F2F763AF3E",
+              "manuallyPositioned" : true,
+              "name" : "Tab Search (Home)",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#6B7280"
+              },
+              "type" : "Icon",
+              "width" : 24,
+              "x" : 183,
+              "y" : 808,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "iconName" : "books.vertical",
+              "id" : "C49FB243-1321-478E-A9ED-511EACC83C05",
+              "manuallyPositioned" : true,
+              "name" : "Tab Library (Home)",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#6B7280"
+              },
+              "type" : "Icon",
+              "width" : 24,
+              "x" : 302,
+              "y" : 808,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : true,
+              "contentMode" : "fill",
+              "height" : 110,
+              "id" : "F7C509B0-21C6-41BB-B8B3-F50C4EADA5C5",
+              "imageSource" : "\/Users\/ariel\/Library\/Containers\/-.AgenticDesigner\/Data\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/402C3D7F-A670-49A8-B2CB-AE9A292EA11F.png",
+              "manuallyPositioned" : true,
+              "name" : "Album Neon Nights",
+              "style" : {
+                "cornerRadius" : 14,
+                "fill" : "#1E293B",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 110,
+              "x" : 24,
+              "y" : 210,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : true,
+              "contentMode" : "fill",
+              "height" : 110,
+              "id" : "A33E28DB-9E23-49BB-AA8B-C02FC37B3332",
+              "imageSource" : "\/Users\/ariel\/Library\/Containers\/-.AgenticDesigner\/Data\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/5946B188-B3C3-4540-A6EA-84A61FFDDEA0.png",
+              "manuallyPositioned" : true,
+              "name" : "Album Wildwood",
+              "style" : {
+                "cornerRadius" : 14,
+                "fill" : "#1E293B",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 110,
+              "x" : 140,
+              "y" : 210,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : true,
+          "height" : 844,
+          "id" : "1F27C302-A029-4728-A276-523C8217D331",
+          "manuallyPositioned" : true,
+          "name" : "Home",
+          "style" : {
+            "cornerRadius" : 44,
+            "fill" : "#0B0B12",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 40,
+          "y" : 40,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 18,
+              "id" : "CB813ECF-022B-4A95-A89A-E3BBD6130684",
+              "manuallyPositioned" : true,
+              "name" : "Now Playing Label",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 12,
+                "fontWeight" : "semibold",
+                "letterSpacing" : 2,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "NOW PLAYING",
+              "type" : "Text",
+              "width" : 200,
+              "x" : 95,
+              "y" : 70,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : true,
+              "contentMode" : "fill",
+              "height" : 342,
+              "id" : "5B7AD503-E747-4F94-A1EF-71414AE3085E",
+              "imageSource" : "\/Users\/ariel\/Library\/Containers\/-.AgenticDesigner\/Data\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/47467E89-18D9-4ACE-92F2-229E414033DB.png",
+              "manuallyPositioned" : true,
+              "name" : "Player Artwork",
+              "style" : {
+                "cornerRadius" : 24,
+                "fill" : "#1E293B",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 342,
+              "x" : 24,
+              "y" : 130,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 30,
+              "id" : "48DA8819-DB35-4FC3-A49E-7F4241D08D4F",
+              "manuallyPositioned" : true,
+              "name" : "Song Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 24,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Golden Hour",
+              "type" : "Text",
+              "width" : 260,
+              "x" : 24,
+              "y" : 500,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 18,
+              "id" : "DCCE7436-6645-48A9-B0DF-EF06B3FF1626",
+              "manuallyPositioned" : true,
+              "name" : "Song Artist",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 14,
+                "opacity" : 1,
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "Ivy & The Waves",
+              "type" : "Text",
+              "width" : 260,
+              "x" : 24,
+              "y" : 534,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 30,
+              "iconName" : "heart",
+              "id" : "F973D1B6-4CE3-484D-A7E5-280BBE5AB560",
+              "manuallyPositioned" : true,
+              "name" : "Like Button",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#9CA3AF"
+              },
+              "type" : "Icon",
+              "width" : 30,
+              "x" : 330,
+              "y" : 505,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 4,
+              "id" : "3EF51B55-CD9A-414F-A6CA-FEB99E9D8A35",
+              "manuallyPositioned" : true,
+              "name" : "Progress Track",
+              "style" : {
+                "cornerRadius" : 2,
+                "fill" : "#2A2A35",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 342,
+              "x" : 24,
+              "y" : 580,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 4,
+              "id" : "C5C23447-3E17-4D5F-BE5C-F0150E7DD46A",
+              "manuallyPositioned" : true,
+              "name" : "Progress Fill",
+              "style" : {
+                "cornerRadius" : 2,
+                "fill" : "#7C5CFF",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 130,
+              "x" : 24,
+              "y" : 580,
+              "zIndex" : 2
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 14,
+              "id" : "9087E5DE-08D3-49C2-B461-6D7BEF01C04C",
+              "manuallyPositioned" : true,
+              "name" : "Time Elapsed",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 10,
+                "opacity" : 1,
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "1:42",
+              "type" : "Text",
+              "width" : 40,
+              "x" : 24,
+              "y" : 592,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 14,
+              "id" : "FF599601-576E-4825-A933-1DDD4DADD52E",
+              "manuallyPositioned" : true,
+              "name" : "Time Total",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 10,
+                "opacity" : 1,
+                "textAlign" : "right",
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "4:05",
+              "type" : "Text",
+              "width" : 40,
+              "x" : 326,
+              "y" : 592,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 5,
+              "id" : "F445142A-4858-464C-B08E-0959A20FCEC2",
+              "manuallyPositioned" : true,
+              "name" : "Home Indicator",
+              "style" : {
+                "cornerRadius" : 3,
+                "fill" : "#2A2A35",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 140,
+              "x" : 125,
+              "y" : 818,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 22,
+                  "iconName" : "shuffle",
+                  "id" : "65F95EA1-B691-4F5D-8FEF-F87C414FD2FA",
+                  "manuallyPositioned" : true,
+                  "name" : "Shuffle",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#00000000",
+                    "opacity" : 1,
+                    "textColor" : "#9CA3AF"
+                  },
+                  "type" : "Icon",
+                  "width" : 22,
+                  "x" : 28.29661191938453,
+                  "y" : 50,
+                  "zIndex" : 0
+                },
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 30,
+                  "iconName" : "backward.fill",
+                  "id" : "8F5FBE83-3DC9-4632-B853-02D3B88E1E54",
+                  "manuallyPositioned" : true,
+                  "name" : "Previous",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#00000000",
+                    "opacity" : 1,
+                    "textColor" : "#FFFFFF"
+                  },
+                  "type" : "Icon",
+                  "width" : 30,
+                  "x" : 88.29661191938453,
+                  "y" : 50,
+                  "zIndex" : 0
+                },
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 72,
+                  "iconName" : "play.circle.fill",
+                  "id" : "A6EEE32A-6DEC-443F-ACA4-4859034E2AB8",
+                  "manuallyPositioned" : true,
+                  "name" : "Play Button",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#00000000",
+                    "opacity" : 1,
+                    "textColor" : "#7C5CFF"
+                  },
+                  "type" : "Icon",
+                  "width" : 72,
+                  "x" : 157.29661191938453,
+                  "y" : 30,
+                  "zIndex" : 0
+                },
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 30,
+                  "iconName" : "forward.fill",
+                  "id" : "0CC19FC2-6D5A-4850-9758-3CDD56F6D893",
+                  "manuallyPositioned" : true,
+                  "name" : "Next",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#00000000",
+                    "opacity" : 1,
+                    "textColor" : "#FFFFFF"
+                  },
+                  "type" : "Icon",
+                  "width" : 30,
+                  "x" : 268.29661191938453,
+                  "y" : 50,
+                  "zIndex" : 0
+                },
+                {
+                  "children" : [
+
+                  ],
+                  "clipContent" : false,
+                  "height" : 22,
+                  "iconName" : "repeat",
+                  "id" : "531764FA-E76D-472E-92B8-30DC267F3C62",
+                  "manuallyPositioned" : true,
+                  "name" : "Repeat",
+                  "style" : {
+                    "cornerRadius" : 0,
+                    "fill" : "#00000000",
+                    "opacity" : 1,
+                    "textColor" : "#9CA3AF"
+                  },
+                  "type" : "Icon",
+                  "width" : 22,
+                  "x" : 335.204519177967,
+                  "y" : 50,
+                  "zIndex" : 0
+                }
+              ],
+              "height" : 127.60657661210814,
+              "id" : "4671C765-384F-4390-AC40-9061CC3066AC",
+              "manuallyPositioned" : true,
+              "name" : "Frame",
+              "style" : {
+                "cornerRadius" : 24,
+                "fill" : "#1C2150",
+                "opacity" : 1,
+                "stroke" : "#3B82F6"
+              },
+              "type" : "Frame",
+              "width" : 384.8210535329217,
+              "x" : 2.795480822033028,
+              "y" : 676.0983328002961
+            }
+          ],
+          "clipContent" : true,
+          "height" : 844,
+          "id" : "0A42D00E-2E2C-4A9B-B540-02459CD31CA1",
+          "manuallyPositioned" : true,
+          "name" : "Player",
+          "style" : {
+            "cornerRadius" : 44,
+            "fill" : "#0B0B12",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 520,
+          "y" : 40,
+          "zIndex" : 0
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 34,
+              "id" : "9B4DA42B-912F-477B-9E57-C2AA1B33F4B7",
+              "manuallyPositioned" : true,
+              "name" : "Library Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 28,
+                "fontWeight" : "bold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Your Library",
+              "type" : "Text",
+              "width" : 250,
+              "x" : 24,
+              "y" : 64,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 28,
+              "iconName" : "person.crop.circle",
+              "id" : "6A0A6233-65D9-4309-994B-F411D454F560",
+              "manuallyPositioned" : true,
+              "name" : "Profile (Library)",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "type" : "Icon",
+              "width" : 28,
+              "x" : 338,
+              "y" : 66,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 44,
+              "id" : "59312CE0-C5CC-49BE-B4A3-DFD1CA8CD5FC",
+              "manuallyPositioned" : true,
+              "name" : "Search Input",
+              "style" : {
+                "cornerRadius" : 12,
+                "fill" : "#1E1E28",
+                "fontSize" : 13,
+                "opacity" : 1,
+                "stroke" : "#CBD5E1",
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "Search your library",
+              "type" : "Input",
+              "width" : 342,
+              "x" : 24,
+              "y" : 116,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : true,
+              "contentMode" : "fill",
+              "height" : 56,
+              "id" : "3F625C13-E8E7-4E6E-8A40-59B6ED3DECB2",
+              "imageSource" : "\/Users\/ariel\/Library\/Containers\/-.AgenticDesigner\/Data\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/51E1E967-CB1F-410F-BA0D-8F07A8D0F638.png",
+              "manuallyPositioned" : true,
+              "name" : "Row Liked Songs",
+              "style" : {
+                "cornerRadius" : 10,
+                "fill" : "#1E293B",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 56,
+              "x" : 24,
+              "y" : 190,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 18,
+              "id" : "85530BD7-07E1-4866-B2F8-9AE9C8F83898",
+              "manuallyPositioned" : true,
+              "name" : "Row 1 Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "fontWeight" : "semibold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Liked Songs",
+              "type" : "Text",
+              "width" : 220,
+              "x" : 96,
+              "y" : 198,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 14,
+              "id" : "CB7860EE-B12D-4594-BCBC-D94FF053F190",
+              "manuallyPositioned" : true,
+              "name" : "Row 1 Sub",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 11,
+                "opacity" : 1,
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "Playlist • 214 songs",
+              "type" : "Text",
+              "width" : 220,
+              "x" : 96,
+              "y" : 220,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 16,
+              "iconName" : "chevron.right",
+              "id" : "C02DAAE1-13FF-4FAF-946B-90CBCF138EAE",
+              "manuallyPositioned" : true,
+              "name" : "Row 1 Chevron",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#4B5563"
+              },
+              "type" : "Icon",
+              "width" : 16,
+              "x" : 346,
+              "y" : 210,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 18,
+              "id" : "06C1C2B6-A336-4883-B69C-0969EAD09A14",
+              "manuallyPositioned" : true,
+              "name" : "Row 2 Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "fontWeight" : "semibold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Chill Vibes",
+              "type" : "Text",
+              "width" : 220,
+              "x" : 96,
+              "y" : 274,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 14,
+              "id" : "9BD9D944-EF35-44F4-9D0F-EE0B3132A0BF",
+              "manuallyPositioned" : true,
+              "name" : "Row 2 Sub",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 11,
+                "opacity" : 1,
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "Playlist • 47 songs",
+              "type" : "Text",
+              "width" : 220,
+              "x" : 96,
+              "y" : 296,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 16,
+              "iconName" : "chevron.right",
+              "id" : "EBD135DF-0258-4601-B35A-54C95C020118",
+              "manuallyPositioned" : true,
+              "name" : "Row 2 Chevron",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#4B5563"
+              },
+              "type" : "Icon",
+              "width" : 16,
+              "x" : 346,
+              "y" : 286,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 18,
+              "id" : "CD432511-8148-436E-9317-62B7C9C40005",
+              "manuallyPositioned" : true,
+              "name" : "Row 3 Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "fontWeight" : "semibold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Road Trip",
+              "type" : "Text",
+              "width" : 220,
+              "x" : 96,
+              "y" : 350,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 14,
+              "id" : "6210D87C-B9AD-40B9-BE07-B7CB4E7C4936",
+              "manuallyPositioned" : true,
+              "name" : "Row 3 Sub",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 11,
+                "opacity" : 1,
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "Playlist • 63 songs",
+              "type" : "Text",
+              "width" : 220,
+              "x" : 96,
+              "y" : 372,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 16,
+              "iconName" : "chevron.right",
+              "id" : "33A9AF48-BD6B-4B1E-9027-8C31A68D49E5",
+              "manuallyPositioned" : true,
+              "name" : "Row 3 Chevron",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#4B5563"
+              },
+              "type" : "Icon",
+              "width" : 16,
+              "x" : 346,
+              "y" : 362,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 18,
+              "id" : "A197CF3A-273C-4B4B-86D0-16176C55E3AE",
+              "manuallyPositioned" : true,
+              "name" : "Row 4 Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 15,
+                "fontWeight" : "semibold",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Neon Nights",
+              "type" : "Text",
+              "width" : 220,
+              "x" : 96,
+              "y" : 426,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 14,
+              "id" : "364FF6C3-D04C-41C8-ADB9-94E96AC895AA",
+              "manuallyPositioned" : true,
+              "name" : "Row 4 Sub",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 11,
+                "opacity" : 1,
+                "textColor" : "#9CA3AF"
+              },
+              "text" : "Album • Midnight Drive",
+              "type" : "Text",
+              "width" : 220,
+              "x" : 96,
+              "y" : 448,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 16,
+              "iconName" : "chevron.right",
+              "id" : "F9664E8B-21BB-498D-A73C-F7F61124EB8B",
+              "manuallyPositioned" : true,
+              "name" : "Row 4 Chevron",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#4B5563"
+              },
+              "type" : "Icon",
+              "width" : 16,
+              "x" : 346,
+              "y" : 438,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "iconName" : "house",
+              "id" : "315F78F3-3611-43F0-8956-6D19ED8D95C4",
+              "manuallyPositioned" : true,
+              "name" : "Tab Home (Library)",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#6B7280"
+              },
+              "type" : "Icon",
+              "width" : 24,
+              "x" : 64,
+              "y" : 808,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "iconName" : "magnifyingglass",
+              "id" : "9B8CF081-0A2B-404E-92F7-C97E4BAC193A",
+              "manuallyPositioned" : true,
+              "name" : "Tab Search (Library)",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#6B7280"
+              },
+              "type" : "Icon",
+              "width" : 24,
+              "x" : 183,
+              "y" : 808,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : false,
+              "height" : 24,
+              "iconName" : "books.vertical.fill",
+              "id" : "9F14822D-111B-4DB0-A304-1E9B5F0DC39A",
+              "manuallyPositioned" : true,
+              "name" : "Tab Library (Library)",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#00000000",
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "type" : "Icon",
+              "width" : 24,
+              "x" : 302,
+              "y" : 808,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : true,
+              "contentMode" : "fill",
+              "height" : 56,
+              "id" : "55B1CD33-5174-4DEE-A6F6-CA35F0FD54EF",
+              "imageSource" : "\/Users\/ariel\/Library\/Containers\/-.AgenticDesigner\/Data\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/898677E5-F644-44B9-A550-5542D29B05EA.png",
+              "manuallyPositioned" : true,
+              "name" : "Row Chill Vibes",
+              "style" : {
+                "cornerRadius" : 10,
+                "fill" : "#1E293B",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 56,
+              "x" : 24,
+              "y" : 266,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : true,
+              "contentMode" : "fill",
+              "height" : 56,
+              "id" : "D67D4B4C-7473-4C57-AC18-C2056B07B9D4",
+              "imageSource" : "\/Users\/ariel\/Library\/Containers\/-.AgenticDesigner\/Data\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/E3155CCC-FD14-4697-BE7B-3779C6B7E131.png",
+              "manuallyPositioned" : true,
+              "name" : "Row Road Trip",
+              "style" : {
+                "cornerRadius" : 10,
+                "fill" : "#1E293B",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 56,
+              "x" : 24,
+              "y" : 342,
+              "zIndex" : 0
+            },
+            {
+              "children" : [
+
+              ],
+              "clipContent" : true,
+              "contentMode" : "fill",
+              "height" : 56,
+              "id" : "9310AF56-C1F1-44BC-81FB-DDCE1037592B",
+              "imageSource" : "\/Users\/ariel\/Library\/Containers\/-.AgenticDesigner\/Data\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/394F62CC-1002-455B-9421-2393CF99156A.png",
+              "manuallyPositioned" : true,
+              "name" : "Row Neon Nights",
+              "style" : {
+                "cornerRadius" : 10,
+                "fill" : "#1E293B",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 56,
+              "x" : 24,
+              "y" : 418,
+              "zIndex" : 0
+            }
+          ],
+          "clipContent" : true,
+          "height" : 844,
+          "id" : "0C0DD87D-8933-45F5-B063-C5A716E62C4D",
+          "manuallyPositioned" : true,
+          "name" : "Library",
+          "style" : {
+            "cornerRadius" : 44,
+            "fill" : "#0B0B12",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 1000,
+          "y" : 40,
+          "zIndex" : 0
+        }
+      ]
+    }
+  ]
+}

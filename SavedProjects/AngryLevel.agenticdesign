@@ -1,0 +1,3185 @@
+{
+  "apiEndpoints" : [
+
+  ],
+  "bundleIdentifier" : "com.ariel.angrylevel",
+  "globalVariables" : [
+    {
+      "defaultValue" : "3",
+      "id" : "190A873A-EFA7-488F-8B74-1AC2C3D64A50",
+      "name" : "pigsLeft",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "3",
+      "id" : "79065406-BF49-4D86-949C-953232E850C8",
+      "name" : "birdsLeft",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "D858AF1C-E906-4B4C-9104-25F4182CBDE2",
+      "name" : "score",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "0",
+      "id" : "DA1E28CB-BF27-4E1A-9A2D-B0568406D24E",
+      "name" : "gameImpactForce",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "C3180BDF-D033-4CA7-8616-61CD4450D2B1",
+      "name" : "gameImpactEntityA",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "08E4EAB0-09F9-4E1A-9FC5-A736F66529EE",
+      "name" : "gameImpactEntityB",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "3",
+      "id" : "7677F16A-9695-48DF-9ECD-21BE03396CF0",
+      "name" : "pigsNow",
+      "scope" : "global",
+      "type" : "number"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "5AB0DD9E-ECBD-436C-AB3E-78E99D61221B",
+      "name" : "gameLaunched",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "C2E4F81A-2DCE-47A4-9F71-F89AC091D9C3",
+      "name" : "probe",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "false",
+      "id" : "6D0FD9A7-AA90-4D30-8FD9-9CF29075B2EC",
+      "name" : "armed",
+      "scope" : "global",
+      "type" : "string"
+    },
+    {
+      "defaultValue" : "",
+      "id" : "7E01E32A-DFBF-47C4-8FCF-98CD40C9020D",
+      "name" : "probe",
+      "scope" : "global",
+      "type" : "string"
+    }
+  ],
+  "name" : "Angry Level",
+  "pages" : [
+    {
+      "id" : "888020AF-7BE6-46E8-8D81-8D75166497CF",
+      "logicFlows" : [
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "01FA5F50-3D26-45BA-A170-9E6918067B86",
+              "isCollapsed" : false,
+              "label" : "On Entity Destroyed",
+              "parameters" : [
+                {
+                  "id" : "8538711B-8BC0-4D35-AC8B-ED0C169222DF",
+                  "isRequired" : false,
+                  "key" : "category",
+                  "label" : "Category",
+                  "type" : "string",
+                  "value" : "wood"
+                }
+              ],
+              "type" : "onGameEntityDestroyed",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "7D14A754-BCD7-482C-9125-44DA06FE3681",
+              "isCollapsed" : false,
+              "label" : "Game: Add Score",
+              "parameters" : [
+                {
+                  "id" : "1E239AE3-9662-40D1-96A8-1E9EF9286A59",
+                  "isRequired" : true,
+                  "key" : "points",
+                  "label" : "Points",
+                  "type" : "string",
+                  "value" : "50"
+                }
+              ],
+              "type" : "gameAddScore",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "893E873B-667F-4E2B-BFA4-C44FE9B3D97D",
+              "isCollapsed" : false,
+              "label" : "Game: Particles",
+              "parameters" : [
+                {
+                  "id" : "D9B517C7-9EDB-4B3D-A774-7396FC64EA7A",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Kind",
+                  "options" : [
+                    "debris",
+                    "spark",
+                    "smoke",
+                    "fire",
+                    "confetti",
+                    "hearts"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "debris"
+                },
+                {
+                  "id" : "1EF6F393-D5AF-47AC-95F6-D0AF5B395364",
+                  "isRequired" : true,
+                  "key" : "x",
+                  "label" : "X",
+                  "type" : "string",
+                  "value" : "620"
+                },
+                {
+                  "id" : "0E028EC0-B520-469C-985C-59641074B6D6",
+                  "isRequired" : true,
+                  "key" : "y",
+                  "label" : "Y",
+                  "type" : "string",
+                  "value" : "260"
+                },
+                {
+                  "id" : "7A1F67B7-9A17-411E-AAD5-6629B084D3D9",
+                  "isRequired" : true,
+                  "key" : "burst",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "20"
+                }
+              ],
+              "type" : "gameParticles",
+              "width" : 200,
+              "x" : 540,
+              "y" : 60
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "EE7EA23A-186B-48F8-A252-0B5B2D485991",
+              "sourceBlockId" : "01FA5F50-3D26-45BA-A170-9E6918067B86",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "7D14A754-BCD7-482C-9125-44DA06FE3681",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "7D572642-B096-4132-968C-0A2634D08C75",
+              "sourceBlockId" : "7D14A754-BCD7-482C-9125-44DA06FE3681",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "893E873B-667F-4E2B-BFA4-C44FE9B3D97D",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "598EFFF8-3C3A-426A-BD44-8E116AF59EE5",
+          "name" : "Wood Splinters",
+          "screenNodeId" : "7CAB6ED8-FDED-46BE-9D98-EB42749D512B",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "3174A7BF-F133-485A-B716-12C0FB2352C6",
+              "isCollapsed" : false,
+              "label" : "On Game Start",
+              "parameters" : [
+
+              ],
+              "type" : "onGameStart",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "8E9FEF04-8B52-4025-9D33-C5498A2495A8",
+              "isCollapsed" : false,
+              "label" : "Pigs = 3",
+              "parameters" : [
+                {
+                  "id" : "395BD9C7-F107-41D2-85B2-DFE50944247F",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "pigsLeft"
+                },
+                {
+                  "id" : "2ECEC643-E4A5-45A7-9B17-A645CE9DB263",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "3"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "2B325400-6B8E-41C4-AB89-B431156727A7",
+              "isCollapsed" : false,
+              "label" : "Birds = 3",
+              "parameters" : [
+                {
+                  "id" : "395BD9C7-F107-41D2-85B2-DFE50944247F",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "birdsLeft"
+                },
+                {
+                  "id" : "2ECEC643-E4A5-45A7-9B17-A645CE9DB263",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "3"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 540,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "D0EA44BA-BA01-463F-B7A2-97E42200D41B",
+              "isCollapsed" : false,
+              "label" : "Score = 0",
+              "parameters" : [
+                {
+                  "id" : "395BD9C7-F107-41D2-85B2-DFE50944247F",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "score"
+                },
+                {
+                  "id" : "2ECEC643-E4A5-45A7-9B17-A645CE9DB263",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 780,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "131D0289-FC20-4784-B23A-577FADA02910",
+              "isCollapsed" : false,
+              "label" : "Disarm while it settles",
+              "parameters" : [
+                {
+                  "id" : "395BD9C7-F107-41D2-85B2-DFE50944247F",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "armed"
+                },
+                {
+                  "id" : "2ECEC643-E4A5-45A7-9B17-A645CE9DB263",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "false"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 1020,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "4979D355-2C60-491A-B531-AFE1CADB49D2",
+              "isCollapsed" : false,
+              "label" : "Game: Gravity",
+              "parameters" : [
+                {
+                  "id" : "B9955275-D09F-4248-A4F4-C7A83872F52F",
+                  "isRequired" : true,
+                  "key" : "gravity",
+                  "label" : "Vertical (neg = down)",
+                  "type" : "string",
+                  "value" : "-24"
+                },
+                {
+                  "id" : "6893C7FD-228A-4C07-84BA-5DD49ABE9855",
+                  "isRequired" : false,
+                  "key" : "gravityX",
+                  "label" : "Sideways",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "gameSetGravity",
+              "width" : 200,
+              "x" : 1260,
+              "y" : 60
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "056C9F23-4B37-480F-ADA8-775C162D7C30",
+              "sourceBlockId" : "3174A7BF-F133-485A-B716-12C0FB2352C6",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "8E9FEF04-8B52-4025-9D33-C5498A2495A8",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "855017C0-D7D3-484D-BF02-25F7F1B1BEA4",
+              "sourceBlockId" : "8E9FEF04-8B52-4025-9D33-C5498A2495A8",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "2B325400-6B8E-41C4-AB89-B431156727A7",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "F10D1529-CE80-4D94-8E26-9E772574326F",
+              "sourceBlockId" : "2B325400-6B8E-41C4-AB89-B431156727A7",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D0EA44BA-BA01-463F-B7A2-97E42200D41B",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "7875D0D2-3326-410D-B036-2F94E5BF36A2",
+              "sourceBlockId" : "D0EA44BA-BA01-463F-B7A2-97E42200D41B",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "131D0289-FC20-4784-B23A-577FADA02910",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "07D9E35D-8A15-4310-A74B-F284041FDB7D",
+              "sourceBlockId" : "131D0289-FC20-4784-B23A-577FADA02910",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "4979D355-2C60-491A-B531-AFE1CADB49D2",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "46B34965-73CC-4804-BD1E-DB14D87AA06C",
+          "name" : "Level Start",
+          "screenNodeId" : "7CAB6ED8-FDED-46BE-9D98-EB42749D512B",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "32188B06-3369-4695-9CA3-2EC1A19A8AFB",
+              "isCollapsed" : false,
+              "label" : "On Impact",
+              "parameters" : [
+                {
+                  "id" : "D9F3BC9F-78EB-4B74-8280-2425A5B38AFB",
+                  "isRequired" : false,
+                  "key" : "categoryA",
+                  "label" : "Category A",
+                  "type" : "string",
+                  "value" : "pig"
+                },
+                {
+                  "id" : "C5721134-AAF1-4BAD-8215-1D28CD9C1F64",
+                  "isRequired" : false,
+                  "key" : "categoryB",
+                  "label" : "Category B",
+                  "type" : "string",
+                  "value" : "bird"
+                },
+                {
+                  "id" : "6DDB6A2C-BBD7-4A80-ABC1-4D230A709A15",
+                  "isRequired" : false,
+                  "key" : "minForce",
+                  "label" : "Min force",
+                  "type" : "string",
+                  "value" : "10"
+                }
+              ],
+              "type" : "onGameImpact",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "9566DE85-0248-4E80-8FAD-9F7119018A3F",
+              "isCollapsed" : false,
+              "label" : "Armed?",
+              "parameters" : [
+                {
+                  "id" : "3D36DF3F-7F77-4569-A3F9-198206826087",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "armed"
+                },
+                {
+                  "id" : "7B95CAA8-553A-4797-9753-1DDBE3B13DD7",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "=="
+                },
+                {
+                  "id" : "ABF09256-EC56-48D3-AFB3-4598FC4B6327",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "true"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "B2B2F852-CF44-4CE7-9133-8B8916483DAF",
+              "isCollapsed" : false,
+              "label" : "Game: Damage",
+              "parameters" : [
+                {
+                  "id" : "7E0C24E6-70F3-425A-9412-F20FCC8ABDA0",
+                  "isRequired" : true,
+                  "key" : "entity",
+                  "label" : "Entity id",
+                  "type" : "string",
+                  "variableReference" : "gameImpactEntityA"
+                },
+                {
+                  "id" : "00936357-4F59-4937-B80E-6F74BCBC6CA8",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "2"
+                }
+              ],
+              "type" : "gameDamage",
+              "width" : 200,
+              "x" : 560,
+              "y" : 20
+            },
+            {
+              "category" : "Actions",
+              "id" : "A128A52B-8D69-4C1B-9224-071AD8734987",
+              "isCollapsed" : false,
+              "label" : "Game: Particles",
+              "parameters" : [
+                {
+                  "id" : "241451D1-C37E-49E0-90A0-1258BD4ACAA1",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Kind",
+                  "options" : [
+                    "debris",
+                    "spark",
+                    "smoke",
+                    "fire",
+                    "confetti",
+                    "hearts"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "smoke"
+                },
+                {
+                  "id" : "8F455688-ECE0-42D2-A01C-2E1C6DADB352",
+                  "isRequired" : true,
+                  "key" : "x",
+                  "label" : "X",
+                  "type" : "string",
+                  "value" : "620"
+                },
+                {
+                  "id" : "D2798BAA-2D87-496D-9F15-8AEDABD5844F",
+                  "isRequired" : true,
+                  "key" : "y",
+                  "label" : "Y",
+                  "type" : "string",
+                  "value" : "240"
+                },
+                {
+                  "id" : "E8A29AE2-735E-4268-A26C-3D454D340162",
+                  "isRequired" : true,
+                  "key" : "burst",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "14"
+                }
+              ],
+              "type" : "gameParticles",
+              "width" : 200,
+              "x" : 800,
+              "y" : 20
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "29457747-2303-4A63-AC8A-3432A88DEEE5",
+              "sourceBlockId" : "32188B06-3369-4695-9CA3-2EC1A19A8AFB",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "9566DE85-0248-4E80-8FAD-9F7119018A3F",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "FAB8CA66-1987-4AB2-B425-BB4E1E82C656",
+              "sourceBlockId" : "9566DE85-0248-4E80-8FAD-9F7119018A3F",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "B2B2F852-CF44-4CE7-9133-8B8916483DAF",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "6EBACDB8-898F-4838-B4A7-B1E9AFE287F2",
+              "sourceBlockId" : "B2B2F852-CF44-4CE7-9133-8B8916483DAF",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A128A52B-8D69-4C1B-9224-071AD8734987",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "7E9D329E-0D01-4283-8390-8BE9199C9F29",
+          "name" : "Pig Hit By Bird",
+          "screenNodeId" : "7CAB6ED8-FDED-46BE-9D98-EB42749D512B",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "B048407B-D4E1-4630-9751-B1AF43276B88",
+              "isCollapsed" : false,
+              "label" : "On Impact",
+              "parameters" : [
+                {
+                  "id" : "D9F3BC9F-78EB-4B74-8280-2425A5B38AFB",
+                  "isRequired" : false,
+                  "key" : "categoryA",
+                  "label" : "Category A",
+                  "type" : "string",
+                  "value" : "pig"
+                },
+                {
+                  "id" : "C5721134-AAF1-4BAD-8215-1D28CD9C1F64",
+                  "isRequired" : false,
+                  "key" : "categoryB",
+                  "label" : "Category B",
+                  "type" : "string",
+                  "value" : "stone"
+                },
+                {
+                  "id" : "6DDB6A2C-BBD7-4A80-ABC1-4D230A709A15",
+                  "isRequired" : false,
+                  "key" : "minForce",
+                  "label" : "Min force",
+                  "type" : "string",
+                  "value" : "30"
+                }
+              ],
+              "type" : "onGameImpact",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "2FB5484C-55DC-4F8A-BE93-760D14570FE9",
+              "isCollapsed" : false,
+              "label" : "Armed?",
+              "parameters" : [
+                {
+                  "id" : "3D36DF3F-7F77-4569-A3F9-198206826087",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "armed"
+                },
+                {
+                  "id" : "7B95CAA8-553A-4797-9753-1DDBE3B13DD7",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "=="
+                },
+                {
+                  "id" : "ABF09256-EC56-48D3-AFB3-4598FC4B6327",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "true"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "4AD20B4A-4593-4A27-B79D-C58590CAECB0",
+              "isCollapsed" : false,
+              "label" : "Game: Damage",
+              "parameters" : [
+                {
+                  "id" : "7E0C24E6-70F3-425A-9412-F20FCC8ABDA0",
+                  "isRequired" : true,
+                  "key" : "entity",
+                  "label" : "Entity id",
+                  "type" : "string",
+                  "variableReference" : "gameImpactEntityA"
+                },
+                {
+                  "id" : "00936357-4F59-4937-B80E-6F74BCBC6CA8",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "2"
+                }
+              ],
+              "type" : "gameDamage",
+              "width" : 200,
+              "x" : 560,
+              "y" : 20
+            },
+            {
+              "category" : "Actions",
+              "id" : "93AFDB26-140F-4AEA-8248-3B93A59928C1",
+              "isCollapsed" : false,
+              "label" : "Game: Particles",
+              "parameters" : [
+                {
+                  "id" : "241451D1-C37E-49E0-90A0-1258BD4ACAA1",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Kind",
+                  "options" : [
+                    "debris",
+                    "spark",
+                    "smoke",
+                    "fire",
+                    "confetti",
+                    "hearts"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "smoke"
+                },
+                {
+                  "id" : "8F455688-ECE0-42D2-A01C-2E1C6DADB352",
+                  "isRequired" : true,
+                  "key" : "x",
+                  "label" : "X",
+                  "type" : "string",
+                  "value" : "620"
+                },
+                {
+                  "id" : "D2798BAA-2D87-496D-9F15-8AEDABD5844F",
+                  "isRequired" : true,
+                  "key" : "y",
+                  "label" : "Y",
+                  "type" : "string",
+                  "value" : "240"
+                },
+                {
+                  "id" : "E8A29AE2-735E-4268-A26C-3D454D340162",
+                  "isRequired" : true,
+                  "key" : "burst",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "14"
+                }
+              ],
+              "type" : "gameParticles",
+              "width" : 200,
+              "x" : 800,
+              "y" : 20
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "F7E83B3F-9269-419D-BB72-391D3AC0B60C",
+              "sourceBlockId" : "B048407B-D4E1-4630-9751-B1AF43276B88",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "2FB5484C-55DC-4F8A-BE93-760D14570FE9",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "5E975635-7D35-44CE-B59D-FB427DA9F2AB",
+              "sourceBlockId" : "2FB5484C-55DC-4F8A-BE93-760D14570FE9",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "4AD20B4A-4593-4A27-B79D-C58590CAECB0",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "30662AEA-9F52-41BE-AB56-EF4B3D4052A9",
+              "sourceBlockId" : "4AD20B4A-4593-4A27-B79D-C58590CAECB0",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "93AFDB26-140F-4AEA-8248-3B93A59928C1",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "FFB93FA5-DBE4-4FEB-B185-A3DF81B76366",
+          "name" : "Pig Crushed Stone",
+          "screenNodeId" : "7CAB6ED8-FDED-46BE-9D98-EB42749D512B",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "177A4270-9106-44C8-9190-305CB7D54D23",
+              "isCollapsed" : false,
+              "label" : "On Impact",
+              "parameters" : [
+                {
+                  "id" : "D9F3BC9F-78EB-4B74-8280-2425A5B38AFB",
+                  "isRequired" : false,
+                  "key" : "categoryA",
+                  "label" : "Category A",
+                  "type" : "string",
+                  "value" : "pig"
+                },
+                {
+                  "id" : "C5721134-AAF1-4BAD-8215-1D28CD9C1F64",
+                  "isRequired" : false,
+                  "key" : "categoryB",
+                  "label" : "Category B",
+                  "type" : "string",
+                  "value" : "wood"
+                },
+                {
+                  "id" : "6DDB6A2C-BBD7-4A80-ABC1-4D230A709A15",
+                  "isRequired" : false,
+                  "key" : "minForce",
+                  "label" : "Min force",
+                  "type" : "string",
+                  "value" : "34"
+                }
+              ],
+              "type" : "onGameImpact",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "0479CD5A-03A5-4B62-9A93-A82B7620614A",
+              "isCollapsed" : false,
+              "label" : "Armed?",
+              "parameters" : [
+                {
+                  "id" : "3D36DF3F-7F77-4569-A3F9-198206826087",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "armed"
+                },
+                {
+                  "id" : "7B95CAA8-553A-4797-9753-1DDBE3B13DD7",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "=="
+                },
+                {
+                  "id" : "ABF09256-EC56-48D3-AFB3-4598FC4B6327",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "true"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "85EDDE1E-459F-4A60-B01E-2BE3EEE6CC86",
+              "isCollapsed" : false,
+              "label" : "Game: Damage",
+              "parameters" : [
+                {
+                  "id" : "7E0C24E6-70F3-425A-9412-F20FCC8ABDA0",
+                  "isRequired" : true,
+                  "key" : "entity",
+                  "label" : "Entity id",
+                  "type" : "string",
+                  "variableReference" : "gameImpactEntityA"
+                },
+                {
+                  "id" : "00936357-4F59-4937-B80E-6F74BCBC6CA8",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "1"
+                }
+              ],
+              "type" : "gameDamage",
+              "width" : 200,
+              "x" : 560,
+              "y" : 20
+            },
+            {
+              "category" : "Actions",
+              "id" : "4A48FD34-8B16-4CE8-9BF1-B4FF66697D18",
+              "isCollapsed" : false,
+              "label" : "Game: Particles",
+              "parameters" : [
+                {
+                  "id" : "241451D1-C37E-49E0-90A0-1258BD4ACAA1",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Kind",
+                  "options" : [
+                    "debris",
+                    "spark",
+                    "smoke",
+                    "fire",
+                    "confetti",
+                    "hearts"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "smoke"
+                },
+                {
+                  "id" : "8F455688-ECE0-42D2-A01C-2E1C6DADB352",
+                  "isRequired" : true,
+                  "key" : "x",
+                  "label" : "X",
+                  "type" : "string",
+                  "value" : "620"
+                },
+                {
+                  "id" : "D2798BAA-2D87-496D-9F15-8AEDABD5844F",
+                  "isRequired" : true,
+                  "key" : "y",
+                  "label" : "Y",
+                  "type" : "string",
+                  "value" : "240"
+                },
+                {
+                  "id" : "E8A29AE2-735E-4268-A26C-3D454D340162",
+                  "isRequired" : true,
+                  "key" : "burst",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "14"
+                }
+              ],
+              "type" : "gameParticles",
+              "width" : 200,
+              "x" : 800,
+              "y" : 20
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "4ABC3A41-AB24-4136-96BF-3FFD5846D9E6",
+              "sourceBlockId" : "177A4270-9106-44C8-9190-305CB7D54D23",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "0479CD5A-03A5-4B62-9A93-A82B7620614A",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "0CF73929-2DFF-4EB6-9D54-301F98D234AE",
+              "sourceBlockId" : "0479CD5A-03A5-4B62-9A93-A82B7620614A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "85EDDE1E-459F-4A60-B01E-2BE3EEE6CC86",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "967E62E8-DC46-4AED-8F3A-9A7574087F22",
+              "sourceBlockId" : "85EDDE1E-459F-4A60-B01E-2BE3EEE6CC86",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "4A48FD34-8B16-4CE8-9BF1-B4FF66697D18",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "1995DEF9-4E40-40FA-BFA7-D76EA0F72387",
+          "name" : "Pig Crushed Wood",
+          "screenNodeId" : "7CAB6ED8-FDED-46BE-9D98-EB42749D512B",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "B73AFFC2-47ED-40FE-AE7A-0EB5577622EF",
+              "isCollapsed" : false,
+              "label" : "On Impact",
+              "parameters" : [
+                {
+                  "id" : "D9F3BC9F-78EB-4B74-8280-2425A5B38AFB",
+                  "isRequired" : false,
+                  "key" : "categoryA",
+                  "label" : "Category A",
+                  "type" : "string",
+                  "value" : "wood"
+                },
+                {
+                  "id" : "C5721134-AAF1-4BAD-8215-1D28CD9C1F64",
+                  "isRequired" : false,
+                  "key" : "categoryB",
+                  "label" : "Category B",
+                  "type" : "string",
+                  "value" : "bird"
+                },
+                {
+                  "id" : "6DDB6A2C-BBD7-4A80-ABC1-4D230A709A15",
+                  "isRequired" : false,
+                  "key" : "minForce",
+                  "label" : "Min force",
+                  "type" : "string",
+                  "value" : "22"
+                }
+              ],
+              "type" : "onGameImpact",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "78E579B7-70C5-47C8-91C2-554343CE7D9B",
+              "isCollapsed" : false,
+              "label" : "Armed?",
+              "parameters" : [
+                {
+                  "id" : "3D36DF3F-7F77-4569-A3F9-198206826087",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "armed"
+                },
+                {
+                  "id" : "7B95CAA8-553A-4797-9753-1DDBE3B13DD7",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "=="
+                },
+                {
+                  "id" : "ABF09256-EC56-48D3-AFB3-4598FC4B6327",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "true"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "2C771626-E573-4C0A-9936-2C68C74B3D41",
+              "isCollapsed" : false,
+              "label" : "Game: Damage",
+              "parameters" : [
+                {
+                  "id" : "7E0C24E6-70F3-425A-9412-F20FCC8ABDA0",
+                  "isRequired" : true,
+                  "key" : "entity",
+                  "label" : "Entity id",
+                  "type" : "string",
+                  "variableReference" : "gameImpactEntityA"
+                },
+                {
+                  "id" : "00936357-4F59-4937-B80E-6F74BCBC6CA8",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "1"
+                }
+              ],
+              "type" : "gameDamage",
+              "width" : 200,
+              "x" : 560,
+              "y" : 20
+            },
+            {
+              "category" : "Actions",
+              "id" : "C8012C95-C22C-41FB-8BFE-5B8ECCE6AB36",
+              "isCollapsed" : false,
+              "label" : "Game: Particles",
+              "parameters" : [
+                {
+                  "id" : "241451D1-C37E-49E0-90A0-1258BD4ACAA1",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Kind",
+                  "options" : [
+                    "debris",
+                    "spark",
+                    "smoke",
+                    "fire",
+                    "confetti",
+                    "hearts"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "debris"
+                },
+                {
+                  "id" : "8F455688-ECE0-42D2-A01C-2E1C6DADB352",
+                  "isRequired" : true,
+                  "key" : "x",
+                  "label" : "X",
+                  "type" : "string",
+                  "value" : "620"
+                },
+                {
+                  "id" : "D2798BAA-2D87-496D-9F15-8AEDABD5844F",
+                  "isRequired" : true,
+                  "key" : "y",
+                  "label" : "Y",
+                  "type" : "string",
+                  "value" : "240"
+                },
+                {
+                  "id" : "E8A29AE2-735E-4268-A26C-3D454D340162",
+                  "isRequired" : true,
+                  "key" : "burst",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "14"
+                }
+              ],
+              "type" : "gameParticles",
+              "width" : 200,
+              "x" : 800,
+              "y" : 20
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "E6168D48-069B-47DC-8E46-A39F01EEE143",
+              "sourceBlockId" : "B73AFFC2-47ED-40FE-AE7A-0EB5577622EF",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "78E579B7-70C5-47C8-91C2-554343CE7D9B",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "A6CECFF9-1093-4C73-BDC3-38088C5C2033",
+              "sourceBlockId" : "78E579B7-70C5-47C8-91C2-554343CE7D9B",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "2C771626-E573-4C0A-9936-2C68C74B3D41",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "4E4B2348-AD68-42AB-A287-B416432BA622",
+              "sourceBlockId" : "2C771626-E573-4C0A-9936-2C68C74B3D41",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "C8012C95-C22C-41FB-8BFE-5B8ECCE6AB36",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "CF4BF98C-5CB8-44BE-84B1-9C8DB5A3B798",
+          "name" : "Wood Hit By Bird",
+          "screenNodeId" : "7CAB6ED8-FDED-46BE-9D98-EB42749D512B",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "27448F98-0E94-43C4-9D67-84E5D633ACBE",
+              "isCollapsed" : false,
+              "label" : "On Impact",
+              "parameters" : [
+                {
+                  "id" : "D9F3BC9F-78EB-4B74-8280-2425A5B38AFB",
+                  "isRequired" : false,
+                  "key" : "categoryA",
+                  "label" : "Category A",
+                  "type" : "string",
+                  "value" : "wood"
+                },
+                {
+                  "id" : "C5721134-AAF1-4BAD-8215-1D28CD9C1F64",
+                  "isRequired" : false,
+                  "key" : "categoryB",
+                  "label" : "Category B",
+                  "type" : "string",
+                  "value" : "stone"
+                },
+                {
+                  "id" : "6DDB6A2C-BBD7-4A80-ABC1-4D230A709A15",
+                  "isRequired" : false,
+                  "key" : "minForce",
+                  "label" : "Min force",
+                  "type" : "string",
+                  "value" : "50"
+                }
+              ],
+              "type" : "onGameImpact",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "10BCB012-AA3B-4C0A-9C52-67D613C1E91D",
+              "isCollapsed" : false,
+              "label" : "Armed?",
+              "parameters" : [
+                {
+                  "id" : "3D36DF3F-7F77-4569-A3F9-198206826087",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "armed"
+                },
+                {
+                  "id" : "7B95CAA8-553A-4797-9753-1DDBE3B13DD7",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "=="
+                },
+                {
+                  "id" : "ABF09256-EC56-48D3-AFB3-4598FC4B6327",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "true"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "43860919-2A9A-468F-B8CA-7492D51E1C15",
+              "isCollapsed" : false,
+              "label" : "Game: Damage",
+              "parameters" : [
+                {
+                  "id" : "7E0C24E6-70F3-425A-9412-F20FCC8ABDA0",
+                  "isRequired" : true,
+                  "key" : "entity",
+                  "label" : "Entity id",
+                  "type" : "string",
+                  "variableReference" : "gameImpactEntityA"
+                },
+                {
+                  "id" : "00936357-4F59-4937-B80E-6F74BCBC6CA8",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "1"
+                }
+              ],
+              "type" : "gameDamage",
+              "width" : 200,
+              "x" : 560,
+              "y" : 20
+            },
+            {
+              "category" : "Actions",
+              "id" : "50EE986C-63E5-48EC-8E65-48F210DD50B5",
+              "isCollapsed" : false,
+              "label" : "Game: Particles",
+              "parameters" : [
+                {
+                  "id" : "241451D1-C37E-49E0-90A0-1258BD4ACAA1",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Kind",
+                  "options" : [
+                    "debris",
+                    "spark",
+                    "smoke",
+                    "fire",
+                    "confetti",
+                    "hearts"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "debris"
+                },
+                {
+                  "id" : "8F455688-ECE0-42D2-A01C-2E1C6DADB352",
+                  "isRequired" : true,
+                  "key" : "x",
+                  "label" : "X",
+                  "type" : "string",
+                  "value" : "620"
+                },
+                {
+                  "id" : "D2798BAA-2D87-496D-9F15-8AEDABD5844F",
+                  "isRequired" : true,
+                  "key" : "y",
+                  "label" : "Y",
+                  "type" : "string",
+                  "value" : "240"
+                },
+                {
+                  "id" : "E8A29AE2-735E-4268-A26C-3D454D340162",
+                  "isRequired" : true,
+                  "key" : "burst",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "14"
+                }
+              ],
+              "type" : "gameParticles",
+              "width" : 200,
+              "x" : 800,
+              "y" : 20
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "C7AA11D9-B607-4C23-A16D-AB8EDA7C0844",
+              "sourceBlockId" : "27448F98-0E94-43C4-9D67-84E5D633ACBE",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "10BCB012-AA3B-4C0A-9C52-67D613C1E91D",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "E7497270-60E6-463A-B8D5-62CD05A72220",
+              "sourceBlockId" : "10BCB012-AA3B-4C0A-9C52-67D613C1E91D",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "43860919-2A9A-468F-B8CA-7492D51E1C15",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "5E47626D-8BB2-4669-B1CD-D487A5A4041E",
+              "sourceBlockId" : "43860919-2A9A-468F-B8CA-7492D51E1C15",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "50EE986C-63E5-48EC-8E65-48F210DD50B5",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "F09AB785-68D9-408B-B4AF-3837AEF9A3C1",
+          "name" : "Wood Under Stone",
+          "screenNodeId" : "7CAB6ED8-FDED-46BE-9D98-EB42749D512B",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "CFCB4833-A3D3-4822-B583-3836EAA028FE",
+              "isCollapsed" : false,
+              "label" : "On Impact",
+              "parameters" : [
+                {
+                  "id" : "D9F3BC9F-78EB-4B74-8280-2425A5B38AFB",
+                  "isRequired" : false,
+                  "key" : "categoryA",
+                  "label" : "Category A",
+                  "type" : "string",
+                  "value" : "stone"
+                },
+                {
+                  "id" : "C5721134-AAF1-4BAD-8215-1D28CD9C1F64",
+                  "isRequired" : false,
+                  "key" : "categoryB",
+                  "label" : "Category B",
+                  "type" : "string",
+                  "value" : "bird"
+                },
+                {
+                  "id" : "6DDB6A2C-BBD7-4A80-ABC1-4D230A709A15",
+                  "isRequired" : false,
+                  "key" : "minForce",
+                  "label" : "Min force",
+                  "type" : "string",
+                  "value" : "55"
+                }
+              ],
+              "type" : "onGameImpact",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "60A9DCE9-6061-41DE-96C0-428E804C78BD",
+              "isCollapsed" : false,
+              "label" : "Armed?",
+              "parameters" : [
+                {
+                  "id" : "3D36DF3F-7F77-4569-A3F9-198206826087",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "armed"
+                },
+                {
+                  "id" : "7B95CAA8-553A-4797-9753-1DDBE3B13DD7",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "=="
+                },
+                {
+                  "id" : "ABF09256-EC56-48D3-AFB3-4598FC4B6327",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "true"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "4E410EFF-03B5-4F7A-A3A5-D499CD091666",
+              "isCollapsed" : false,
+              "label" : "Game: Damage",
+              "parameters" : [
+                {
+                  "id" : "7E0C24E6-70F3-425A-9412-F20FCC8ABDA0",
+                  "isRequired" : true,
+                  "key" : "entity",
+                  "label" : "Entity id",
+                  "type" : "string",
+                  "variableReference" : "gameImpactEntityA"
+                },
+                {
+                  "id" : "00936357-4F59-4937-B80E-6F74BCBC6CA8",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "1"
+                }
+              ],
+              "type" : "gameDamage",
+              "width" : 200,
+              "x" : 560,
+              "y" : 20
+            },
+            {
+              "category" : "Actions",
+              "id" : "2B987AD1-810D-4F81-B4BA-141120004C3C",
+              "isCollapsed" : false,
+              "label" : "Game: Particles",
+              "parameters" : [
+                {
+                  "id" : "241451D1-C37E-49E0-90A0-1258BD4ACAA1",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Kind",
+                  "options" : [
+                    "debris",
+                    "spark",
+                    "smoke",
+                    "fire",
+                    "confetti",
+                    "hearts"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "debris"
+                },
+                {
+                  "id" : "8F455688-ECE0-42D2-A01C-2E1C6DADB352",
+                  "isRequired" : true,
+                  "key" : "x",
+                  "label" : "X",
+                  "type" : "string",
+                  "value" : "620"
+                },
+                {
+                  "id" : "D2798BAA-2D87-496D-9F15-8AEDABD5844F",
+                  "isRequired" : true,
+                  "key" : "y",
+                  "label" : "Y",
+                  "type" : "string",
+                  "value" : "240"
+                },
+                {
+                  "id" : "E8A29AE2-735E-4268-A26C-3D454D340162",
+                  "isRequired" : true,
+                  "key" : "burst",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "14"
+                }
+              ],
+              "type" : "gameParticles",
+              "width" : 200,
+              "x" : 800,
+              "y" : 20
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "69095311-173F-41B2-86B7-0A7271E86C47",
+              "sourceBlockId" : "CFCB4833-A3D3-4822-B583-3836EAA028FE",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "60A9DCE9-6061-41DE-96C0-428E804C78BD",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "D8633D60-1557-4DAB-96E3-9E4730063AC8",
+              "sourceBlockId" : "60A9DCE9-6061-41DE-96C0-428E804C78BD",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "4E410EFF-03B5-4F7A-A3A5-D499CD091666",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "0624EC41-6F7D-4DBB-8ADF-36DD4E505EF0",
+              "sourceBlockId" : "4E410EFF-03B5-4F7A-A3A5-D499CD091666",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "2B987AD1-810D-4F81-B4BA-141120004C3C",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "03DD8F77-FE0B-48E5-96AC-6BD5F6B25DAA",
+          "name" : "Stone Hit By Bird",
+          "screenNodeId" : "7CAB6ED8-FDED-46BE-9D98-EB42749D512B",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "4479699B-F16B-49FF-A64E-2F6A39C3065F",
+              "isCollapsed" : false,
+              "label" : "On Impact",
+              "parameters" : [
+                {
+                  "id" : "D9F3BC9F-78EB-4B74-8280-2425A5B38AFB",
+                  "isRequired" : false,
+                  "key" : "categoryA",
+                  "label" : "Category A",
+                  "type" : "string",
+                  "value" : "bird"
+                },
+                {
+                  "id" : "C5721134-AAF1-4BAD-8215-1D28CD9C1F64",
+                  "isRequired" : false,
+                  "key" : "categoryB",
+                  "label" : "Category B",
+                  "type" : "string",
+                  "value" : ""
+                },
+                {
+                  "id" : "6DDB6A2C-BBD7-4A80-ABC1-4D230A709A15",
+                  "isRequired" : false,
+                  "key" : "minForce",
+                  "label" : "Min force",
+                  "type" : "string",
+                  "value" : "75"
+                }
+              ],
+              "type" : "onGameImpact",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "9E462917-365C-41FE-A225-1E18CECA12DC",
+              "isCollapsed" : false,
+              "label" : "Armed?",
+              "parameters" : [
+                {
+                  "id" : "3D36DF3F-7F77-4569-A3F9-198206826087",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "armed"
+                },
+                {
+                  "id" : "7B95CAA8-553A-4797-9753-1DDBE3B13DD7",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "=="
+                },
+                {
+                  "id" : "ABF09256-EC56-48D3-AFB3-4598FC4B6327",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "true"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "EBD2042E-AE0E-4550-9F3B-819A0B0087D8",
+              "isCollapsed" : false,
+              "label" : "Game: Shake",
+              "parameters" : [
+                {
+                  "id" : "A0E4318A-D7F9-4047-860C-79352426E019",
+                  "isRequired" : true,
+                  "key" : "intensity",
+                  "label" : "Intensity",
+                  "type" : "string",
+                  "value" : "6"
+                }
+              ],
+              "type" : "gameShake",
+              "width" : 200,
+              "x" : 560,
+              "y" : 20
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "6326FAA1-7775-4D8D-8EE6-3A393025DAA1",
+              "sourceBlockId" : "4479699B-F16B-49FF-A64E-2F6A39C3065F",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "9E462917-365C-41FE-A225-1E18CECA12DC",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "12C73721-189F-4FAF-95EA-8250652D24BC",
+              "sourceBlockId" : "9E462917-365C-41FE-A225-1E18CECA12DC",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "EBD2042E-AE0E-4550-9F3B-819A0B0087D8",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "B8E79A34-474C-43F4-AF43-0405C01D5463",
+          "name" : "Big Impact",
+          "screenNodeId" : "7CAB6ED8-FDED-46BE-9D98-EB42749D512B",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "71C30347-1895-4A38-8819-11B22EB4C278",
+              "isCollapsed" : false,
+              "label" : "On Entity Destroyed",
+              "parameters" : [
+                {
+                  "id" : "638561A8-443E-4D8B-859C-A10D84D7A37D",
+                  "isRequired" : false,
+                  "key" : "category",
+                  "label" : "Category",
+                  "type" : "string",
+                  "value" : "pig"
+                }
+              ],
+              "type" : "onGameEntityDestroyed",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "3F29CB09-DCD8-426E-8008-F10D869F1188",
+              "isCollapsed" : false,
+              "label" : "Game: Add Score",
+              "parameters" : [
+                {
+                  "id" : "FB73489F-3710-4FE7-B446-22A42A68A499",
+                  "isRequired" : true,
+                  "key" : "points",
+                  "label" : "Points",
+                  "type" : "string",
+                  "value" : "500"
+                }
+              ],
+              "type" : "gameAddScore",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "0E44E791-E555-4169-A200-880216B875B6",
+              "isCollapsed" : false,
+              "label" : "Game: Particles",
+              "parameters" : [
+                {
+                  "id" : "241451D1-C37E-49E0-90A0-1258BD4ACAA1",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Kind",
+                  "options" : [
+                    "debris",
+                    "spark",
+                    "smoke",
+                    "fire",
+                    "confetti",
+                    "hearts"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "confetti"
+                },
+                {
+                  "id" : "8F455688-ECE0-42D2-A01C-2E1C6DADB352",
+                  "isRequired" : true,
+                  "key" : "x",
+                  "label" : "X",
+                  "type" : "string",
+                  "value" : "420"
+                },
+                {
+                  "id" : "D2798BAA-2D87-496D-9F15-8AEDABD5844F",
+                  "isRequired" : true,
+                  "key" : "y",
+                  "label" : "Y",
+                  "type" : "string",
+                  "value" : "180"
+                },
+                {
+                  "id" : "E8A29AE2-735E-4268-A26C-3D454D340162",
+                  "isRequired" : true,
+                  "key" : "burst",
+                  "label" : "Amount",
+                  "type" : "string",
+                  "value" : "40"
+                }
+              ],
+              "type" : "gameParticles",
+              "width" : 200,
+              "x" : 540,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "B1692C10-B20F-42A1-8A87-33EFDD781C52",
+              "isCollapsed" : false,
+              "label" : "Game: Shake",
+              "parameters" : [
+                {
+                  "id" : "A0E4318A-D7F9-4047-860C-79352426E019",
+                  "isRequired" : true,
+                  "key" : "intensity",
+                  "label" : "Intensity",
+                  "type" : "string",
+                  "value" : "5"
+                }
+              ],
+              "type" : "gameShake",
+              "width" : 200,
+              "x" : 780,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "D910744A-D2F3-4C17-9B62-97E55A9DCD30",
+              "isCollapsed" : false,
+              "label" : "Pigs still standing",
+              "parameters" : [
+                {
+                  "id" : "B765128A-1914-4753-A158-B9087D5E1C3C",
+                  "isRequired" : true,
+                  "key" : "what",
+                  "label" : "Read",
+                  "options" : [
+                    "positionX",
+                    "positionY",
+                    "velocityX",
+                    "velocityY",
+                    "rotation",
+                    "health",
+                    "count",
+                    "score",
+                    "lives",
+                    "timeLeft"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "count"
+                },
+                {
+                  "id" : "E79F21CB-F8CE-43C3-B044-F81F4776A67A",
+                  "isRequired" : false,
+                  "key" : "target",
+                  "label" : "Entity id \/ category",
+                  "type" : "string",
+                  "value" : "pig"
+                },
+                {
+                  "id" : "D4B59F35-71B1-4500-A14F-D568F8675727",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Store In",
+                  "type" : "variable",
+                  "variableReference" : "pigsLeft"
+                }
+              ],
+              "type" : "gameQuery",
+              "width" : 200,
+              "x" : 1020,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "2AD48362-B82E-41CD-9D7B-9D80DA71EF77",
+              "isCollapsed" : false,
+              "label" : "All popped?",
+              "parameters" : [
+                {
+                  "id" : "3D36DF3F-7F77-4569-A3F9-198206826087",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "pigsLeft"
+                },
+                {
+                  "id" : "7B95CAA8-553A-4797-9753-1DDBE3B13DD7",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "<="
+                },
+                {
+                  "id" : "ABF09256-EC56-48D3-AFB3-4598FC4B6327",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 1260,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "C9851002-821A-443E-A052-81FBADA46C83",
+              "isCollapsed" : false,
+              "label" : "Victory slowmo",
+              "parameters" : [
+                {
+                  "id" : "B409CFF1-21CB-4741-96E3-A7F44EF90494",
+                  "isRequired" : true,
+                  "key" : "scale",
+                  "label" : "Scale",
+                  "type" : "string",
+                  "value" : "0.35"
+                }
+              ],
+              "type" : "gameSetTimeScale",
+              "width" : 200,
+              "x" : 1500,
+              "y" : 10
+            },
+            {
+              "category" : "Actions",
+              "id" : "A5D53E60-C432-4C02-90DE-A2C986B43384",
+              "isCollapsed" : false,
+              "label" : "Delay",
+              "parameters" : [
+                {
+                  "id" : "E7357C7A-6B24-4CC2-A113-11E56E6BAD3C",
+                  "isRequired" : true,
+                  "key" : "seconds",
+                  "label" : "Seconds",
+                  "type" : "number",
+                  "value" : "1.2"
+                }
+              ],
+              "type" : "delay",
+              "width" : 200,
+              "x" : 1740,
+              "y" : 10
+            },
+            {
+              "category" : "Actions",
+              "id" : "FD10D3CB-27EE-4BD7-B708-BC21A4F08872",
+              "isCollapsed" : false,
+              "label" : "Game: End",
+              "parameters" : [
+                {
+                  "id" : "9C619D66-6E21-4189-B5EC-155708153B63",
+                  "isRequired" : true,
+                  "key" : "result",
+                  "label" : "Result",
+                  "options" : [
+                    "gameOver",
+                    "win"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "win"
+                }
+              ],
+              "type" : "gameEnd",
+              "width" : 200,
+              "x" : 1980,
+              "y" : 10
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "41FAA0EE-7C55-4281-8BC3-E421070A936A",
+              "sourceBlockId" : "71C30347-1895-4A38-8819-11B22EB4C278",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "3F29CB09-DCD8-426E-8008-F10D869F1188",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "184272CC-4B6B-4EAD-80E8-0D46BC76940F",
+              "sourceBlockId" : "3F29CB09-DCD8-426E-8008-F10D869F1188",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "0E44E791-E555-4169-A200-880216B875B6",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "FAC60166-3121-4116-9CFA-A79EA91685AB",
+              "sourceBlockId" : "0E44E791-E555-4169-A200-880216B875B6",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "B1692C10-B20F-42A1-8A87-33EFDD781C52",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "92163CEE-2355-4783-99CD-0268B4608926",
+              "sourceBlockId" : "B1692C10-B20F-42A1-8A87-33EFDD781C52",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D910744A-D2F3-4C17-9B62-97E55A9DCD30",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "8C897EFE-D75B-4E29-A824-B00CC9A52DBD",
+              "sourceBlockId" : "D910744A-D2F3-4C17-9B62-97E55A9DCD30",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "2AD48362-B82E-41CD-9D7B-9D80DA71EF77",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "C91D546B-C978-42BC-8C90-EB4B85197619",
+              "sourceBlockId" : "2AD48362-B82E-41CD-9D7B-9D80DA71EF77",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "C9851002-821A-443E-A052-81FBADA46C83",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "36323C42-396C-4515-A7EB-807E7619C7AC",
+              "sourceBlockId" : "C9851002-821A-443E-A052-81FBADA46C83",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A5D53E60-C432-4C02-90DE-A2C986B43384",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "C662AD81-1658-4F21-93BA-D28D74080C34",
+              "sourceBlockId" : "A5D53E60-C432-4C02-90DE-A2C986B43384",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "FD10D3CB-27EE-4BD7-B708-BC21A4F08872",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "238BEAAE-8FD1-4A1E-AD80-9E0257D035E4",
+          "name" : "Pig Popped",
+          "screenNodeId" : "7CAB6ED8-FDED-46BE-9D98-EB42749D512B",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "437FC1C1-4069-4CB0-9068-10C3299D6F3D",
+              "isCollapsed" : false,
+              "label" : "On Launched",
+              "parameters" : [
+
+              ],
+              "type" : "onGameLaunched",
+              "width" : 200,
+              "x" : 60,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "9376939A-C1BC-4518-A97B-A1B2D9A2E785",
+              "isCollapsed" : false,
+              "label" : "Arm damage",
+              "parameters" : [
+                {
+                  "id" : "24466EBB-1B37-44B9-AFE7-B043AA5CF15E",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "armed"
+                },
+                {
+                  "id" : "2B557E56-958C-4A0F-A3DC-C68FCB409584",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "true"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 300,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "378A20BC-E809-4A6F-A277-5ACDE5F8B66F",
+              "isCollapsed" : false,
+              "label" : "Decrement",
+              "parameters" : [
+                {
+                  "id" : "9E597FC1-01D7-4341-9924-0AA6BD2EE8D3",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "birdsLeft"
+                },
+                {
+                  "id" : "0697E5D7-524B-49AC-A3C7-C1D765F00B12",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "number",
+                  "value" : "1"
+                }
+              ],
+              "type" : "decrementVariable",
+              "width" : 200,
+              "x" : 540,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "093015C2-B8CB-4879-BC31-9F3FBDA1559F",
+              "isCollapsed" : false,
+              "label" : "Let it settle",
+              "parameters" : [
+                {
+                  "id" : "E7357C7A-6B24-4CC2-A113-11E56E6BAD3C",
+                  "isRequired" : true,
+                  "key" : "seconds",
+                  "label" : "Seconds",
+                  "type" : "number",
+                  "value" : "4.5"
+                }
+              ],
+              "type" : "delay",
+              "width" : 200,
+              "x" : 780,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "27E6BB21-3CCF-43FE-A981-700D96969D8F",
+              "isCollapsed" : false,
+              "label" : "Game: Read",
+              "parameters" : [
+                {
+                  "id" : "B765128A-1914-4753-A158-B9087D5E1C3C",
+                  "isRequired" : true,
+                  "key" : "what",
+                  "label" : "Read",
+                  "options" : [
+                    "positionX",
+                    "positionY",
+                    "velocityX",
+                    "velocityY",
+                    "rotation",
+                    "health",
+                    "count",
+                    "score",
+                    "lives",
+                    "timeLeft"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "count"
+                },
+                {
+                  "id" : "E79F21CB-F8CE-43C3-B044-F81F4776A67A",
+                  "isRequired" : false,
+                  "key" : "target",
+                  "label" : "Entity id \/ category",
+                  "type" : "string",
+                  "value" : "pig"
+                },
+                {
+                  "id" : "D4B59F35-71B1-4500-A14F-D568F8675727",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Store In",
+                  "type" : "variable",
+                  "variableReference" : "pigsNow"
+                }
+              ],
+              "type" : "gameQuery",
+              "width" : 200,
+              "x" : 1020,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "1D9560A8-A106-4694-BEC8-B23CCE076063",
+              "isCollapsed" : false,
+              "label" : "Pigs left?",
+              "parameters" : [
+                {
+                  "id" : "3D36DF3F-7F77-4569-A3F9-198206826087",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "pigsNow"
+                },
+                {
+                  "id" : "7B95CAA8-553A-4797-9753-1DDBE3B13DD7",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : ">"
+                },
+                {
+                  "id" : "ABF09256-EC56-48D3-AFB3-4598FC4B6327",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 1260,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "8B293239-76FE-46EC-829E-715C206887F7",
+              "isCollapsed" : false,
+              "label" : "Birds left?",
+              "parameters" : [
+                {
+                  "id" : "3D36DF3F-7F77-4569-A3F9-198206826087",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "birdsLeft"
+                },
+                {
+                  "id" : "7B95CAA8-553A-4797-9753-1DDBE3B13DD7",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : ">"
+                },
+                {
+                  "id" : "ABF09256-EC56-48D3-AFB3-4598FC4B6327",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 1500,
+              "y" : 10
+            },
+            {
+              "category" : "Actions",
+              "id" : "DF29538B-0B65-46E8-A9F7-2FF3D1FE6409",
+              "isCollapsed" : false,
+              "label" : "Next bird",
+              "parameters" : [
+                {
+                  "id" : "89EF565A-93F3-4D09-8A06-86430FFA53F2",
+                  "isRequired" : true,
+                  "key" : "entity",
+                  "label" : "Entity id",
+                  "type" : "string",
+                  "value" : "bird"
+                }
+              ],
+              "type" : "gameLoadSlingshot",
+              "width" : 200,
+              "x" : 1740,
+              "y" : -50
+            },
+            {
+              "category" : "Actions",
+              "id" : "1347991D-F235-487E-ACF9-18BB72EB47FE",
+              "isCollapsed" : false,
+              "label" : "Out of birds",
+              "parameters" : [
+                {
+                  "id" : "9C619D66-6E21-4189-B5EC-155708153B63",
+                  "isRequired" : true,
+                  "key" : "result",
+                  "label" : "Result",
+                  "options" : [
+                    "gameOver",
+                    "win"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "gameOver"
+                }
+              ],
+              "type" : "gameEnd",
+              "width" : 200,
+              "x" : 1740,
+              "y" : 110
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "1F447683-3DAE-4B66-B10B-57081830778B",
+              "sourceBlockId" : "437FC1C1-4069-4CB0-9068-10C3299D6F3D",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "9376939A-C1BC-4518-A97B-A1B2D9A2E785",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "310CCDDB-AD93-46AF-A7C7-2AF9B0331B5B",
+              "sourceBlockId" : "9376939A-C1BC-4518-A97B-A1B2D9A2E785",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "378A20BC-E809-4A6F-A277-5ACDE5F8B66F",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "CF0AE39E-7B8C-4A11-BDD5-8996050DC45F",
+              "sourceBlockId" : "378A20BC-E809-4A6F-A277-5ACDE5F8B66F",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "093015C2-B8CB-4879-BC31-9F3FBDA1559F",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "80F0136D-152F-4BE7-9F3B-5EA231F6E2C9",
+              "sourceBlockId" : "093015C2-B8CB-4879-BC31-9F3FBDA1559F",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "27E6BB21-3CCF-43FE-A981-700D96969D8F",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "32228F9E-B705-4A79-91CF-23E0061EBE1A",
+              "sourceBlockId" : "27E6BB21-3CCF-43FE-A981-700D96969D8F",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "1D9560A8-A106-4694-BEC8-B23CCE076063",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "7D6B6655-DB08-4136-8644-57B011CFDC5B",
+              "sourceBlockId" : "1D9560A8-A106-4694-BEC8-B23CCE076063",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "8B293239-76FE-46EC-829E-715C206887F7",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "05CB1923-B9FB-4251-B2B9-8FEAF561F72C",
+              "sourceBlockId" : "8B293239-76FE-46EC-829E-715C206887F7",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "DF29538B-0B65-46E8-A9F7-2FF3D1FE6409",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "EFD36DBE-CDC6-47D8-B81A-CB9BEB12EB32",
+              "sourceBlockId" : "8B293239-76FE-46EC-829E-715C206887F7",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "1347991D-F235-487E-ACF9-18BB72EB47FE",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "A2B3E602-674D-476C-B9D2-343F3339AD27",
+          "name" : "Shot Fired",
+          "screenNodeId" : "7CAB6ED8-FDED-46BE-9D98-EB42749D512B",
+          "variables" : [
+
+          ]
+        }
+      ],
+      "name" : "App Screens",
+      "nodes" : [
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+
+                ],
+                "body" : "staticBody",
+                "category" : "ground",
+                "circleBody" : false,
+                "collidesWith" : [
+                  "bird",
+                  "pig",
+                  "wood",
+                  "stone"
+                ],
+                "color" : "#6B8E23",
+                "contacts" : [
+                  "bird",
+                  "pig",
+                  "wood",
+                  "stone"
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : false,
+                "height" : 60,
+                "id" : "ground",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 844,
+                "x" : 0,
+                "y" : 330,
+                "zIndex" : 0
+              },
+              "height" : 60,
+              "id" : "8C0C9C9D-015E-4E70-B5FF-D1DA595A43E1",
+              "name" : "ground",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#6B8E23",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 844,
+              "x" : 0,
+              "y" : 330
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : false,
+                "behaviors" : [
+
+                ],
+                "body" : "staticBody",
+                "category" : "decor",
+                "circleBody" : false,
+                "collidesWith" : [
+
+                ],
+                "color" : "#5C4033",
+                "contacts" : [
+
+                ],
+                "dropShadow" : false,
+                "friction" : 0.2,
+                "glow" : false,
+                "height" : 80,
+                "id" : "slingpost",
+                "isTemplate" : false,
+                "linearDamping" : 0.1,
+                "name" : "",
+                "restitution" : 0.2,
+                "rotation" : 0,
+                "width" : 16,
+                "x" : 200,
+                "y" : 250,
+                "zIndex" : 0
+              },
+              "height" : 80,
+              "id" : "5FBD613A-F1E9-4CF6-8689-31B493B9B795",
+              "name" : "slingpost",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#5C4033",
+                "opacity" : 1
+              },
+              "type" : "Rectangle",
+              "width" : 16,
+              "x" : 200,
+              "y" : 250
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : true,
+                "behaviors" : [
+
+                ],
+                "body" : "dynamic",
+                "category" : "stone",
+                "circleBody" : false,
+                "collidesWith" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "contacts" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "dropShadow" : false,
+                "friction" : 1,
+                "glow" : false,
+                "health" : 6,
+                "height" : 84,
+                "id" : "stone_l",
+                "isTemplate" : false,
+                "linearDamping" : 0.6,
+                "mass" : 7,
+                "name" : "",
+                "restitution" : 0,
+                "rotation" : 0,
+                "width" : 32,
+                "x" : 556,
+                "y" : 246,
+                "zIndex" : 0
+              },
+              "height" : 84,
+              "id" : "46DD56F5-293A-4D1E-9CC0-D44A9AE9FFEA",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-42BB39A1-85E3-4638-9958-A2B818EF26A6.png",
+              "name" : "stone_l",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 32,
+              "x" : 556,
+              "y" : 246
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : true,
+                "behaviors" : [
+
+                ],
+                "body" : "dynamic",
+                "category" : "stone",
+                "circleBody" : false,
+                "collidesWith" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "contacts" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "dropShadow" : false,
+                "friction" : 1,
+                "glow" : false,
+                "health" : 6,
+                "height" : 84,
+                "id" : "stone_r",
+                "isTemplate" : false,
+                "linearDamping" : 0.6,
+                "mass" : 7,
+                "name" : "",
+                "restitution" : 0,
+                "rotation" : 0,
+                "width" : 32,
+                "x" : 664,
+                "y" : 246,
+                "zIndex" : 0
+              },
+              "height" : 84,
+              "id" : "5DB4A236-08B5-4C6C-8FAF-980AB4BD9573",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-42BB39A1-85E3-4638-9958-A2B818EF26A6.png",
+              "name" : "stone_r",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 32,
+              "x" : 664,
+              "y" : 246
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : true,
+                "behaviors" : [
+
+                ],
+                "body" : "dynamic",
+                "category" : "wood",
+                "circleBody" : false,
+                "collidesWith" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "contacts" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "dropShadow" : false,
+                "friction" : 1,
+                "glow" : false,
+                "health" : 3,
+                "height" : 20,
+                "id" : "wood_roof1",
+                "isTemplate" : false,
+                "linearDamping" : 0.6,
+                "mass" : 2.4,
+                "name" : "",
+                "restitution" : 0,
+                "rotation" : 0,
+                "width" : 156,
+                "x" : 548,
+                "y" : 226,
+                "zIndex" : 0
+              },
+              "height" : 20,
+              "id" : "97D2ED61-0AAE-47D1-8F96-49B28EBFC5E8",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-6D635F03-F0E7-4CBE-AFD1-DC8BF694C1C5.png",
+              "name" : "wood_roof1",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 156,
+              "x" : 548,
+              "y" : 226
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : true,
+                "behaviors" : [
+
+                ],
+                "body" : "dynamic",
+                "category" : "wood",
+                "circleBody" : false,
+                "collidesWith" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "contacts" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "dropShadow" : false,
+                "friction" : 1,
+                "glow" : false,
+                "health" : 3,
+                "height" : 72,
+                "id" : "wood_l1",
+                "isTemplate" : false,
+                "linearDamping" : 0.6,
+                "mass" : 2,
+                "name" : "",
+                "restitution" : 0,
+                "rotation" : 0,
+                "width" : 26,
+                "x" : 572,
+                "y" : 154,
+                "zIndex" : 0
+              },
+              "height" : 72,
+              "id" : "5EC84216-F776-4BD8-8C72-76BC3E08F65F",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-6D635F03-F0E7-4CBE-AFD1-DC8BF694C1C5.png",
+              "name" : "wood_l1",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 26,
+              "x" : 572,
+              "y" : 154
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : true,
+                "behaviors" : [
+
+                ],
+                "body" : "dynamic",
+                "category" : "wood",
+                "circleBody" : false,
+                "collidesWith" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "contacts" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "dropShadow" : false,
+                "friction" : 1,
+                "glow" : false,
+                "health" : 3,
+                "height" : 72,
+                "id" : "wood_r1",
+                "isTemplate" : false,
+                "linearDamping" : 0.6,
+                "mass" : 2,
+                "name" : "",
+                "restitution" : 0,
+                "rotation" : 0,
+                "width" : 26,
+                "x" : 654,
+                "y" : 154,
+                "zIndex" : 0
+              },
+              "height" : 72,
+              "id" : "45C4CDCC-BFFF-4B6C-B318-525F6B8E4CEC",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-6D635F03-F0E7-4CBE-AFD1-DC8BF694C1C5.png",
+              "name" : "wood_r1",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 26,
+              "x" : 654,
+              "y" : 154
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : true,
+                "behaviors" : [
+
+                ],
+                "body" : "dynamic",
+                "category" : "wood",
+                "circleBody" : false,
+                "collidesWith" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "contacts" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "dropShadow" : false,
+                "friction" : 1,
+                "glow" : false,
+                "health" : 3,
+                "height" : 20,
+                "id" : "wood_roof2",
+                "isTemplate" : false,
+                "linearDamping" : 0.6,
+                "mass" : 2,
+                "name" : "",
+                "restitution" : 0,
+                "rotation" : 0,
+                "width" : 124,
+                "x" : 564,
+                "y" : 134,
+                "zIndex" : 0
+              },
+              "height" : 20,
+              "id" : "21DEC6C1-3E9B-4D89-9C3D-11A34DEED424",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-6D635F03-F0E7-4CBE-AFD1-DC8BF694C1C5.png",
+              "name" : "wood_roof2",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 124,
+              "x" : 564,
+              "y" : 134
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : true,
+                "behaviors" : [
+
+                ],
+                "body" : "dynamic",
+                "category" : "wood",
+                "circleBody" : false,
+                "collidesWith" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "contacts" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "dropShadow" : false,
+                "friction" : 1,
+                "glow" : false,
+                "health" : 2,
+                "height" : 36,
+                "id" : "wood_top",
+                "isTemplate" : false,
+                "linearDamping" : 0.6,
+                "mass" : 1.4,
+                "name" : "",
+                "restitution" : 0,
+                "rotation" : 0,
+                "width" : 32,
+                "x" : 610,
+                "y" : 98,
+                "zIndex" : 0
+              },
+              "height" : 36,
+              "id" : "F143FCFD-6B89-44E2-861F-17997F5DF479",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-6D635F03-F0E7-4CBE-AFD1-DC8BF694C1C5.png",
+              "name" : "wood_top",
+              "style" : {
+                "cornerRadius" : 4,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 32,
+              "x" : 610,
+              "y" : 98
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : true,
+                "behaviors" : [
+
+                ],
+                "body" : "dynamic",
+                "category" : "pig",
+                "circleBody" : true,
+                "collidesWith" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "contacts" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "dropShadow" : false,
+                "friction" : 0.9,
+                "glow" : false,
+                "health" : 2,
+                "height" : 38,
+                "id" : "pig1",
+                "isTemplate" : false,
+                "linearDamping" : 0.8,
+                "mass" : 1.2,
+                "name" : "",
+                "restitution" : 0.1,
+                "rotation" : 0,
+                "width" : 38,
+                "x" : 606,
+                "y" : 292,
+                "zIndex" : 0
+              },
+              "height" : 38,
+              "id" : "36537153-19A2-419D-A669-1DA71806F80D",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-C8F9F00B-5C88-4E24-BAEA-B295CB21EF47.png",
+              "name" : "pig1",
+              "style" : {
+                "cornerRadius" : 19,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 38,
+              "x" : 606,
+              "y" : 292
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : true,
+                "behaviors" : [
+
+                ],
+                "body" : "dynamic",
+                "category" : "pig",
+                "circleBody" : true,
+                "collidesWith" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "contacts" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "dropShadow" : false,
+                "friction" : 0.9,
+                "glow" : false,
+                "health" : 2,
+                "height" : 34,
+                "id" : "pig2",
+                "isTemplate" : false,
+                "linearDamping" : 0.8,
+                "mass" : 1.2,
+                "name" : "",
+                "restitution" : 0.1,
+                "rotation" : 0,
+                "width" : 34,
+                "x" : 608,
+                "y" : 192,
+                "zIndex" : 0
+              },
+              "height" : 34,
+              "id" : "759CA6BD-A6D9-469B-8410-7A505DEDDE84",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-C8F9F00B-5C88-4E24-BAEA-B295CB21EF47.png",
+              "name" : "pig2",
+              "style" : {
+                "cornerRadius" : 17,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 34,
+              "x" : 608,
+              "y" : 192
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : true,
+                "behaviors" : [
+
+                ],
+                "body" : "dynamic",
+                "category" : "pig",
+                "circleBody" : true,
+                "collidesWith" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "contacts" : [
+                  "bird",
+                  "ground",
+                  "wood",
+                  "stone",
+                  "pig"
+                ],
+                "dropShadow" : false,
+                "friction" : 0.9,
+                "glow" : false,
+                "health" : 1,
+                "height" : 36,
+                "id" : "pig3",
+                "isTemplate" : false,
+                "linearDamping" : 0.8,
+                "mass" : 1.2,
+                "name" : "",
+                "restitution" : 0.1,
+                "rotation" : 0,
+                "width" : 36,
+                "x" : 762,
+                "y" : 294,
+                "zIndex" : 0
+              },
+              "height" : 36,
+              "id" : "665331A2-FA86-4019-985C-873E2B570E02",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-C8F9F00B-5C88-4E24-BAEA-B295CB21EF47.png",
+              "name" : "pig3",
+              "style" : {
+                "cornerRadius" : 18,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 36,
+              "x" : 762,
+              "y" : 294
+            },
+            {
+              "children" : [
+
+              ],
+              "gameEntity" : {
+                "affectedByGravity" : true,
+                "allowsRotation" : true,
+                "behaviors" : [
+                  {
+                    "maxDrag" : 120,
+                    "maxPower" : 1900,
+                    "type" : "slingshot"
+                  }
+                ],
+                "body" : "dynamic",
+                "category" : "bird",
+                "circleBody" : true,
+                "collidesWith" : [
+                  "pig",
+                  "wood",
+                  "stone",
+                  "ground"
+                ],
+                "contacts" : [
+                  "pig",
+                  "wood",
+                  "stone",
+                  "ground"
+                ],
+                "dropShadow" : false,
+                "friction" : 0.5,
+                "glow" : false,
+                "height" : 40,
+                "id" : "bird",
+                "isTemplate" : false,
+                "linearDamping" : 0.05,
+                "mass" : 3.4,
+                "name" : "",
+                "restitution" : 0.3,
+                "rotation" : 0,
+                "width" : 40,
+                "x" : 188,
+                "y" : 210,
+                "zIndex" : 0
+              },
+              "height" : 40,
+              "id" : "7BD631DE-4D5F-474C-9278-5D2B95675B6B",
+              "imageSource" : "\/Users\/ariel\/Library\/Application Support\/AgenticDesigner\/GeneratedAssets\/sprite-789A1277-E289-4479-9891-F4B2EE3E7C6B.png",
+              "name" : "bird",
+              "style" : {
+                "cornerRadius" : 20,
+                "fill" : "#3B82F6",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 40,
+              "x" : 188,
+              "y" : 210
+            }
+          ],
+          "clipContent" : true,
+          "gameScene" : {
+            "ambient" : "none",
+            "backgroundColor" : "#87CEEB",
+            "backgroundGradient" : [
+              "#6FC2EC",
+              "#D6F0FF"
+            ],
+            "entities" : [
+
+            ],
+            "gravity" : -16,
+            "height" : 390,
+            "lightColor" : "#FFF4D6",
+            "lighting" : false,
+            "parallax" : [
+
+            ],
+            "scrollSpeed" : 0,
+            "showScore" : true,
+            "startPaused" : false,
+            "tapToStartText" : "Tap to start",
+            "timeUpAction" : "gameOver",
+            "version" : 1,
+            "vignette" : false,
+            "width" : 844,
+            "worldHeight" : 0,
+            "worldWidth" : 0
+          },
+          "height" : 390,
+          "id" : "7CAB6ED8-FDED-46BE-9D98-EB42749D512B",
+          "name" : "Angry Level",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#87CEEB",
+            "opacity" : 1
+          },
+          "type" : "Frame",
+          "width" : 844,
+          "x" : 60,
+          "y" : 60
+        }
+      ]
+    }
+  ],
+  "platformSettings" : {
+    "defaultPreviewPlatform" : "iPhone",
+    "enabledPlatforms" : [
+      "iPhone",
+      "iPad"
+    ],
+    "orientation" : "landscape"
+  }
+}

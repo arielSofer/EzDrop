@@ -1,0 +1,364 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DesignQualityAudit over the sample projects > scores Looply.agenticdesign 1`] = `
+{
+  "findings": [
+    "WARNING [Looply — For You] Pink Light touches the screen edge (x=174, right gap=-62).",
+    "WARNING [Looply — For You] Cyan Light touches the screen edge (x=-96, right gap=176).",
+    "BLOCKER [Looply — For You] Text has 1.0:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "WARNING [Looply — For You] Video Progress Active touches the screen edge (x=0, right gap=226).",
+    "INFO [Looply — For You] 7 vertical gaps are off the spacing scale (10, 19, 114, 9pt).",
+    "WARNING [Looply — For You] 3 label(s) are likely truncated at render time: Original sound · Maya Levi, Original sound · Maya Levi, Afterhours edit · NOX.",
+    "WARNING [Looply — For You] Interface chrome uses 16 saturated colours; the references use one brand accent plus semantic colours.",
+    "INFO [Looply — For You] The screen uses 12 different corner radii.",
+    "WARNING [Looply — Discover] Text has 3.7:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Looply — Discover] 8 vertical gaps are off the spacing scale (22, 22, 18, 18pt).",
+    "WARNING [Looply — Discover] 2 label(s) are likely truncated at render time: Search creators, sounds and trends, Travel · 1.2M followers.",
+    "INFO [Looply — Discover] The palette has 7 saturated interface colours.",
+    "INFO [Looply — Discover] The screen uses 8 different corner radii.",
+    "WARNING [Looply — Create] Camera Light Pink touches the screen edge (x=-70, right gap=160).",
+    "WARNING [Looply — Create] Camera Light Cyan touches the screen edge (x=210, right gap=-70).",
+    "WARNING [Looply — Create] Sound Button is 40pt tall — below the 44pt minimum tap target.",
+    "WARNING [Looply — Create] Text has 4.3:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Looply — Create] 6 vertical gaps are off the spacing scale (5, 19, 25, 25pt).",
+    "WARNING [Looply — Create] 1 label(s) are likely truncated at render time: Hold to record · Tap for photo.",
+    "INFO [Looply — Create] The screen uses 8 different corner radii.",
+    "INFO [Looply — Inbox] 4 vertical gaps are off the spacing scale (22, 22, 28, 17pt).",
+    "WARNING [Looply — Inbox] 5 label(s) are likely truncated at render time: Recent activity, liked your video., started following you..",
+    "INFO [Looply — Inbox] The palette has 7 saturated interface colours.",
+    "INFO [Looply — Inbox] The screen uses 7 different corner radii.",
+    "INFO [Looply — Profile] Text starts at x=66 while this project's screen padding is 18.",
+    "INFO [Looply — Profile] Text uses an off-scale inset (67pt).",
+    "INFO [Looply — Profile] Text starts at x=57 while this project's screen padding is 18.",
+    "INFO [Looply — Profile] Text uses an off-scale inset (57pt).",
+    "INFO [Looply — Profile] Edit Profile starts at x=62 while this project's screen padding is 18.",
+    "INFO [Looply — Profile] Edit Profile uses an off-scale inset (62pt).",
+    "WARNING [Looply — Profile] Profile Video 1 touches the screen edge (x=0, right gap=264).",
+    "WARNING [Looply — Profile] Profile Video 3 touches the screen edge (x=264, right gap=0).",
+    "WARNING [Looply — Profile] Profile Video 4 touches the screen edge (x=0, right gap=264).",
+    "WARNING [Looply — Profile] Profile Video 6 touches the screen edge (x=264, right gap=0).",
+    "INFO [Looply — Profile] 5 vertical gaps are off the spacing scale (22, 9, 26, 27pt).",
+    "INFO [Looply — Profile] The screen uses 9 font sizes (10, 11, 12, 13, 14, 18, 19, 20, 32pt).",
+    "WARNING [Looply — Profile] 2 label(s) are likely truncated at render time: @ariel.creates, Edit profile.",
+    "WARNING [Looply — Profile] Interface chrome uses 9 saturated colours; the references use one brand accent plus semantic colours.",
+    "INFO [Looply — Comments] 8 vertical gaps are off the spacing scale (25, 18, 23, 10pt).",
+    "WARNING [Looply — Comments] 4 label(s) are likely truncated at render time: That transition was perfect 🔥, Where is this spot?, The colors are unreal.",
+    "WARNING [Looply — Comments] Visible copy contains ellipsis truncation: Add a comment….",
+    "INFO [Looply — Comments] The palette has 6 saturated interface colours.",
+    "WARNING [Looply — For You] Bottom Navigation offers 1 destination(s) with no screen behind them: Home.",
+    "WARNING [Looply — Discover] Bottom Navigation offers 1 destination(s) with no screen behind them: Home.",
+    "WARNING [Looply — Inbox] Inbox Tabs offers 2 destination(s) with no screen behind them: Activity, Messages.",
+    "WARNING [Looply — Inbox] Bottom Navigation offers 1 destination(s) with no screen behind them: Home.",
+    "WARNING [Looply — Profile] Bottom Navigation offers 1 destination(s) with no screen behind them: Home.",
+    "WARNING [(product system)] Bottom navigation shifts size or position between screens.",
+    "WARNING [Looply — For You] Pink Light (278×420) spills out of Looply — For You (390×844) by 62pt.",
+    "WARNING [Looply — For You] Cyan Light (310×390) spills out of Looply — For You (390×844) by 1pt.",
+    "WARNING [Looply — For You] Text (45×12) spills out of Feed Header (390×100) by 6pt.",
+    "WARNING [Looply — Discover] Glow (120×152) spills out of Discover Tile 1 (173×128) by 25pt.",
+    "WARNING [Looply — Discover] Glow (120×152) spills out of Discover Tile 2 (173×128) by 4pt.",
+    "WARNING [Looply — Discover] Glow (120×152) spills out of Discover Tile 3 (173×128) by 25pt.",
+    "WARNING [Looply — Discover] Glow (120×152) spills out of Discover Tile 4 (173×128) by 4pt.",
+    "WARNING [Looply — Create] Camera Light Pink (300×440) spills out of Looply — Create (390×844) by 1pt.",
+    "WARNING [Looply — Create] Camera Light Cyan (250×480) spills out of Looply — Create (390×844) by 70pt.",
+    "WARNING [Looply — Profile] Visual Accent (110×140) spills out of Profile Video 1 (126×122) by 38pt.",
+    "WARNING [Looply — Profile] Visual Accent (110×140) spills out of Profile Video 2 (126×122) by 10pt.",
+    "WARNING [Looply — Profile] Visual Accent (110×140) spills out of Profile Video 3 (126×122) by 38pt.",
+    "WARNING [Looply — Profile] Visual Accent (110×140) spills out of Profile Video 4 (126×122) by 10pt.",
+    "WARNING [Looply — Profile] Visual Accent (110×140) spills out of Profile Video 5 (126×122) by 38pt.",
+    "WARNING [Looply — Profile] Visual Accent (110×140) spills out of Profile Video 6 (126×122) by 10pt.",
+  ],
+  "score": 0,
+}
+`;
+
+exports[`DesignQualityAudit over the sample projects > scores Looply.agenticdesign 2`] = `
+"Reference design score: 0/100 — REFERENCE BAR NOT MET
+Design check: 1 blocker(s), 42 warning(s), 20 note(s).
+  BLOCKER [Looply — For You] Text has 1.0:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  WARNING [Looply — For You] Pink Light touches the screen edge (x=174, right gap=-62). → Inset it to the screen padding (18pt on this project).
+  WARNING [Looply — For You] Cyan Light touches the screen edge (x=-96, right gap=176). → Inset it to the screen padding (18pt on this project).
+  WARNING [Looply — For You] Video Progress Active touches the screen edge (x=0, right gap=226). → Inset it to the screen padding (18pt on this project).
+  WARNING [Looply — For You] 3 label(s) are likely truncated at render time: Original sound · Maya Levi, Original sound · Maya Levi, Afterhours edit · NOX. → Give the label its full row width, fit the font, or explicitly wrap to two lines; an ellipsis in a primary title is not acceptable.
+  WARNING [Looply — For You] Interface chrome uses 16 saturated colours; the references use one brand accent plus semantic colours. → Keep one repeated brand accent and reserve extras for real states/data categories. Let imagery carry incidental colour.
+  WARNING [Looply — Discover] Text has 3.7:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  WARNING [Looply — Discover] 2 label(s) are likely truncated at render time: Search creators, sounds and trends, Travel · 1.2M followers. → Give the label its full row width, fit the font, or explicitly wrap to two lines; an ellipsis in a primary title is not acceptable.
+  …and 55 more."
+`;
+
+exports[`DesignQualityAudit over the sample projects > scores PaceGuard.agenticdesign 1`] = `
+{
+  "findings": [
+    "INFO [Log In] PaceGuard Mark starts at x=32 while this project's screen padding is 28.",
+    "INFO [Log In] Brand's box is 238pt for 70pt of text.",
+    "INFO [Log In] Welcome Title's box is 326pt for 208pt of text.",
+    "INFO [Log In] Forgot Password starts at x=198 while this project's screen padding is 28.",
+    "INFO [Log In] Forgot Password uses an off-scale inset (198pt).",
+    "WARNING [Log In] Forgot Password is 32pt tall — below the 44pt minimum tap target.",
+    "INFO [Log In] Or Label starts at x=32 while this project's screen padding is 28.",
+    "INFO [Log In] Or Label's box is 180pt for 123pt of text.",
+    "WARNING [Log In] Security Note has 4.2:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Log In] Welcome Title Line 2's box is 326pt for 228pt of text.",
+    "INFO [Log In] 6 vertical gaps are off the spacing scale (54, 34, 10, 28pt).",
+    "INFO [Sign Up] Sign Up Title's box is 326pt for 247pt of text.",
+    "INFO [Sign Up] Terms Check starts at x=32 while this project's screen padding is 28.",
+    "INFO [Sign Up] Terms Text's box is 294pt for 263pt of text.",
+    "WARNING [Sign Up] Sign Up Firebase Note has 4.2:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Sign Up] Sign Up Firebase Note's box is 326pt for 299pt of text.",
+    "INFO [Sign Up] 6 vertical gaps are off the spacing scale (22, 6, 34, 22pt).",
+    "INFO [Home] Home Eyebrow's box is 220pt for 74pt of text.",
+    "INFO [Home] Live Hint's box is 334pt for 297pt of text.",
+    "INFO [Home] Recent Title's box is 200pt for 104pt of text.",
+    "INFO [Home] 4 vertical gaps are off the spacing scale (26, 26, 62, 10pt).",
+    "WARNING [Home] 1 label(s) are likely truncated at render time: Your first run will appear here.",
+    "INFO [Live Run] Live Title's box is 220pt for 58pt of text.",
+    "INFO [Live Run] Elapsed Time's box is 334pt for 150pt of text.",
+    "INFO [Live Run] Elapsed Label's box is 334pt for 68pt of text.",
+    "INFO [Live Run] Distance KM's box is 128pt for 79pt of text.",
+    "INFO [Live Run] Distance Unit's box is 128pt for 57pt of text.",
+    "INFO [Live Run] Live Speed KMH's box is 128pt for 59pt of text.",
+    "INFO [Live Run] Speed Unit's box is 128pt for 51pt of text.",
+    "INFO [Live Run] Route Placeholder's box is 334pt for 211pt of text.",
+    "INFO [Live Run] Watch Sync's box is 334pt for 287pt of text.",
+    "INFO [Live Run] 7 vertical gaps are off the spacing scale (37, 28, 10, 42pt).",
+    "INFO [Run History] History Title's box is 334pt for 194pt of text.",
+    "INFO [Run History] History Total's box is 334pt for 60pt of text.",
+    "INFO [Run History] History Run 1 Title's box is 220pt for 26pt of text.",
+    "INFO [Run History] History Run 1 Meta's box is 260pt for 182pt of text.",
+    "INFO [Run History] History Run 2 Title starts at x=48 while this project's screen padding is 28.",
+    "INFO [Run History] History Run 2 Title's box is 220pt for 114pt of text.",
+    "INFO [Run History] History Run 2 Meta starts at x=48 while this project's screen padding is 28.",
+    "INFO [Run History] History Run 2 Meta's box is 260pt for 162pt of text.",
+    "INFO [Run History] History Run 2 Stats starts at x=48 while this project's screen padding is 28.",
+    "INFO [Run History] History Run 2 Stats's box is 276pt for 223pt of text.",
+    "INFO [Run History] History Run 3 Title starts at x=48 while this project's screen padding is 28.",
+    "INFO [Run History] History Run 3 Title's box is 220pt for 79pt of text.",
+    "INFO [Run History] History Run 3 Meta starts at x=48 while this project's screen padding is 28.",
+    "INFO [Run History] History Run 3 Meta's box is 260pt for 162pt of text.",
+    "INFO [Run History] History Run 3 Stats starts at x=48 while this project's screen padding is 28.",
+    "INFO [Run History] History Run 3 Stats's box is 276pt for 223pt of text.",
+    "WARNING [Run History] Firebase History Note has 4.2:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Run History] Firebase History Note's box is 334pt for 287pt of text.",
+    "INFO [Run History] 5 vertical gaps are off the spacing scale (18, 26, 52, 52pt).",
+    "WARNING [Run History] 1 label(s) are likely truncated at render time: {{run.distanceKm}} km   •   {{run.averageSpeedKmh}} km/h   •   {{run.heartRateBpm}} bpm.",
+    "INFO [Run Summary] Summary Title's box is 334pt for 229pt of text.",
+    "INFO [Run Summary] Summary Subtitle's box is 334pt for 203pt of text.",
+    "INFO [Run Summary] Summary Distance's box is 334pt for 130pt of text.",
+    "WARNING [Run Summary] Save Status has 4.2:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Run Summary] 6 vertical gaps are off the spacing scale (18, 30, 28, 26pt).",
+    "INFO [Alerts and Settings] Settings Title's box is 334pt for 265pt of text.",
+    "INFO [Alerts and Settings] Safety Section's box is 334pt for 74pt of text.",
+    "INFO [Alerts and Settings] High Speed Threshold's box is 88pt for 14pt of text.",
+    "INFO [Alerts and Settings] High Speed Detail's box is 210pt for 137pt of text.",
+    "INFO [Alerts and Settings] Low Pace Threshold's box is 88pt for 7pt of text.",
+    "INFO [Alerts and Settings] Pace Warning Detail's box is 210pt for 124pt of text.",
+    "INFO [Alerts and Settings] Distance Milestone's box is 100pt for 7pt of text.",
+    "INFO [Alerts and Settings] Permissions Section's box is 334pt for 131pt of text.",
+    "INFO [Alerts and Settings] Watch Status's box is 334pt for 212pt of text.",
+    "INFO [Alerts and Settings] 4 vertical gaps are off the spacing scale (22, 2, 2, 34pt).",
+    "INFO [Apple Watch Runner] Watch Status starts at x=15 while this project's screen padding is 28.",
+    "INFO [Apple Watch Runner] Watch Status uses an off-scale inset (15pt).",
+    "INFO [Apple Watch Runner] Watch Status's box is 168pt for 84pt of text.",
+    "INFO [Apple Watch Runner] Watch Distance KM starts at x=15 while this project's screen padding is 28.",
+    "INFO [Apple Watch Runner] Watch Distance KM uses an off-scale inset (15pt).",
+    "INFO [Apple Watch Runner] Watch Speed KMH's box is 76pt for 34pt of text.",
+    "INFO [Apple Watch Runner] Watch Speed Unit's box is 76pt for 16pt of text.",
+    "INFO [Apple Watch Runner] Watch Elapsed starts at x=15 while this project's screen padding is 28.",
+    "INFO [Apple Watch Runner] Watch Elapsed uses an off-scale inset (15pt).",
+    "INFO [Apple Watch Runner] Watch Elapsed's box is 168pt for 62pt of text.",
+    "INFO [Apple Watch Runner] Watch Heart Rate starts at x=15 while this project's screen padding is 28.",
+    "INFO [Apple Watch Runner] Watch Heart Rate uses an off-scale inset (15pt).",
+    "INFO [Apple Watch Runner] Watch Heart Rate's box is 168pt for 58pt of text.",
+    "WARNING [Apple Watch Runner] Watch Pause Run is 42pt tall — below the 44pt minimum tap target.",
+    "WARNING [Apple Watch Runner] Watch Finish Run is 42pt tall — below the 44pt minimum tap target.",
+    "INFO [Apple Watch Runner] Watch Alert Hint starts at x=15 while this project's screen padding is 28.",
+    "INFO [Apple Watch Runner] Watch Alert Hint uses an off-scale inset (15pt).",
+    "INFO [Apple Watch Runner] Watch Alert Hint's box is 168pt for 112pt of text.",
+    "INFO [Apple Watch Runner] Watch Start Run starts at x=15 while this project's screen padding is 28.",
+    "INFO [Apple Watch Runner] Watch Start Run uses an off-scale inset (15pt).",
+    "WARNING [Apple Watch Runner] Watch Start Run is 42pt tall — below the 44pt minimum tap target.",
+    "INFO [Apple Watch Runner] 4 vertical gaps are off the spacing scale (10, 5, 2, 18pt).",
+    "INFO [Sign Up] Nothing anywhere in the design points to Sign Up.",
+    "INFO [Home] Nothing anywhere in the design points to Home.",
+    "INFO [Alerts and Settings] Nothing anywhere in the design points to Alerts and Settings.",
+  ],
+  "score": 30,
+}
+`;
+
+exports[`DesignQualityAudit over the sample projects > scores PaceGuard.agenticdesign 2`] = `
+"Reference design score: 30/100 — REFERENCE BAR NOT MET
+Design check: 0 blocker(s), 10 warning(s), 82 note(s).
+  WARNING [Log In] Forgot Password is 32pt tall — below the 44pt minimum tap target. → resizeNode it to at least 44pt high.
+  WARNING [Log In] Security Note has 4.2:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  WARNING [Sign Up] Sign Up Firebase Note has 4.2:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  WARNING [Home] 1 label(s) are likely truncated at render time: Your first run will appear here. → Give the label its full row width, fit the font, or explicitly wrap to two lines; an ellipsis in a primary title is not acceptable.
+  WARNING [Run History] Firebase History Note has 4.2:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  WARNING [Run History] 1 label(s) are likely truncated at render time: {{run.distanceKm}} km   •   {{run.averageSpeedKmh}} km/h   •   {{run.heartRateBpm}} bpm. → Give the label its full row width, fit the font, or explicitly wrap to two lines; an ellipsis in a primary title is not acceptable.
+  WARNING [Run Summary] Save Status has 4.2:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  WARNING [Apple Watch Runner] Watch Pause Run is 42pt tall — below the 44pt minimum tap target. → resizeNode it to at least 44pt high.
+  …and 84 more."
+`;
+
+exports[`DesignQualityAudit over the sample projects > scores SavedProjects/WaltDelivery-MusicApp-FullLogic.agenticdesign 1`] = `
+{
+  "findings": [
+    "INFO [Music App - Home] Greeting's box is 240pt for 174pt of text.",
+    "WARNING [Music App - Home] Chip Playlists is 36pt tall — below the 44pt minimum tap target.",
+    "WARNING [Music App - Home] Chip Artists is 36pt tall — below the 44pt minimum tap target.",
+    "WARNING [Music App - Home] Chip Podcasts is 36pt tall — below the 44pt minimum tap target.",
+    "INFO [Music App - Home] Section Recent's box is 250pt for 156pt of text.",
+    "INFO [Music App - Home] Album 1 Title's box is 110pt for 68pt of text.",
+    "INFO [Music App - Home] Album 1 Artist's box is 110pt for 72pt of text.",
+    "INFO [Music App - Home] Album 2 Title's box is 110pt for 49pt of text.",
+    "INFO [Music App - Home] Album 2 Artist's box is 110pt for 57pt of text.",
+    "INFO [Music App - Home] Album 3 Title's box is 110pt for 31pt of text.",
+    "INFO [Music App - Home] Album 3 Artist's box is 110pt for 52pt of text.",
+    "INFO [Music App - Home] Section MadeForYou's box is 250pt for 124pt of text.",
+    "INFO [Music App - Home] Daily Mix Title's box is 200pt for 137pt of text.",
+    "INFO [Music App - Home] Daily Mix Sub's box is 220pt for 143pt of text.",
+    "INFO [Music App - Home] Section Library's box is 200pt for 124pt of text.",
+    "INFO [Music App - Home] Lib Row 1 Title's box is 200pt for 80pt of text.",
+    "INFO [Music App - Home] Lib Row 1 Sub's box is 200pt for 51pt of text.",
+    "INFO [Music App - Home] Lib Row 2 Title's box is 200pt for 72pt of text.",
+    "INFO [Music App - Home] Lib Row 2 Sub's box is 200pt for 45pt of text.",
+    "INFO [Music App - Home] Now Playing Bar starts at x=16 while this project's screen padding is 24.",
+    "INFO [Music App - Home] 8 vertical gaps are off the spacing scale (22, 2, 26, 10pt).",
+    "BLOCKER [Walt Delivery - Home] Text has 2.9:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "BLOCKER [Walt Delivery - Home] Text has 2.6:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "BLOCKER [Walt Delivery - Home] Text has 2.9:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Home] Text's box is 190pt for 159pt of text.",
+    "BLOCKER [Walt Delivery - Home] Text has 1.8:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Home] Text's box is 160pt for 135pt of text.",
+    "BLOCKER [Walt Delivery - Home] Text has 1.7:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Home] Text's box is 52pt for 27pt of text.",
+    "WARNING [Walt Delivery - Home] Text has 3.7:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Home] Text's box is 54pt for 21pt of text.",
+    "INFO [Walt Delivery - Home] Text's box is 82pt for 50pt of text.",
+    "INFO [Walt Delivery - Home] Text's box is 68pt for 36pt of text.",
+    "INFO [Walt Delivery - Home] Text's box is 78pt for 36pt of text.",
+    "BLOCKER [Walt Delivery - Home] Text has 2.7:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Home] Text's box is 160pt for 135pt of text.",
+    "INFO [Walt Delivery - Home] Text's box is 150pt for 99pt of text.",
+    "INFO [Walt Delivery - Home] Bottom Nav starts at x=16 while this project's screen padding is 24.",
+    "INFO [Walt Delivery - Home] 8 vertical gaps are off the spacing scale (2, 21, 53, 36pt).",
+    "INFO [Walt Delivery - Home] The screen uses 9 font sizes (12, 13, 14, 15, 16, 17, 20, 22, 31pt).",
+    "WARNING [Walt Delivery - Home] 2 label(s) are likely truncated at render time: Search restaurants or dishes, 4.8 • Free delivery.",
+    "WARNING [Walt Delivery - Home] This task state has no visible action button for its next step.",
+    "WARNING [Walt Delivery - Home] Interface chrome uses 11 saturated colours; the references use one brand accent plus semantic colours.",
+    "INFO [Walt Delivery - Home] The screen uses 8 different corner radii.",
+    "WARNING [Walt Delivery - Home] 5 fixed element(s) overlap the bottom navigation region.",
+    "INFO [Walt Delivery - Explore] Text's box is 140pt for 112pt of text.",
+    "WARNING [Walt Delivery - Explore] Text has 3.7:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Explore] Text's box is 150pt for 114pt of text.",
+    "BLOCKER [Walt Delivery - Explore] Text has 1.0:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Explore] Text's box is 86pt for 54pt of text.",
+    "INFO [Walt Delivery - Explore] Text's box is 150pt for 101pt of text.",
+    "BLOCKER [Walt Delivery - Explore] Text has 2.9:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Explore] Rectangle starts at x=16 while this project's screen padding is 24.",
+    "INFO [Walt Delivery - Explore] 7 vertical gaps are off the spacing scale (34, 47, 18, 18pt).",
+    "WARNING [Walt Delivery - Explore] 1 label(s) are likely truncated at render time: Fresh market picks.",
+    "WARNING [Walt Delivery - Explore] Visible copy contains ellipsis truncation: Pizza, groceries, coffee....",
+    "WARNING [Walt Delivery - Explore] This task state has no visible action button for its next step.",
+    "WARNING [Walt Delivery - Explore] Interface chrome uses 12 saturated colours; the references use one brand accent plus semantic colours.",
+    "INFO [Walt Delivery - Explore] The screen uses 7 different corner radii.",
+    "INFO [Walt Delivery - Orders] Text's box is 130pt for 96pt of text.",
+    "BLOCKER [Walt Delivery - Orders] Text has 2.9:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Orders] Text's box is 130pt for 93pt of text.",
+    "BLOCKER [Walt Delivery - Orders] Text has 2.6:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "BLOCKER [Walt Delivery - Orders] Text has 2.9:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Orders] Text's box is 120pt for 81pt of text.",
+    "INFO [Walt Delivery - Orders] Text's box is 120pt for 66pt of text.",
+    "INFO [Walt Delivery - Orders] Text's box is 140pt for 112pt of text.",
+    "BLOCKER [Walt Delivery - Orders] Text has 1.0:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Orders] Text's box is 60pt for 33pt of text.",
+    "INFO [Walt Delivery - Orders] Rectangle starts at x=16 while this project's screen padding is 24.",
+    "INFO [Walt Delivery - Orders] Scroll Hint Orders's box is 150pt for 124pt of text.",
+    "INFO [Walt Delivery - Orders] 7 vertical gaps are off the spacing scale (2, 28, 22, 10pt).",
+    "WARNING [Walt Delivery - Orders] 1 label(s) are likely truncated at render time: Track deliveries and reorder favorites.",
+    "WARNING [Walt Delivery - Orders] This task state has no visible action button for its next step.",
+    "INFO [Walt Delivery - Orders] The palette has 7 saturated interface colours.",
+    "INFO [Walt Delivery - Orders] The screen uses 7 different corner radii.",
+    "BLOCKER [Walt Delivery - Profile] Text has 2.9:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Profile] Text's box is 160pt for 102pt of text.",
+    "BLOCKER [Walt Delivery - Profile] Text has 1.8:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "BLOCKER [Walt Delivery - Profile] Text has 1.0:1 contrast against its background — WCAG AA needs 4.5:1.",
+    "INFO [Walt Delivery - Profile] Text's box is 54pt for 27pt of text.",
+    "INFO [Walt Delivery - Profile] Text's box is 100pt for 62pt of text.",
+    "INFO [Walt Delivery - Profile] Text's box is 100pt for 68pt of text.",
+    "INFO [Walt Delivery - Profile] Text's box is 110pt for 74pt of text.",
+    "INFO [Walt Delivery - Profile] Text's box is 100pt for 74pt of text.",
+    "INFO [Walt Delivery - Profile] Text's box is 160pt for 117pt of text.",
+    "INFO [Walt Delivery - Profile] Text's box is 160pt for 101pt of text.",
+    "INFO [Walt Delivery - Profile] Text's box is 160pt for 85pt of text.",
+    "INFO [Walt Delivery - Profile] Rectangle starts at x=16 while this project's screen padding is 24.",
+    "INFO [Walt Delivery - Profile] 9 vertical gaps are off the spacing scale (38, 58, 10, 2pt).",
+    "WARNING [Walt Delivery - Profile] This task state has no visible action button for its next step.",
+    "INFO [Walt Delivery - Profile] The screen uses 9 different corner radii.",
+  ],
+  "score": 0,
+}
+`;
+
+exports[`DesignQualityAudit over the sample projects > scores SavedProjects/WaltDelivery-MusicApp-FullLogic.agenticdesign 2`] = `
+"Reference design score: 0/100 — REFERENCE BAR NOT MET
+Design check: 15 blocker(s), 16 warning(s), 61 note(s).
+  BLOCKER [Walt Delivery - Home] Text has 2.9:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  BLOCKER [Walt Delivery - Home] Text has 2.6:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  BLOCKER [Walt Delivery - Home] Text has 2.9:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  BLOCKER [Walt Delivery - Home] Text has 1.8:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  BLOCKER [Walt Delivery - Home] Text has 1.7:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  BLOCKER [Walt Delivery - Home] Text has 2.7:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  BLOCKER [Walt Delivery - Explore] Text has 1.0:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  BLOCKER [Walt Delivery - Explore] Text has 2.9:1 contrast against its background — WCAG AA needs 4.5:1. → Lighten or darken the text colour (updateStyle textColor).
+  …and 84 more."
+`;
+
+exports[`ExportReadiness over the sample projects > audits Looply.agenticdesign 1`] = `[]`;
+
+exports[`ExportReadiness over the sample projects > audits Looply.agenticdesign 2`] = `"READY — every flow is bound, every block has a native implementation, and backends are configured."`;
+
+exports[`ExportReadiness over the sample projects > audits PaceGuard.agenticdesign 1`] = `
+[
+  "BLOCKER Firebase flows exist, but Firebase is not configured",
+  "INFO 3 sensor block(s) will read real hardware",
+  "INFO Apple Watch: use export_xcode_project for a real watch app",
+]
+`;
+
+exports[`ExportReadiness over the sample projects > audits PaceGuard.agenticdesign 2`] = `
+"NOT A WORKING APP — 1 blocker(s). The screens promise more than the binary can do.
+
+[BLOCKER] Firebase flows exist, but Firebase is not configured
+  No project credentials, so no GoogleService-Info.plist can be generated and FirebaseApp.configure() traps at launch. Call set_firebase_config with the Firebase console's projectId / apiKey / appId / messagingSenderId (Project settings ▸ your iOS app), then re-export — the plist is then written into the app target for you.
+
+[INFO] 3 sensor block(s) will read real hardware
+  Location uses CLLocation.distance with accuracy/jitter filtering; Health uses HealthKit. The Mac preview shows sample values — only a physical device proves them.
+
+[INFO] Apple Watch: use export_xcode_project for a real watch app
+  export_xcode_project produces a genuine watchOS App target (WatchWorkoutService — HKWorkoutSession + live heart rate — and PhoneWatchSync) embedded into the iPhone app; both targets build and the watch app runs on a watch. The SwiftPM export (export_ios_source) CANNOT build a watch bundle — there the watch screens only run inside the phone app. Pick the Xcode export to ship the watch."
+`;
+
+exports[`ExportReadiness over the sample projects > audits SavedProjects/WaltDelivery-MusicApp-FullLogic.agenticdesign 1`] = `
+[
+  "BLOCKER 1 flow(s) will NOT be in the exported app",
+  "BLOCKER 3 block(s) have no native implementation",
+  "WARNING 1 screen(s) show hardcoded data as if it were real",
+  "WARNING Project is still called "Untitled Project"",
+]
+`;
+
+exports[`ExportReadiness over the sample projects > audits SavedProjects/WaltDelivery-MusicApp-FullLogic.agenticdesign 2`] = `
+"NOT A WORKING APP — 2 blocker(s). The screens promise more than the binary can do.
+
+[BLOCKER] 1 flow(s) will NOT be in the exported app
+  These flows have no trigger bound to a screen or element, so the exporter drops them — they run in the preview and are absent from the binary: Music Home Welcome. Bind each one's trigger to a button or screen.
+
+[BLOCKER] 3 block(s) have no native implementation
+  They do nothing in the exported app: Walt App Interactions → Scroll Restaurants Right, Walt App Interactions → Scroll Categories Right, Walt App Interactions → Scroll Orders Down.
+
+[WARNING] 1 screen(s) show hardcoded data as if it were real
+  Walt Delivery - Orders display numbers that are baked into the design and never come from a variable or the backend. An honest empty state beats invented user data.
+
+[WARNING] Project is still called "Untitled Project"
+  The bundle identifier and app name are derived from this — set a real product name before shipping."
+`;

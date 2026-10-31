@@ -1,0 +1,504 @@
+{
+  "apiEndpoints" : [
+
+  ],
+  "globalVariables" : [
+
+  ],
+  "name" : "Untitled Project",
+  "pages" : [
+    {
+      "id" : "2CB8C07B-4508-4B30-AF27-6EB512842656",
+      "logicFlows" : [
+
+      ],
+      "name" : "App Screens",
+      "nodes" : [
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "clipContent" : true,
+              "contentMode" : "fill",
+              "height" : 1800,
+              "id" : "8AE6C69E-BB85-4266-BCB0-BE7002D47AB9",
+              "imageName" : "\/Users\/ariel\/Documents\/XcodeApps\/AgenticDesigner\/AgenticDesigner\/Assets\/Studio\/mizmor-background-100x180cm-150dpi.png",
+              "imageSource" : "\/Users\/ariel\/Documents\/XcodeApps\/AgenticDesigner\/AgenticDesigner\/Assets\/Studio\/mizmor-background-100x180cm-150dpi.png",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Background",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFDF8",
+                "opacity" : 1
+              },
+              "type" : "Image",
+              "width" : 1000,
+              "x" : 0,
+              "y" : 0,
+              "zIndex" : -100
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "8848EB38-C4DB-476A-84CF-5D415A076A6D",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Letodah Line 1",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#111827"
+              },
+              "text" : "  מִזְמוֹר לְתוֹדָה:    ",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 86.2077229954196,
+              "y" : 240.31201334665275,
+              "zIndex" : 10
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "98EC9864-2F29-4585-A76F-703C4B2BB73E",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Letodah Line 2",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#111827"
+              },
+              "text" : "  הָרִיעוּ לַיהוָה, כָּל־הָאָרֶץ.",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 86.68981683518979,
+              "y" : 364.3641678311724,
+              "zIndex" : 10
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "AA46E8DC-2433-4140-8AD7-4F37AD3DC331",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Letodah Line 3",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#111827"
+              },
+              "text" : "  עִבְדוּ אֶת־יְהוָה בְּשִׂמְחָה   ",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 86.68981683518979,
+              "y" : 489.3641678311724,
+              "zIndex" : 10
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "4D01CA5D-5C8B-4980-BE89-7CE31F6A0071",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Letodah Line 4",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#111827"
+              },
+              "text" : "  בֹּאוּ לְפָנָיו, בִּרְנָנָה.",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 86.68981683518979,
+              "y" : 614.3641678311724,
+              "zIndex" : 10
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "E5B2FF8B-6BEA-458A-9FD1-B4A556B9A237",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Letodah Line 5",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#111827"
+              },
+              "text" : "  דְּעוּ כִּי יְהוָה, הוּא אֱלֹהִים:",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 86.68981683518979,
+              "y" : 739.3641678311724,
+              "zIndex" : 10
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "CFBC41B5-4EDE-4E0F-B105-B85943B325E7",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Letodah Line 6",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#111827"
+              },
+              "text" : "  הוּא־עָשָׂנוּ, ולא אֲנַחְנוּ",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 86.68981683518979,
+              "y" : 864.3641678311724,
+              "zIndex" : 10
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "9BC7A3C9-F7DB-4878-BDF4-D5F3F241EFB2",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Letodah Line 7",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#111827"
+              },
+              "text" : "  עַמּוֹ, וְצֹאן מַרְעִיתוֹ.",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 86.68981683518979,
+              "y" : 989.3641678311724,
+              "zIndex" : 10
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "F2B134CC-5CC6-4C14-8082-9748F70526C1",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Letodah Line 8",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#111827"
+              },
+              "text" : "  בֹּאוּ שְׁעָרָיו, בְּתוֹדָה",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 86.68981683518979,
+              "y" : 1114.3641678311724,
+              "zIndex" : 10
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "1D45CE33-2262-4779-BEAF-A634466BDE9C",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Letodah Line 9",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#111827"
+              },
+              "text" : "  חֲצֵרֹתָיו בִּתְהִלָּה  ",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 86.68981683518979,
+              "y" : 1239.3641678311724,
+              "zIndex" : 10
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "C9184CEA-B026-4237-BEB8-D6C95E5A5CFD",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Letodah Line 10",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#111827"
+              },
+              "text" : "  הוֹדוּ־לוֹ, בָּרְכוּ שְׁמוֹ.",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 86.68981683518979,
+              "y" : 1364.7730423181092,
+              "zIndex" : 10
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "A7E7F9D6-6E6C-4986-A716-FAEB15780C28",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Letodah Line 11",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#111827"
+              },
+              "text" : "  כִּי־טוֹב יְהוָה, לְעוֹלָם חַסְדּוֹ  ",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 86.68981683518979,
+              "y" : 1489.3641678311724,
+              "zIndex" : 10
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "592849EE-5603-4E5F-8B93-E2F79785DAA0",
+              "manuallyPositioned" : true,
+              "name" : "Mizmor Letodah Line 12",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "center",
+                "textColor" : "#111827"
+              },
+              "text" : "  וְעַד־דֹּר וָדֹר, אֱמוּנָתוֹ.",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 86.68981683518979,
+              "y" : 1614.3641678311724,
+              "zIndex" : 10
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 110,
+              "id" : "5DF06475-EF0A-4AD6-9866-28DBBE9DC60F",
+              "name" : "Mizmor Letodah Line 13",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#111827",
+                "fontFamily" : "Arial Hebrew",
+                "fontSize" : 56,
+                "fontWeight" : "regular",
+                "letterSpacing" : 0,
+                "lineHeight" : 125,
+                "opacity" : 1,
+                "textAlign" : "right",
+                "textColor" : "#111827"
+              },
+              "text" : " ",
+              "textBehavior" : {
+                "autoHeight" : false,
+                "maxLines" : 1,
+                "truncate" : false,
+                "wrap" : false
+              },
+              "type" : "Text",
+              "width" : 860,
+              "x" : 70,
+              "y" : 1590,
+              "zIndex" : 10
+            }
+          ],
+          "clipContent" : true,
+          "height" : 1800,
+          "id" : "788924AF-F590-4E33-A670-0A8B844BC4A2",
+          "name" : "Mizmor Letodah 100x180cm",
+          "style" : {
+            "cornerRadius" : 0,
+            "fill" : "#FFFDF8",
+            "opacity" : 1,
+            "shadow" : {
+              "color" : "#0F172A",
+              "opacity" : 0.1,
+              "radius" : 10,
+              "x" : 0,
+              "y" : 6
+            },
+            "stroke" : "#D8CDBB",
+            "strokeWidth" : 1
+          },
+          "type" : "Frame",
+          "width" : 1000,
+          "x" : 120,
+          "y" : 100
+        }
+      ]
+    }
+  ],
+  "platformSettings" : {
+    "defaultPreviewPlatform" : "iPhone",
+    "enabledPlatforms" : [
+      "iPhone",
+      "iPad"
+    ]
+  }
+}

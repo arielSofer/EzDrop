@@ -1,0 +1,210 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LogicWebCompiler.compile > runtime() is the fixed interpreter 1`] = `
+"(function () {
+  // The program is read from a JSON <script> block, not spliced into
+  // executable JS. A toast/variable/table value containing
+  // "</script><img onerror=...>" (LLM-authored from a user prompt)
+  // would otherwise close the script tag and run as HTML — with the
+  // Supabase anon key sitting in the same object.
+  const APP = JSON.parse(document.getElementById('app-data').textContent);
+  const state = Object.assign({}, APP.state);
+  const history = [];
+  let current = APP.firstScreen;
+
+  const $screens = () => document.querySelectorAll('.screen');
+  const byNode = (id) => document.querySelector('[data-node-id="' + id + '"]');
+
+  function truthy(v) { return !(v === undefined || v === null || v === false || v === 0 || v === '' || v === 'false'); }
+
+  function resolve(token) {
+    if (token === undefined || token === null) return '';
+    if (typeof token === 'string' && Object.prototype.hasOwnProperty.call(state, token)) return state[token];
+    return token;
+  }
+
+  function compare(left, op, right) {
+    const l = resolve(left), r = resolve(right);
+    switch (op) {
+      case 'equals': return String(l) === String(r);
+      case 'notEquals': return String(l) !== String(r);
+      case 'greaterThan': return parseFloat(l) > parseFloat(r);
+      case 'lessThan': return parseFloat(l) < parseFloat(r);
+      case 'greaterOrEqual': return parseFloat(l) >= parseFloat(r);
+      case 'lessOrEqual': return parseFloat(l) <= parseFloat(r);
+      case 'contains': return String(l).includes(String(r));
+      case 'isEmpty': return !truthy(l);
+      case 'isNotEmpty': return truthy(l);
+      case 'isFalse': return !truthy(l);
+      default: return truthy(l);
+    }
+  }
+
+  function showScreen(id) {
+    if (!id) return;
+    current = id;
+    $screens().forEach(el => el.classList.toggle('hidden', el.dataset.screenId !== id));
+    document.querySelectorAll('.screen-nav button').forEach(b =>
+      b.classList.toggle('active', b.dataset.goto === id));
+    render();
+    const load = APP.screenLoads[id];
+    if (load) run(load);
+  }
+
+  function toast(message) {
+    const el = document.getElementById('toast');
+    el.textContent = message;
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(() => el.classList.remove('show'), 1800);
+  }
+
+  // --- backend -------------------------------------------------
+  const SB = APP.supabase;
+
+  function sbHeaders(auth) {
+    const h = { 'apikey': SB.key, 'Content-Type': 'application/json' };
+    h['Authorization'] = 'Bearer ' + (auth || SB.key);
+    return h;
+  }
+
+  // A field's live text beats a static parameter: "email" usually means
+  // "whatever the user just typed", not a literal.
+  function fieldOr(token) {
+    const v = resolve(token);
+    if (typeof v === 'string' && v.startsWith('#')) {
+      const el = document.querySelector('[data-node-id="' + v.slice(1) + '"]');
+      if (el && 'value' in el) return el.value;
+    }
+    return v;
+  }
+
+  async function backend(s) {
+    if (!SB) { toast('Backend not configured'); return; }
+    try {
+      if (s.t === 'auth') {
+        const path = s.mode === 'signup' ? '/auth/v1/signup' : '/auth/v1/token?grant_type=password';
+        const res = await fetch(SB.url + path, {
+          method: 'POST', headers: sbHeaders(),
+          body: JSON.stringify({ email: fieldOr(s.email), password: fieldOr(s.password) })
+        });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.access_token) {
+          state[s.session] = json.access_token;
+          toast(s.mode === 'signup' ? 'Account created' : 'Signed in');
+        } else {
+          toast(json.error_description || json.msg || 'Auth failed');
+        }
+        render();
+      } else if (s.t === 'signout') {
+        state[s.session] = '';
+        toast('Signed out');
+        render();
+      } else if (s.t === 'currentUser') {
+        const res = await fetch(SB.url + '/auth/v1/user', { headers: sbHeaders(state[s.session]) });
+        state[s.into] = await res.json().catch(() => ({}));
+        render();
+      } else if (s.t === 'db') {
+        let url = SB.url + '/rest/v1/' + s.table;
+        const params = [];
+        if (s.filter) params.push(s.filter);
+        if (s.limit) params.push('limit=' + s.limit);
+        if (params.length) url += '?' + params.join('&');
+        const init = { method: s.method, headers: sbHeaders(state.session) };
+        if (s.method !== 'GET' && s.method !== 'DELETE') {
+          init.headers['Prefer'] = 'return=representation';
+          const body = {};
+          for (const k of Object.keys(s.data || {})) body[k] = fieldOr(s.data[k]);
+          init.body = JSON.stringify(body);
+        }
+        const res = await fetch(url, init);
+        const json = await res.json().catch(() => null);
+        if (s.into) state[s.into] = json;
+        if (!res.ok) toast('Request failed (' + res.status + ')');
+        render();
+      } else if (s.t === 'http') {
+        const init = { method: s.method || 'GET' };
+        if (s.body) { init.headers = { 'Content-Type': 'application/json' }; init.body = s.body; }
+        const res = await fetch(String(resolve(s.url)), init);
+        state[s.into] = await res.json().catch(() => null);
+        render();
+      }
+    } catch (e) {
+      console.error(e);
+      toast('Network error');
+    }
+  }
+
+  async function run(steps) {
+    for (const s of steps || []) {
+      switch (s.t) {
+        case 'auth': case 'signout': case 'currentUser':
+        case 'db': case 'http': await backend(s); break;
+        case 'nav': history.push(current); showScreen(s.screen); break;
+        case 'back': showScreen(history.pop() || APP.firstScreen); break;
+        case 'set': state[s.var] = resolve(s.value); render(); break;
+        case 'toggle': state[s.var] = !truthy(state[s.var]); render(); break;
+        case 'add': state[s.var] = (parseFloat(state[s.var]) || 0) + s.by; render(); break;
+        case 'toast': toast(String(resolve(s.msg))); break;
+        case 'alert': alert(String(resolve(s.msg))); break;
+        case 'open': if (s.url) window.open(s.url, '_blank'); break;
+        case 'copy': navigator.clipboard && navigator.clipboard.writeText(String(resolve(s.text))); break;
+        case 'delay': await new Promise(r => setTimeout(r, s.ms)); break;
+        case 'log': console.log(resolve(s.msg)); break;
+        case 'clear': { const el = byNode(s.node); if (el) el.value = ''; break; }
+        case 'if': await run(compare(s.left, s.op, s.right) ? s.then : s.else); break;
+      }
+    }
+  }
+
+  function render() {
+    for (const b of APP.bindings) {
+      const el = byNode(b.node);
+      if (!el) continue;
+      const value = state[b.var];
+      const on = b.cond ? compare(b.cond.left, b.cond.op, b.cond.right) : truthy(value);
+      switch (b.kind) {
+        case 'text': if (value !== undefined) el.textContent = String(value); break;
+        case 'value': if (value !== undefined) el.value = String(value); break;
+        case 'visibility': el.style.display = on ? '' : 'none'; break;
+        case 'enabled': el.disabled = !on; el.style.opacity = on ? '' : '0.5'; break;
+        case 'isOn': {
+          // A toggle knob should physically slide and its track tint —
+          // fading it would read as "disabled", not "off". Travel is
+          // baked in at export (hidden screens measure as 0 wide).
+          el.dataset.on = on ? '1' : '0';
+          const travel = (typeof b.travel === 'number' && b.travel > 0) ? b.travel : 24;
+          el.style.transition = 'transform .18s ease';
+          el.style.transform = on ? 'translateX(' + travel + 'px)' : 'translateX(0px)';
+          const track = el.parentElement;
+          if (track) {
+            track.style.transition = 'background-color .18s ease';
+            track.style.backgroundColor = on ? '#34D399' : '#D8DCE3';
+          }
+          break;
+        }
+      }
+    }
+  }
+
+  function wire() {
+    for (const nodeId of Object.keys(APP.taps)) {
+      const el = byNode(nodeId);
+      if (!el) continue;
+      el.setAttribute('data-tap', '1');
+      el.addEventListener('click', (e) => { e.preventDefault(); run(APP.taps[nodeId]); });
+    }
+    document.querySelectorAll('.screen-nav button').forEach(b =>
+      b.addEventListener('click', () => showScreen(b.dataset.goto)));
+  }
+
+  document.addEventListener('DOMContentLoaded', () => { wire(); showScreen(APP.firstScreen); });
+  if (document.readyState !== 'loading') { wire(); showScreen(APP.firstScreen); }
+})();"
+`;
+
+exports[`compiled output for the sample projects > matches the snapshot for Looply.agenticdesign 1`] = `"<script id="app-data" type="application/json">{"state":{"currentLevel":"1","maxShots":4,"shotsUsed":0,"shotsLeft":4,"targetsLeft":0,"gravityMode":"down","level2Unlocked":false,"level3Unlocked":false,"stars1":0,"stars2":0,"stars3":0,"stars1Text":"☆ ☆ ☆","stars2Text":"☆ ☆ ☆","stars3Text":"☆ ☆ ☆","earnedStars":0,"totalScratch":0,"totalStars":0,"totalStarsText":"0 / 9","runScore":0,"resultTitle":"RIFT REPORT","resultStarsText":"☆ ☆ ☆","resultWon":false,"campaignComplete":false,"gameScore":0,"gameTapX":0,"gameTapY":0,"gameOver":false,"gameWon":false,"feedPaused":false},"taps":{"1615CE12-9AE3-48FC-A21D-EF04107E76C6":[{"t":"nav","screen":"6098CCB2-80A6-4EAD-8FE2-052F34EAAA86"}],"00A4715F-B7A2-4503-84CD-B519C20379C0":[{"t":"nav","screen":"0E0270BD-EC27-4B64-A984-977371A2A9F7"}],"E84DD999-A94A-43BC-8F8A-8371AB8843A2":[{"t":"nav","screen":"588DC474-FF64-4D2D-B753-87266AC8A3A4"}],"E15AABA1-843E-433E-BB77-66EB2FC9B63A":[{"t":"nav","screen":"288ACA65-83A1-4FBB-B8D8-EBBB9D13509B"}],"2E778F6F-8A6F-4708-8920-CE411322A74D":[{"t":"nav","screen":"0E0270BD-EC27-4B64-A984-977371A2A9F7"}],"00F58993-928E-4B0D-B377-AD9252BDAC16":[{"t":"nav","screen":"588DC474-FF64-4D2D-B753-87266AC8A3A4"}],"49E74AA5-7A5F-45B8-9DBA-1D1B990D0750":[{"t":"nav","screen":"288ACA65-83A1-4FBB-B8D8-EBBB9D13509B"}],"768716C8-C0A4-4ED5-8E4C-3FB92DEA0C39":[{"t":"nav","screen":"6098CCB2-80A6-4EAD-8FE2-052F34EAAA86"}],"2F87F48B-666F-422F-9EF4-85757431A3F0":[{"t":"nav","screen":"588DC474-FF64-4D2D-B753-87266AC8A3A4"}],"706805A7-2A48-4DC0-9DEE-5396D6016BF4":[{"t":"nav","screen":"288ACA65-83A1-4FBB-B8D8-EBBB9D13509B"}],"8BFC2C08-8D24-4648-BC2A-75A80082F689":[{"t":"nav","screen":"6098CCB2-80A6-4EAD-8FE2-052F34EAAA86"}],"1BB87A6C-5AC9-4113-BCD2-35F781588E9F":[{"t":"nav","screen":"0E0270BD-EC27-4B64-A984-977371A2A9F7"}],"864B93BA-802C-4293-8D36-309DE65D1029":[{"t":"nav","screen":"6098CCB2-80A6-4EAD-8FE2-052F34EAAA86"}],"EF1E0DCB-9C46-4BB8-81C8-7C537BB73291":[{"t":"nav","screen":"61F7BD70-3DBA-4A8F-A800-F9F8AD5AA578"}],"88F5013E-2A4E-4962-AF72-F9677120222E":[{"t":"nav","screen":"0E0270BD-EC27-4B64-A984-977371A2A9F7"}],"04ADFFA8-77D5-432E-A4D9-92F1E315A70B":[{"t":"nav","screen":"588DC474-FF64-4D2D-B753-87266AC8A3A4"}],"BADEE956-2670-4DBB-B408-85EB7ADF0EF3":[{"t":"nav","screen":"6098CCB2-80A6-4EAD-8FE2-052F34EAAA86"}],"D73241C3-D426-4077-9E4E-B215EE7541C2":[],"EFBADB26-5256-4F73-89D8-2A92B6846E1B":[{"t":"toast","msg":"Following @maya.moves"}],"27764D97-B57B-4603-925A-9996FA8CE04B":[{"t":"toast","msg":"Comments opened"}],"4F507282-0BE5-400D-BA7D-38FB70B9F540":[],"350DF4F4-7633-47C7-AA5B-B1434B427E04":[{"t":"nav","screen":"288ACA65-83A1-4FBB-B8D8-EBBB9D13509B"}],"496623E6-12A1-4663-9089-C7B4286C72FC":[{"t":"nav","screen":"61F7BD70-3DBA-4A8F-A800-F9F8AD5AA578"}],"EE1B0218-369F-49E6-98D0-7A5482CD9CE5":[{"t":"nav","screen":"0E0270BD-EC27-4B64-A984-977371A2A9F7"}],"951466C4-49A9-4788-9490-16581ECFF5D9":[{"t":"nav","screen":"588DC474-FF64-4D2D-B753-87266AC8A3A4"}],"59F4B9D2-B1D6-40F2-8B75-917F0180010A":[{"t":"toast","msg":"Search ready"}],"0AFAD5EE-7461-42BA-82F9-32B9F0BEFD9A":[],"3003DB48-4BE0-466A-A6F5-ED3FE321B47A":[{"t":"toast","msg":"Opening trending video"}],"9F3E3DFC-47C8-454E-8FFA-653CD73D2005":[{"t":"nav","screen":"288ACA65-83A1-4FBB-B8D8-EBBB9D13509B"}],"C36B9097-FB3B-4E29-8A5C-6E60850FD2B0":[{"t":"toast","msg":"Recording started"}],"BFD18DF6-241F-40ED-8AB6-E5C292915C42":[{"t":"toast","msg":"Filters opened"}],"14B1E635-70AE-43D5-A147-57D4F098072F":[{"t":"toast","msg":"Gallery opened"}],"8E71CEA0-ED76-4D50-A5A1-94280114AC5B":[{"t":"nav","screen":"288ACA65-83A1-4FBB-B8D8-EBBB9D13509B"}],"40DB4024-1A54-429F-901C-1AEC23D1A945":[{"t":"nav","screen":"6098CCB2-80A6-4EAD-8FE2-052F34EAAA86"}],"8DB1648C-0D5F-4CFE-99F0-B7AD68900588":[{"t":"nav","screen":"61F7BD70-3DBA-4A8F-A800-F9F8AD5AA578"}],"2354A44A-2130-4919-9FC7-8508127F0DE6":[{"t":"nav","screen":"588DC474-FF64-4D2D-B753-87266AC8A3A4"}],"59562733-4D81-4702-9B82-B4C2916E104E":[{"t":"toast","msg":"New message"}],"31F870D8-9AB6-4E6D-BC99-DABF3B7D7165":[{"t":"toast","msg":"Maya liked your video"}],"CDDEC697-87EE-46CB-96C6-4F640279AA02":[{"t":"nav","screen":"288ACA65-83A1-4FBB-B8D8-EBBB9D13509B"}],"8B581120-9DA4-4E46-B4C6-AA76DABCE4BE":[{"t":"nav","screen":"6098CCB2-80A6-4EAD-8FE2-052F34EAAA86"}],"CD1B3BE1-FBCF-4FFC-956F-57B454921A4B":[{"t":"nav","screen":"61F7BD70-3DBA-4A8F-A800-F9F8AD5AA578"}],"3EFFDB4D-4211-41C5-A52C-91BD37938210":[{"t":"nav","screen":"0E0270BD-EC27-4B64-A984-977371A2A9F7"}],"5C91B74E-2876-422C-9C81-314DBBFB99D3":[{"t":"toast","msg":"Edit profile opened"}],"FEF414E9-574B-4922-AA1D-9BFDB8DAE7B0":[],"EFEF0E8A-2DDA-42C1-A3B2-375CAE7C963A":[{"t":"toggle","var":"feedPaused"},{"t":"toast","msg":"Playback toggled"}],"4E8C9259-E32D-489E-A9DE-6D13079B3F97":[],"4604CDDD-8A25-4EEB-AC88-EF80A7D54956":[],"7E2ABBEC-EE51-4B43-850F-517756FA54C3":[],"99E45EF8-9B0C-410E-A6C9-497BAB76DBA0":[{"t":"toast","msg":"Following @maya.moves"}],"08AE220B-32CA-4619-A832-9A57A8F6553A":[{"t":"toggle","var":"feedPaused"},{"t":"toast","msg":"Playback toggled"}],"60ECC3F9-E492-40C8-B000-E4B2D25F2719":[],"CCCD7752-F77D-4AA0-AED2-F13957771D4E":[],"3E02F953-9AA1-4237-BC7A-42CF918A1472":[],"D5722DE3-D107-489A-A1D9-3136513537CE":[{"t":"toast","msg":"Following @noa.cooks"}],"65EBA720-C2FD-4195-A442-1B77F15F2A59":[{"t":"toggle","var":"feedPaused"},{"t":"toast","msg":"Playback toggled"}],"A9272A29-6159-47DD-B6EB-8334337C8997":[],"A22C247C-CCB5-4871-BF1C-21102A3CF509":[],"4579C5EC-CE2E-46A3-A297-CA81F9BD3849":[],"AA9F2E26-1FC7-4BA7-833D-4715D2A40242":[{"t":"toast","msg":"Following @studio.nox"}],"AD096679-24C5-47CB-84C3-2BA23472AAF8":[{"t":"nav","screen":"6098CCB2-80A6-4EAD-8FE2-052F34EAAA86"}],"74429963-5470-4DA1-AAB4-21B8F251ECAA":[],"FDE3FB60-AE02-4396-A9CA-53F39F044CF9":[],"631C16F0-A66E-4EC4-8BD3-587419A4B674":[]},"screenLoads":{"288ACA65-83A1-4FBB-B8D8-EBBB9D13509B":[]},"bindings":[{"node":"D2081CD2-69FF-4411-884E-4AE09D222855","kind":"visibility","var":"feedPaused"},{"node":"7F86691A-9973-4FC4-8635-9BD83CD4DA3D","kind":"visibility","var":"feedPaused"},{"node":"D4E85B63-4CF2-427F-A30D-C5CB8EC0F2B8","kind":"visibility","var":"feedPaused"}],"firstScreen":"288ACA65-83A1-4FBB-B8D8-EBBB9D13509B"}</script>"`;
+
+exports[`compiled output for the sample projects > matches the snapshot for PaceGuard.agenticdesign 1`] = `"<script id="app-data" type="application/json">{"state":{"runnerName":"","currentLat":0,"currentLon":0,"previousLat":0,"previousLon":0,"deltaLat":0,"deltaLon":0,"absLat":0,"absLon":0,"latKm":0,"lonKm":0,"segmentKm":0,"distanceKm":0,"speedKmh":0,"elapsedSeconds":0,"elapsedHours":0,"averageSpeed":0,"paceMinutes":0,"heartRate":0,"steps":0,"runPaused":false,"nextMilestoneKm":1,"runHistory":[],"highSpeedAlerted":false,"lowPaceAlerted":false,"firebaseUser":"","distanceMeters":0,"highSpeedThresholdKmh":18,"lowPaceThresholdMinutes":7,"milestoneIntervalKm":1,"loginEmail":"","loginPassword":"","signupEmail":"","signupPassword":"","confirmPassword":"","loginPasswordSecure":{},"signupPasswordSecure":{},"confirmPasswordSecure":{}},"taps":{"6823D021-635D-42D0-8E75-141F6110048C":[{"t":"if","left":"signupPassword","op":"equals","right":"{{confirmPassword}}","then":[{"t":"toast","msg":"Welcome, {{runnerName}}!"},{"t":"nav","screen":"9CE7CF83-2AB9-4F69-9ECF-12A2CC98E05A"}],"else":[{"t":"alert","msg":"Enter the same password in both fields."}]}],"4EECACD5-362D-4A53-BCBD-4C3EF2B32FDF":[{"t":"nav","screen":"9CE7CF83-2AB9-4F69-9ECF-12A2CC98E05A"}],"3460446C-D8E7-476F-A657-0AF3C4C38FBD":[{"t":"toast","msg":"Password reset email sent"}],"E45F483A-6CC3-40CC-9149-F985DBC2846E":[{"t":"alert","msg":"You can log back in anytime."},{"t":"nav","screen":"D476C3C4-FE2A-418F-8415-44EF98EE6254"}],"777A9CCE-0844-4AF6-9F32-82C70048A1AE":[{"t":"toast","msg":"Reminder scheduled"}],"800F7699-2D8F-4D93-A4A0-5E93CBE65B12":[{"t":"nav","screen":"490BF9C4-5BDA-401C-A935-F83BDEC80B3C"}],"4D550377-6E21-4A95-B9E7-5CE37E1BD344":[{"t":"nav","screen":"D476C3C4-FE2A-418F-8415-44EF98EE6254"}],"8818430A-9D9F-4237-9621-6354B536F8FC":[{"t":"nav","screen":"0335DBAC-956D-4996-BADB-CC9A1F9044B6"}],"02E87796-DD6A-4400-8AC1-E87507ABD2AA":[{"t":"nav","screen":"868A2668-9C3E-4CAB-AD9A-FC1DD8371DAF"}],"F7F24361-C90B-48D2-B4B4-DE2B49818E17":[{"t":"nav","screen":"9CE7CF83-2AB9-4F69-9ECF-12A2CC98E05A"}],"4B471588-625E-4468-A4C4-8B78A698210D":[{"t":"nav","screen":"9CE7CF83-2AB9-4F69-9ECF-12A2CC98E05A"}],"4B84F2A8-A1C0-48DC-A1DF-EA5CE2704672":[{"t":"nav","screen":"9CE7CF83-2AB9-4F69-9ECF-12A2CC98E05A"}],"C74ADEE1-1E9F-4AF1-A070-C124DB88BB16":[{"t":"set","var":"highSpeedAlerted","value":"false"},{"t":"set","var":"lowPaceAlerted","value":"false"},{"t":"set","var":"distanceMeters","value":"0"},{"t":"set","var":"distanceKm","value":"0"},{"t":"set","var":"speedKmh","value":"0"},{"t":"set","var":"elapsedSeconds","value":"0"},{"t":"set","var":"elapsedHours","value":"0"},{"t":"set","var":"averageSpeed","value":"0"},{"t":"set","var":"paceMinutes","value":"0"},{"t":"set","var":"runPaused","value":"false"},{"t":"set","var":"nextMilestoneKm","value":"1"},{"t":"nav","screen":"510C2C42-C90D-4BEE-94A6-13406811F499"}],"C399A956-8B3C-4372-8B9E-2A1C96E3DD95":[{"t":"toast","msg":"Run saved to Firebase"}],"758E7947-ED1D-46F4-9C66-26C0B24C22F8":[{"t":"toast","msg":"Auto-pause is active when you stop moving."}],"88306B56-DDFB-42B8-A5C5-F4F50C509292":[{"t":"set","var":"runPaused","value":"true"},{"t":"nav","screen":"82017381-4CA9-43EA-BD4F-9937168D91A9"}],"B45A5C67-D59F-43B7-92C3-853ABA429C12":[{"t":"set","var":"distanceMeters","value":"0"},{"t":"set","var":"distanceKm","value":"0"},{"t":"set","var":"speedKmh","value":"0"},{"t":"set","var":"elapsedSeconds","value":"0"},{"t":"set","var":"runPaused","value":"false"},{"t":"toast","msg":"Workout and GPS started"}],"2DB76D7A-572B-4BB7-B9E7-7CBE9B2137A1":[{"t":"toggle","var":"runPaused"}],"48994709-2FB3-4D76-BB38-F94AFAE870E0":[{"t":"set","var":"runPaused","value":"true"},{"t":"nav","screen":"82017381-4CA9-43EA-BD4F-9937168D91A9"}],"89182F70-B368-4607-A623-8122783C78BB":[{"t":"toast","msg":"GPS, Health and notifications are requested only when each feature needs them."}]},"screenLoads":{"510C2C42-C90D-4BEE-94A6-13406811F499":[],"868A2668-9C3E-4CAB-AD9A-FC1DD8371DAF":[{"t":"toast","msg":"Run history synced"}],"D476C3C4-FE2A-418F-8415-44EF98EE6254":[{"t":"nav","screen":"84A5BD40-5186-4790-95BA-FB32263FD868"},{"t":"nav","screen":"9CE7CF83-2AB9-4F69-9ECF-12A2CC98E05A"}]},"bindings":[{"node":"52465BE0-9DB6-4A1F-A7A5-C2E4466B1C8F","kind":"value","var":"loginEmail"},{"node":"0F1B0723-A818-4423-A019-241D5A5FC258","kind":"value","var":"loginPassword"},{"node":"F070E236-F5BF-45B4-9C2E-9CA295A716E0","kind":"value","var":"runnerName"},{"node":"B0912CC6-7CD5-4F9F-AFAF-20402FA03BBA","kind":"value","var":"signupEmail"},{"node":"39D601ED-4041-46D4-873C-1E8F4F49342F","kind":"value","var":"signupPassword"},{"node":"6A3B2FD9-C215-4C03-8283-BFCD3B4A3D6F","kind":"value","var":"confirmPassword"},{"node":"707ED2FA-516D-4673-BA29-B5152D962F10","kind":"text","var":"runnerName"},{"node":"BB94609F-948D-4BB2-B7BE-1BC17E90D350","kind":"text","var":"elapsedSeconds"},{"node":"1A42B784-45CE-4825-9BC5-0FB831CE07A7","kind":"text","var":"distanceKm"},{"node":"7B18F2FF-83BC-4CCC-8F13-90FB6FB5577E","kind":"text","var":"speedKmh"},{"node":"BEB4D7A7-8F17-4883-A30E-B056B7F22571","kind":"text","var":"paceMinutes"},{"node":"EE3DA849-63A7-4F51-81CC-696D83289A87","kind":"text","var":"heartRate"},{"node":"F5C70C76-C41F-4E5C-BCDF-0383069DBE70","kind":"text","var":"runnerName"},{"node":"E93EC697-776C-449C-9550-4F4C79A68B69","kind":"text","var":"highSpeedThresholdKmh"},{"node":"F08FBAA0-53B8-428B-9F5C-D7F0C0EF7DC4","kind":"text","var":"lowPaceThresholdMinutes"},{"node":"00811F49-8A90-48DD-AC73-C2897EC551D9","kind":"text","var":"milestoneIntervalKm"},{"node":"B7DC4846-A32B-4E0C-9006-5852B1CF6902","kind":"text","var":"distanceKm"},{"node":"448D6A0E-A193-4A35-916D-E8919181BF49","kind":"text","var":"speedKmh"},{"node":"51EF2A3F-A073-4AD6-B109-54E4CB78FE63","kind":"text","var":"elapsedSeconds"},{"node":"2DA35643-331E-4E09-AE53-8E6034F9C512","kind":"text","var":"heartRate"}],"firstScreen":"D476C3C4-FE2A-418F-8415-44EF98EE6254"}</script>"`;
+
+exports[`compiled output for the sample projects > matches the snapshot for SavedProjects/AsterReader-BookApp-FullLogic.agenticdesign 1`] = `"<script id="app-data" type="application/json">{"state":{"currentBookTitle":"The Afterlight","bookmarkSaved":false,"pageProgress":42,"themeMode":"warm","notes":[],"draftNote":"","searchQuery":"","lastSavedAt":"never"},"taps":{"860ED715-E63B-413E-9527-504309FEB09B":[{"t":"toast","msg":"Search updated"}],"8053C897-D6DC-40BD-B3F4-E8CCA6CD5974":[{"t":"toast","msg":"Search updated"}],"C3721676-74E0-4E86-8C5A-AB9F982B74AB":[{"t":"set","var":"currentBookTitle","value":"The Afterlight"},{"t":"nav","screen":"52D6E93B-0F81-4A43-985D-35C1452C79B0"},{"t":"toast","msg":"Resuming page 128"}],"643B00DD-B5CD-4F1A-B6DD-85EC554EAAC6":[{"t":"nav","screen":"6DF088F6-7A24-4E86-89A0-757D90FD4EE7"}],"6443F0B4-216B-4542-AADC-F97C8933D8B1":[{"t":"nav","screen":"B8CA6061-E06D-4FEE-8010-B597A02ED65D"},{"t":"nav","screen":"B8CA6061-E06D-4FEE-8010-B597A02ED65D"}],"10D85910-E52B-45F4-A318-A90D20C8BB6C":[{"t":"nav","screen":"6DF088F6-7A24-4E86-89A0-757D90FD4EE7"}],"049CE59F-68E2-4FFB-AF57-0EC69E8261A9":[{"t":"nav","screen":"3FA09307-BBDF-4227-B324-28845265B7D0"}],"7ED305DB-699B-4E80-9DA0-5FED6835B9BB":[{"t":"toast","msg":"Saved to your shelf"}],"51EF58E9-BCEC-473D-BCAA-543FF3D6E94D":[{"t":"set","var":"currentBookTitle","value":"The Glass Atlas"},{"t":"nav","screen":"52D6E93B-0F81-4A43-985D-35C1452C79B0"}],"10B89345-EA26-436D-96B2-44CD2D65B386":[{"t":"nav","screen":"3FA09307-BBDF-4227-B324-28845265B7D0"}],"47822CE9-2D6F-4942-8C1D-2EC6E65219FC":[{"t":"toast","msg":"Bookmark placed"}],"A7C36D5E-3EC8-4B84-8ABB-C23E9026FE94":[{"t":"toast","msg":"Night reading mode"}],"8E4BD176-9430-4C9C-8CCC-F342FAACC16E":[{"t":"toast","msg":"Note editor opened"}],"2C21222E-313B-4CC7-949F-23F1A9F258BA":[{"t":"clear","node":"CF3EACCE-6C9D-426D-8B0A-4D793DB2D816"},{"t":"toast","msg":"Note saved locally"}],"EF63E042-8F24-4E1B-8C25-0DBF5CA05573":[{"t":"add","var":"pageProgress","by":1},{"t":"toast","msg":"Progress saved"}],"DBA599E3-F65B-4B38-9101-8C6FF7608219":[{"t":"add","var":"pageProgress","by":-1},{"t":"toast","msg":"Progress saved"}],"E403A3FF-5913-4580-9772-AAFA45366342":[{"t":"copy","text":"Every window held a comma of gold."},{"t":"toast","msg":"Quote copied"}],"B423BE6A-C8EC-4493-9F2B-50DA790F3D5F":[{"t":"toast","msg":"Share sheet opened"}],"AEB13918-F08C-443A-83E0-4C7B203DAD23":[{"t":"toast","msg":"Text size increased"}],"B350DD69-A162-4D8E-BCF9-5EB40A12B846":[{"t":"toast","msg":"Text size decreased"}],"416C96AA-AEAE-40AC-BAAD-D7606E5C607C":[{"t":"nav","screen":"3FA09307-BBDF-4227-B324-28845265B7D0"}],"42B4D37A-A5B5-4EC1-AAD0-03378ACDC211":[{"t":"nav","screen":"3FA09307-BBDF-4227-B324-28845265B7D0"}],"DB16BA32-27F4-4645-A89D-A7E4EC5AF8F4":[{"t":"nav","screen":"3FA09307-BBDF-4227-B324-28845265B7D0"},{"t":"nav","screen":"3FA09307-BBDF-4227-B324-28845265B7D0"}]},"screenLoads":{},"bindings":[{"node":"8053C897-D6DC-40BD-B3F4-E8CCA6CD5974","kind":"value","var":"searchQuery"},{"node":"CF3EACCE-6C9D-426D-8B0A-4D793DB2D816","kind":"value","var":"draftNote"}],"firstScreen":"3FA09307-BBDF-4227-B324-28845265B7D0"}</script>"`;

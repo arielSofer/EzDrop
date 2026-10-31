@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+dist/
+build/
+.build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+Exports/
+Logs*
+*.log
+.env
+.env.*
+mcp_result.json
+run_design_result.json

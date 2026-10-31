@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xcodebuild -list -project /Users/ariel/Documents/XcodeApps/AgenticDesigner/AgenticDesigner.xcodeproj)",
+      "Bash(xcodebuild -list -project AgenticDesigner.xcodeproj)",
+      "Bash(ls /Applications | grep -i xcode)",
+      "Read(//Applications/**)",
+      "Bash(DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -list -project AgenticDesigner.xcodeproj)",
+      "Bash(DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -project AgenticDesigner.xcodeproj -scheme AgenticDesigner -configuration Debug build -destination 'platform=macOS' -quiet)",
+      "Bash(DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -project AgenticDesigner.xcodeproj -scheme AgenticDesigner -configuration Debug build -destination 'platform=macOS')",
+      "Bash(defaults read *)",
+      "Bash(curl -s -m 60 https://openrouter.ai/api/v1/chat/completions -H 'Authorization: Bearer __CMDSUB_OUTPUT__' -H 'Content-Type: application/json' -d '{\"model\":\"nvidia/nemotron-3-ultra-550b-a55b:free\",\"messages\":[{\"role\":\"user\",\"content\":[{\"type\":\"text\",\"text\":\"hi\"},{\"type\":\"image_url\",\"image_url\":{\"url\":\"__TRACKED_VAR__\"}}]}]}')",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('TEXT RETRY:', d.get\\('choices',[{}]\\)[0].get\\('message',{}\\).get\\('content'\\) or d.get\\('error',{}\\).get\\('message',''\\)[:70]\\)\")",
+      "Bash(curl -s https://openrouter.ai/api/v1/models)",
+      "Bash(python3 -c ' *)",
+      "Bash(brew install *)",
+      "Bash(ollama list *)",
+      "Bash(curl -s -m 15 https://ollama.com/library/gemma4/tags)",
+      "Bash(ollama pull *)",
+      "Bash(curl -s -m 300 http://localhost:11434/v1/chat/completions -H 'Content-Type: application/json' -d '{\"model\":\"gemma4:26b-mlx\",\"response_format\":{\"type\":\"json_object\"},\"messages\":[{\"role\":\"user\",\"content\":[{\"type\":\"text\",\"text\":\"What color is this image? Reply as JSON: {\\\\\"color\\\\\": \\\\\"...\\\\\"}\"},{\"type\":\"image_url\",\"image_url\":{\"url\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\"}}]}]}')",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('LOCAL VISION+JSON TEST:', d.get\\('choices',[{}]\\)[0].get\\('message',{}\\).get\\('content'\\) or d.get\\('error'\\)\\)\")",
+      "Bash(curl -s -m 300 http://localhost:11434/api/chat -d '{\"model\":\"gemma4:26b-mlx\",\"stream\":false,\"messages\":[{\"role\":\"user\",\"content\":\"Write exactly 150 words about running apps.\"}]}')",
+      "Bash(pip3 install *)",
+      "Bash(nohup python3 /Users/ariel/Documents/XcodeApps/AgenticDesigner/mflux_bridge.py)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -m 3000 http://127.0.0.1:7860/sdapi/v1/txt2img -d '{\"prompt\":\"green running shoe on stone, studio light\",\"width\":512,\"height\":512}')",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('IMAGE OK,', len\\(d['images'][0]\\)//1024, 'KB base64'\\)\")",
+      "Bash(python3 -m venv ~/.mflux-venv)",
+      "Bash(~/.mflux-venv/bin/pip install *)",
+      "Bash(pkill -f mflux_bridge.py)",
+      "Bash(curl -s -m 3000 http://127.0.0.1:7860/sdapi/v1/txt2img -d '{\"prompt\":\"green running shoe on stone, studio light\",\"width\":512,\"height\":512}' -o /tmp/img_test.json)",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('/tmp/img_test.json'\\)\\); print\\('IMAGE OK,', len\\(d['images'][0]\\)//1024, 'KB base64'\\)\")",
+      "Read(//private/tmp/**)",
+      "Bash(~/.mflux-venv/bin/hf auth *)",
+      "Bash(curl -s -m 3500 http://127.0.0.1:7860/sdapi/v1/txt2img -d '{\"prompt\":\"green running shoe on stone, studio light, premium product photo\",\"width\":512,\"height\":512}' -o /tmp/img_test.json)",
+      "Bash(python3 -c \"import json,base64; d=json.load\\(open\\('/tmp/img_test.json'\\)\\); img=base64.b64decode\\(d['images'][0]\\); open\\('/tmp/flux_test.png','wb'\\).write\\(img\\); print\\('IMAGE OK:', len\\(img\\)//1024, 'KB PNG'\\)\")",
+      "Bash(curl -s \"https://huggingface.co/api/models?search=flux.1-schnell-mflux&limit=8\")",
+      "Bash(curl -s -m 300 http://127.0.0.1:11434/v1/chat/completions -H 'Content-Type: application/json' -d '{\"model\":\"qwen3-vl:32b\",\"messages\":[{\"role\":\"user\",\"content\":[{\"type\":\"text\",\"text\":\"Reply only with JSON: {\\\\\"color\\\\\":\\\\\"...\\\\\"} for this image\"},{\"type\":\"image_url\",\"image_url\":{\"url\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\"}}]}]}')",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('QWEN3-VL TEST:', d.get\\('choices',[{}]\\)[0].get\\('message',{}\\).get\\('content',''\\)[:100] or d.get\\('error'\\)\\)\")"
+    ]
+  }
+}

@@ -1,0 +1,2949 @@
+{
+  "apiEndpoints" : [
+
+  ],
+  "globalVariables" : [
+    {
+      "defaultValue" : "0",
+      "id" : "BD0FEA19-F521-43EF-BE23-B2527C02982F",
+      "name" : "distanceMeters",
+      "scope" : "global",
+      "type" : "number"
+    }
+  ],
+  "name" : "Untitled Project",
+  "pages" : [
+    {
+      "id" : "5C227E0E-9C77-4E0F-B5DD-EFD7BD5A7BA9",
+      "logicFlows" : [
+        {
+          "blocks" : [
+
+          ],
+          "connections" : [
+
+          ],
+          "id" : "AA7DFA0B-0FC8-4162-9AA9-2A02151428D7",
+          "name" : "Flow 1",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "43B9FB3B-FEAE-4F86-A704-DA3BC5F86A3B",
+              "isCollapsed" : false,
+              "label" : "On Screen Load",
+              "parameters" : [
+
+              ],
+              "type" : "onScreenLoad",
+              "width" : 200,
+              "x" : 0,
+              "y" : 0
+            },
+            {
+              "category" : "API",
+              "id" : "BA81A9FD-C8A4-4D15-9F75-55095D197DAD",
+              "isCollapsed" : false,
+              "label" : "Register for Push",
+              "parameters" : [
+                {
+                  "id" : "0B296344-4E7C-409D-BEE4-70933DD41276",
+                  "isRequired" : false,
+                  "key" : "variable",
+                  "label" : "Store Token In",
+                  "type" : "variable"
+                }
+              ],
+              "type" : "registerForPush",
+              "width" : 200,
+              "x" : 0,
+              "y" : 120
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "8FF65529-98DB-4070-920A-AC195D8C9688",
+              "sourceBlockId" : "43B9FB3B-FEAE-4F86-A704-DA3BC5F86A3B",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "BA81A9FD-C8A4-4D15-9F75-55095D197DAD",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "7ECE5A68-0C44-4E66-AB36-DF4C53B52245",
+          "name" : "Load",
+          "screenNodeId" : "07F9E966-4124-4201-B08D-54598D92C707",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "C74ADEE1-1E9F-4AF1-A070-C124DB88BB16",
+              "id" : "EFCD5982-E2A8-4E4A-BED5-2220D1370811",
+              "isCollapsed" : false,
+              "label" : "Start Run Tap",
+              "parameters" : [
+                {
+                  "id" : "CB101807-F86C-4ECD-9917-C0B1E1843155",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "C74ADEE1-1E9F-4AF1-A070-C124DB88BB16",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 40,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "D5B06CC8-D6DC-4EBE-ACC6-356DFFF63815",
+              "isCollapsed" : false,
+              "label" : "Reset distanceMeters",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "distanceMeters"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 280,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "9DF4ECEF-6D35-4BDC-9A28-C250E262D489",
+              "isCollapsed" : false,
+              "label" : "Reset distanceKm",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "distanceKm"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 500,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "BE0E92F8-AE9D-4608-BFEF-59C6A1822761",
+              "isCollapsed" : false,
+              "label" : "Reset speedKmh",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "speedKmh"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 720,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "AC7767AC-EB36-463A-8D3F-C4B683D23FEC",
+              "isCollapsed" : false,
+              "label" : "Reset elapsedSeconds",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "elapsedSeconds"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 940,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "235D779D-89FA-44DF-A23A-52D7C031013D",
+              "isCollapsed" : false,
+              "label" : "Reset elapsedHours",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "elapsedHours"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 1160,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "3DBF843F-03F9-4A93-A968-974AEAC1761F",
+              "isCollapsed" : false,
+              "label" : "Reset averageSpeed",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "averageSpeed"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 1380,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "29FE47CA-A3E0-4D09-AC45-27267CF62E21",
+              "isCollapsed" : false,
+              "label" : "Reset paceMinutes",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "paceMinutes"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 1600,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "D5D6EDB9-183C-4407-966B-F00E5A42A6DB",
+              "isCollapsed" : false,
+              "label" : "Reset runPaused",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "runPaused"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "false"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 1820,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "8F8F9E6B-70F6-4C0B-992C-0C088B04B3DD",
+              "isCollapsed" : false,
+              "label" : "Reset nextMilestoneKm",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "nextMilestoneKm"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "1"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 2040,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "93917B98-84AA-4016-8154-6B00222F576D",
+              "isCollapsed" : false,
+              "label" : "Location Permission",
+              "parameters" : [
+                {
+                  "id" : "2C946703-9191-462B-AB06-AEC777A069DA",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Permission",
+                  "options" : [
+                    "camera",
+                    "photoLibrary",
+                    "location",
+                    "microphone",
+                    "notifications",
+                    "health",
+                    "motion"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "location"
+                }
+              ],
+              "type" : "requestPermission",
+              "width" : 200,
+              "x" : 2260,
+              "y" : 60
+            },
+            {
+              "category" : "Device & Sensors",
+              "id" : "5AE6A99B-EB11-4108-BC29-3194EBCA9C3D",
+              "isCollapsed" : false,
+              "label" : "Start Real GPS Tracking",
+              "parameters" : [
+                {
+                  "id" : "4A824B06-F0A2-4F9E-8F1E-7E67FCDCF76E",
+                  "isRequired" : false,
+                  "key" : "distanceVariable",
+                  "label" : "Distance (m) Into",
+                  "type" : "variable",
+                  "variableReference" : "distanceMeters"
+                },
+                {
+                  "id" : "0D2CFACB-12C7-46BB-9319-6105C157C8FC",
+                  "isRequired" : false,
+                  "key" : "speedVariable",
+                  "label" : "Speed (km\/h) Into",
+                  "type" : "variable",
+                  "variableReference" : "speedKmh"
+                },
+                {
+                  "id" : "CB3A6C6B-8468-4A15-AEF2-482536F0A55D",
+                  "isRequired" : false,
+                  "key" : "background",
+                  "label" : "Track In Background",
+                  "options" : [
+                    "true",
+                    "false"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "true"
+                }
+              ],
+              "type" : "startTracking",
+              "width" : 200,
+              "x" : 2500,
+              "y" : 40
+            },
+            {
+              "category" : "Actions",
+              "id" : "8FAA566E-1A71-45B5-B8B3-14BCF2C39845",
+              "isCollapsed" : false,
+              "label" : "Open Live Run",
+              "parameters" : [
+                {
+                  "id" : "950C1911-0F13-4508-9A4D-E05F7AD86B41",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "510C2C42-C90D-4BEE-94A6-13406811F499",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 2760,
+              "y" : 40
+            },
+            {
+              "category" : "Actions",
+              "id" : "78D21443-661B-4ED7-A12F-2A303B1FC78E",
+              "isCollapsed" : false,
+              "label" : "Location Required",
+              "parameters" : [
+                {
+                  "id" : "4428B1E8-657D-4002-BD60-24D101B36329",
+                  "isRequired" : true,
+                  "key" : "title",
+                  "label" : "Title",
+                  "placeholder" : "Alert title",
+                  "type" : "string",
+                  "value" : "Location Required"
+                },
+                {
+                  "id" : "A841801E-4034-46F4-9BF5-128E4AEA963D",
+                  "isRequired" : false,
+                  "key" : "message",
+                  "label" : "Message",
+                  "placeholder" : "Alert message",
+                  "type" : "string",
+                  "value" : "Precise location is required to measure kilometers and speed."
+                }
+              ],
+              "type" : "showAlert",
+              "width" : 200,
+              "x" : 2500,
+              "y" : 240
+            },
+            {
+              "category" : "Actions",
+              "id" : "32C5DC5D-A19A-4DB3-8A5B-DE5E431A8EF9",
+              "isCollapsed" : false,
+              "label" : "Tracking Could Not Start",
+              "parameters" : [
+                {
+                  "id" : "4428B1E8-657D-4002-BD60-24D101B36329",
+                  "isRequired" : true,
+                  "key" : "title",
+                  "label" : "Title",
+                  "placeholder" : "Alert title",
+                  "type" : "string",
+                  "value" : "GPS Unavailable"
+                },
+                {
+                  "id" : "A841801E-4034-46F4-9BF5-128E4AEA963D",
+                  "isRequired" : false,
+                  "key" : "message",
+                  "label" : "Message",
+                  "placeholder" : "Alert message",
+                  "type" : "string",
+                  "value" : "Move outdoors, enable Precise Location, and try again."
+                }
+              ],
+              "type" : "showAlert",
+              "width" : 200,
+              "x" : 2760,
+              "y" : 240
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "278106BF-6523-4E3D-9FD4-87E9B748204F",
+              "sourceBlockId" : "EFCD5982-E2A8-4E4A-BED5-2220D1370811",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D5B06CC8-D6DC-4EBE-ACC6-356DFFF63815",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "BF6E6E66-ADFE-4A7D-8E13-886C66610BEE",
+              "sourceBlockId" : "D5B06CC8-D6DC-4EBE-ACC6-356DFFF63815",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "9DF4ECEF-6D35-4BDC-9A28-C250E262D489",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "AD09AEC0-8BFE-49BF-BFB4-AF04586612DA",
+              "sourceBlockId" : "9DF4ECEF-6D35-4BDC-9A28-C250E262D489",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "BE0E92F8-AE9D-4608-BFEF-59C6A1822761",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "F8450E77-1B0E-4E17-9D23-3F65D388F358",
+              "sourceBlockId" : "BE0E92F8-AE9D-4608-BFEF-59C6A1822761",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "AC7767AC-EB36-463A-8D3F-C4B683D23FEC",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "5D6F22D9-5D6D-4B71-90DD-63969303A4FB",
+              "sourceBlockId" : "AC7767AC-EB36-463A-8D3F-C4B683D23FEC",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "235D779D-89FA-44DF-A23A-52D7C031013D",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "8CE2823B-18FF-4CD4-A492-EF6958A627DE",
+              "sourceBlockId" : "235D779D-89FA-44DF-A23A-52D7C031013D",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "3DBF843F-03F9-4A93-A968-974AEAC1761F",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "7325195D-1C5E-40E5-A5A0-D5311E7B9CAC",
+              "sourceBlockId" : "3DBF843F-03F9-4A93-A968-974AEAC1761F",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "29FE47CA-A3E0-4D09-AC45-27267CF62E21",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "8294B510-EA35-46C6-B1B1-65DF6C6219B7",
+              "sourceBlockId" : "29FE47CA-A3E0-4D09-AC45-27267CF62E21",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D5D6EDB9-183C-4407-966B-F00E5A42A6DB",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "2B1BBD7B-2F50-4F42-A4BA-A13503D698D1",
+              "sourceBlockId" : "D5D6EDB9-183C-4407-966B-F00E5A42A6DB",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "8F8F9E6B-70F6-4C0B-992C-0C088B04B3DD",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "F8B602A0-40D9-49B9-90E9-7D48725069F2",
+              "sourceBlockId" : "8F8F9E6B-70F6-4C0B-992C-0C088B04B3DD",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "93917B98-84AA-4016-8154-6B00222F576D",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "EB1F78B8-EC1D-4677-AF9F-65D48B7C3F4E",
+              "sourceBlockId" : "93917B98-84AA-4016-8154-6B00222F576D",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "5AE6A99B-EB11-4108-BC29-3194EBCA9C3D",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "3E7D770D-C6F7-40B3-8754-B3C2559D5E57",
+              "sourceBlockId" : "93917B98-84AA-4016-8154-6B00222F576D",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "78D21443-661B-4ED7-A12F-2A303B1FC78E",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "0B81BF75-C04E-43D4-BDED-A37919E3BF73",
+              "sourceBlockId" : "5AE6A99B-EB11-4108-BC29-3194EBCA9C3D",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "8FAA566E-1A71-45B5-B8B3-14BCF2C39845",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "FA390768-AA04-4859-9530-E5FEEDF6823A",
+              "sourceBlockId" : "5AE6A99B-EB11-4108-BC29-3194EBCA9C3D",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "32C5DC5D-A19A-4DB3-8A5B-DE5E431A8EF9",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "93FC6E28-B210-4F85-BF01-719CE38C6357",
+          "name" : "Start Running Session — Native GPS",
+          "screenNodeId" : "9CE7CF83-2AB9-4F69-9ECF-12A2CC98E05A",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "F9D511CF-CFC0-4461-9151-559BC93340A3",
+              "isCollapsed" : false,
+              "label" : "Live Tick",
+              "parameters" : [
+                {
+                  "id" : "D61BB74A-BE32-46D8-8B05-0F92EA721731",
+                  "isRequired" : true,
+                  "key" : "seconds",
+                  "label" : "Seconds",
+                  "type" : "number",
+                  "value" : "1"
+                },
+                {
+                  "id" : "57DCDFD4-3E36-48E9-B65C-4DB3B9C32A53",
+                  "isRequired" : false,
+                  "key" : "repeats",
+                  "label" : "Repeats",
+                  "type" : "boolean",
+                  "value" : "true"
+                }
+              ],
+              "type" : "onTimer",
+              "width" : 200,
+              "x" : 40,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "BBC86EEC-01CB-48CF-98BD-25E4C011B14A",
+              "isCollapsed" : false,
+              "label" : "Run Active?",
+              "parameters" : [
+                {
+                  "id" : "A2304C61-7A54-4FAE-8409-43B9B2E809D4",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "runPaused"
+                },
+                {
+                  "id" : "02AE9F82-4156-4CCD-AA36-098FCB4201F1",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "=="
+                },
+                {
+                  "id" : "8D913C34-7E1F-4DA6-BC27-F52AB3FD7B1B",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "false"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 280,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "CEEAF968-B947-4631-97D9-D519CC18B7BA",
+              "isCollapsed" : false,
+              "label" : "Elapsed Seconds",
+              "parameters" : [
+                {
+                  "id" : "1818E372-BCBC-4586-AFD5-B79332FF1355",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "elapsedSeconds"
+                },
+                {
+                  "id" : "89090755-4267-4B11-B18F-2AAB8E27392B",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "number",
+                  "value" : "1"
+                }
+              ],
+              "type" : "incrementVariable",
+              "width" : 200,
+              "x" : 520,
+              "y" : 20
+            },
+            {
+              "category" : "Variables",
+              "id" : "578DC877-2497-4C06-AF1A-F0076EAB802F",
+              "isCollapsed" : false,
+              "label" : "Metres to Kilometres",
+              "parameters" : [
+                {
+                  "id" : "B5F94E92-E806-476F-9E68-987E2B6080C4",
+                  "isRequired" : true,
+                  "key" : "left",
+                  "label" : "Left",
+                  "type" : "string",
+                  "variableReference" : "distanceMeters"
+                },
+                {
+                  "id" : "60EBE430-BE47-4CDD-8FCD-7C75521BB9A8",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "+",
+                    "-",
+                    "×",
+                    "÷",
+                    "%"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "÷"
+                },
+                {
+                  "id" : "2A2ADF6E-3B93-4841-9F57-03EF18E3B75F",
+                  "isRequired" : true,
+                  "key" : "right",
+                  "label" : "Right",
+                  "type" : "string",
+                  "value" : "1000"
+                },
+                {
+                  "id" : "2B9A0638-A856-453A-90CC-D944D5255DAD",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Store In",
+                  "type" : "variable",
+                  "variableReference" : "distanceKm"
+                }
+              ],
+              "type" : "mathOperation",
+              "width" : 200,
+              "x" : 760,
+              "y" : 20
+            },
+            {
+              "category" : "Variables",
+              "id" : "AA6464F9-EA75-4905-B3F6-ADF5AAE83E84",
+              "isCollapsed" : false,
+              "label" : "Elapsed Hours",
+              "parameters" : [
+                {
+                  "id" : "B5F94E92-E806-476F-9E68-987E2B6080C4",
+                  "isRequired" : true,
+                  "key" : "left",
+                  "label" : "Left",
+                  "type" : "string",
+                  "variableReference" : "elapsedSeconds"
+                },
+                {
+                  "id" : "60EBE430-BE47-4CDD-8FCD-7C75521BB9A8",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "+",
+                    "-",
+                    "×",
+                    "÷",
+                    "%"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "÷"
+                },
+                {
+                  "id" : "2A2ADF6E-3B93-4841-9F57-03EF18E3B75F",
+                  "isRequired" : true,
+                  "key" : "right",
+                  "label" : "Right",
+                  "type" : "string",
+                  "value" : "3600"
+                },
+                {
+                  "id" : "2B9A0638-A856-453A-90CC-D944D5255DAD",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Store In",
+                  "type" : "variable",
+                  "variableReference" : "elapsedHours"
+                }
+              ],
+              "type" : "mathOperation",
+              "width" : 200,
+              "x" : 1000,
+              "y" : 20
+            },
+            {
+              "category" : "Variables",
+              "id" : "7B6D77DA-6CEE-40EF-BBAD-136912468F40",
+              "isCollapsed" : false,
+              "label" : "Average Speed",
+              "parameters" : [
+                {
+                  "id" : "B5F94E92-E806-476F-9E68-987E2B6080C4",
+                  "isRequired" : true,
+                  "key" : "left",
+                  "label" : "Left",
+                  "type" : "string",
+                  "variableReference" : "distanceKm"
+                },
+                {
+                  "id" : "60EBE430-BE47-4CDD-8FCD-7C75521BB9A8",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "+",
+                    "-",
+                    "×",
+                    "÷",
+                    "%"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "÷"
+                },
+                {
+                  "id" : "2A2ADF6E-3B93-4841-9F57-03EF18E3B75F",
+                  "isRequired" : true,
+                  "key" : "right",
+                  "label" : "Right",
+                  "type" : "string",
+                  "variableReference" : "elapsedHours"
+                },
+                {
+                  "id" : "2B9A0638-A856-453A-90CC-D944D5255DAD",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Store In",
+                  "type" : "variable",
+                  "variableReference" : "averageSpeed"
+                }
+              ],
+              "type" : "mathOperation",
+              "width" : 200,
+              "x" : 1240,
+              "y" : 20
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "392D9473-91BF-4CE4-A74C-F4160883ED56",
+              "isCollapsed" : false,
+              "label" : "Show Distance",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "1A42B784-45CE-4825-9BC5-0FB831CE07A7",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{distanceKm}}"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 1480,
+              "y" : 20
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "F0087536-A463-44BD-9428-BB6AB1042EBD",
+              "isCollapsed" : false,
+              "label" : "Show Live Speed",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "7B18F2FF-83BC-4CCC-8F13-90FB6FB5577E",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{speedKmh}}"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 1720,
+              "y" : 20
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "D980F193-F9A2-4D03-87E4-10CC436B9637",
+              "isCollapsed" : false,
+              "label" : "Show Elapsed",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "BB94609F-948D-4BB2-B7BE-1BC17E90D350",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{elapsedSeconds}} sec"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 1960,
+              "y" : 20
+            },
+            {
+              "category" : "Conditions",
+              "id" : "FE5258D8-4E68-44A7-9F51-8E170AC33949",
+              "isCollapsed" : false,
+              "label" : "Pace Available?",
+              "parameters" : [
+                {
+                  "id" : "A2304C61-7A54-4FAE-8409-43B9B2E809D4",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "averageSpeed"
+                },
+                {
+                  "id" : "02AE9F82-4156-4CCD-AA36-098FCB4201F1",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : ">"
+                },
+                {
+                  "id" : "8D913C34-7E1F-4DA6-BC27-F52AB3FD7B1B",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "0.1"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 2200,
+              "y" : 20
+            },
+            {
+              "category" : "Variables",
+              "id" : "D8A09D0F-96CC-48BB-A8D3-FC27C7F4539C",
+              "isCollapsed" : false,
+              "label" : "Minutes Per KM",
+              "parameters" : [
+                {
+                  "id" : "B5F94E92-E806-476F-9E68-987E2B6080C4",
+                  "isRequired" : true,
+                  "key" : "left",
+                  "label" : "Left",
+                  "type" : "string",
+                  "value" : "60"
+                },
+                {
+                  "id" : "60EBE430-BE47-4CDD-8FCD-7C75521BB9A8",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "+",
+                    "-",
+                    "×",
+                    "÷",
+                    "%"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "÷"
+                },
+                {
+                  "id" : "2A2ADF6E-3B93-4841-9F57-03EF18E3B75F",
+                  "isRequired" : true,
+                  "key" : "right",
+                  "label" : "Right",
+                  "type" : "string",
+                  "variableReference" : "averageSpeed"
+                },
+                {
+                  "id" : "2B9A0638-A856-453A-90CC-D944D5255DAD",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Store In",
+                  "type" : "variable",
+                  "variableReference" : "paceMinutes"
+                }
+              ],
+              "type" : "mathOperation",
+              "width" : 200,
+              "x" : 2440,
+              "y" : 0
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "837A5E57-2263-4EA3-A8B8-74D2AB2B3AE2",
+              "isCollapsed" : false,
+              "label" : "Show Pace",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "BEB4D7A7-8F17-4883-A30E-B056B7F22571",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{paceMinutes}}\\nAVG PACE \/KM"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 2680,
+              "y" : 0
+            },
+            {
+              "category" : "Actions",
+              "id" : "BE222A48-2BA0-4604-861C-CFAD77969185",
+              "isCollapsed" : false,
+              "label" : "Waiting For Movement",
+              "parameters" : [
+                {
+                  "id" : "2CAADF6B-D5E9-4BD0-827C-23B77D2B6EA8",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Waiting for a reliable GPS movement sample"
+                }
+              ],
+              "type" : "log",
+              "width" : 200,
+              "x" : 2440,
+              "y" : 180
+            },
+            {
+              "category" : "Actions",
+              "id" : "BC57B854-4BBC-48D7-A74A-37ADC7A51213",
+              "isCollapsed" : false,
+              "label" : "Run Stopped",
+              "parameters" : [
+                {
+                  "id" : "2CAADF6B-D5E9-4BD0-827C-23B77D2B6EA8",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Run metrics are stopped"
+                }
+              ],
+              "type" : "log",
+              "width" : 200,
+              "x" : 520,
+              "y" : 220
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "6C31607A-6A3D-4A67-97BD-977F84601A99",
+              "sourceBlockId" : "F9D511CF-CFC0-4461-9151-559BC93340A3",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "BBC86EEC-01CB-48CF-98BD-25E4C011B14A",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "9552137A-92E3-4ED1-85E3-841074E9BF95",
+              "sourceBlockId" : "BBC86EEC-01CB-48CF-98BD-25E4C011B14A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "CEEAF968-B947-4631-97D9-D519CC18B7BA",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "7B755AA1-AA90-4DB6-9DFD-1B01E5C44B88",
+              "sourceBlockId" : "CEEAF968-B947-4631-97D9-D519CC18B7BA",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "578DC877-2497-4C06-AF1A-F0076EAB802F",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "A7F7A05D-6792-42E3-B1A1-960C68EC788F",
+              "sourceBlockId" : "578DC877-2497-4C06-AF1A-F0076EAB802F",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "AA6464F9-EA75-4905-B3F6-ADF5AAE83E84",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "47987F6D-8306-4936-9DEA-F5A4A5AFEFA1",
+              "sourceBlockId" : "AA6464F9-EA75-4905-B3F6-ADF5AAE83E84",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "7B6D77DA-6CEE-40EF-BBAD-136912468F40",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "99689EE6-9FA5-463A-A925-FF6FCE8E43D9",
+              "sourceBlockId" : "7B6D77DA-6CEE-40EF-BBAD-136912468F40",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "392D9473-91BF-4CE4-A74C-F4160883ED56",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "7B7A282B-376D-45FA-9055-6CB8355A07FA",
+              "sourceBlockId" : "392D9473-91BF-4CE4-A74C-F4160883ED56",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "F0087536-A463-44BD-9428-BB6AB1042EBD",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "F2A700C4-7DAB-49C9-A22C-B131BAE045C3",
+              "sourceBlockId" : "F0087536-A463-44BD-9428-BB6AB1042EBD",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D980F193-F9A2-4D03-87E4-10CC436B9637",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "1AF07BEE-3F66-4090-9ACA-ADB940504AAA",
+              "sourceBlockId" : "D980F193-F9A2-4D03-87E4-10CC436B9637",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "FE5258D8-4E68-44A7-9F51-8E170AC33949",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "5D8CEED6-3B7D-485E-953D-1F1837C1FF6D",
+              "sourceBlockId" : "BBC86EEC-01CB-48CF-98BD-25E4C011B14A",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "BC57B854-4BBC-48D7-A74A-37ADC7A51213",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "44917F9A-F0AF-4D8A-B91E-393CFDBBEC71",
+              "sourceBlockId" : "FE5258D8-4E68-44A7-9F51-8E170AC33949",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D8A09D0F-96CC-48BB-A8D3-FC27C7F4539C",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "A059B127-0DEF-434D-AB45-6365D12180F2",
+              "sourceBlockId" : "D8A09D0F-96CC-48BB-A8D3-FC27C7F4539C",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "837A5E57-2263-4EA3-A8B8-74D2AB2B3AE2",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "8686C927-E435-49D1-9F72-F7F0895389C3",
+              "sourceBlockId" : "FE5258D8-4E68-44A7-9F51-8E170AC33949",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "BE222A48-2BA0-4604-861C-CFAD77969185",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "7A98937A-9D4A-4DDB-944C-050FA8F60F10",
+          "name" : "Live Metrics — Native Tracking",
+          "screenNodeId" : "510C2C42-C90D-4BEE-94A6-13406811F499",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "758E7947-ED1D-46F4-9C66-26C0B24C22F8",
+              "id" : "C10763DC-59E1-4780-8F63-3FF4E03B40E6",
+              "isCollapsed" : false,
+              "label" : "Auto Pause Tap",
+              "parameters" : [
+                {
+                  "id" : "CB101807-F86C-4ECD-9917-C0B1E1843155",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "758E7947-ED1D-46F4-9C66-26C0B24C22F8",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 40,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "82C9A2C9-AB6F-4EB1-8627-697962106DA0",
+              "isCollapsed" : false,
+              "label" : "Explain Auto Pause",
+              "parameters" : [
+                {
+                  "id" : "A89E257C-F311-4704-A656-C38FF6BBF944",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Auto-pause is active when you stop moving."
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 280,
+              "y" : 60
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "C59BE74A-242B-479C-B008-D1813BDDC154",
+              "sourceBlockId" : "C10763DC-59E1-4780-8F63-3FF4E03B40E6",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "82C9A2C9-AB6F-4EB1-8627-697962106DA0",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "C1C5FAFF-0FB7-4C6E-916C-29192E599D6E",
+          "name" : "Auto Pause Information",
+          "screenNodeId" : "510C2C42-C90D-4BEE-94A6-13406811F499",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "88306B56-DDFB-42B8-A5C5-F4F50C509292",
+              "id" : "DB1BC0B2-1D66-4300-8395-7975C0EA48FF",
+              "isCollapsed" : false,
+              "label" : "Finish Tap",
+              "parameters" : [
+                {
+                  "id" : "CB101807-F86C-4ECD-9917-C0B1E1843155",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "88306B56-DDFB-42B8-A5C5-F4F50C509292",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 40,
+              "y" : 60
+            },
+            {
+              "category" : "Device & Sensors",
+              "id" : "A3761B56-2C03-4DA6-963C-FC35363CC7E6",
+              "isCollapsed" : false,
+              "label" : "Stop GPS Tracking",
+              "parameters" : [
+
+              ],
+              "type" : "stopTracking",
+              "width" : 200,
+              "x" : 280,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "0731A820-592A-4884-8620-5B3FA263FACC",
+              "isCollapsed" : false,
+              "label" : "Stop Metrics",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "runPaused"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "true"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 520,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "643368FD-BE0B-46D6-84D3-2A04A3C3BDB8",
+              "isCollapsed" : false,
+              "label" : "Finish Haptic",
+              "parameters" : [
+                {
+                  "id" : "7C5FF855-A85D-46CD-A8B6-E90AB9034946",
+                  "isRequired" : true,
+                  "key" : "style",
+                  "label" : "Style",
+                  "options" : [
+                    "light",
+                    "medium",
+                    "heavy",
+                    "success",
+                    "warning",
+                    "error"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "success"
+                }
+              ],
+              "type" : "hapticFeedback",
+              "width" : 200,
+              "x" : 760,
+              "y" : 60
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "908BE932-CAA6-4F46-A256-BEF17A9FE4F1",
+              "isCollapsed" : false,
+              "label" : "Summary Metric",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "6B54B5CD-5DB9-4145-A908-D401822D2F4A",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{distanceKm}} km"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 1000,
+              "y" : 60
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "D696EDF0-5B31-468E-8858-0974901DC8E9",
+              "isCollapsed" : false,
+              "label" : "Summary Metric",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "4C4CEAE7-9D68-49A6-B60A-2878BC3A2982",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{elapsedSeconds}} sec\\nDURATION"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 1240,
+              "y" : 60
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "57774807-1409-4039-9176-2E6447CBAADB",
+              "isCollapsed" : false,
+              "label" : "Summary Metric",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "7DC5317D-2740-4AC6-9E82-501A38815888",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{averageSpeed}}\\nAVG KM\/H"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 1480,
+              "y" : 60
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "2F6FB2B1-A988-4069-BA0C-AE498F1F6567",
+              "isCollapsed" : false,
+              "label" : "Summary Metric",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "3355B3A7-3F00-46C5-9280-A3153B38466E",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{paceMinutes}}\\nPACE \/KM"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 1720,
+              "y" : 60
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "E0859A74-4839-434F-AC32-D0DC9181B139",
+              "isCollapsed" : false,
+              "label" : "Summary Metric",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "7083B46A-3230-4D21-8734-08EC080C193D",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{heartRate}}\\nAVG BPM"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 1960,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "4235D219-B6BF-48A7-9DFF-6DCE30DC9C06",
+              "isCollapsed" : false,
+              "label" : "Open Summary",
+              "parameters" : [
+                {
+                  "id" : "950C1911-0F13-4508-9A4D-E05F7AD86B41",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "82017381-4CA9-43EA-BD4F-9937168D91A9",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 2200,
+              "y" : 60
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "0DBFD5EC-CA8E-453A-BF0E-C7662A2328C6",
+              "sourceBlockId" : "DB1BC0B2-1D66-4300-8395-7975C0EA48FF",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A3761B56-2C03-4DA6-963C-FC35363CC7E6",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "0956D7FC-4650-4AE0-B208-08F245968995",
+              "sourceBlockId" : "A3761B56-2C03-4DA6-963C-FC35363CC7E6",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "0731A820-592A-4884-8620-5B3FA263FACC",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "7941D20F-42D1-4398-A8D9-37EFBE629D48",
+              "sourceBlockId" : "0731A820-592A-4884-8620-5B3FA263FACC",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "643368FD-BE0B-46D6-84D3-2A04A3C3BDB8",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "3E8FFCE0-146D-4BF3-92FF-0D29E24D9276",
+              "sourceBlockId" : "643368FD-BE0B-46D6-84D3-2A04A3C3BDB8",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "908BE932-CAA6-4F46-A256-BEF17A9FE4F1",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "03E1F28D-6E09-4AF7-97DA-4EE4276136C3",
+              "sourceBlockId" : "908BE932-CAA6-4F46-A256-BEF17A9FE4F1",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D696EDF0-5B31-468E-8858-0974901DC8E9",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "61A0BC88-7970-482B-A2EF-B712B795BB30",
+              "sourceBlockId" : "D696EDF0-5B31-468E-8858-0974901DC8E9",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "57774807-1409-4039-9176-2E6447CBAADB",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "5BB3D6B0-C746-4873-A95D-87D3C6B8CA69",
+              "sourceBlockId" : "57774807-1409-4039-9176-2E6447CBAADB",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "2F6FB2B1-A988-4069-BA0C-AE498F1F6567",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "49F7C2FC-4C0D-4402-9E6A-3AD4EC2B54FE",
+              "sourceBlockId" : "2F6FB2B1-A988-4069-BA0C-AE498F1F6567",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "E0859A74-4839-434F-AC32-D0DC9181B139",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "48727981-F4F2-40E8-82B2-0486CA9B5B5A",
+              "sourceBlockId" : "E0859A74-4839-434F-AC32-D0DC9181B139",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "4235D219-B6BF-48A7-9DFF-6DCE30DC9C06",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "09E91CF9-8A55-41E1-A52B-FD003950836A",
+          "name" : "Finish Run — Native Tracking",
+          "screenNodeId" : "510C2C42-C90D-4BEE-94A6-13406811F499",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "B45A5C67-D59F-43B7-92C3-853ABA429C12",
+              "id" : "5792E266-2467-4C66-B771-003686013742",
+              "isCollapsed" : false,
+              "label" : "Watch Start Tap",
+              "parameters" : [
+                {
+                  "id" : "CB101807-F86C-4ECD-9917-C0B1E1843155",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "B45A5C67-D59F-43B7-92C3-853ABA429C12",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 40,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "FCE01821-0FC6-46FF-BFE1-5CD4F6D5E5DB",
+              "isCollapsed" : false,
+              "label" : "Reset distanceMeters",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "distanceMeters"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 280,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "D84364E8-80D4-4BAE-8402-4A760FEEF13C",
+              "isCollapsed" : false,
+              "label" : "Reset distanceKm",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "distanceKm"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 500,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "D483018E-E742-4CEA-8BFC-855A2075737A",
+              "isCollapsed" : false,
+              "label" : "Reset speedKmh",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "speedKmh"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 720,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "5F4AC3ED-5421-4076-A200-C4262933EEEA",
+              "isCollapsed" : false,
+              "label" : "Reset elapsedSeconds",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "elapsedSeconds"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "0"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 940,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "A2F8F47A-A0AC-441F-9A85-673B80960A5F",
+              "isCollapsed" : false,
+              "label" : "Reset runPaused",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "runPaused"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "false"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 1160,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "7B18B915-BE96-4C29-A51E-609A6A7E8A7B",
+              "isCollapsed" : false,
+              "label" : "Watch Location Permission",
+              "parameters" : [
+                {
+                  "id" : "2C946703-9191-462B-AB06-AEC777A069DA",
+                  "isRequired" : true,
+                  "key" : "kind",
+                  "label" : "Permission",
+                  "options" : [
+                    "camera",
+                    "photoLibrary",
+                    "location",
+                    "microphone",
+                    "notifications",
+                    "health",
+                    "motion"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "location"
+                }
+              ],
+              "type" : "requestPermission",
+              "width" : 200,
+              "x" : 1380,
+              "y" : 60
+            },
+            {
+              "category" : "Device & Sensors",
+              "id" : "52BA992F-DA48-4D89-B982-084AC3237283",
+              "isCollapsed" : false,
+              "label" : "Watch GPS Tracking",
+              "parameters" : [
+                {
+                  "id" : "4A824B06-F0A2-4F9E-8F1E-7E67FCDCF76E",
+                  "isRequired" : false,
+                  "key" : "distanceVariable",
+                  "label" : "Distance (m) Into",
+                  "type" : "variable",
+                  "variableReference" : "distanceMeters"
+                },
+                {
+                  "id" : "0D2CFACB-12C7-46BB-9319-6105C157C8FC",
+                  "isRequired" : false,
+                  "key" : "speedVariable",
+                  "label" : "Speed (km\/h) Into",
+                  "type" : "variable",
+                  "variableReference" : "speedKmh"
+                },
+                {
+                  "id" : "CB3A6C6B-8468-4A15-AEF2-482536F0A55D",
+                  "isRequired" : false,
+                  "key" : "background",
+                  "label" : "Track In Background",
+                  "options" : [
+                    "true",
+                    "false"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "true"
+                }
+              ],
+              "type" : "startTracking",
+              "width" : 200,
+              "x" : 1620,
+              "y" : 40
+            },
+            {
+              "category" : "Device & Sensors",
+              "id" : "A33EF8A4-6990-4911-975A-0B580167995C",
+              "isCollapsed" : false,
+              "label" : "Start HK Workout",
+              "parameters" : [
+                {
+                  "id" : "A4CD4F6C-B9EC-46A1-A7EC-3CBC5EF3498E",
+                  "isRequired" : false,
+                  "key" : "activity",
+                  "label" : "Activity",
+                  "options" : [
+                    "running",
+                    "walking",
+                    "cycling",
+                    "hiking",
+                    "swimming",
+                    "other"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "running"
+                }
+              ],
+              "type" : "startWatchWorkout",
+              "width" : 200,
+              "x" : 1860,
+              "y" : 40
+            },
+            {
+              "category" : "Device & Sensors",
+              "id" : "226F6A21-FCD3-4C44-AABF-ADF64E6FC46D",
+              "isCollapsed" : false,
+              "label" : "Watch Start Haptic",
+              "parameters" : [
+                {
+                  "id" : "6744F972-03D0-4C51-B402-2F183CC6E035",
+                  "isRequired" : false,
+                  "key" : "type",
+                  "label" : "Haptic",
+                  "options" : [
+                    "notification",
+                    "success",
+                    "failure",
+                    "retry",
+                    "start",
+                    "stop",
+                    "click",
+                    "directionUp",
+                    "directionDown"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "start"
+                }
+              ],
+              "type" : "watchHaptic",
+              "width" : 200,
+              "x" : 2100,
+              "y" : 40
+            },
+            {
+              "category" : "Actions",
+              "id" : "BBFF90CD-9B95-4134-BE16-995C73098343",
+              "isCollapsed" : false,
+              "label" : "Watch Run Ready",
+              "parameters" : [
+                {
+                  "id" : "A89E257C-F311-4704-A656-C38FF6BBF944",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Workout and GPS started"
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 2340,
+              "y" : 40
+            },
+            {
+              "category" : "Actions",
+              "id" : "5CD8911E-5F82-4219-84D4-9CD6B72CEDF5",
+              "isCollapsed" : false,
+              "label" : "Watch Location Required",
+              "parameters" : [
+                {
+                  "id" : "4428B1E8-657D-4002-BD60-24D101B36329",
+                  "isRequired" : true,
+                  "key" : "title",
+                  "label" : "Title",
+                  "placeholder" : "Alert title",
+                  "type" : "string",
+                  "value" : "Location Required"
+                },
+                {
+                  "id" : "A841801E-4034-46F4-9BF5-128E4AEA963D",
+                  "isRequired" : false,
+                  "key" : "message",
+                  "label" : "Message",
+                  "placeholder" : "Alert message",
+                  "type" : "string",
+                  "value" : "Allow location on Apple Watch to measure distance."
+                }
+              ],
+              "type" : "showAlert",
+              "width" : 200,
+              "x" : 1620,
+              "y" : 240
+            },
+            {
+              "category" : "Actions",
+              "id" : "7636BB92-1D6C-4E41-AF58-1D3A6F827041",
+              "isCollapsed" : false,
+              "label" : "Workout Could Not Start",
+              "parameters" : [
+                {
+                  "id" : "4428B1E8-657D-4002-BD60-24D101B36329",
+                  "isRequired" : true,
+                  "key" : "title",
+                  "label" : "Title",
+                  "placeholder" : "Alert title",
+                  "type" : "string",
+                  "value" : "Health Access Needed"
+                },
+                {
+                  "id" : "A841801E-4034-46F4-9BF5-128E4AEA963D",
+                  "isRequired" : false,
+                  "key" : "message",
+                  "label" : "Message",
+                  "placeholder" : "Alert message",
+                  "type" : "string",
+                  "value" : "Allow Workout and Health access on Apple Watch."
+                }
+              ],
+              "type" : "showAlert",
+              "width" : 200,
+              "x" : 2100,
+              "y" : 240
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "6EA8B11E-A1E5-44F2-A3C4-DC022D8D912E",
+              "sourceBlockId" : "5792E266-2467-4C66-B771-003686013742",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "FCE01821-0FC6-46FF-BFE1-5CD4F6D5E5DB",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "EB19AE8B-867D-47B9-BCC2-3F802D8E8704",
+              "sourceBlockId" : "FCE01821-0FC6-46FF-BFE1-5CD4F6D5E5DB",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D84364E8-80D4-4BAE-8402-4A760FEEF13C",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "107BE21C-932A-4AF3-9061-F88DDE49B43B",
+              "sourceBlockId" : "D84364E8-80D4-4BAE-8402-4A760FEEF13C",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D483018E-E742-4CEA-8BFC-855A2075737A",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "D2437D01-263E-4839-9115-77A6FC3F8ED0",
+              "sourceBlockId" : "D483018E-E742-4CEA-8BFC-855A2075737A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "5F4AC3ED-5421-4076-A200-C4262933EEEA",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "A0B182C1-8EA3-4719-8F4E-D78C2F4CA787",
+              "sourceBlockId" : "5F4AC3ED-5421-4076-A200-C4262933EEEA",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A2F8F47A-A0AC-441F-9A85-673B80960A5F",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "84200007-8D11-477B-B302-759D5C281AD1",
+              "sourceBlockId" : "A2F8F47A-A0AC-441F-9A85-673B80960A5F",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "7B18B915-BE96-4C29-A51E-609A6A7E8A7B",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "E7B84232-B844-42D7-93C5-A847B25A709A",
+              "sourceBlockId" : "7B18B915-BE96-4C29-A51E-609A6A7E8A7B",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "52BA992F-DA48-4D89-B982-084AC3237283",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "31574BB3-A89C-49C0-88DA-6422447B4EC3",
+              "sourceBlockId" : "7B18B915-BE96-4C29-A51E-609A6A7E8A7B",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "5CD8911E-5F82-4219-84D4-9CD6B72CEDF5",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "F8F69C05-BD1B-4815-AE89-6713ED0B2539",
+              "sourceBlockId" : "52BA992F-DA48-4D89-B982-084AC3237283",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A33EF8A4-6990-4911-975A-0B580167995C",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "228C2631-0D71-43E6-AB70-4D0AEFA7F4D7",
+              "sourceBlockId" : "A33EF8A4-6990-4911-975A-0B580167995C",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "226F6A21-FCD3-4C44-AABF-ADF64E6FC46D",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "FDF83B40-9C31-4334-8BEC-3C0B702ADCB8",
+              "sourceBlockId" : "A33EF8A4-6990-4911-975A-0B580167995C",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "7636BB92-1D6C-4E41-AF58-1D3A6F827041",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "AB67C5DD-C984-4A23-9D7C-0C76F4987D16",
+              "sourceBlockId" : "226F6A21-FCD3-4C44-AABF-ADF64E6FC46D",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "BBFF90CD-9B95-4134-BE16-995C73098343",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "BCAC8072-8A61-4064-8D01-DD94E4A2E4FD",
+          "name" : "Start Run — Apple Watch Native",
+          "screenNodeId" : "84A5BD40-5186-4790-95BA-FB32263FD868",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "42D2967E-DDB9-4A29-A3C3-5ABEF338EBD5",
+              "isCollapsed" : false,
+              "label" : "Watch Metrics Tick",
+              "parameters" : [
+                {
+                  "id" : "D61BB74A-BE32-46D8-8B05-0F92EA721731",
+                  "isRequired" : true,
+                  "key" : "seconds",
+                  "label" : "Seconds",
+                  "type" : "number",
+                  "value" : "1"
+                },
+                {
+                  "id" : "57DCDFD4-3E36-48E9-B65C-4DB3B9C32A53",
+                  "isRequired" : false,
+                  "key" : "repeats",
+                  "label" : "Repeats",
+                  "type" : "boolean",
+                  "value" : "true"
+                }
+              ],
+              "type" : "onTimer",
+              "width" : 200,
+              "x" : 40,
+              "y" : 60
+            },
+            {
+              "category" : "Conditions",
+              "id" : "CF170CC3-028A-4E28-A20B-8B465845CC75",
+              "isCollapsed" : false,
+              "label" : "Watch Run Active?",
+              "parameters" : [
+                {
+                  "id" : "A2304C61-7A54-4FAE-8409-43B9B2E809D4",
+                  "isRequired" : true,
+                  "key" : "leftValue",
+                  "label" : "Value",
+                  "type" : "variable",
+                  "variableReference" : "runPaused"
+                },
+                {
+                  "id" : "02AE9F82-4156-4CCD-AA36-098FCB4201F1",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "==",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "contains",
+                    "isEmpty"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "=="
+                },
+                {
+                  "id" : "8D913C34-7E1F-4DA6-BC27-F52AB3FD7B1B",
+                  "isRequired" : false,
+                  "key" : "rightValue",
+                  "label" : "Compare To",
+                  "type" : "string",
+                  "value" : "false"
+                }
+              ],
+              "type" : "ifCondition",
+              "width" : 200,
+              "x" : 280,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "8B9E91D7-DE46-4D14-9C54-62E6FA6CFE6A",
+              "isCollapsed" : false,
+              "label" : "Watch Elapsed",
+              "parameters" : [
+                {
+                  "id" : "1818E372-BCBC-4586-AFD5-B79332FF1355",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "elapsedSeconds"
+                },
+                {
+                  "id" : "89090755-4267-4B11-B18F-2AAB8E27392B",
+                  "isRequired" : true,
+                  "key" : "amount",
+                  "label" : "Amount",
+                  "type" : "number",
+                  "value" : "1"
+                }
+              ],
+              "type" : "incrementVariable",
+              "width" : 200,
+              "x" : 520,
+              "y" : 20
+            },
+            {
+              "category" : "Variables",
+              "id" : "F118208A-D6C8-4863-98B7-B3386B7FD88D",
+              "isCollapsed" : false,
+              "label" : "Watch Metres to KM",
+              "parameters" : [
+                {
+                  "id" : "B5F94E92-E806-476F-9E68-987E2B6080C4",
+                  "isRequired" : true,
+                  "key" : "left",
+                  "label" : "Left",
+                  "type" : "string",
+                  "variableReference" : "distanceMeters"
+                },
+                {
+                  "id" : "60EBE430-BE47-4CDD-8FCD-7C75521BB9A8",
+                  "isRequired" : true,
+                  "key" : "operator",
+                  "label" : "Operator",
+                  "options" : [
+                    "+",
+                    "-",
+                    "×",
+                    "÷",
+                    "%"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "÷"
+                },
+                {
+                  "id" : "2A2ADF6E-3B93-4841-9F57-03EF18E3B75F",
+                  "isRequired" : true,
+                  "key" : "right",
+                  "label" : "Right",
+                  "type" : "string",
+                  "value" : "1000"
+                },
+                {
+                  "id" : "2B9A0638-A856-453A-90CC-D944D5255DAD",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Store In",
+                  "type" : "variable",
+                  "variableReference" : "distanceKm"
+                }
+              ],
+              "type" : "mathOperation",
+              "width" : 200,
+              "x" : 760,
+              "y" : 20
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "247DF901-49DD-4677-AC7A-07213081FC58",
+              "isCollapsed" : false,
+              "label" : "Watch Distance",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "B7DC4846-A32B-4E0C-9006-5852B1CF6902",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{distanceKm}}"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 1000,
+              "y" : 20
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "D46D0B8E-EB8A-4865-BC0F-8945675E97EE",
+              "isCollapsed" : false,
+              "label" : "Watch Speed",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "448D6A0E-A193-4A35-916D-E8919181BF49",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{speedKmh}}"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 1240,
+              "y" : 20
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "AF13B7D9-7081-41E6-9A66-649892B3F2A6",
+              "isCollapsed" : false,
+              "label" : "Watch Time",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "51EF2A3F-A073-4AD6-B109-54E4CB78FE63",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "{{elapsedSeconds}} s"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 1480,
+              "y" : 20
+            },
+            {
+              "category" : "Actions",
+              "id" : "0CD99FDE-B7F5-4DE5-AD67-F6B2134042D5",
+              "isCollapsed" : false,
+              "label" : "Watch Paused",
+              "parameters" : [
+                {
+                  "id" : "2CAADF6B-D5E9-4BD0-827C-23B77D2B6EA8",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Watch workout paused"
+                }
+              ],
+              "type" : "log",
+              "width" : 200,
+              "x" : 520,
+              "y" : 200
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "12D0BE8F-8BCB-4427-B064-3D68F665476E",
+              "sourceBlockId" : "42D2967E-DDB9-4A29-A3C3-5ABEF338EBD5",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "CF170CC3-028A-4E28-A20B-8B465845CC75",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "25E99787-03BF-4695-9A22-42690D043512",
+              "sourceBlockId" : "CF170CC3-028A-4E28-A20B-8B465845CC75",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "8B9E91D7-DE46-4D14-9C54-62E6FA6CFE6A",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "9C4B57A6-C43B-4AB8-842B-2BAAD77D83DC",
+              "sourceBlockId" : "8B9E91D7-DE46-4D14-9C54-62E6FA6CFE6A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "F118208A-D6C8-4863-98B7-B3386B7FD88D",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "B499A652-455D-41CC-A723-F084968FE687",
+              "sourceBlockId" : "F118208A-D6C8-4863-98B7-B3386B7FD88D",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "247DF901-49DD-4677-AC7A-07213081FC58",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "36CE8AE3-DCDB-4594-BADE-863FD4AF1313",
+              "sourceBlockId" : "247DF901-49DD-4677-AC7A-07213081FC58",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "D46D0B8E-EB8A-4865-BC0F-8945675E97EE",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "7D6A4BB0-E929-490D-8FD9-712ECE699097",
+              "sourceBlockId" : "D46D0B8E-EB8A-4865-BC0F-8945675E97EE",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "AF13B7D9-7081-41E6-9A66-649892B3F2A6",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "B13B9586-B800-489C-8604-D94D8C9A3ADF",
+              "sourceBlockId" : "CF170CC3-028A-4E28-A20B-8B465845CC75",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "0CD99FDE-B7F5-4DE5-AD67-F6B2134042D5",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "85E2F657-46B0-4E94-B3AE-14880FB2516B",
+          "name" : "Apple Watch Live Metrics",
+          "screenNodeId" : "84A5BD40-5186-4790-95BA-FB32263FD868",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "id" : "73CBEBA9-06C8-4B04-883E-665EB7571367",
+              "isCollapsed" : false,
+              "label" : "Heart Rate Tick",
+              "parameters" : [
+                {
+                  "id" : "D61BB74A-BE32-46D8-8B05-0F92EA721731",
+                  "isRequired" : true,
+                  "key" : "seconds",
+                  "label" : "Seconds",
+                  "type" : "number",
+                  "value" : "5"
+                },
+                {
+                  "id" : "57DCDFD4-3E36-48E9-B65C-4DB3B9C32A53",
+                  "isRequired" : false,
+                  "key" : "repeats",
+                  "label" : "Repeats",
+                  "type" : "boolean",
+                  "value" : "true"
+                }
+              ],
+              "type" : "onTimer",
+              "width" : 200,
+              "x" : 40,
+              "y" : 60
+            },
+            {
+              "category" : "Device & Sensors",
+              "id" : "07D571FC-57CB-4B27-9A52-1ED437518B03",
+              "isCollapsed" : false,
+              "label" : "Read Real Heart Rate",
+              "parameters" : [
+                {
+                  "id" : "01943207-1AAF-4D0E-BD93-BBB6B2AECBF8",
+                  "isRequired" : false,
+                  "key" : "variable",
+                  "label" : "Store BPM In",
+                  "type" : "variable",
+                  "variableReference" : "heartRate"
+                }
+              ],
+              "type" : "readHeartRate",
+              "width" : 200,
+              "x" : 280,
+              "y" : 40
+            },
+            {
+              "category" : "UI Updates",
+              "id" : "19E5FA46-CFC0-4401-A3AF-430D419A1217",
+              "isCollapsed" : false,
+              "label" : "Show Watch Heart Rate",
+              "parameters" : [
+                {
+                  "id" : "2F8B01A8-3CB8-4813-AF86-08DEE082F9E7",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "2DA35643-331E-4E09-AE53-8E6034F9C512",
+                  "type" : "nodeReference"
+                },
+                {
+                  "id" : "FE9C686C-990F-4454-9DD7-B14EC126B8F8",
+                  "isRequired" : true,
+                  "key" : "text",
+                  "label" : "Text",
+                  "type" : "string",
+                  "value" : "♥ {{heartRate}} BPM"
+                }
+              ],
+              "type" : "setText",
+              "width" : 200,
+              "x" : 520,
+              "y" : 20
+            },
+            {
+              "category" : "Actions",
+              "id" : "0CEAA4D1-5AE9-4209-AEBC-92E918EC894B",
+              "isCollapsed" : false,
+              "label" : "Heart Rate Waiting",
+              "parameters" : [
+                {
+                  "id" : "2CAADF6B-D5E9-4BD0-827C-23B77D2B6EA8",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "Waiting for a HealthKit heart-rate sample"
+                }
+              ],
+              "type" : "log",
+              "width" : 200,
+              "x" : 520,
+              "y" : 200
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "E441E550-BDF9-4C1A-B679-02DF3800AFDB",
+              "sourceBlockId" : "73CBEBA9-06C8-4B04-883E-665EB7571367",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "07D571FC-57CB-4B27-9A52-1ED437518B03",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "E3C342DA-5B47-4EA8-BD45-4551E659F169",
+              "sourceBlockId" : "07D571FC-57CB-4B27-9A52-1ED437518B03",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "19E5FA46-CFC0-4401-A3AF-430D419A1217",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "22BE7F85-A91E-4042-B92D-0A8DFD5B228F",
+              "sourceBlockId" : "07D571FC-57CB-4B27-9A52-1ED437518B03",
+              "sourcePortIndex" : 1,
+              "targetBlockId" : "0CEAA4D1-5AE9-4209-AEBC-92E918EC894B",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "98113896-0C1E-4B17-9A2B-4A3236F2B40D",
+          "name" : "Apple Watch Heart Rate",
+          "screenNodeId" : "84A5BD40-5186-4790-95BA-FB32263FD868",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "2DB76D7A-572B-4BB7-B9E7-7CBE9B2137A1",
+              "id" : "09552F96-03A7-4B04-A91E-2538F0E75EA8",
+              "isCollapsed" : false,
+              "label" : "Watch Pause Tap",
+              "parameters" : [
+                {
+                  "id" : "CB101807-F86C-4ECD-9917-C0B1E1843155",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "2DB76D7A-572B-4BB7-B9E7-7CBE9B2137A1",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 40,
+              "y" : 60
+            },
+            {
+              "category" : "Device & Sensors",
+              "id" : "08EC58A4-219F-48A5-82BB-82B5131744EA",
+              "isCollapsed" : false,
+              "label" : "Pause Resume HK Workout",
+              "parameters" : [
+
+              ],
+              "type" : "pauseWatchWorkout",
+              "width" : 200,
+              "x" : 280,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "238F74FA-FE13-43AB-8D83-588E0C431B5A",
+              "isCollapsed" : false,
+              "label" : "Toggle Shared Pause",
+              "parameters" : [
+                {
+                  "id" : "1A2953D7-EAFA-42BD-BE22-21027F9FCE32",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "runPaused"
+                }
+              ],
+              "type" : "toggleVariable",
+              "width" : 200,
+              "x" : 520,
+              "y" : 60
+            },
+            {
+              "category" : "Device & Sensors",
+              "id" : "EE2F6036-F48E-4F95-BE14-C85B8E5A08FE",
+              "isCollapsed" : false,
+              "label" : "Watch Pause Haptic",
+              "parameters" : [
+                {
+                  "id" : "6744F972-03D0-4C51-B402-2F183CC6E035",
+                  "isRequired" : false,
+                  "key" : "type",
+                  "label" : "Haptic",
+                  "options" : [
+                    "notification",
+                    "success",
+                    "failure",
+                    "retry",
+                    "start",
+                    "stop",
+                    "click",
+                    "directionUp",
+                    "directionDown"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "click"
+                }
+              ],
+              "type" : "watchHaptic",
+              "width" : 200,
+              "x" : 760,
+              "y" : 60
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "7CE9BCC5-2AA2-415B-9F05-560EB491BD61",
+              "sourceBlockId" : "09552F96-03A7-4B04-A91E-2538F0E75EA8",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "08EC58A4-219F-48A5-82BB-82B5131744EA",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "1E280E05-51E5-40A3-A3F8-C57AD80E599C",
+              "sourceBlockId" : "08EC58A4-219F-48A5-82BB-82B5131744EA",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "238F74FA-FE13-43AB-8D83-588E0C431B5A",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "0678CF85-DEB3-4A73-BED4-45F1A239C06B",
+              "sourceBlockId" : "238F74FA-FE13-43AB-8D83-588E0C431B5A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "EE2F6036-F48E-4F95-BE14-C85B8E5A08FE",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "C8A04E05-9336-4D97-B7E4-BDC81F5EF721",
+          "name" : "Pause Resume — Apple Watch Native",
+          "screenNodeId" : "84A5BD40-5186-4790-95BA-FB32263FD868",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "48994709-2FB3-4D76-BB38-F94AFAE870E0",
+              "id" : "FB7666A3-7538-4F29-A702-D780A8D2EC5C",
+              "isCollapsed" : false,
+              "label" : "Watch Finish Tap",
+              "parameters" : [
+                {
+                  "id" : "CB101807-F86C-4ECD-9917-C0B1E1843155",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "48994709-2FB3-4D76-BB38-F94AFAE870E0",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 40,
+              "y" : 60
+            },
+            {
+              "category" : "Device & Sensors",
+              "id" : "25FBB1FF-DE18-4C0E-ABA4-0D96BDCDB7F1",
+              "isCollapsed" : false,
+              "label" : "Stop Watch GPS",
+              "parameters" : [
+
+              ],
+              "type" : "stopTracking",
+              "width" : 200,
+              "x" : 280,
+              "y" : 60
+            },
+            {
+              "category" : "Device & Sensors",
+              "id" : "A809C4A5-7C0B-40B3-9B55-574BFC83980A",
+              "isCollapsed" : false,
+              "label" : "End and Save Workout",
+              "parameters" : [
+
+              ],
+              "type" : "endWatchWorkout",
+              "width" : 200,
+              "x" : 520,
+              "y" : 60
+            },
+            {
+              "category" : "Variables",
+              "id" : "812A7332-BFE9-41D3-B8C2-70874A2045AF",
+              "isCollapsed" : false,
+              "label" : "Stop Watch Metrics",
+              "parameters" : [
+                {
+                  "id" : "6FFF8261-A5F7-4AE7-B87F-E214F9DDA76A",
+                  "isRequired" : true,
+                  "key" : "variable",
+                  "label" : "Variable",
+                  "type" : "variable",
+                  "variableReference" : "runPaused"
+                },
+                {
+                  "id" : "0474C2CA-F7FE-419E-8474-043CABFCCB6F",
+                  "isRequired" : true,
+                  "key" : "value",
+                  "label" : "Value",
+                  "type" : "string",
+                  "value" : "true"
+                }
+              ],
+              "type" : "setVariable",
+              "width" : 200,
+              "x" : 760,
+              "y" : 60
+            },
+            {
+              "category" : "Device & Sensors",
+              "id" : "DDEC9BA8-DA7A-4624-838B-57D2271997C3",
+              "isCollapsed" : false,
+              "label" : "Watch Finish Haptic",
+              "parameters" : [
+                {
+                  "id" : "6744F972-03D0-4C51-B402-2F183CC6E035",
+                  "isRequired" : false,
+                  "key" : "type",
+                  "label" : "Haptic",
+                  "options" : [
+                    "notification",
+                    "success",
+                    "failure",
+                    "retry",
+                    "start",
+                    "stop",
+                    "click",
+                    "directionUp",
+                    "directionDown"
+                  ],
+                  "type" : "dropdown",
+                  "value" : "stop"
+                }
+              ],
+              "type" : "watchHaptic",
+              "width" : 200,
+              "x" : 1000,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "436E8127-5B00-4CFB-9991-FBA11B10B945",
+              "isCollapsed" : false,
+              "label" : "Open Summary",
+              "parameters" : [
+                {
+                  "id" : "950C1911-0F13-4508-9A4D-E05F7AD86B41",
+                  "isRequired" : true,
+                  "key" : "screen",
+                  "label" : "Screen",
+                  "nodeReference" : "82017381-4CA9-43EA-BD4F-9937168D91A9",
+                  "placeholder" : "Select target screen...",
+                  "type" : "screenReference"
+                }
+              ],
+              "type" : "navigate",
+              "width" : 200,
+              "x" : 1240,
+              "y" : 60
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "FC860CED-2C14-467B-B790-1C23083CB067",
+              "sourceBlockId" : "FB7666A3-7538-4F29-A702-D780A8D2EC5C",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "25FBB1FF-DE18-4C0E-ABA4-0D96BDCDB7F1",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "2169CD36-4F8F-455A-B047-ED4A92643425",
+              "sourceBlockId" : "25FBB1FF-DE18-4C0E-ABA4-0D96BDCDB7F1",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "A809C4A5-7C0B-40B3-9B55-574BFC83980A",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "F23850FE-9069-409D-B38B-2499BE512474",
+              "sourceBlockId" : "A809C4A5-7C0B-40B3-9B55-574BFC83980A",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "812A7332-BFE9-41D3-B8C2-70874A2045AF",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "B9EDB0E2-EDFD-4535-8458-B165D4A3E558",
+              "sourceBlockId" : "812A7332-BFE9-41D3-B8C2-70874A2045AF",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "DDEC9BA8-DA7A-4624-838B-57D2271997C3",
+              "targetPortIndex" : 0
+            },
+            {
+              "id" : "AC335EBA-9861-4060-B267-480BC5815150",
+              "sourceBlockId" : "DDEC9BA8-DA7A-4624-838B-57D2271997C3",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "436E8127-5B00-4CFB-9991-FBA11B10B945",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "E2F2AFB2-A294-4953-BBE9-D6E22D64C360",
+          "name" : "Finish Run — Apple Watch Native",
+          "screenNodeId" : "84A5BD40-5186-4790-95BA-FB32263FD868",
+          "variables" : [
+
+          ]
+        },
+        {
+          "blocks" : [
+            {
+              "category" : "Events",
+              "connectedDesignNodeId" : "89182F70-B368-4607-A623-8122783C78BB",
+              "id" : "07B581B4-AA9F-4D07-A3E9-A4E3070EA2F4",
+              "isCollapsed" : false,
+              "label" : "Permissions Info Tap",
+              "parameters" : [
+                {
+                  "id" : "CB101807-F86C-4ECD-9917-C0B1E1843155",
+                  "isRequired" : true,
+                  "key" : "element",
+                  "label" : "Element",
+                  "nodeReference" : "89182F70-B368-4607-A623-8122783C78BB",
+                  "placeholder" : "Select a button or element...",
+                  "type" : "nodeReference"
+                }
+              ],
+              "type" : "onTap",
+              "width" : 200,
+              "x" : 40,
+              "y" : 60
+            },
+            {
+              "category" : "Actions",
+              "id" : "C718430C-00E5-4EAD-B2B7-24765B946CFE",
+              "isCollapsed" : false,
+              "label" : "Explain Permissions",
+              "parameters" : [
+                {
+                  "id" : "A89E257C-F311-4704-A656-C38FF6BBF944",
+                  "isRequired" : true,
+                  "key" : "message",
+                  "label" : "Message",
+                  "type" : "string",
+                  "value" : "GPS, Health and notifications are requested only when each feature needs them."
+                }
+              ],
+              "type" : "showToast",
+              "width" : 200,
+              "x" : 280,
+              "y" : 60
+            }
+          ],
+          "connections" : [
+            {
+              "id" : "A362725A-91BF-45EA-8EBE-CFD3C57C0524",
+              "sourceBlockId" : "07B581B4-AA9F-4D07-A3E9-A4E3070EA2F4",
+              "sourcePortIndex" : 0,
+              "targetBlockId" : "C718430C-00E5-4EAD-B2B7-24765B946CFE",
+              "targetPortIndex" : 0
+            }
+          ],
+          "id" : "EECAA359-A3CC-4E59-9E3D-40A883E8DA20",
+          "name" : "Progressive Permissions",
+          "screenNodeId" : "0335DBAC-956D-4996-BADB-CC9A1F9044B6",
+          "variables" : [
+
+          ]
+        }
+      ],
+      "name" : "App Screens",
+      "nodes" : [
+        {
+          "children" : [
+            {
+              "children" : [
+
+              ],
+              "height" : 44,
+              "id" : "83DE883B-0DAF-4A59-9E2F-FB9371D52CBE",
+              "name" : "Title",
+              "style" : {
+                "cornerRadius" : 0,
+                "fill" : "#FFFFFF",
+                "fontSize" : 32,
+                "opacity" : 1
+              },
+              "text" : "Welcome Back",
+              "type" : "Text",
+              "width" : 260,
+              "x" : 32,
+              "y" : 80
+            },
+            {
+              "children" : [
+
+              ],
+              "height" : 56,
+              "id" : "D5C44EB8-4088-4C45-BD48-372DAB2E08D3",
+              "name" : "Login Button",
+              "style" : {
+                "cornerRadius" : 14,
+                "fill" : "#2563EB",
+                "fontSize" : 16,
+                "opacity" : 1,
+                "textColor" : "#FFFFFF"
+              },
+              "text" : "Log In",
+              "type" : "Button",
+              "width" : 326,
+              "x" : 32,
+              "y" : 680
+            }
+          ],
+          "height" : 844,
+          "id" : "07F9E966-4124-4201-B08D-54598D92C707",
+          "name" : "Login Screen",
+          "style" : {
+            "cornerRadius" : 24,
+            "fill" : "#111827",
+            "opacity" : 1,
+            "stroke" : "#3B82F6"
+          },
+          "type" : "Frame",
+          "width" : 390,
+          "x" : 100,
+          "y" : 100
+        }
+      ]
+    }
+  ],
+  "platformSettings" : {
+    "defaultPreviewPlatform" : "iPhone",
+    "enabledPlatforms" : [
+      "iPhone",
+      "appleWatch"
+    ]
+  }
+}

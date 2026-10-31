@@ -1,0 +1,37 @@
+{
+  "name": "@agentic/web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@agentic/core": "*",
+    "@monaco-editor/react": "^4.6.0",
+    "html-to-image": "^1.11.11",
+    "immer": "^10.1.1",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.468.0",
+    "matter-js": "^0.20.0",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.9.155",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/matter-js": "^0.19.8",
+    "@types/react": "^18.3.17",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^25.0.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vitest": "^2.1.8"
+  }
+}
